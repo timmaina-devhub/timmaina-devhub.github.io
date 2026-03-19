@@ -1,4 +1,4 @@
-title: "Timothy Maina"   # keep it simple
+title: "Timothy's Portfolio"   # keep it simple
 plugins:
   - jekyll-remote-theme # This is often included by default in GH Pages environments
   - jekyll-include-cache
