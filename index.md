@@ -93,8 +93,6 @@ body.dark-mode .section h2::after { transform: scaleX(1.1); }
 @keyframes fadeIn { 0%{opacity:0; transform:translateY(20px);} 100%{opacity:1; transform:translateY(0);} }
 </style>
 
-<h1 class="site-title">{{ site.title }}</h1>
-
 <div class="navbar">
   <div><strong>Timothy Maina</strong></div>
   <div>
