@@ -18,6 +18,29 @@ body.dark-mode {
   --card-bg: #1e1e1e;
 }
 
+.site-title {
+  color: var(--text-color);
+  transition: color 0.5s ease;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 2em;
+  margin: 0;
+}
+
+/* Optional: underline animation like section headings */
+.site-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin-top: 5px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
+  transition: background-color 0.5s ease, transform 0.5s ease;
+}
+body.dark-mode .site-title::after {
+  transform: scaleX(1.1);
+}
 body {
   background-color: var(--body-bg);
   color: var(--text-color);
@@ -69,6 +92,8 @@ body.dark-mode .section h2::after { transform: scaleX(1.1); }
 
 @keyframes fadeIn { 0%{opacity:0; transform:translateY(20px);} 100%{opacity:1; transform:translateY(0);} }
 </style>
+
+<h1 class="site-title">{{ site.title }}</h1>
 
 <div class="navbar">
   <div><strong>Timothy Maina</strong></div>
