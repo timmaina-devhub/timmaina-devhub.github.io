@@ -24,12 +24,42 @@ body.dark-mode .navbar a { color:#e0e0e0; }
 
 /* ---------- SECTIONS ---------- */
 .section { padding:60px 20px; max-width:1100px; margin:auto; }
-.section h2 { text-align:center; margin-bottom:40px; font-size:2.2em; position:relative; transition: color 0.3s ease; }
-.section h2::after {
-  content:""; display:block; width:80px; height:4px; border-radius:2px; margin:10px auto 0;
-  background:#2575fc; transition: background 0.5s ease, transform 0.5s ease; transform: scaleX(1);
+/* ---------- SECTIONS HEADINGS ---------- */
+.section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.2em;
+  position: relative;
+  transition: color 0.3s ease; /* Heading text color smooth */
 }
-body.dark-mode .section h2::after { background:#90caf9; transform: scaleX(1.1); }
+
+/* Dynamic underline / accent */
+.section h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  border-radius: 2px;
+  margin: 10px auto 0;
+  
+  background: #2575fc; /* default light mode accent */
+  transition: background 0.5s ease, transform 0.5s ease; /* smooth color transition */
+}
+
+/* Dark mode accent for headings */
+body.dark-mode .section h2::after {
+  background: #90caf9; /* smooth light-blue accent for dark mode */
+}
+.section h2::after {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease, background 0.5s ease;
+}
+
+body.dark-mode .section h2::after {
+  transform: scaleX(1);
+  background: #90caf9;
+}
 
 /* ---------- CARD GRID ---------- */
 .cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:25px; }
