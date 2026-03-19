@@ -1,7 +1,8 @@
 title: Timothy's Portfolio
-remote_theme: mmistakes/minimal-mistakes
 plugins:
-  - jekyll-remote-theme
+  - jekyll-remote-theme # This is often included by default in GH Pages environments
+  - jekyll-include-cache
+remote_theme: "mmistakes/minimal-mistakes"
   
 header_pages:
   - index.md
