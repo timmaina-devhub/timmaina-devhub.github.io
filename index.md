@@ -13,3 +13,6 @@ Hi, I'm Timothy — a Data Analyst.
 
 ## Contact
 - Email: your@email.com
+
+[About Me](about.html)
+[Projects](projects.html)
