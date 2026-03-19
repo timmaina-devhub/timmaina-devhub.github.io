@@ -45,7 +45,6 @@ body.dark-mode .section h2::after{transform:scaleX(1.1);}
 .card:hover{transform:translateY(-10px);box-shadow:0 10px 25px rgba(0,0,0,0.2);}
 </style>
 
-<h1 class="site-title">{{ site.title }}</h1>
 
 <div class="navbar">
   <div><strong>Timothy Maina</strong></div>
