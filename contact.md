@@ -15,9 +15,41 @@ body.dark-mode .navbar a{color:#e0e0e0;}
 #darkToggle{cursor:pointer;padding:8px 15px;border-radius:8px;border:none;background:#2575fc;color:white;font-weight:bold;transition:0.3s;}
 #darkToggle:hover{background:#6a11cb;}
 .section{padding:60px 20px;max-width:1100px;margin:auto;}
-.section h2{text-align:center;margin-bottom:40px;font-size:2.2em;position:relative;transition:color 0.3s ease;}
-.section h2::after{content:"";display:block;width:80px;height:4px;border-radius:2px;margin:10px auto 0;background:#2575fc;transition: background 0.5s ease, transform 0.5s ease; transform: scaleX(1);}
-body.dark-mode .section h2::after{background:#90caf9; transform:scaleX(1.1);}
+.section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.2em;
+  position: relative;
+  transition: color 0.3s ease; /* Heading text color smooth */
+}
+
+/* Dynamic underline / accent */
+.section h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  border-radius: 2px;
+  margin: 10px auto 0;
+  
+  background: #2575fc; /* default light mode accent */
+  transition: background 0.5s ease, transform 0.5s ease; /* smooth color transition */
+}
+
+/* Dark mode accent for headings */
+body.dark-mode .section h2::after {
+  background: #90caf9; /* smooth light-blue accent for dark mode */
+}
+.section h2::after {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease, background 0.5s ease;
+}
+
+body.dark-mode .section h2::after {
+  transform: scaleX(1);
+  background: #90caf9;
+}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;}
 .card{padding:20px;border-radius:12px;background:#f9f9f9;box-shadow:0 6px 15px rgba(0,0,0,0.1);transition:transform 0.3s,box-shadow 0.3s;}
 body.dark-mode .card{background:#1e1e1e;}
