@@ -14,6 +14,29 @@ body.dark-mode .navbar{background:rgba(18,18,18,0.95);}
 #darkToggle{cursor:pointer;padding:8px 15px;border-radius:8px;border:none;background:var(--accent-color);color:white;font-weight:bold;transition:background 0.5s ease;}
 #darkToggle:hover{background:#6a11cb;}
 .section{padding:60px 20px;max-width:1100px;margin:auto;}
+.site-title {
+  color: var(--text-color);
+  transition: color 0.5s ease;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 2em;
+  margin: 0;
+}
+
+/* Optional: underline animation like section headings */
+.site-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin-top: 5px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
+  transition: background-color 0.5s ease, transform 0.5s ease;
+}
+body.dark-mode .site-title::after {
+  transform: scaleX(1.1);
+}
 .section h2{text-align:center;margin-bottom:40px;font-size:2.2em;position:relative;transition:color 0.5s ease;}
 .section h2::after{content:"";display:block;width:80px;height:4px;margin:10px auto 0;border-radius:2px;background-color:var(--accent-color);transition:background-color 0.5s ease, transform 0.5s ease;}
 body.dark-mode .section h2::after{transform:scaleX(1.1);}
@@ -21,6 +44,8 @@ body.dark-mode .section h2::after{transform:scaleX(1.1);}
 .card{padding:20px;border-radius:12px;background:var(--card-bg);box-shadow:0 6px 15px rgba(0,0,0,0.1);transition:transform 0.3s,box-shadow 0.3s,background 0.5s ease;}
 .card:hover{transform:translateY(-10px);box-shadow:0 10px 25px rgba(0,0,0,0.2);}
 </style>
+
+<h1 class="site-title">{{ site.title }}</h1>
 
 <div class="navbar">
   <div><strong>Timothy Maina</strong></div>
