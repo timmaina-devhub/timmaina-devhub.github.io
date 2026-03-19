@@ -4,78 +4,72 @@ title: Home
 ---
 
 <style>
-/* ---------- GENERAL ---------- */
-body { font-family: 'Helvetica', sans-serif; margin:0; transition: background 0.3s, color 0.3s;}
-body.dark-mode { background:#121212; color:#e0e0e0;}
-body.dark-mode a { color: #90caf9; }
+:root {
+  --accent-color: #2575fc;
+  --text-color: #333;
+  --body-bg: #fff;
+  --card-bg: #f9f9f9;
+}
 
-/* ---------- NAVBAR ---------- */
-.navbar { position: sticky; top:0; background: rgba(255,255,255,0.95); padding: 15px 30px; display:flex; justify-content: space-between; align-items:center; box-shadow:0 2px 5px rgba(0,0,0,0.1); z-index:100; transition: background 0.3s;}
+body.dark-mode {
+  --accent-color: #90caf9;
+  --text-color: #e0e0e0;
+  --body-bg: #121212;
+  --card-bg: #1e1e1e;
+}
+
+body {
+  background-color: var(--body-bg);
+  color: var(--text-color);
+  font-family: 'Helvetica', sans-serif;
+  margin:0;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.navbar {
+  position: sticky;
+  top:0;
+  background: rgba(255,255,255,0.95);
+  padding: 15px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+  z-index:100;
+  transition: background 0.5s ease;
+}
 body.dark-mode .navbar { background: rgba(18,18,18,0.95); }
-.navbar a { margin-left:20px; text-decoration:none; font-weight:bold; color:#333; }
-body.dark-mode .navbar a { color:#e0e0e0; }
-#darkToggle { cursor:pointer; padding:8px 15px; border-radius:8px; border:none; background:#2575fc; color:white; font-weight:bold; transition:0.3s; }
+.navbar a { margin-left:20px; text-decoration:none; font-weight:bold; color: var(--text-color); transition: color 0.5s ease; }
+#darkToggle { cursor:pointer; padding:8px 15px; border-radius:8px; border:none; background: var(--accent-color); color:white; font-weight:bold; transition: background 0.5s ease; }
 #darkToggle:hover { background:#6a11cb; }
 
-/* ---------- HERO ---------- */
-.hero { text-align:center; padding:100px 20px; background:linear-gradient(135deg,#6a11cb 0%,#2575fc 100%); color:white; animation: fadeIn 1.5s ease-in-out; }
+.hero { text-align:center; padding:100px 20px; background: linear-gradient(135deg,#6a11cb 0%,#2575fc 100%); color:white; animation: fadeIn 1.5s ease-in-out; }
 .hero h1 { font-size:3em; margin-bottom:20px; }
 .hero p { font-size:1.3em; }
 
-/* ---------- SECTIONS ---------- */
 .section { padding:60px 20px; max-width:1100px; margin:auto; }
-/* ---------- SECTIONS HEADINGS ---------- */
 .section h2 {
-  text-align: center;
-  margin-bottom: 40px;
-  font-size: 2.2em;
-  position: relative;
-  transition: color 0.3s ease; /* Heading text color smooth */
-}
-
-/* Dynamic underline / accent */
-.section h2::after {
-  content: "";
-  display: block;
-  width: 80px;
-  height: 4px;
-  border-radius: 2px;
-  margin: 10px auto 0;
-  
-  background: #2575fc; /* default light mode accent */
-  transition: background 0.5s ease, transform 0.5s ease; /* smooth color transition */
-}
-
-/* Dark mode accent for headings */
-body.dark-mode .section h2::after {
-  background: #90caf9; /* smooth light-blue accent for dark mode */
+  text-align:center; margin-bottom:40px; font-size:2.2em; position:relative;
+  transition: color 0.5s ease;
 }
 .section h2::after {
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s ease, background 0.5s ease;
+  content:""; display:block; width:80px; height:4px; margin:10px auto 0;
+  border-radius:2px; background-color: var(--accent-color);
+  transition: background-color 0.5s ease, transform 0.5s ease;
 }
+body.dark-mode .section h2::after { transform: scaleX(1.1); }
 
-body.dark-mode .section h2::after {
-  transform: scaleX(1);
-  background: #90caf9;
-}
-
-/* ---------- CARD GRID ---------- */
-.cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:25px; }
-.card { padding:20px; border-radius:12px; background:#f9f9f9; box-shadow:0 6px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
-body.dark-mode .card { background:#1e1e1e; }
+.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; }
+.card { padding:20px; border-radius:12px; background: var(--card-bg); box-shadow:0 6px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s, background 0.5s ease; }
 .card:hover { transform: translateY(-10px); box-shadow:0 10px 25px rgba(0,0,0,0.2); }
 .card img { max-width:100%; border-radius:8px; margin-bottom:15px; transition: transform 0.3s; }
 .card img:hover { transform: scale(1.05); }
-.button { display:inline-block; margin-top:10px; padding:10px 18px; background:#2575fc; color:white; border-radius:8px; text-decoration:none; font-weight:bold; transition: background 0.3s; }
+.button { display:inline-block; margin-top:10px; padding:10px 18px; background: var(--accent-color); color:white; border-radius:8px; text-decoration:none; font-weight:bold; transition: background 0.5s ease; }
 .button:hover { background:#6a11cb; }
 
-/* ---------- ANIMATIONS ---------- */
-@keyframes fadeIn { 0%{opacity:0;transform:translateY(20px);} 100%{opacity:1;transform:translateY(0);} }
+@keyframes fadeIn { 0%{opacity:0; transform:translateY(20px);} 100%{opacity:1; transform:translateY(0);} }
 </style>
 
-<!-- ---------- NAVBAR ---------- -->
 <div class="navbar">
   <div><strong>Timothy Maina</strong></div>
   <div>
@@ -87,13 +81,11 @@ body.dark-mode .card { background:#1e1e1e; }
   </div>
 </div>
 
-<!-- ---------- HERO ---------- -->
 <div class="hero">
   <h1>Turning Data Into Actionable Insights</h1>
   <p>Hi, I'm <strong>Timothy Maina</strong> — Data Analyst & Dashboard Specialist</p>
 </div>
 
-<!-- ---------- WHAT I DO ---------- -->
 <div class="section">
   <h2>🚀 What I Do</h2>
   <div class="cards">
@@ -103,7 +95,6 @@ body.dark-mode .card { background:#1e1e1e; }
   </div>
 </div>
 
-<!-- ---------- FEATURED PROJECTS ---------- -->
 <div class="section">
   <h2>📊 Featured Projects</h2>
   <div class="cards">
@@ -122,7 +113,6 @@ body.dark-mode .card { background:#1e1e1e; }
   </div>
 </div>
 
-<!-- ---------- SKILLS ---------- -->
 <div class="section">
   <h2>🧠 Skills</h2>
   <div class="cards">
@@ -132,7 +122,6 @@ body.dark-mode .card { background:#1e1e1e; }
   </div>
 </div>
 
-<!-- ---------- CONTACT ---------- -->
 <div class="section">
   <h2>📬 Contact</h2>
   <p>Email: your@email.com</p>
@@ -141,7 +130,7 @@ body.dark-mode .card { background:#1e1e1e; }
 
 <script>
 const toggle = document.getElementById('darkToggle');
-toggle.addEventListener('click', () => {
+toggle.addEventListener('click', ()=>{
   document.body.classList.toggle('dark-mode');
   toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
 });
