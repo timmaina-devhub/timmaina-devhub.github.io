@@ -1,53 +1,27 @@
 ---
 layout: default
-title: About Me
+title: About
 ---
 
 # About Me
 
-<h3 align="center">
-Data Analyst | Finance & Forecasting Enthusiast  
-Turning data into actionable business insights
-</h3>
+I am a data analyst with a strong interest in solving real-world business problems using data.
 
----
+My journey into data started with curiosity — understanding *why businesses succeed or fail*. Today, I use tools like Python, SQL, and Tableau to uncover patterns, trends, and insights.
 
-## 👨 About Me
-- 📊 Passionate about **financial analytics and data-driven decision making**
-- 📈 Interested in **time series forecasting and business intelligence**
-- ✨ Aspiring **Data Analyst / Business Analyst / Junior Data Scientist**
+## What I Do
 
-### 🤝 Connect with Me
+- Transform messy datasets into clear insights  
+- Build dashboards that support decision-making  
+- Analyze business performance and customer behavior  
 
-<p align="left">
-  <!-- LinkedIn -->
-  <a href="https://www.linkedin.com/in/timothy-maina-43645b1b0/" target="_blank">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" height="40"/>
-  </a>
+## My Approach
 
-  <!-- Email -->
-  <a href="mailto:mainatimothy384@gmail.com" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" height="40"/>
-  </a>
+I believe data should:
+✔ Be simple to understand  
+✔ Tell a clear story  
+✔ Drive action  
 
-  <!-- WhatsApp -->
-  <a href="https://wa.me/+254789353163" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" height="40"/>
-  </a>
-</p>
+## Career Goal
 
----
-
-## 🧰 My Tool-Kit
-
-<p align="left">
-  <code><img height="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python"></code>
-  <code><img height="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" alt="Pandas"></code>
-  <code><img height="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" alt="NumPy"></code>
-  <code><img height="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib"></code>
-  <code><img height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/scikit-learn/scikit-learn.png"></code>
-  <code><img height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/jupyter-notebook/jupyter-notebook.png"></code>
-  <code><img height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/sql/sql.png"></code>
-  <code><img height="40" src="https://upload.wikimedia.org/wikipedia/commons/7/73/Microsoft_Excel_2013-2019_logo.svg" alt="Excel"></code>
-</p>
----
+To become a **data-driven problem solver in business environments**, helping organizations grow through insights.
