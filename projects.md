@@ -50,8 +50,6 @@ body.dark-mode .section h2::after{transform:scaleX(1.1);}
 .button:hover{background:#6a11cb;}
 </style>
 
-<h1 class="site-title">{{ site.title }}</h1>
-
 <div class="navbar">
   <div><strong>Timothy Maina</strong></div>
   <div>
