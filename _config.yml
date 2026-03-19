@@ -1,7 +1,5 @@
 title: Timothy's Portfolio
-remote_theme: mmistakes/minimal-mistakes
-plugins:
-  - jekyll-remote-theme
+theme: minima
 
 header_pages:
   - index.md
