@@ -12,7 +12,6 @@ Hi, I'm Timothy — a Data Analyst.
 - Customer Segmentation
 
 ## Contact
-- Email: your@email.com
+- Email: timothymaina382@gmail.com
 
-[About Me](about.html)
-[Projects](projects.html)
+
