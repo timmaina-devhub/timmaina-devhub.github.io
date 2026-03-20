@@ -1,73 +1,88 @@
-<section>
-  <h1>About Me</h1>
+<section class="page-container">
 
-  <p>
-    I am a data analyst with a strong foundation in statistics, analytics, and machine learning,
-    currently advancing my expertise through the Google Advanced Data Analytics Professional Certificate.
-  </p>
+  <div class="section narrow">
+    <h1 class="section-title">About Me</h1>
 
-  <p>
-    I specialize in transforming complex datasets into meaningful insights that support business decisions.
-    My approach combines technical analysis with clear communication, ensuring that insights are not only accurate,
-    but also actionable.
-  </p>
+    <p class="lead">
+      I am a data analyst with a strong foundation in statistics and machine learning,
+      currently advancing my expertise through the Google Advanced Data Analytics Certificate.
+    </p>
 
-  <p>
-    I am particularly interested in solving real-world business problems using data — from understanding customer
-    behavior to building predictive models that improve decision-making.
-  </p>
-</section>
-
-<section>
-  <h3>What I Do Best</h3>
-
-  <div>
-    <h4>Data Analysis & Visualization</h4>
-    <ul>
-      <li>Data Cleaning & Preprocessing</li>
-      <li>Exploratory Data Analysis (EDA)</li>
-      <li>Data Visualization (Tableau)</li>
-      <li>Data Transformation</li>
-    </ul>
+    <p>
+      I specialize in transforming complex datasets into clear, actionable insights
+      that support business decision-making. My work focuses on combining technical
+      analysis with effective communication.
+    </p>
   </div>
 
-  <div>
-    <h4>Business & Decision-Making</h4>
-    <ul>
-      <li>Business Analytics</li>
-      <li>Data-Driven Decision-Making</li>
-      <li>Stakeholder Communication</li>
-      <li>Data Storytelling</li>
-    </ul>
+  <div class="section">
+    <h3 class="section-title">Core Capabilities</h3>
+
+    <div class="grid-3">
+
+      <div class="card">
+        <h4>Data Analysis</h4>
+        <ul>
+          <li>Data Cleaning & Preprocessing</li>
+          <li>Exploratory Data Analysis</li>
+          <li>Data Transformation</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4>Business Insights</h4>
+        <ul>
+          <li>Data Storytelling</li>
+          <li>Stakeholder Communication</li>
+          <li>Decision Support</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4>Machine Learning</h4>
+        <ul>
+          <li>Predictive Modeling</li>
+          <li>Model Evaluation</li>
+          <li>Feature Engineering</li>
+        </ul>
+      </div>
+
+    </div>
   </div>
 
-  <div>
-    <h4>Advanced Analytics & Machine Learning</h4>
-    <ul>
-      <li>Predictive Modeling</li>
-      <li>Statistical Modeling</li>
-      <li>Machine Learning Algorithms</li>
-      <li>Model Evaluation & Optimization</li>
-    </ul>
+  <div class="section">
+    <h3 class="section-title">Tools & Technologies</h3>
+
+    <div class="tags">
+      <span>Python</span>
+      <span>SQL</span>
+      <span>Tableau</span>
+      <span>Pandas</span>
+      <span>NumPy</span>
+      <span>Scikit-learn</span>
+    </div>
   </div>
-</section>
 
-<section>
-  <h3>Tools & Technologies</h3>
-  <ul>
-    <li><strong>Languages:</strong> Python, SQL</li>
-    <li><strong>Data Tools:</strong> Pandas, NumPy</li>
-    <li><strong>Visualization:</strong> Tableau</li>
-    <li><strong>Machine Learning:</strong> Scikit-learn</li>
-  </ul>
-</section>
+  <div class="section">
+    <h3 class="section-title">What Sets Me Apart</h3>
 
-<section>
-  <h3>What Sets Me Apart</h3>
-  <ul>
-    <li>Strong balance between technical skills and business understanding</li>
-    <li>Ability to translate complex data into clear, actionable insights</li>
-    <li>Focus on data quality, ethics, and reliable analysis</li>
-    <li>Structured, problem-solving approach to analytics projects</li>
-  </ul>
+    <div class="grid-2">
+      <div class="card">
+        <p>Strong balance between technical expertise and business understanding</p>
+      </div>
+
+      <div class="card">
+        <p>Ability to translate complex data into clear, actionable insights</p>
+      </div>
+
+      <div class="card">
+        <p>Focus on data quality, ethics, and reliable analysis</p>
+      </div>
+
+      <div class="card">
+        <p>Structured and problem-solving approach to analytics projects</p>
+      </div>
+    </div>
+  </div>
+
 </section>
