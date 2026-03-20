@@ -1,4 +1,5 @@
 <section class="section projects-section">
+  <link rel="stylesheet" href="/styles.css">
   <div class="container">
     
     <div class="section-header">
