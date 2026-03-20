@@ -1,26 +1,16 @@
-<section>
-  <h1>Contact Me</h1>
+<section class="page-container narrow">
 
-  <p>
-    I'm currently open to data analyst and entry-level data science opportunities.
-    If you're looking for someone who can turn data into meaningful insights,
-    feel free to reach out.
+  <h1 class="section-title">Contact</h1>
+
+  <p class="lead">
+    I'm open to data analyst and entry-level data science opportunities.
+    Let’s connect and build impactful, data-driven solutions.
   </p>
 
-  <p>
-    Let's connect and build something impactful with data.
-  </p>
-</section>
+  <div class="contact-card">
+    <p><strong>Email:</strong> your-email@example.com</p>
+    <p><strong>LinkedIn:</strong> your-link</p>
+    <p><strong>GitHub:</strong> your-link</p>
+  </div>
 
-<section>
-  <ul>
-    <li><strong>Email:</strong> your-email@example.com</li>
-    <li><strong>LinkedIn:</strong> your-linkedin-link</li>
-    <li><strong>GitHub:</strong> your-github-link</li>
-  </ul>
-</section>
-
-<section>
-  <h3>Send a Message</h3>
-  <!-- Your contact form here -->
 </section>
