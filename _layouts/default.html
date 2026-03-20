@@ -151,7 +151,57 @@
   .hero p {
     opacity:0.8;
   }
+  /*Project page modifications*/
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
 
+.project-card {
+  background: var(--card-bg);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.project-content {
+  padding: 1rem;
+}
+
+.project-detail {
+  margin-top: 4rem;
+}
+
+.project-hero {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.project-links {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.link-card img {
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+}
   </style>
 </head>
 
