@@ -13,3 +13,8 @@ a {
     color: cyan;
     margin-right: 10px;
 }
+
+.hero {
+    text-align: center;
+    margin-top: 50px;
+}
