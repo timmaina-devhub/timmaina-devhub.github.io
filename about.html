@@ -2,29 +2,418 @@
 layout: bare
 title: About
 ---
-
 <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
 
-<div class="navbar">
-  <strong>Timothy Maina</strong>
-  <div>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo"><strong>Timothy Maina</strong></div>
+  <div class="nav-links">
     <a href="/">Home</a>
-    <a href="/about">About</a>
+    <a href="/about" class="nav-active">About</a>
     <a href="/projects">Projects</a>
     <a href="/contact">Contact</a>
   </div>
-</div>
+</nav>
 
+<!-- PAGE HERO -->
+<section class="hero hero--sm">
+  <p class="hero__eyebrow">Get to know me</p>
+  <h1>About Me</h1>
+  <p>Data analyst. Problem solver. Aspiring data scientist.</p>
+</section>
+
+<!-- INTRO SPLIT -->
+<section class="section about-intro">
+  <div class="container">
+    <div class="about-split">
+
+      <!-- Left: Photo + quick facts -->
+      <div class="about-left">
+        <div class="about-photo-wrap">
+          <img src="{{ '/images/profile.jpg' | relative_url }}" alt="Timothy Maina" class="about-photo">
+          <div class="about-photo-glow"></div>
+        </div>
+        <div class="about-quickfacts">
+          <div class="fact-item">
+            <span class="fact-icon">📍</span>
+            <span>Nairobi, Kenya</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-icon">💼</span>
+            <span>Open to opportunities</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-icon">🎓</span>
+            <span>BSc. Statistics &amp; Computer Science</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-icon">📧</span>
+            <span>timothymaina@email.com</span>
+          </div>
+        </div>
+        <a href="{{ '/contact' | relative_url }}" class="btn btn--primary about-cta">Get In Touch →</a>
+      </div>
+
+      <!-- Right: Bio -->
+      <div class="about-right">
+        <h2 class="about-section-title">Who I Am</h2>
+        <p>
+          I'm Timothy Maina, a data analyst based in Nairobi with a passion for turning messy,
+          complex datasets into clear, actionable insights. I believe data tells a story —
+          my job is to find it and communicate it in a way that drives real decisions.
+        </p>
+        <p>
+          My work sits at the intersection of <strong>analytics, visualization, and machine learning</strong>.
+          Whether it's building interactive dashboards, segmenting customers, or training forecasting
+          models, I focus on outputs that are not just technically sound but genuinely useful to the
+          people who rely on them.
+        </p>
+        <p>
+          I'm currently deepening my expertise in machine learning and data science, with the goal of
+          building predictive systems that scale. I thrive in environments where curiosity is valued
+          and data is taken seriously.
+        </p>
+
+        <h2 class="about-section-title" style="margin-top: 40px;">What Drives Me</h2>
+        <p>
+          I got into data analytics because I wanted to do work that matters. Numbers without context
+          are noise — but with the right framing, they become the clearest language in any room.
+          That gap between raw data and confident decision-making is exactly where I want to operate.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-header">
+      <h2>Skills &amp; Tools</h2>
+      <p>Technologies I work with regularly</p>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-group">
+        <h3 class="skill-group-title">Analytics &amp; Data</h3>
+        <div class="skill-list">
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">Pandas</span>
+          <span class="skill-pill">NumPy</span>
+          <span class="skill-pill">SQL</span>
+          <span class="skill-pill">Excel</span>
+          <span class="skill-pill">Google Sheets</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3 class="skill-group-title">Visualization</h3>
+        <div class="skill-list">
+          <span class="skill-pill">Power BI</span>
+          <span class="skill-pill">Matplotlib</span>
+          <span class="skill-pill">Seaborn</span>
+          <span class="skill-pill">Plotly</span>
+          <span class="skill-pill">Tableau</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3 class="skill-group-title">Machine Learning</h3>
+        <div class="skill-list">
+          <span class="skill-pill">scikit-learn</span>
+          <span class="skill-pill">XGBoost</span>
+          <span class="skill-pill">Linear Regression</span>
+          <span class="skill-pill">K-Means</span>
+          <span class="skill-pill">Random Forest</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3 class="skill-group-title">Tools &amp; Workflow</h3>
+        <div class="skill-list">
+          <span class="skill-pill">Git &amp; GitHub</span>
+          <span class="skill-pill">Jupyter Notebooks</span>
+          <span class="skill-pill">VS Code</span>
+          <span class="skill-pill">Google Colab</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE / TIMELINE -->
 <section class="section">
   <div class="container">
     <div class="section-header">
-      <h2>About Me</h2>
+      <h2>Experience &amp; Education</h2>
+      <p>My journey so far</p>
     </div>
+    <div class="timeline">
 
-    <p>
-      I am a data analyst passionate about transforming raw data into meaningful insights.
-      My focus is on analytics, dashboards, and machine learning solutions that help businesses grow.
-    </p>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-date">2024 – Present</span>
+          <h3>Data Analyst</h3>
+          <p class="timeline-place">Freelance / Self-directed Projects</p>
+          <p>Building end-to-end analytics projects spanning sales dashboards, customer segmentation,
+          and predictive models. Focused on delivering business-ready insights with clean,
+          reproducible code.</p>
+        </div>
+      </div>
 
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-date">2023</span>
+          <h3>Data Analytics Certification</h3>
+          <p class="timeline-place">Google / Coursera</p>
+          <p>Completed the Google Data Analytics Professional Certificate — covering data cleaning,
+          analysis, visualization, and storytelling with data using SQL, R, and Tableau.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-date">2019 – 2023</span>
+          <h3>BSc. Statistics &amp; Computer Science</h3>
+          <p class="timeline-place">University of Nairobi</p>
+          <p>Built a strong foundation in statistical methods, programming, and computational thinking.
+          Final year project focused on predictive modeling for agricultural yield forecasting.</p>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  © 2026 Timothy Maina
+</footer>
+
+<style>
+/* ── Active nav ──────────────────────────────────────── */
+.nav-active {
+  color: #3b82f6 !important;
+  font-weight: 600;
+}
+
+/* ── Hero variant ────────────────────────────────────── */
+.hero--sm { padding: 80px 40px 60px; }
+.hero__eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #3b82f6;
+  margin-bottom: 14px;
+}
+
+/* ── Section alt (subtle bg) ─────────────────────────── */
+.section--alt {
+  background: rgba(15, 23, 42, 0.6);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ── Intro split layout ──────────────────────────────── */
+.about-split {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 70px;
+  align-items: start;
+}
+
+/* ── Photo ───────────────────────────────────────────── */
+.about-photo-wrap {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 28px;
+  aspect-ratio: 4/5;
+  background: #0f172a;
+  border: 1px solid rgba(255,255,255,0.07);
+}
+.about-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.about-photo-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(2,6,23,0.7));
+  pointer-events: none;
+}
+
+/* ── Quick facts ─────────────────────────────────────── */
+.about-quickfacts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.fact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+.fact-icon { font-size: 1rem; flex-shrink: 0; }
+
+/* ── CTA button (reuse from projects page) ───────────── */
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+.btn--primary {
+  background: #2563eb;
+  color: #ffffff;
+  border: 1px solid #2563eb;
+}
+.btn--primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37,99,235,0.35);
+}
+.about-cta { width: 100%; text-align: center; display: block; }
+
+/* ── Bio text ────────────────────────────────────────── */
+.about-section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.about-right p {
+  color: #94a3b8;
+  line-height: 1.8;
+  margin-bottom: 16px;
+  font-size: 0.97rem;
+}
+.about-right strong { color: #e2e8f0; }
+
+/* ── Skills grid ─────────────────────────────────────── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 36px;
+}
+.skill-group-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #3b82f6;
+  margin-bottom: 14px;
+}
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.skill-pill {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #cbd5e1;
+  font-size: 0.82rem;
+  padding: 5px 12px;
+  border-radius: 999px;
+  transition: all 0.2s;
+}
+.skill-pill:hover {
+  border-color: #3b82f6;
+  color: #93c5fd;
+  background: rgba(37,99,235,0.1);
+}
+
+/* ── Timeline ────────────────────────────────────────── */
+.timeline {
+  position: relative;
+  padding-left: 30px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #2563eb, rgba(37,99,235,0.1));
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 48px;
+}
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-dot {
+  position: absolute;
+  left: -38px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #2563eb;
+  border: 2px solid #020617;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.3);
+}
+.timeline-date {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #3b82f6;
+  display: block;
+  margin-bottom: 6px;
+}
+.timeline-content h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+.timeline-place {
+  font-size: 0.85rem;
+  color: #475569;
+  margin-bottom: 10px !important;
+  font-style: italic;
+}
+.timeline-content p {
+  color: #94a3b8;
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 900px) {
+  .about-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .about-photo-wrap {
+    max-width: 280px;
+    aspect-ratio: 1/1;
+  }
+}
+@media (max-width: 600px) {
+  .hero--sm { padding: 60px 20px 40px; }
+  .timeline { padding-left: 20px; }
+  .timeline-dot { left: -28px; }
+}
+</style>
