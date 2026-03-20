@@ -41,5 +41,55 @@
     </a>
 
   </div>
+<section class="page-container">
 
+  <!-- SALES DASHBOARD -->
+  <div id="sales-dashboard" class="project-detail">
+
+    <img src="/images/sales-dashboard.png" class="project-hero">
+
+    <h2>Sales Performance Dashboard</h2>
+
+    <p class="lead">
+      Designed to provide clear visibility into regional sales performance and trends.
+    </p>
+
+    <div class="project-grid">
+
+      <div>
+        <h4>Problem</h4>
+        <p>Lack of centralized visibility into sales performance across regions.</p>
+      </div>
+
+      <div>
+        <h4>Approach</h4>
+        <ul>
+          <li>Data cleaning and preprocessing</li>
+          <li>Exploratory data analysis</li>
+          <li>Interactive dashboard development</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Tools</h4>
+        <p>Tableau, Excel</p>
+      </div>
+
+      <div>
+        <h4>Results</h4>
+        <p>Identified trends, top-performing regions, and key revenue drivers.</p>
+      </div>
+
+    </div>
+
+    <div class="project-links">
+      <a href="YOUR_TABLEAU_LINK" class="btn primary">View Dashboard</a>
+      <a href="YOUR_GITHUB_LINK" class="btn secondary">View Code</a>
+    </div>
+
+  </div>
+
+  <!-- Repeat for other projects -->
+
+</section>
 </section>
