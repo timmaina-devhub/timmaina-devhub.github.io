@@ -1,8 +1,5 @@
 ---
----
 layout: bare
-title: Home
----
 title: Home
 ---
 
