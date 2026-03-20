@@ -2,40 +2,322 @@
 layout: bare
 title: Projects
 ---
-
 <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
 
-<div class="navbar">
-  <strong>Timothy Maina</strong>
-  <div>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo"><strong>Timothy Maina</strong></div>
+  <div class="nav-links">
     <a href="/">Home</a>
     <a href="/about">About</a>
-    <a href="/projects">Projects</a>
+    <a href="/projects" class="nav-active">Projects</a>
     <a href="/contact">Contact</a>
   </div>
-</div>
+</nav>
 
+<!-- PAGE HERO -->
+<section class="hero hero--sm">
+  <p class="hero__eyebrow">Portfolio</p>
+  <h1>Projects</h1>
+  <p>A selection of data analytics, visualization, and machine learning work.</p>
+</section>
+
+<!-- PROJECTS -->
 <section class="section">
   <div class="container">
 
-    <div id="sales-dashboard">
-      <h2>Sales Dashboard</h2>
-      <p>Detailed analysis of regional performance and KPIs.</p>
-    </div>
+    <!-- Sales Dashboard -->
+    <article class="project-card" id="sales-dashboard">
+      <div class="project-image">
+        <img src="{{ '/images/sales-dashboard.png' | relative_url }}" alt="Sales Dashboard screenshot">
+        <span class="project-badge project-badge--done">Completed</span>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="tag">Visualization</span>
+          <span class="tag tag--outline">Power BI</span>
+          <span class="tag tag--outline">Excel</span>
+        </div>
+        <h2 class="project-title">Sales Dashboard</h2>
+        <p class="project-desc">
+          An interactive regional sales dashboard tracking KPIs across territories.
+          Built to surface underperforming regions, monitor target attainment, and
+          support data-driven decisions by the sales leadership team.
+        </p>
+        <ul class="project-highlights">
+          <li>Regional performance breakdowns with drill-down capability</li>
+          <li>KPI cards for revenue, units sold, and growth rate</li>
+          <li>Month-over-month trend analysis</li>
+        </ul>
+        <div class="project-links">
+          <a href="#" class="btn btn--primary">View Project →</a>
+          <a href="#" class="btn btn--ghost">GitHub</a>
+        </div>
+      </div>
+    </article>
 
-    <br><br>
+    <div class="project-divider"></div>
 
-    <div id="customer-analysis">
-      <h2>Customer Analysis</h2>
-      <p>Customer segmentation and behavioral insights.</p>
-    </div>
+    <!-- Customer Analysis -->
+    <article class="project-card project-card--reverse" id="customer-analysis">
+      <div class="project-image">
+        <img src="{{ '/images/customer-analysis.png' | relative_url }}" alt="Customer Analysis screenshot">
+        <span class="project-badge project-badge--done">Completed</span>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="tag">Analytics</span>
+          <span class="tag tag--outline">Python</span>
+          <span class="tag tag--outline">Pandas</span>
+          <span class="tag tag--outline">Seaborn</span>
+        </div>
+        <h2 class="project-title">Customer Analysis</h2>
+        <p class="project-desc">
+          A deep-dive into customer segmentation and purchasing behavior using
+          RFM analysis. Identified high-value customer cohorts and behavioral
+          patterns to inform retention and upsell strategies.
+        </p>
+        <ul class="project-highlights">
+          <li>RFM segmentation (Recency, Frequency, Monetary)</li>
+          <li>Cohort analysis and churn risk scoring</li>
+          <li>Purchase pattern clustering with K-Means</li>
+        </ul>
+        <div class="project-links">
+          <a href="#" class="btn btn--primary">View Project →</a>
+          <a href="#" class="btn btn--ghost">GitHub</a>
+        </div>
+      </div>
+    </article>
 
-    <br><br>
+    <div class="project-divider"></div>
 
-    <div id="predictive-model">
-      <h2>Predictive Modeling</h2>
-      <p>Machine learning models for forecasting trends.</p>
-    </div>
+    <!-- Predictive Modeling -->
+    <article class="project-card" id="predictive-model">
+      <div class="project-image">
+        <img src="{{ '/images/predictive-model.png' | relative_url }}" alt="Predictive Modeling screenshot">
+        <span class="project-badge project-badge--wip">In Progress</span>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="tag">Machine Learning</span>
+          <span class="tag tag--outline">scikit-learn</span>
+          <span class="tag tag--outline">Python</span>
+        </div>
+        <h2 class="project-title">Predictive Modeling</h2>
+        <p class="project-desc">
+          Machine learning pipeline for forecasting sales trends and demand
+          patterns. Evaluated multiple regression and ensemble models to identify
+          the best fit, with a focus on interpretability for business stakeholders.
+        </p>
+        <ul class="project-highlights">
+          <li>Feature engineering and selection pipeline</li>
+          <li>Model comparison: Linear Regression, XGBoost, Random Forest</li>
+          <li>RMSE and MAPE evaluation with cross-validation</li>
+        </ul>
+        <div class="project-links">
+          <a href="#" class="btn btn--primary">View Project →</a>
+          <a href="#" class="btn btn--ghost">GitHub</a>
+        </div>
+      </div>
+    </article>
 
   </div>
 </section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  © 2026 Timothy Maina
+</footer>
+
+<style>
+/* ── Active nav link ───────────────────────────────── */
+.nav-active {
+  color: #3b82f6 !important;
+  font-weight: 600;
+}
+
+/* ── Page hero variant (shorter) ───────────────────── */
+.hero--sm {
+  padding: 80px 40px 60px;
+}
+.hero__eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #3b82f6;
+  margin-bottom: 14px;
+}
+
+/* ── Project card (horizontal layout) ──────────────── */
+.project-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.project-card--reverse {
+  direction: rtl;
+}
+.project-card--reverse > * {
+  direction: ltr;
+}
+
+/* ── Project image block ────────────────────────────── */
+.project-image {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.07);
+  background: #0f172a;
+  aspect-ratio: 16/10;
+}
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.project-card:hover .project-image img {
+  transform: scale(1.04);
+}
+
+/* ── Badge ──────────────────────────────────────────── */
+.project-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+}
+.project-badge--done {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.project-badge--wip {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* ── Project body ───────────────────────────────────── */
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.tag--outline {
+  background: transparent;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  color: #93c5fd;
+}
+
+.project-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.project-desc {
+  color: #94a3b8;
+  font-size: 0.97rem;
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.project-highlights {
+  list-style: none;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.project-highlights li {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  padding-left: 20px;
+  position: relative;
+}
+.project-highlights li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #3b82f6;
+  font-size: 0.8rem;
+  top: 1px;
+}
+
+/* ── Buttons ────────────────────────────────────────── */
+.project-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+.btn--primary {
+  background: #2563eb;
+  color: #ffffff;
+  border: 1px solid #2563eb;
+}
+.btn--primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+.btn--ghost {
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.btn--ghost:hover {
+  color: #e5e7eb;
+  border-color: rgba(255,255,255,0.3);
+  transform: translateY(-2px);
+}
+
+/* ── Divider ────────────────────────────────────────── */
+.project-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: 60px 0;
+}
+
+/* ── Responsive ─────────────────────────────────────── */
+@media (max-width: 900px) {
+  .project-card,
+  .project-card--reverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero--sm {
+    padding: 60px 20px 40px;
+  }
+  .project-title {
+    font-size: 1.4rem;
+  }
+}
+</style>
