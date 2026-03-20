@@ -3,71 +3,42 @@
   <div class="section">
     <h1 class="section-title">Projects</h1>
     <p class="lead">
-      Projects demonstrating my ability to analyze data, build models,
-      and generate actionable insights.
+      Selected work showcasing my ability to turn data into actionable insights.
     </p>
   </div>
 
-  <div class="project-card">
+  <!-- GRID -->
+  <div class="projects-grid">
 
-    <h2>Sales Performance Dashboard</h2>
+    <!-- PROJECT 1 -->
+    <a href="#sales-dashboard" class="project-card">
+      <img src="/images/sales-dashboard.png" alt="Sales Dashboard">
 
-    <div class="project-grid">
-      <div>
-        <h4>Problem</h4>
-        <p>Lack of visibility into sales performance across regions.</p>
+      <div class="project-content">
+        <h3>Sales Performance Dashboard</h3>
+        <p>Interactive Tableau dashboard analyzing regional sales trends.</p>
       </div>
+    </a>
 
-      <div>
-        <h4>Approach</h4>
-        <ul>
-          <li>Data cleaning & preparation</li>
-          <li>Exploratory analysis</li>
-          <li>Dashboard development</li>
-        </ul>
+    <!-- PROJECT 2 -->
+    <a href="#customer-analysis" class="project-card">
+      <img src="/images/customer-analysis.png" alt="Customer Analysis">
+
+      <div class="project-content">
+        <h3>Customer Behavior Analysis</h3>
+        <p>Exploratory data analysis uncovering purchasing patterns.</p>
       </div>
+    </a>
 
-      <div>
-        <h4>Tools</h4>
-        <p>Tableau, Excel</p>
+    <!-- PROJECT 3 -->
+    <a href="#predictive-model" class="project-card">
+      <img src="/images/predictive-model.png" alt="Predictive Model">
+
+      <div class="project-content">
+        <h3>Predictive Modeling</h3>
+        <p>Machine learning models for forecasting and decision support.</p>
       </div>
-
-      <div>
-        <h4>Results</h4>
-        <p>Identified key trends, top-performing regions, and revenue drivers.</p>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="project-card">
-
-    <h2>Customer Behavior Analysis</h2>
-
-    <div class="project-grid">
-      <div>
-        <h4>Problem</h4>
-        <p>Limited understanding of customer purchasing patterns.</p>
-      </div>
-
-      <div>
-        <h4>Approach</h4>
-        <ul>
-          <li>EDA and segmentation</li>
-          <li>Trend analysis</li>
-        </ul>
-      </div>
-
-      <div>
-        <h4>Tools</h4>
-        <p>Python, Tableau</p>
-      </div>
-
-      <div>
-        <h4>Results</h4>
-        <p>Identified key customer segments and purchasing behaviors.</p>
-      </div>
-    </div>
+    </a>
 
   </div>
 
