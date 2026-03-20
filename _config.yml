@@ -1,8 +1,5 @@
-title: "Timothy's Portfolio"   # keep it simple
-plugins:
-  - jekyll-remote-theme # This is often included by default in GH Pages environments
-  - jekyll-include-cache
-remote_theme: "mmistakes/minimal-mistakes"
+title: Timothy Maina
+theme: null
   
 header_pages:
   - index.md
