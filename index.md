@@ -6,8 +6,9 @@ title: Home
 <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
 
 <div class="navbar">
-  <div><strong>Timothy Maina</strong></div>
-  <div>
+  <div class="logo"><strong>Timothy Maina</strong></div>
+
+  <div class="nav-links">
     <a href="/">Home</a>
     <a href="/about">About</a>
     <a href="/projects">Projects</a>
