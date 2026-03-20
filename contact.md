@@ -1,16 +1,31 @@
-<section class="page-container narrow">
+---
+layout: default
+title: Contact
+---
 
-  <h1 class="section-title">Contact</h1>
+<link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
 
-  <p class="lead">
-    I'm open to data analyst and entry-level data science opportunities.
-    Let’s connect and build impactful, data-driven solutions.
-  </p>
-
-  <div class="contact-card">
-    <p><strong>Email:</strong> your-email@example.com</p>
-    <p><strong>LinkedIn:</strong> your-link</p>
-    <p><strong>GitHub:</strong> your-link</p>
+<div class="navbar">
+  <strong>Timothy Maina</strong>
+  <div>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/projects">Projects</a>
+    <a href="/contact">Contact</a>
   </div>
+</div>
 
+<section class="section">
+  <div class="container">
+
+    <div class="section-header">
+      <h2>Contact</h2>
+      <p>Let’s connect</p>
+    </div>
+
+    <p>Email: your@email.com</p>
+    <p>GitHub: github.com/yourusername</p>
+    <p>LinkedIn: linkedin.com/in/yourprofile</p>
+
+  </div>
 </section>
