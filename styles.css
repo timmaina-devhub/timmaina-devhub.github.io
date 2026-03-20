@@ -1,42 +1,4 @@
 /* ============================================
-   OVERRIDE JEKYLL MINIMA THEME CONSTRAINTS
-   ============================================ */
-
-/* 1. Nuke Jekyll's wrapper width at every level */
-.wrapper,
-.site-header .wrapper,
-.site-footer .wrapper,
-.page-content .wrapper,
-.post-content .wrapper,
-div.wrapper {
-  max-width: 100% !important;
-  width: 100% !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-/* 2. Nuke Jekyll page-content padding */
-.page-content {
-  max-width: 100% !important;
-  width: 100% !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-/* 3. Nuke Jekyll header/footer constraints */
-.site-header,
-.site-footer {
-  max-width: 100% !important;
-  width: 100% !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin: 0 !important;
-  border: none !important; /* Minima adds a top border to the header */
-}
-
-/* ============================================
    RESET
    ============================================ */
 *, *::before, *::after {
@@ -51,8 +13,6 @@ div.wrapper {
 html, body {
   width: 100%;
   min-height: 100%;
-  margin: 0;
-  padding: 0;
   overflow-x: hidden;
 }
 
@@ -63,24 +23,8 @@ body {
   line-height: 1.6;
 }
 
-main, .page-content {
-  width: 100%;
-  min-height: 100vh;
-}
-
 /* ============================================
-   INNER CONTAINER (for readable text sections)
-   Use this inside sections that need centered content
-   ============================================ */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
-/* ============================================
-   NAVBAR  –  logo left, links right, full width
+   NAVBAR  —  logo far left, links far right
    ============================================ */
 .navbar {
   display: flex;
@@ -100,13 +44,11 @@ main, .page-content {
   font-size: 1.1rem;
   font-weight: 600;
   color: #ffffff;
-  flex-shrink: 0;       /* never let the logo wrap */
 }
 
 .nav-links {
   display: flex;
   gap: 25px;
-  margin-left: auto;    /* push links to the far right */
 }
 
 .nav-links a {
@@ -122,7 +64,7 @@ main, .page-content {
 }
 
 /* ============================================
-   HERO  –  full viewport width
+   HERO
    ============================================ */
 .hero {
   width: 100%;
@@ -147,7 +89,7 @@ main, .page-content {
 }
 
 /* ============================================
-   SECTIONS  –  full width, centered inner content
+   SECTION
    ============================================ */
 .section {
   width: 100%;
@@ -170,7 +112,16 @@ main, .page-content {
 }
 
 /* ============================================
-   GRID  –  stretches to full section width
+   CONTAINER  (optional inner centering)
+   ============================================ */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   GRID
    ============================================ */
 .grid {
   display: grid;
@@ -179,7 +130,7 @@ main, .page-content {
 }
 
 .grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
 }
 
 /* ============================================
@@ -193,6 +144,7 @@ main, .page-content {
   color: inherit;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.05);
+  display: block;
 }
 
 .card:hover {
@@ -245,7 +197,7 @@ main, .page-content {
 }
 
 /* ============================================
-   FOOTER  –  full width
+   FOOTER
    ============================================ */
 .footer {
   width: 100%;
@@ -259,13 +211,23 @@ main, .page-content {
 /* ============================================
    RESPONSIVE
    ============================================ */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
   .navbar {
     padding: 16px 20px;
   }
 
   .nav-links {
-    gap: 16px;
+    gap: 14px;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
   }
 
   .hero {
