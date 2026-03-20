@@ -51,19 +51,25 @@ body {
 /* NAVBAR */
 .navbar {
   display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  background: #020617;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  justify-content: space-between; /* THIS is the key */
+  align-items: center;
+  width: 100%;
+  padding: 20px 40px;
 }
 
-.navbar a {
-  color: #e5e7eb;
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
   text-decoration: none;
-  margin-left: 20px;
+  color: #e5e7eb;
+  font-size: 0.95rem;
+  transition: 0.3s;
 }
 
-.navbar a:hover {
+.nav-links a:hover {
   color: #3b82f6;
 }
 
