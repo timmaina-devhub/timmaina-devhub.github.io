@@ -1,13 +1,16 @@
----
-layout: default
-title: Contact
----
+<section class="page-container narrow">
 
-<div class="section">
-  <h2>Get In Touch</h2>
-  <div class="cards">
-    <div class="card">Email: your@email.com</div>
-    <div class="card">LinkedIn</div>
-    <div class="card">GitHub</div>
+  <h1 class="section-title">Contact</h1>
+
+  <p class="lead">
+    I'm open to data analyst and entry-level data science opportunities.
+    Let’s connect and build impactful, data-driven solutions.
+  </p>
+
+  <div class="contact-card">
+    <p><strong>Email:</strong> your-email@example.com</p>
+    <p><strong>LinkedIn:</strong> your-link</p>
+    <p><strong>GitHub:</strong> your-link</p>
   </div>
-</div>
+
+</section>
