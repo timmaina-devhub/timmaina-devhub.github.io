@@ -1,50 +1,90 @@
+/* SECTION */
+.section {
+  padding: 80px 20px;
+  background-color: #0f172a; /* deep navy */
+  color: #e5e7eb;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.section-header p {
+  margin-top: 10px;
+  color: #94a3b8;
+  font-size: 1rem;
+}
+
+/* GRID */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  gap: 30px;
 }
 
+/* CARD */
 .project-card {
-  background: var(--card-bg);
-  border-radius: 14px;
+  background: #1e293b;
+  border-radius: 16px;
   overflow: hidden;
-  transition: all 0.3s ease;
   text-decoration: none;
   color: inherit;
-}
-
-.project-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-.project-content {
-  padding: 1rem;
+/* IMAGE */
+.image-wrapper {
+  height: 180px;
+  overflow: hidden;
 }
 
-.project-detail {
-  margin-top: 4rem;
-}
-
-.project-hero {
+.image-wrapper img {
   width: 100%;
-  border-radius: 12px;
-  margin-bottom: 1.5rem;
+  height: 100%;
+  object-fit: cover;
 }
 
-.project-links {
-  margin-top: 1.5rem;
-  display: flex;
-  gap: 1rem;
+/* CONTENT */
+.card-content {
+  padding: 20px;
 }
 
-.link-card img {
-  border-radius: 10px;
-  margin-bottom: 0.5rem;
+.card-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.card-content p {
+  font-size: 0.95rem;
+  color: #cbd5f5;
+  margin-bottom: 15px;
+}
+
+/* TAG */
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 5px 10px;
+  background: #2563eb;
+  color: #fff;
+  border-radius: 999px;
 }
