@@ -152,7 +152,7 @@ title: Home
             <span class="tag tag--outline">Excel</span>
           </div>
           <h3>Sales Dashboard</h3>
-          <p>An interactive regional sales dashboard that replaced weekly manual reports. Tracks KPIs, territory performance, and month-over-month growth in real time.</p>
+          <p>Executive dashboard combining sales analysis and forecasting to provide both historical insights and forward-looking business decisions. Built using Tableau and time series models (ARIMA/Prophet).</p>
           <span class="h-proj__cta">Read case study →</span>
         </div>
       </a>
