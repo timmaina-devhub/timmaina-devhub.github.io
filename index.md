@@ -148,7 +148,7 @@ title: Home
         <div class="h-proj__body">
           <div class="h-proj__tags">
             <span class="tag">Visualization</span>
-            <span class="tag tag--outline">Power BI</span>
+            <span class="tag tag--outline">Tableau</span>
             <span class="tag tag--outline">Excel</span>
           </div>
           <h3>Sales Dashboard</h3>
