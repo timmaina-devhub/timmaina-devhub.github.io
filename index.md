@@ -171,7 +171,7 @@ title: Home
               <span class="tag tag--outline">Python</span>
             </div>
             <h3>Customer Analysis</h3>
-            <p>RFM segmentation and cohort analysis uncovering high-value customers and churn risk patterns.</p>
+            <p>Customer churn analysis project focused on understanding why customers leave and how to retain them. Using RFM-based features, machine learning, and customer segmentation, the project identifies key churn drivers and highlights actionable strategies to improve retention and revenue. Designed to translate data into clear business decisions.</p>
             <span class="h-proj__cta">Read case study →</span>
           </div>
         </a>
