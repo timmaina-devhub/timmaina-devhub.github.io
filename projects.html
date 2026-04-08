@@ -122,7 +122,7 @@ title: Projects
             <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
             My Approach
           </h4>
-          <p>Built a KPI-focused Tableau dashboard consolidating sales, profit, and order data. Layered in ARIMA/Prophet time series models for 12-months sales forecasting, and flagged loss-making categories directly in the viz.</p>
+          <p>Built a KPI-focused Tableau dashboard consolidating sales, profit, and order data. Layered in ARIMA/Prophet time series models for 6-month sales forecasting, and flagged loss-making categories directly in the viz.</p>
         </div>
         <div class="pj__block pj__block--outcomes">
           <h4 class="pj__block-title">
@@ -132,7 +132,7 @@ title: Projects
           <ul class="pj__bullets">
             <li>Loss-making sub-categories surfaced and flagged automatically</li>
             <li>Regional drill-downs revealing underperforming territories</li>
-            <li>12-months forecast enabling proactive stock and budget planning</li>
+            <li>6-month forecast enabling proactive stock and budget planning</li>
             <li>Time-to-insight reduced from hours of Excel work to one dashboard</li>
           </ul>
         </div>
@@ -142,11 +142,36 @@ title: Projects
       </div>
     </div>
 
+    <!-- Tableau placeholder — replace YOUR_TABLEAU_URL_HERE once published -->
+    <div class="tableau-note">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+      <span>Tableau Dashboard — <em>embed will appear here once published to Tableau Public</em></span>
+      <!-- Once published, replace the line below with your Tableau embed iframe:
+           <iframe src="YOUR_TABLEAU_PUBLIC_EMBED_URL" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+      -->
+    </div>
+
+    <!-- Notebook preview embed -->
+    <div class="nb-embed" id="nb-1">
+      <button class="nb-embed__toggle" onclick="toggleNb('nb-1')" aria-expanded="false">
+        <span class="nb-embed__toggle-left">
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Preview Notebook
+        </span>
+        <span class="nb-embed__toggle-right">
+          <span class="nb-embed__chip">forecasting_superStoreSales.ipynb</span>
+          <svg class="nb-embed__chevron" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </span>
+      </button>
+      <div class="nb-embed__body">
+        <iframe
+          src="https://nbviewer.org/github/timmaina-devhub/superstore-executive-dashboard/blob/main/notebooks/forecasting_superStoreSales.ipynb"
+          width="100%" height="640" frameborder="0" loading="lazy"
+          title="Superstore Sales Forecasting Notebook"></iframe>
+      </div>
+    </div>
+
     <div class="pj__cta">
-      <a href="#" class="btn-demo">
-        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-        Live Demo
-      </a>
       <a href="https://github.com/timmaina-devhub/superstore-executive-dashboard" target="_blank" rel="noopener" class="btn-gh">
         <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
         View on GitHub
@@ -223,11 +248,36 @@ title: Projects
       </div>
     </div>
 
+    <!-- Tableau placeholder -->
+    <div class="tableau-note">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+      <span>Tableau Dashboard — <em>embed will appear here once published to Tableau Public</em></span>
+      <!-- Once published, replace the line below with your Tableau embed iframe:
+           <iframe src="YOUR_TABLEAU_PUBLIC_EMBED_URL" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+      -->
+    </div>
+
+    <!-- Notebook preview embed -->
+    <div class="nb-embed" id="nb-2">
+      <button class="nb-embed__toggle" onclick="toggleNb('nb-2')" aria-expanded="false">
+        <span class="nb-embed__toggle-left">
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Preview Notebook
+        </span>
+        <span class="nb-embed__toggle-right">
+          <span class="nb-embed__chip">modeling_process(E-commerce_customer_segmentation...).ipynb</span>
+          <svg class="nb-embed__chevron" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </span>
+      </button>
+      <div class="nb-embed__body">
+        <iframe
+          src="https://nbviewer.org/github/timmaina-devhub/Customer-Churn-Analysis-and-Segmentation/blob/main/notebooks/modeling_process(E-commerce_customer_segmentation%20%26%20_churn_prediction).ipynb"
+          width="100%" height="640" frameborder="0" loading="lazy"
+          title="Customer Churn Analysis Notebook"></iframe>
+      </div>
+    </div>
+
     <div class="pj__cta">
-      <a href="#" class="btn-demo">
-        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-        Live Demo
-      </a>
       <a href="https://github.com/timmaina-devhub/Customer-Churn-Analysis-and-Segmentation" target="_blank" rel="noopener" class="btn-gh">
         <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
         View on GitHub
@@ -304,11 +354,36 @@ title: Projects
       </div>
     </div>
 
+    <!-- Tableau placeholder -->
+    <div class="tableau-note">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+      <span>Tableau Dashboard — <em>embed will appear here once published to Tableau Public</em></span>
+      <!-- Once published, replace the line below with your Tableau embed iframe:
+           <iframe src="YOUR_TABLEAU_PUBLIC_EMBED_URL" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+      -->
+    </div>
+
+    <!-- Notebook preview embed -->
+    <div class="nb-embed" id="nb-3">
+      <button class="nb-embed__toggle" onclick="toggleNb('nb-3')" aria-expanded="false">
+        <span class="nb-embed__toggle-left">
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Preview Notebook
+        </span>
+        <span class="nb-embed__toggle-right">
+          <span class="nb-embed__chip">modeling_merged_fraud_detection_data(...).ipynb</span>
+          <svg class="nb-embed__chevron" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </span>
+      </button>
+      <div class="nb-embed__body">
+        <iframe
+          src="https://nbviewer.org/github/timmaina-devhub/Fraud-Detection-System/blob/main/notebooks/modeling_merged_fraud_detection_data(Fraud%20Detection%20Project).ipynb"
+          width="100%" height="640" frameborder="0" loading="lazy"
+          title="Fraud Detection Notebook"></iframe>
+      </div>
+    </div>
+
     <div class="pj__cta">
-      <a href="#" class="btn-demo">
-        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-        Live Demo
-      </a>
       <a href="https://github.com/timmaina-devhub/Fraud-Detection-System" target="_blank" rel="noopener" class="btn-gh">
         <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
         View on GitHub
@@ -337,6 +412,13 @@ title: Projects
      JAVASCRIPT
 ════════════════════════════════════ -->
 <script>
+// ── Notebook embed toggle ────────────────────────────
+function toggleNb(id) {
+  const panel = document.getElementById(id);
+  const isOpen = panel.classList.toggle('nb-embed--open');
+  panel.querySelector('.nb-embed__toggle').setAttribute('aria-expanded', isOpen);
+}
+
 // ── Float nav show/hide ──────────────────────────────
 const floatNav = document.getElementById('floatNav');
 window.addEventListener('scroll', () => {
@@ -773,5 +855,91 @@ h1,h2,h3,h4 { font-family: 'DM Serif Display', serif; }
   .float-nav__pills .fnpill__name { display:none; }
   .fnpill { padding:6px 10px; }
   .ph__stats { gap:16px; padding:12px 18px; }
+}
+
+/* ── Tableau placeholder note ────── */
+.tableau-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 28px;
+  padding: 14px 18px;
+  background: rgba(37,99,235,0.06);
+  border: 1px dashed rgba(59,130,246,0.25);
+  border-radius: 10px;
+  font-size: .82rem;
+  color: var(--dim);
+  border-top: 1px solid var(--border);
+}
+.tableau-note svg { color: var(--blue-lt); flex-shrink:0; }
+.tableau-note em { color: var(--blue-lt); font-style:normal; }
+
+/* ── Notebook embed panel ────────── */
+.nb-embed {
+  margin: 16px 28px 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+}
+.nb-embed__toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: background .2s;
+}
+.nb-embed__toggle:hover { background: rgba(255,255,255,0.03); }
+.nb-embed__toggle-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.nb-embed__toggle-left svg { color: var(--blue-lt); }
+.nb-embed__toggle-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nb-embed__chip {
+  font-size: .72rem;
+  color: var(--dim);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px 10px;
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nb-embed__chevron {
+  color: var(--dim);
+  flex-shrink: 0;
+  transition: transform .3s ease;
+}
+.nb-embed--open .nb-embed__chevron { transform: rotate(180deg); }
+
+/* Body — hidden by default, slides open */
+.nb-embed__body {
+  display: none;
+  border-top: 1px solid var(--border);
+  background: #fff; /* nbviewer renders on white */
+}
+.nb-embed--open .nb-embed__body { display: block; }
+.nb-embed__body iframe { display: block; }
+
+@media (max-width: 600px) {
+  .nb-embed { margin: 14px 16px 0; }
+  .tableau-note { margin: 0 16px; }
+  .nb-embed__chip { display:none; }
 }
 </style>
