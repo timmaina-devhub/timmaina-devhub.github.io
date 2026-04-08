@@ -3,7 +3,7 @@ layout: bare
 title: Projects
 ---
 <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 
 <!-- NAVBAR -->
 <nav class="navbar">
@@ -16,309 +16,316 @@ title: Projects
   </div>
 </nav>
 
-<!-- PAGE HERO -->
-<section class="hero hero--sm">
-  <p class="hero__eyebrow">Portfolio</p>
-  <h1>Projects</h1>
-  <p>End-to-end data projects — from raw, messy data to decisions that matter.</p>
-  <!-- Quick stats bar -->
-  <div class="proj-stats">
-    <div class="proj-stat"><span class="proj-stat__num">3</span><span class="proj-stat__label">Completed</span></div>
-    <div class="proj-stat__div"></div>
-    <div class="proj-stat"><span class="proj-stat__num">3</span><span class="proj-stat__label">Disciplines</span></div>
-    <div class="proj-stat__div"></div>
-    <div class="proj-stat"><span class="proj-stat__num">100%</span><span class="proj-stat__label">Open Source</span></div>
+<!-- ═══════════════════════════════════
+     PAGE HERO
+════════════════════════════════════ -->
+<section class="ph">
+  <div class="ph__bg" aria-hidden="true"></div>
+  <div class="ph__inner">
+    <p class="eyebrow">Portfolio</p>
+    <h1 class="ph__title">Projects</h1>
+    <p class="ph__sub">End-to-end data projects — from raw, messy data to decisions that matter.</p>
+    <div class="ph__stats">
+      <div class="ph__stat"><span class="ph__num">3</span><span class="ph__lbl">Completed</span></div>
+      <div class="ph__div"></div>
+      <div class="ph__stat"><span class="ph__num">3</span><span class="ph__lbl">Disciplines</span></div>
+      <div class="ph__div"></div>
+      <div class="ph__stat"><span class="ph__num">100%</span><span class="ph__lbl">Open Source</span></div>
+    </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     MAIN LAYOUT: sticky sidebar + project feed
-════════════════════════════════════════════ -->
-<div class="proj-layout">
-
-  <!-- STICKY SIDEBAR NAV -->
-  <aside class="proj-sidebar">
-    <p class="sidebar-label">Jump to</p>
-    <nav class="sidebar-nav">
-      <a href="#sales-dashboard" class="sidebar-link active-link" data-target="sales-dashboard">
-        <span class="sidebar-dot"></span>
-        <span>Superstore Dashboard</span>
+<!-- ═══════════════════════════════════
+     FLOATING PROJECT NAVIGATOR
+     Appears after scrolling 300px
+════════════════════════════════════ -->
+<div class="float-nav" id="floatNav">
+  <div class="float-nav__inner">
+    <span class="float-nav__label">Projects</span>
+    <div class="float-nav__pills" id="floatPills">
+      <a href="#sales-dashboard" class="fnpill" data-target="sales-dashboard">
+        <span class="fnpill__num">01</span>
+        <span class="fnpill__name">Superstore Dashboard</span>
       </a>
-      <a href="#customer-analysis" class="sidebar-link" data-target="customer-analysis">
-        <span class="sidebar-dot"></span>
-        <span>Customer Churn Analysis</span>
+      <a href="#customer-analysis" class="fnpill" data-target="customer-analysis">
+        <span class="fnpill__num">02</span>
+        <span class="fnpill__name">Churn Analysis</span>
       </a>
-      <a href="#fraud-detection" class="sidebar-link" data-target="fraud-detection">
-        <span class="sidebar-dot"></span>
-        <span>Fraud Detection System</span>
+      <a href="#fraud-detection" class="fnpill" data-target="fraud-detection">
+        <span class="fnpill__num">03</span>
+        <span class="fnpill__name">Fraud Detection</span>
       </a>
-      <!-- Add more sidebar links here as you add projects -->
-    </nav>
-    <div class="sidebar-divider"></div>
-    <a href="https://github.com/timmaina-devhub" target="_blank" rel="noopener" class="sidebar-github">
-      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-      </svg>
-      All repositories →
-    </a>
-  </aside>
+      <!-- Add more pills here as you add projects -->
+    </div>
+    <div class="float-nav__arrows">
+      <button class="fnarrow" id="fnPrev" aria-label="Previous project">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="fnarrow" id="fnNext" aria-label="Next project">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
 
-  <!-- PROJECT FEED -->
-  <main class="proj-feed">
+<!-- ═══════════════════════════════════
+     PROJECT FEED
+════════════════════════════════════ -->
+<div class="feed">
 
-    <!-- ══════════════════════════════════════
-         PROJECT 1: Superstore Sales Dashboard
-    ═══════════════════════════════════════ -->
-    <article class="pcard" id="sales-dashboard">
-      <!-- Image -->
-      <div class="pcard__img-wrap">
-        <img src="{{ '/images/sales-dashboard.png' | relative_url }}" alt="Superstore Sales Executive Dashboard">
-        <span class="pcard__badge pcard__badge--done">✓ Completed</span>
-        <div class="pcard__img-overlay"></div>
+  <!-- ────────────────────────────────
+       PROJECT 1: Superstore Dashboard
+  ──────────────────────────────── -->
+  <article class="pj" id="sales-dashboard">
+
+    <!-- Index + title bar -->
+    <div class="pj__topbar">
+      <span class="pj__index">01</span>
+      <div class="pj__topbar-tags">
+        <span class="tag">Visualization</span>
+        <span class="tag tag--ol">Tableau</span>
+        <span class="tag tag--ol">Excel</span>
+        <span class="tag tag--ol">Time Series</span>
       </div>
+      <span class="pj__badge pj__badge--done">✓ Completed</span>
+    </div>
 
-      <!-- Header row -->
-      <div class="pcard__header">
-        <div class="pcard__meta">
-          <span class="tag">Visualization</span>
-          <span class="tag tag--outline">Tableau</span>
-          <span class="tag tag--outline">Excel</span>
-          <span class="tag tag--outline">Time Series</span>
+    <h2 class="pj__title">Superstore Sales Executive Dashboard</h2>
+    <p class="pj__hook">A single-screen command centre that turns four years of Superstore data into executive-ready insights — combining performance analysis with forward-looking forecasts so decision-makers never have to dig through a spreadsheet again.</p>
+
+    <!-- Image + 2-col detail side by side -->
+    <div class="pj__layout">
+
+      <!-- Left: image -->
+      <div class="pj__img-col">
+        <div class="pj__img-frame">
+          <div class="pj__img-browser">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="pj__img-wrap">
+            <img src="{{ '/images/sales-dashboard.png' | relative_url }}" alt="Superstore Sales Executive Dashboard">
+          </div>
         </div>
-        <h2 class="pcard__title">Superstore Sales Executive Dashboard</h2>
-        <p class="pcard__hook">
-          A single-screen command centre that turns four years of Superstore sales data into executive-ready insights — combining performance analysis with forward-looking forecasts so decision-makers never have to dig through a spreadsheet again.
-        </p>
       </div>
 
-      <!-- Scannable content grid -->
-      <div class="pcard__body">
-
-        <div class="pcard__col">
-          <h4 class="pcard__col-title">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <!-- Right: details -->
+      <div class="pj__detail-col">
+        <div class="pj__block">
+          <h4 class="pj__block-title">
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             The Problem
           </h4>
           <p>Leadership needed visibility into which regions, segments, and product categories were driving — or dragging — profitability, with no easy way to project where sales were heading.</p>
         </div>
-
-        <div class="pcard__col">
-          <h4 class="pcard__col-title">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        <div class="pj__block">
+          <h4 class="pj__block-title">
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
             My Approach
           </h4>
-          <p>Built a KPI-focused Tableau dashboard consolidating sales, profit, and order data. Layered in ARIMA/Prophet time series models for 6-month sales forecasting, and flagged loss-making categories directly on the viz.</p>
+          <p>Built a KPI-focused Tableau dashboard consolidating sales, profit, and order data. Layered in ARIMA/Prophet time series models for 6-month sales forecasting, and flagged loss-making categories directly in the viz.</p>
         </div>
-
-        <div class="pcard__col">
-          <h4 class="pcard__col-title">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+        <div class="pj__block pj__block--outcomes">
+          <h4 class="pj__block-title">
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
             Key Outcomes
           </h4>
-          <ul class="pcard__bullets">
-            <li>Identified loss-making sub-categories dragging overall profit margin</li>
+          <ul class="pj__bullets">
+            <li>Loss-making sub-categories surfaced and flagged automatically</li>
             <li>Regional drill-downs revealing underperforming territories</li>
-            <li>Forecast integration enabling proactive stock and budget planning</li>
-            <li>Reduced time-to-insight from hours of Excel work to one dashboard</li>
+            <li>6-month forecast enabling proactive stock and budget planning</li>
+            <li>Time-to-insight reduced from hours of Excel work to one dashboard</li>
           </ul>
         </div>
+        <div class="pj__tech-row">
+          <span>Tableau</span><span>Excel</span><span>ARIMA</span><span>Prophet</span>
+        </div>
+      </div>
+    </div>
 
-        <div class="pcard__col">
-          <h4 class="pcard__col-title">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-            Tech Used
-          </h4>
-          <div class="pcard__tech">
-            <span>Tableau</span><span>Excel</span><span>ARIMA</span><span>Prophet</span><span>Data Cleaning</span>
+    <div class="pj__cta">
+      <a href="#" class="btn-demo">
+        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+        Live Demo
+      </a>
+      <a href="https://github.com/timmaina-devhub/superstore-executive-dashboard" target="_blank" rel="noopener" class="btn-gh">
+        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        View on GitHub
+      </a>
+      <a href="#customer-analysis" class="btn-next">Next Project →</a>
+    </div>
+  </article>
+
+  <div class="feed-sep"><div class="feed-sep__line"></div><span class="feed-sep__num">02</span><div class="feed-sep__line"></div></div>
+
+  <!-- ────────────────────────────────
+       PROJECT 2: Customer Churn
+  ──────────────────────────────── -->
+  <article class="pj" id="customer-analysis">
+
+    <div class="pj__topbar">
+      <span class="pj__index">02</span>
+      <div class="pj__topbar-tags">
+        <span class="tag">Analytics</span>
+        <span class="tag tag--ol">Python</span>
+        <span class="tag tag--ol">Pandas</span>
+        <span class="tag tag--ol">scikit-learn</span>
+        <span class="tag tag--ol">Seaborn</span>
+      </div>
+      <span class="pj__badge pj__badge--done">✓ Completed</span>
+    </div>
+
+    <h2 class="pj__title">Customer Churn Analysis &amp; Segmentation</h2>
+    <p class="pj__hook">Why do customers leave — and who is most at risk right now? This end-to-end project answers both questions using machine learning and RFM segmentation, turning raw e-commerce data into a clear, actionable retention playbook.</p>
+
+    <div class="pj__layout pj__layout--flip">
+
+      <div class="pj__img-col">
+        <div class="pj__img-frame">
+          <div class="pj__img-browser">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="pj__img-wrap">
+            <img src="{{ '/images/customer-analysis.png' | relative_url }}" alt="Customer Churn Analysis">
           </div>
         </div>
-
       </div>
 
-      <!-- CTA row -->
-      <div class="pcard__cta">
-        <a href="#" class="btn-live">
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-          Live Demo
-        </a>
-        <a href="https://github.com/timmaina-devhub/superstore-executive-dashboard" target="_blank" rel="noopener" class="btn-gh">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          View on GitHub
-        </a>
-      </div>
-    </article>
-
-    <div class="feed-divider"></div>
-
-    <!-- ══════════════════════════════════════
-         PROJECT 2: Customer Churn Analysis
-    ═══════════════════════════════════════ -->
-    <article class="pcard" id="customer-analysis">
-      <div class="pcard__img-wrap">
-        <img src="{{ '/images/customer-analysis.png' | relative_url }}" alt="Customer Churn Analysis">
-        <span class="pcard__badge pcard__badge--done">✓ Completed</span>
-        <div class="pcard__img-overlay"></div>
-      </div>
-
-      <div class="pcard__header">
-        <div class="pcard__meta">
-          <span class="tag">Analytics</span>
-          <span class="tag tag--outline">Python</span>
-          <span class="tag tag--outline">Pandas</span>
-          <span class="tag tag--outline">scikit-learn</span>
-          <span class="tag tag--outline">Seaborn</span>
-        </div>
-        <h2 class="pcard__title">Customer Churn Analysis &amp; Segmentation</h2>
-        <p class="pcard__hook">
-          Why do customers leave — and who is most at risk right now? This end-to-end project answers both questions using machine learning and RFM segmentation, turning raw e-commerce transaction data into a clear retention playbook.
-        </p>
-      </div>
-
-      <div class="pcard__body">
-
-        <div class="pcard__col">
-          <h4 class="pcard__col-title">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <div class="pj__detail-col">
+        <div class="pj__block">
+          <h4 class="pj__block-title">
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             The Problem
           </h4>
           <p>The business had no systematic way to identify which customers were drifting toward churn or to distinguish loyal customers from one-time buyers — making retention efforts scattershot and expensive.</p>
         </div>
-
-        <div class="pcard__col">
-          <h4 class="pcard__col-title">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        <div class="pj__block">
+          <h4 class="pj__block-title">
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
             My Approach
           </h4>
-          <p>Combined RFM feature engineering with a logistic regression churn model optimised for recall — ensuring high-risk customers are caught, not missed. K-Means clustering then grouped customers into actionable segments (loyal, at-risk, inactive) surfaced through an interactive dashboard.</p>
+          <p>Combined RFM feature engineering with a logistic regression churn model optimised for recall. K-Means clustering then grouped customers into actionable segments surfaced through an interactive dashboard.</p>
         </div>
-
-        <div class="pcard__col">
-          <h4 class="pcard__col-title">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+        <div class="pj__block pj__block--outcomes">
+          <h4 class="pj__block-title">
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
             Key Outcomes
           </h4>
-          <ul class="pcard__bullets">
-            <li>Churn model with strong recall — high-risk customers effectively flagged</li>
-            <li>Inactivity and refund behaviour identified as strongest churn signals</li>
-            <li>3 distinct customer segments enabling targeted retention campaigns</li>
-            <li>Interactive dashboard connecting insights directly to business actions</li>
+          <ul class="pj__bullets">
+            <li>High-recall churn model ensuring at-risk customers are never missed</li>
+            <li>Inactivity &amp; refund behaviour identified as strongest churn signals</li>
+            <li>3 distinct segments enabling targeted, cost-efficient retention campaigns</li>
+            <li>Dashboard connecting each insight directly to a recommended action</li>
           </ul>
         </div>
+        <div class="pj__tech-row">
+          <span>Python</span><span>Pandas</span><span>scikit-learn</span><span>K-Means</span><span>Seaborn</span>
+        </div>
+      </div>
+    </div>
 
-        <div class="pcard__col">
-          <h4 class="pcard__col-title">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-            Tech Used
-          </h4>
-          <div class="pcard__tech">
-            <span>Python</span><span>Pandas</span><span>scikit-learn</span><span>Seaborn</span><span>K-Means</span><span>Logistic Regression</span>
+    <div class="pj__cta">
+      <a href="#" class="btn-demo">
+        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+        Live Demo
+      </a>
+      <a href="https://github.com/timmaina-devhub/Customer-Churn-Analysis-and-Segmentation" target="_blank" rel="noopener" class="btn-gh">
+        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        View on GitHub
+      </a>
+      <a href="#fraud-detection" class="btn-next">Next Project →</a>
+    </div>
+  </article>
+
+  <div class="feed-sep"><div class="feed-sep__line"></div><span class="feed-sep__num">03</span><div class="feed-sep__line"></div></div>
+
+  <!-- ────────────────────────────────
+       PROJECT 3: Fraud Detection
+  ──────────────────────────────── -->
+  <article class="pj" id="fraud-detection">
+
+    <div class="pj__topbar">
+      <span class="pj__index">03</span>
+      <div class="pj__topbar-tags">
+        <span class="tag">Machine Learning</span>
+        <span class="tag tag--ol">Python</span>
+        <span class="tag tag--ol">scikit-learn</span>
+        <span class="tag tag--ol">Tableau</span>
+        <span class="tag tag--ol">Random Forest</span>
+      </div>
+      <span class="pj__badge pj__badge--wip">⚡ In Progress</span>
+    </div>
+
+    <h2 class="pj__title">Fraud Detection Command Centre</h2>
+    <p class="pj__hook">Financial fraud hides in behavioural patterns — not just transaction amounts. This end-to-end system engineers the right signals, trains a model to catch them, and surfaces everything through a real-time Tableau command centre built for fraud analysts.</p>
+
+    <div class="pj__layout">
+
+      <div class="pj__img-col">
+        <div class="pj__img-frame">
+          <div class="pj__img-browser">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="pj__img-wrap">
+            <img src="{{ '/images/fraud-dashboard.png' | relative_url }}" alt="Fraud Detection Command Centre">
           </div>
         </div>
-
       </div>
 
-      <div class="pcard__cta">
-        <a href="#" class="btn-live">
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-          Live Demo
-        </a>
-        <a href="https://github.com/timmaina-devhub/Customer-Churn-Analysis-and-Segmentation" target="_blank" rel="noopener" class="btn-gh">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          View on GitHub
-        </a>
-      </div>
-    </article>
-
-    <div class="feed-divider"></div>
-
-    <!-- ══════════════════════════════════════
-         PROJECT 3: Fraud Detection System
-    ═══════════════════════════════════════ -->
-    <article class="pcard" id="fraud-detection">
-      <div class="pcard__img-wrap">
-        <img src="{{ '/images/fraud-dashboard.png' | relative_url }}" alt="Fraud Detection System">
-        <span class="pcard__badge pcard__badge--wip">⚡ In Progress</span>
-        <div class="pcard__img-overlay"></div>
-      </div>
-
-      <div class="pcard__header">
-        <div class="pcard__meta">
-          <span class="tag">Machine Learning</span>
-          <span class="tag tag--outline">Python</span>
-          <span class="tag tag--outline">scikit-learn</span>
-          <span class="tag tag--outline">Tableau</span>
-          <span class="tag tag--outline">Random Forest</span>
-        </div>
-        <h2 class="pcard__title">Fraud Detection Command Centre</h2>
-        <p class="pcard__hook">
-          Financial fraud hides in behavioural patterns — not just transaction amounts. This end-to-end system engineers the right signals, trains a model to catch them, and surfaces everything through a real-time Tableau command centre built for fraud analysts.
-        </p>
-      </div>
-
-      <div class="pcard__body">
-
-        <div class="pcard__col">
-          <h4 class="pcard__col-title">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <div class="pj__detail-col">
+        <div class="pj__block">
+          <h4 class="pj__block-title">
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             The Problem
           </h4>
-          <p>Rule-based fraud detection flags too many false positives and misses evolving patterns. The challenge was building a behavioural model that could detect fraud accurately on imbalanced, imperfect real-world data — then communicate findings to non-technical stakeholders.</p>
+          <p>Rule-based fraud detection flags too many false positives and misses evolving patterns. The challenge: build a behavioural model that catches fraud accurately on imbalanced, imperfect real-world data and communicate it to non-technical stakeholders.</p>
         </div>
-
-        <div class="pcard__col">
-          <h4 class="pcard__col-title">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        <div class="pj__block">
+          <h4 class="pj__block-title">
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
             My Approach
           </h4>
-          <p>Engineered behavioural features — transaction velocity, device/IP repetition, and time-window anomalies. Applied synthetic sampling to handle class imbalance, compared three models, and selected Random Forest for its precision-recall balance. Output fed directly into a Tableau command centre.</p>
+          <p>Engineered behavioural features — transaction velocity, device/IP repetition, and time-window anomalies. Applied SMOTE for class imbalance, compared three models, and selected Random Forest for its precision-recall balance, feeding output into Tableau.</p>
         </div>
-
-        <div class="pcard__col">
-          <h4 class="pcard__col-title">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+        <div class="pj__block pj__block--outcomes">
+          <h4 class="pj__block-title">
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
             Key Outcomes
           </h4>
-          <ul class="pcard__bullets">
-            <li>Random Forest model with strong precision-recall on imbalanced data</li>
+          <ul class="pj__bullets">
+            <li>Random Forest achieving strong precision-recall on imbalanced data</li>
             <li>High-frequency burst patterns identified as primary fraud signal</li>
-            <li>Device &amp; IP repetition flagging catching repeat fraudsters</li>
+            <li>Device &amp; IP repetition flagging catching repeat offenders</li>
             <li>Tableau dashboard showing fraud trends, high-risk entities &amp; financial impact</li>
           </ul>
         </div>
-
-        <div class="pcard__col">
-          <h4 class="pcard__col-title">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-            Tech Used
-          </h4>
-          <div class="pcard__tech">
-            <span>Python</span><span>scikit-learn</span><span>Random Forest</span><span>XGBoost</span><span>SMOTE</span><span>Tableau</span><span>Feature Engineering</span>
-          </div>
+        <div class="pj__tech-row">
+          <span>Python</span><span>Random Forest</span><span>XGBoost</span><span>SMOTE</span><span>Tableau</span>
         </div>
-
       </div>
+    </div>
 
-      <div class="pcard__cta">
-        <a href="#" class="btn-live">
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-          Live Demo
-        </a>
-        <a href="https://github.com/timmaina-devhub/Fraud-Detection-System" target="_blank" rel="noopener" class="btn-gh">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          View on GitHub
-        </a>
-      </div>
-    </article>
+    <div class="pj__cta">
+      <a href="#" class="btn-demo">
+        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+        Live Demo
+      </a>
+      <a href="https://github.com/timmaina-devhub/Fraud-Detection-System" target="_blank" rel="noopener" class="btn-gh">
+        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        View on GitHub
+      </a>
+      <a href="#" class="btn-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ Back to top</a>
+    </div>
+  </article>
 
-    <!-- ══════════════════════════════════════
-         ADD MORE PROJECTS BELOW THIS COMMENT
-         Copy the <article class="pcard"> block above,
-         add a new <div class="feed-divider"></div> before it,
-         and add a matching <a> in the sidebar nav.
-    ═══════════════════════════════════════ -->
+  <!-- ════════════════════════════════
+       TO ADD PROJECT 4+:
+       1. Copy an <article class="pj"> block above
+       2. Paste it below, update id, content, links
+       3. Add a <div class="feed-sep"> before it
+       4. Add a new <a class="fnpill"> in #floatPills
+  ═════════════════════════════════ -->
 
-  </main>
-</div>
+</div><!-- /feed -->
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -326,387 +333,445 @@ title: Projects
   <a href="mailto:timothymaina382@gmail.com" style="color:#3b82f6;text-decoration:none;">Email-me</a>
 </footer>
 
-<!-- Sidebar active-link scroll spy -->
+<!-- ═══════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════ -->
 <script>
-  const sections = document.querySelectorAll('.pcard');
-  const links = document.querySelectorAll('.sidebar-link');
+// ── Float nav show/hide ──────────────────────────────
+const floatNav = document.getElementById('floatNav');
+window.addEventListener('scroll', () => {
+  floatNav.classList.toggle('float-nav--visible', window.scrollY > 320);
+});
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        links.forEach(l => l.classList.remove('active-link'));
-        const active = document.querySelector(`.sidebar-link[data-target="${entry.target.id}"]`);
-        if (active) active.classList.add('active-link');
-      }
-    });
-  }, { threshold: 0.35 });
+// ── Scroll spy: highlight active pill ───────────────
+const projects = document.querySelectorAll('.pj');
+const pills    = document.querySelectorAll('.fnpill');
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      pills.forEach(p => p.classList.remove('fnpill--active'));
+      const active = document.querySelector(`.fnpill[data-target="${e.target.id}"]`);
+      if (active) active.classList.add('fnpill--active');
+    }
+  });
+}, { threshold: 0.3 });
+projects.forEach(p => spy.observe(p));
 
-  sections.forEach(s => observer.observe(s));
+// ── Prev / Next arrow navigation ────────────────────
+const ids = Array.from(projects).map(p => p.id);
+let current = 0;
+
+function updateCurrent() {
+  const scrollY = window.scrollY + window.innerHeight / 2;
+  projects.forEach((p, i) => {
+    if (p.offsetTop <= scrollY) current = i;
+  });
+}
+
+document.getElementById('fnPrev').addEventListener('click', () => {
+  updateCurrent();
+  const target = Math.max(0, current - 1);
+  document.getElementById(ids[target]).scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+document.getElementById('fnNext').addEventListener('click', () => {
+  updateCurrent();
+  const target = Math.min(ids.length - 1, current + 1);
+  document.getElementById(ids[target]).scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
 </script>
 
 <style>
-/* ── Fonts ───────────────────────────────────────────── */
-body { font-family: 'DM Sans', sans-serif; }
-h1, h2, h3, h4 { font-family: 'DM Serif Display', serif; }
-
-/* ── Active nav ──────────────────────────────────────── */
-.nav-active { color: #3b82f6 !important; font-weight: 600; }
-
-/* ── Hero ────────────────────────────────────────────── */
-.hero--sm { padding: 80px 40px 50px; }
-.hero__eyebrow {
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #3b82f6;
-  margin-bottom: 12px;
-  display: block;
+/* ═══════════════════════════════════
+   TOKENS
+════════════════════════════════════ */
+:root {
+  --bg:       #020617;
+  --surface:  #0f172a;
+  --surface2: #1e293b;
+  --border:   rgba(255,255,255,0.07);
+  --blue:     #2563eb;
+  --blue-lt:  #3b82f6;
+  --blue-dim: rgba(59,130,246,0.15);
+  --text:     #e2e8f0;
+  --muted:    #94a3b8;
+  --dim:      #475569;
+  --green:    #10b981;
+  --amber:    #f59e0b;
 }
 
-/* Stats bar */
-.proj-stats {
-  display: inline-flex;
-  align-items: center;
-  gap: 28px;
-  margin-top: 32px;
-  padding: 16px 28px;
-  background: rgba(15,23,42,0.6);
-  border: 1px solid rgba(255,255,255,0.07);
+body  { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); }
+h1,h2,h3,h4 { font-family: 'DM Serif Display', serif; }
+
+/* ── Navbar active ───────────────── */
+.nav-active { color: var(--blue-lt) !important; font-weight: 600; }
+
+/* ═══════════════════════════════════
+   PAGE HERO
+════════════════════════════════════ */
+.ph {
+  position: relative;
+  padding: 90px 60px 56px;
+  text-align: center;
+  overflow: hidden;
+}
+.ph__bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 60% at 50% 0%, rgba(37,99,235,0.1), transparent),
+    linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px);
+  background-size: auto, 56px 56px, 56px 56px;
+  mask-image: radial-gradient(ellipse 90% 100% at 50% 0%, black 50%, transparent 100%);
+}
+.ph__inner { position: relative; z-index: 1; }
+.eyebrow {
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--blue-lt); display: block; margin-bottom: 10px;
+}
+.ph__title { font-size: clamp(2.4rem,5vw,3.8rem); color: #fff; line-height:1.1; margin-bottom:14px; }
+.ph__sub   { font-size:1rem; color: var(--muted); max-width:500px; margin:0 auto 36px; line-height:1.7; }
+.ph__stats {
+  display: inline-flex; align-items: center; gap: 28px;
+  padding: 14px 28px;
+  background: rgba(15,23,42,0.7);
+  border: 1px solid var(--border);
   border-radius: 14px;
+  backdrop-filter: blur(8px);
 }
-.proj-stat { text-align: center; }
-.proj-stat__num {
-  display: block;
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.5rem;
-  color: #fff;
-  line-height: 1;
-}
-.proj-stat__label {
-  font-size: 0.72rem;
-  color: #475569;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-top: 3px;
-  display: block;
-}
-.proj-stat__div {
-  width: 1px;
-  height: 34px;
-  background: rgba(255,255,255,0.07);
-}
+.ph__stat  { text-align:center; }
+.ph__num   { display:block; font-family:'DM Serif Display',serif; font-size:1.5rem; color:#fff; line-height:1; }
+.ph__lbl   { display:block; font-size:0.7rem; color:var(--dim); text-transform:uppercase; letter-spacing:.08em; margin-top:3px; }
+.ph__div   { width:1px; height:32px; background:var(--border); }
 
-/* ── Page layout: sidebar + feed ─────────────────────── */
-.proj-layout {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 0;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 60px 40px 80px;
-  align-items: start;
+/* ═══════════════════════════════════
+   FLOATING PROJECT NAVIGATOR
+════════════════════════════════════ */
+.float-nav {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  z-index: 999;
 }
-
-/* ── Sticky sidebar ──────────────────────────────────── */
-.proj-sidebar {
-  position: sticky;
-  top: 90px;
-  padding-right: 40px;
+.float-nav--visible {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateX(-50%) translateY(0);
 }
-.sidebar-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #475569;
-  margin-bottom: 14px;
-}
-.sidebar-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.sidebar-link {
+.float-nav__inner {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 10px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 0.85rem;
-  color: #64748b;
-  transition: all 0.2s;
-  border-left: 2px solid transparent;
+  padding: 10px 14px;
+  background: rgba(15,23,42,0.92);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 999px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(59,130,246,0.08);
 }
-.sidebar-link:hover { color: #94a3b8; background: rgba(255,255,255,0.03); }
-.sidebar-link.active-link {
-  color: #3b82f6;
-  border-left-color: #3b82f6;
-  background: rgba(59,130,246,0.06);
-  font-weight: 500;
+.float-nav__label {
+  font-size: 0.7rem; font-weight:600; text-transform:uppercase;
+  letter-spacing:.1em; color:var(--dim); padding-right:6px;
+  border-right:1px solid var(--border);
 }
-.sidebar-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: currentColor;
-  flex-shrink: 0;
-  opacity: 0.5;
-}
-.active-link .sidebar-dot { opacity: 1; }
+.float-nav__pills { display:flex; gap:4px; }
 
-.sidebar-divider {
-  height: 1px;
-  background: rgba(255,255,255,0.06);
-  margin: 20px 0;
+/* Pills */
+.fnpill {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem; font-weight: 500;
+  text-decoration: none;
+  color: var(--muted);
+  transition: all 0.2s;
+  white-space: nowrap;
 }
-.sidebar-github {
+.fnpill:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+.fnpill--active {
+  background: var(--blue);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(37,99,235,0.4);
+}
+.fnpill__num {
+  font-size: 0.65rem; font-weight:700;
+  opacity: 0.6;
+}
+.fnpill--active .fnpill__num { opacity:1; }
+
+/* Arrows */
+.float-nav__arrows { display:flex; gap:2px; padding-left:8px; border-left:1px solid var(--border); }
+.fnarrow {
+  width:30px; height:30px;
+  display:flex; align-items:center; justify-content:center;
+  background:transparent; border:none; border-radius:50%;
+  color:var(--muted); cursor:pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.fnarrow:hover { background:rgba(255,255,255,0.07); color:var(--text); }
+
+/* ═══════════════════════════════════
+   FEED WRAPPER
+════════════════════════════════════ */
+.feed {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 40px 100px;
+}
+
+/* ── Numbered separator ──────────── */
+.feed-sep {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.82rem;
-  color: #475569;
-  text-decoration: none;
-  transition: color 0.2s;
+  gap: 16px;
+  margin: 56px 0;
 }
-.sidebar-github:hover { color: #94a3b8; }
+.feed-sep__line { flex:1; height:1px; background: var(--border); }
+.feed-sep__num  {
+  font-family:'DM Serif Display',serif;
+  font-size:0.85rem; color:var(--dim);
+  padding: 4px 12px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  letter-spacing:.06em;
+}
 
-/* ── PROJECT CARD ────────────────────────────────────── */
-.pcard {
-  background: linear-gradient(160deg, #1e293b 0%, #0f172a 100%);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 20px;
+/* ═══════════════════════════════════
+   PROJECT CARD
+════════════════════════════════════ */
+.pj {
+  background: linear-gradient(160deg, var(--surface2) 0%, var(--surface) 100%);
+  border: 1px solid var(--border);
+  border-radius: 24px;
   overflow: hidden;
-  transition: border-color 0.3s;
+  transition: border-color .3s, box-shadow .3s;
   scroll-margin-top: 100px;
 }
-.pcard:hover { border-color: rgba(59,130,246,0.2); }
-
-/* Image */
-.pcard__img-wrap {
-  position: relative;
-  height: 260px;
-  overflow: hidden;
-  background: #0f172a;
-}
-.pcard__img-wrap img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease;
-}
-.pcard:hover .pcard__img-wrap img { transform: scale(1.03); }
-.pcard__img-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, transparent 40%, rgba(15,23,42,0.9) 100%);
+.pj:hover {
+  border-color: rgba(59,130,246,0.22);
+  box-shadow: 0 0 40px rgba(37,99,235,0.06);
 }
 
-/* Badge */
-.pcard__badge {
-  position: absolute;
-  top: 16px; right: 16px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: 5px 12px;
-  border-radius: 999px;
-  letter-spacing: 0.04em;
-  z-index: 2;
+/* Top bar */
+.pj__topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 20px 28px 0;
 }
-.pcard__badge--done {
-  background: rgba(16,185,129,0.15);
-  color: #10b981;
-  border: 1px solid rgba(16,185,129,0.3);
+.pj__index {
+  font-family:'DM Serif Display',serif;
+  font-size:1.1rem; color:var(--dim);
+  padding-right:12px;
+  border-right:1px solid var(--border);
+  flex-shrink:0;
 }
-.pcard__badge--wip {
-  background: rgba(245,158,11,0.15);
-  color: #f59e0b;
-  border: 1px solid rgba(245,158,11,0.3);
+.pj__topbar-tags { display:flex; gap:7px; flex-wrap:wrap; flex:1; }
+.pj__badge {
+  font-size:.7rem; font-weight:600; padding:4px 10px;
+  border-radius:999px; letter-spacing:.04em; flex-shrink:0;
+}
+.pj__badge--done { background:rgba(16,185,129,.12); color:var(--green); border:1px solid rgba(16,185,129,.25); }
+.pj__badge--wip  { background:rgba(245,158,11,.12); color:var(--amber); border:1px solid rgba(245,158,11,.25); }
+
+/* Title + hook */
+.pj__title {
+  font-size: clamp(1.4rem,2.5vw,1.9rem);
+  color:#fff; line-height:1.2;
+  padding: 18px 28px 8px;
+}
+.pj__hook {
+  font-size:.95rem; color:var(--muted); line-height:1.75;
+  padding: 0 28px 24px;
+  border-bottom:1px solid var(--border);
 }
 
-/* Header */
-.pcard__header { padding: 28px 32px 0; }
-.pcard__meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
-.pcard__title {
-  font-size: 1.6rem;
-  color: #fff;
-  line-height: 1.2;
-  margin-bottom: 12px;
-}
-.pcard__hook {
-  font-size: 1rem;
-  color: #94a3b8;
-  line-height: 1.7;
-  padding-bottom: 24px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-/* Body — 2×2 scannable grid */
-.pcard__body {
+/* ── Image + detail layout ───────── */
+.pj__layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
-  padding: 0 32px;
 }
-.pcard__col {
-  padding: 24px 20px 24px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-.pcard__col:nth-child(2) { padding-left: 24px; border-left: 1px solid rgba(255,255,255,0.05); }
-.pcard__col:nth-child(3) { border-bottom: none; }
-.pcard__col:nth-child(4) { border-bottom: none; border-left: 1px solid rgba(255,255,255,0.05); padding-left: 24px; }
+.pj__layout--flip { direction: rtl; }
+.pj__layout--flip > * { direction: ltr; }
 
-.pcard__col-title {
+/* Image column */
+.pj__img-col {
+  padding: 24px 0 24px 24px;
   display: flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #3b82f6;
-  margin-bottom: 10px;
-  font-family: 'DM Sans', sans-serif;
+  align-items: flex-start;
 }
-.pcard__col > p {
-  font-size: 0.88rem;
-  color: #94a3b8;
-  line-height: 1.7;
+.pj__layout--flip .pj__img-col { padding: 24px 24px 24px 0; }
+
+.pj__img-frame {
+  width:100%;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  background:var(--surface);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
 }
-.pcard__bullets {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  margin: 0;
-  padding: 0;
+/* Fake browser chrome */
+.pj__img-browser {
+  display:flex; align-items:center; gap:5px;
+  padding:9px 12px;
+  background:rgba(2,6,23,0.8);
+  border-bottom:1px solid var(--border);
 }
-.pcard__bullets li {
-  font-size: 0.86rem;
-  color: #cbd5e1;
-  padding-left: 16px;
-  position: relative;
-  line-height: 1.5;
+.pj__img-browser span {
+  width:8px; height:8px; border-radius:50%;
 }
-.pcard__bullets li::before {
-  content: "▸";
-  position: absolute;
-  left: 0;
-  color: #3b82f6;
-  font-size: 0.75rem;
-  top: 2px;
+.pj__img-browser span:nth-child(1) { background:#ff5f57; }
+.pj__img-browser span:nth-child(2) { background:#febc2e; }
+.pj__img-browser span:nth-child(3) { background:#28c840; }
+
+.pj__img-wrap {
+  overflow:hidden;
+  aspect-ratio: 16/9;
+  background:var(--surface);
 }
-.pcard__tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
+.pj__img-wrap img {
+  width:100%; height:100%;
+  object-fit:cover; display:block;
+  transition:transform .5s ease;
 }
-.pcard__tech span {
-  font-size: 0.75rem;
-  padding: 4px 10px;
-  background: rgba(37,99,235,0.1);
-  border: 1px solid rgba(59,130,246,0.2);
-  border-radius: 999px;
-  color: #93c5fd;
-  font-family: 'DM Sans', sans-serif;
+.pj:hover .pj__img-wrap img { transform:scale(1.04); }
+
+/* Detail column */
+.pj__detail-col {
+  padding: 24px 28px;
+  border-left:1px solid var(--border);
+  display:flex; flex-direction:column; gap:0;
+}
+.pj__layout--flip .pj__detail-col { border-left:none; border-right:1px solid var(--border); }
+
+.pj__block {
+  padding-bottom:18px;
+  margin-bottom:18px;
+  border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.pj__block--outcomes { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+
+.pj__block-title {
+  display:flex; align-items:center; gap:6px;
+  font-size:.7rem; font-weight:600;
+  text-transform:uppercase; letter-spacing:.1em;
+  color:var(--blue-lt);
+  margin-bottom:8px;
+  font-family:'DM Sans',sans-serif;
+}
+.pj__block > p {
+  font-size:.875rem; color:var(--muted); line-height:1.7;
+}
+.pj__bullets {
+  list-style:none; padding:0; margin:0;
+  display:flex; flex-direction:column; gap:6px;
+}
+.pj__bullets li {
+  font-size:.85rem; color:#cbd5e1; line-height:1.55;
+  padding-left:15px; position:relative;
+}
+.pj__bullets li::before {
+  content:"▸"; position:absolute; left:0; top:2px;
+  color:var(--blue-lt); font-size:.7rem;
 }
 
-/* CTA row */
-.pcard__cta {
-  display: flex;
-  gap: 12px;
-  padding: 24px 32px;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  flex-wrap: wrap;
+/* Tech pills */
+.pj__tech-row {
+  display:flex; flex-wrap:wrap; gap:6px;
+  margin-top:20px; padding-top:16px;
+  border-top:1px solid var(--border);
 }
-.btn-live {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 11px 22px;
-  background: #2563eb;
-  color: #fff;
-  border: 1px solid #2563eb;
-  border-radius: 9px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.25s;
-  font-family: 'DM Sans', sans-serif;
+.pj__tech-row span {
+  font-size:.72rem; padding:3px 10px;
+  background:var(--blue-dim);
+  border:1px solid rgba(59,130,246,0.2);
+  border-radius:999px; color:#93c5fd;
+  font-family:'DM Sans',sans-serif;
 }
-.btn-live:hover {
-  background: #1d4ed8;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(37,99,235,0.35);
+
+/* ── CTA row ─────────────────────── */
+.pj__cta {
+  display:flex; gap:10px; flex-wrap:wrap;
+  padding:20px 28px;
+  border-top:1px solid var(--border);
+  align-items:center;
 }
+.btn-demo, .btn-gh, .btn-next, .btn-top {
+  display:inline-flex; align-items:center; gap:7px;
+  padding:10px 20px; border-radius:9px;
+  font-size:.875rem; font-weight:600;
+  text-decoration:none; transition:all .25s;
+  font-family:'DM Sans',sans-serif;
+}
+.btn-demo {
+  background:var(--blue); color:#fff; border:1px solid var(--blue);
+  box-shadow:0 4px 14px rgba(37,99,235,0.28);
+}
+.btn-demo:hover { background:#1d4ed8; transform:translateY(-2px); box-shadow:0 8px 22px rgba(37,99,235,0.4); }
 .btn-gh {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 11px 22px;
-  background: transparent;
-  color: #94a3b8;
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 9px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.25s;
-  font-family: 'DM Sans', sans-serif;
+  background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.12);
 }
-.btn-gh:hover {
-  color: #e5e7eb;
-  border-color: rgba(255,255,255,0.3);
-  transform: translateY(-2px);
+.btn-gh:hover { color:var(--text); border-color:rgba(255,255,255,0.28); transform:translateY(-2px); }
+.btn-next {
+  margin-left:auto; background:transparent;
+  color:var(--blue-lt); border:1px solid rgba(59,130,246,0.3);
+  font-size:.82rem;
 }
+.btn-next:hover { background:var(--blue-dim); transform:translateY(-2px); }
+.btn-top {
+  margin-left:auto; background:transparent;
+  color:var(--dim); border:1px solid var(--border);
+  font-size:.82rem;
+}
+.btn-top:hover { color:var(--muted); border-color:rgba(255,255,255,0.18); }
 
-/* Tags */
+/* ── Tags ────────────────────────── */
 .tag {
-  display: inline-block;
-  padding: 4px 11px;
-  font-size: 0.73rem;
-  font-weight: 500;
-  background: #2563eb;
-  border-radius: 999px;
-  color: #fff;
-  font-family: 'DM Sans', sans-serif;
+  display:inline-block; padding:4px 11px;
+  font-size:.72rem; font-weight:500;
+  background:var(--blue); border-radius:999px;
+  color:#fff; font-family:'DM Sans',sans-serif;
 }
-.tag--outline {
-  background: transparent;
-  border: 1px solid rgba(59,130,246,0.4);
-  color: #93c5fd;
+.tag--ol {
+  background:transparent;
+  border:1px solid rgba(59,130,246,0.35);
+  color:#93c5fd;
 }
 
-/* Divider between projects */
-.feed-divider { height: 40px; }
-
-/* ── RESPONSIVE ──────────────────────────────────────── */
-@media (max-width: 960px) {
-  .proj-layout {
+/* ═══════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════ */
+@media (max-width: 820px) {
+  .pj__layout, .pj__layout--flip {
     grid-template-columns: 1fr;
-    padding: 40px 24px 60px;
+    direction: ltr;
   }
-  .proj-sidebar {
-    position: static;
-    padding-right: 0;
-    margin-bottom: 40px;
+  .pj__img-col,
+  .pj__layout--flip .pj__img-col { padding: 20px 20px 0; }
+  .pj__detail-col,
+  .pj__layout--flip .pj__detail-col {
+    border-left:none; border-right:none;
+    border-top:1px solid var(--border);
+    padding:20px;
   }
-  .sidebar-nav { flex-direction: row; flex-wrap: wrap; gap: 8px; }
-  .sidebar-link { border-left: none; border-bottom: 2px solid transparent; }
-  .sidebar-link.active-link { border-left-color: transparent; border-bottom-color: #3b82f6; }
+  .float-nav__label { display:none; }
 }
-
-@media (max-width: 700px) {
-  .pcard__body { grid-template-columns: 1fr; }
-  .pcard__col:nth-child(2),
-  .pcard__col:nth-child(4) { border-left: none; padding-left: 0; }
-  .pcard__col:nth-child(3) { border-bottom: 1px solid rgba(255,255,255,0.05); }
-  .pcard__header { padding: 20px 20px 0; }
-  .pcard__cta { padding: 20px; }
-  .pcard__body { padding: 0 20px; }
-  .pcard__img-wrap { height: 190px; }
-  .pcard__title { font-size: 1.3rem; }
-  .proj-stats { gap: 16px; padding: 14px 20px; }
-  .hero--sm { padding: 60px 20px 40px; }
+@media (max-width: 600px) {
+  .feed { padding: 0 16px 80px; }
+  .ph { padding: 70px 20px 44px; }
+  .pj__title { padding: 16px 20px 8px; font-size:1.3rem; }
+  .pj__hook  { padding: 0 20px 20px; }
+  .pj__topbar { padding:16px 20px 0; }
+  .pj__cta { padding:16px 20px; }
+  .btn-next, .btn-top { margin-left:0; width:100%; justify-content:center; }
+  .float-nav__pills .fnpill__name { display:none; }
+  .fnpill { padding:6px 10px; }
+  .ph__stats { gap:16px; padding:12px 18px; }
 }
 </style>
