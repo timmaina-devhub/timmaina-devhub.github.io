@@ -247,7 +247,7 @@ title: Home
 <!-- FOOTER -->
 <footer class="footer">
   © 2026 Timothy Maina &nbsp;·&nbsp;
-  <a href="mailto:timothymaina@email.com" style="color:#3b82f6;text-decoration:none;">timothymaina@email.com</a>
+  <a href="mailto:timothymaina382@gmail.com" style="color:#3b82f6;text-decoration:none;">Email-me</a>
 </footer>
 
 <!-- ═══════════════════════════════════════════
