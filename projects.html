@@ -40,8 +40,8 @@ title: Projects
         </div>
         <h2 class="project-title">Superstore Sales Executive Dashboard</h2>
         <p class="project-desc">
-Built an executive-level dashboard that combines historical performance analysis with predictive forecasting to support business decision-making.
-The dashboard consolidates multiple analytical views into a single interface, allowing users to quickly understand overall performance, identify key drivers of profit, and evaluate future trends.
+Built an executive-level dashboard that combines historical performance analysis with predictive forecasting to support business decision-making. 
+The dashboard consolidates multiple analytical views into a single interface, allowing users to quickly understand overall performance, identify key drivers of profit, and evaluate future trends. 
 This project demonstrates my ability to move beyond basic reporting and build data solutions that combine analysis, visualization, and forecasting in a business context.
         </p>
         <ul class="project-highlights">
@@ -74,10 +74,8 @@ This project demonstrates my ability to move beyond basic reporting and build da
         </div>
         <h2 class="project-title">Customer Analysis</h2>
         <p class="project-desc">
-          This project explores customer behavior in an e-commerce setting to uncover the key factors driving churn and identify opportunities to improve retention. The analysis combines data cleaning, feature engineering, and machine learning to predict churn, alongside RFM-based customer segmentation to group customers by behavior.
-
+This project explores customer behavior in an e-commerce setting to uncover the key factors driving churn and identify opportunities to improve retention. The analysis combines data cleaning, feature engineering, and machine learning to predict churn, alongside RFM-based customer segmentation to group customers by behavior.
 The results reveal that customer inactivity and low engagement are the strongest indicators of churn, while refund behavior signals dissatisfaction. A logistic regression model was used to predict churn with strong recall, ensuring high-risk customers are effectively identified. Customer segments further highlight distinct groups such as loyal, at-risk, and inactive customers, enabling targeted business strategies.
-
 The project is presented through an interactive dashboard that connects insights to action, helping stakeholders quickly understand performance, risks, and opportunities. It demonstrates an end-to-end analytics workflow—from raw data challenges to actionable recommendations.
         </p>
         <ul class="project-highlights">
@@ -97,7 +95,7 @@ The project is presented through an interactive dashboard that connects insights
     <!-- Predictive Modeling -->
     <article class="project-card" id="predictive-model">
       <div class="project-image">
-        <img src="{{ '/images/predictive-model.png' | relative_url }}" alt="Predictive Modeling screenshot">
+        <img src="{{ '/images/fraud-dashboard.png' | relative_url }}" alt="Predictive Modeling screenshot">
         <span class="project-badge project-badge--wip">In Progress</span>
       </div>
       <div class="project-body">
@@ -106,11 +104,67 @@ The project is presented through an interactive dashboard that connects insights
           <span class="tag tag--outline">scikit-learn</span>
           <span class="tag tag--outline">Python</span>
         </div>
-        <h2 class="project-title">Predictive Modeling</h2>
+        <h2 class="project-title"> Fraud Detection System </h2>
         <p class="project-desc">
-          Machine learning pipeline for forecasting sales trends and demand
-          patterns. Evaluated multiple regression and ensemble models to identify
-          the best fit, with a focus on interpretability for business stakeholders.
+          Overview
+
+I built a fraud detection system designed to identify suspicious transaction patterns using behavioural analytics and machine learning. The objective was to go beyond static rule-based detection and develop a system that adapts to how fraud actually occurs in transactional data.
+
+Scope
+
+This project covered the full lifecycle:
+
+Data integration across transaction, device, and IP datasets
+Feature engineering focused on behavioural patterns
+Handling incomplete fraud labels and class imbalance
+Model training, evaluation, and selection
+Dashboard development for monitoring and decision support
+Approach
+
+I began by consolidating multiple datasets into a single analytical view. One of the early challenges was the inconsistency in fraud labels, which required a more thoughtful approach to labeling and validation.
+
+Feature engineering became the core driver of performance. I introduced behavioural features such as transaction frequency over time, device-level activity, and temporal breakdowns. These features allowed the model to capture patterns that are typically associated with fraudulent behaviour.
+
+To address class imbalance, I applied SMOTE, which significantly improved the model’s ability to detect fraud without heavily impacting precision.
+
+I trained several models, including Logistic Regression, Random Forest, and Gradient Boosting. The Random Forest model provided the best balance between recall and precision, making it the most suitable for this use case.
+
+Results
+Recall: 89%
+Precision: 98%
+F1 Score: 93%
+Estimated Loss Prevented: Over $550K
+
+The model demonstrates strong performance in detecting fraudulent transactions while maintaining a low rate of false positives.
+
+Dashboard
+
+To make the solution actionable, I developed an interactive dashboard in Tableau.
+
+The dashboard enables:
+
+Monitoring fraud trends across time
+Identifying high-risk devices and IP addresses
+Understanding transaction behaviour patterns
+Tracking model performance and impact
+
+This allows stakeholders to quickly interpret model outputs and take informed action.
+
+Challenges
+
+One of the key challenges was working with incomplete and partially unreliable fraud labels. Initial modeling attempts using raw labels produced inconsistent results. I addressed this by refining the labeling approach and incorporating behavioural assumptions to improve signal quality.
+
+Another challenge was class imbalance, which initially caused poor fraud detection performance. Applying SMOTE improved recall and helped stabilize the model.
+
+Feature engineering also required several iterations before identifying the most predictive behavioural features.
+
+Outcome
+
+The final solution demonstrates how combining behavioural feature engineering with machine learning can significantly improve fraud detection.
+
+It also highlights the importance of making models interpretable and actionable through well-designed dashboards.
+
+For full methodology, code implementation, and dashboard development details, please refer to the GitHub repository.
         </p>
         <ul class="project-highlights">
           <li>Feature engineering and selection pipeline</li>
