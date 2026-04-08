@@ -3,6 +3,7 @@ layout: bare
 title: Projects
 ---
 <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <!-- NAVBAR -->
 <nav class="navbar">
@@ -19,316 +20,693 @@ title: Projects
 <section class="hero hero--sm">
   <p class="hero__eyebrow">Portfolio</p>
   <h1>Projects</h1>
-  <p>A selection of data analytics, visualization, and machine learning work.</p>
-</section>
-
-<!-- PROJECTS -->
-<section class="section">
-  <div class="container">
-
-    <!-- Sales Dashboard -->
-    <article class="project-card" id="sales-dashboard">
-      <div class="project-image">
-        <img src="{{ '/images/sales-dashboard.png' | relative_url }}" alt="Sales Dashboard screenshot">
-        <span class="project-badge project-badge--done">Completed</span>
-      </div>
-      <div class="project-body">
-        <div class="project-meta">
-          <span class="tag">Visualization</span>
-          <span class="tag tag--outline">Tableau</span>
-          <span class="tag tag--outline">Excel</span>
-        </div>
-        <h2 class="project-title">Superstore Sales Executive Dashboard</h2>
-        <p class="project-desc">
-Built an executive-level dashboard that combines historical performance analysis with predictive forecasting to support business decision-making. 
-The dashboard consolidates multiple analytical views into a single interface, allowing users to quickly understand overall performance, identify key drivers of profit, and evaluate future trends. 
-This project demonstrates my ability to move beyond basic reporting and build data solutions that combine analysis, visualization, and forecasting in a business context.
-        </p>
-        <ul class="project-highlights">
-          <li>Designed a KPI-focused layout for quick executive insights</li>
-          <li>Analyzed regional, segment, and product-level performance</li>
-          <li>Identified loss-making areas impacting profitability</li>
-          <li>Integrated sales and profit forecasting using time series models</li>
-        </ul>
-        <div class="project-links">
-          <a href="#" class="btn btn--primary">View Project →</a>
-          <a href="https://github.com/timmaina-devhub/superstore-executive-dashboard" class="btn btn--ghost">GitHub</a>
-        </div>
-      </div>
-    </article>
-
-    <div class="project-divider"></div>
-
-    <!-- Customer Analysis -->
-    <article class="project-card project-card--reverse" id="customer-analysis">
-      <div class="project-image">
-        <img src="{{ '/images/customer-analysis.png' | relative_url }}" alt="Customer Analysis screenshot">
-        <span class="project-badge project-badge--done">Completed</span>
-      </div>
-      <div class="project-body">
-        <div class="project-meta">
-          <span class="tag">Analytics</span>
-          <span class="tag tag--outline">Python</span>
-          <span class="tag tag--outline">Pandas</span>
-          <span class="tag tag--outline">Seaborn</span>
-        </div>
-        <h2 class="project-title">Customer Analysis</h2>
-        <p class="project-desc">
-This project explores customer behavior in an e-commerce setting to uncover the key factors driving churn and identify opportunities to improve retention. The analysis combines data cleaning, feature engineering, and machine learning to predict churn, alongside RFM-based customer segmentation to group customers by behavior.
-The results reveal that customer inactivity and low engagement are the strongest indicators of churn, while refund behavior signals dissatisfaction. A logistic regression model was used to predict churn with strong recall, ensuring high-risk customers are effectively identified. Customer segments further highlight distinct groups such as loyal, at-risk, and inactive customers, enabling targeted business strategies.
-The project is presented through an interactive dashboard that connects insights to action, helping stakeholders quickly understand performance, risks, and opportunities. It demonstrates an end-to-end analytics workflow—from raw data challenges to actionable recommendations.
-        </p>
-        <ul class="project-highlights">
-          <li>RFM segmentation (Recency, Frequency, Monetary)</li>
-          <li>Cohort analysis and churn risk scoring</li>
-          <li>Purchase pattern clustering with K-Means</li>
-        </ul>
-        <div class="project-links">
-          <a href="#" class="btn btn--primary">View Project →</a>
-          <a href="https://github.com/timmaina-devhub/Customer-Churn-Analysis-and-Segmentation" class="btn btn--ghost">GitHub</a>
-        </div>
-      </div>
-    </article>
-
-    <div class="project-divider"></div>
-
-    <!-- Predictive Modeling -->
-    <article class="project-card" id="predictive-model">
-      <div class="project-image">
-        <img src="{{ '/images/fraud-dashboard.png' | relative_url }}" alt="Predictive Modeling screenshot">
-        <span class="project-badge project-badge--wip">In Progress</span>
-      </div>
-      <div class="project-body">
-        <div class="project-meta">
-          <span class="tag">Machine Learning</span>
-          <span class="tag tag--outline">scikit-learn</span>
-          <span class="tag tag--outline">Python</span>
-        </div>
-        <h2 class="project-title"> Fraud Detection System </h2>
-        <p class="project-desc">
-          This project focuses on detecting fraudulent financial transactions by analyzing behavioral patterns in transactional data. 
-          It combines data preparation, feature engineering, and machine learning to move beyond rule-based detection and identify fraud based on how transactions behave over time.
-
-          Key features such as transaction velocity, device and IP activity, and temporal patterns were engineered to capture abnormal behavior.
-          Due to incomplete fraud labels and class imbalance, techniques such as synthetic sampling and refined labeling strategies were applied to improve model performance. 
-          A Random Forest model achieved a strong balance between precision and recall, enabling effective detection of fraudulent transactions while minimizing false alerts.
-
-          The analysis reveals that fraud typically occurs in high-frequency bursts and is often associated with repeated device or IP usage. 
-          Temporal patterns also play a significant role, with certain time windows showing elevated risk.
-
-          The project is presented through an interactive dashboard built in Tableau, providing visibility into fraud trends, high-risk entities, and estimated financial impact. 
-          It demonstrates an end-to-end workflow from raw, imperfect data to a practical fraud detection system that supports real-world decision making.
-
-        </p>
-        <ul class="project-highlights">
-          <li>Data wrangling and Feature engineering </li>
-          <li>Model comparison: Logistic Regression, XGBoost, Random Forest</li>
-          <li>Recall and Precision evaluation</li>
-        </ul>
-        <div class="project-links">
-          <a href="#" class="btn btn--primary">View Project →</a>
-          <a href="https://github.com/timmaina-devhub/Fraud-Detection-System" class="btn btn--ghost">GitHub</a>
-        </div>
-      </div>
-    </article>
-
+  <p>End-to-end data projects — from raw, messy data to decisions that matter.</p>
+  <!-- Quick stats bar -->
+  <div class="proj-stats">
+    <div class="proj-stat"><span class="proj-stat__num">3</span><span class="proj-stat__label">Completed</span></div>
+    <div class="proj-stat__div"></div>
+    <div class="proj-stat"><span class="proj-stat__num">3</span><span class="proj-stat__label">Disciplines</span></div>
+    <div class="proj-stat__div"></div>
+    <div class="proj-stat"><span class="proj-stat__num">100%</span><span class="proj-stat__label">Open Source</span></div>
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════════
+     MAIN LAYOUT: sticky sidebar + project feed
+════════════════════════════════════════════ -->
+<div class="proj-layout">
+
+  <!-- STICKY SIDEBAR NAV -->
+  <aside class="proj-sidebar">
+    <p class="sidebar-label">Jump to</p>
+    <nav class="sidebar-nav">
+      <a href="#sales-dashboard" class="sidebar-link active-link" data-target="sales-dashboard">
+        <span class="sidebar-dot"></span>
+        <span>Superstore Dashboard</span>
+      </a>
+      <a href="#customer-analysis" class="sidebar-link" data-target="customer-analysis">
+        <span class="sidebar-dot"></span>
+        <span>Customer Churn Analysis</span>
+      </a>
+      <a href="#fraud-detection" class="sidebar-link" data-target="fraud-detection">
+        <span class="sidebar-dot"></span>
+        <span>Fraud Detection System</span>
+      </a>
+      <!-- Add more sidebar links here as you add projects -->
+    </nav>
+    <div class="sidebar-divider"></div>
+    <a href="https://github.com/timmaina-devhub" target="_blank" rel="noopener" class="sidebar-github">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+      </svg>
+      All repositories →
+    </a>
+  </aside>
+
+  <!-- PROJECT FEED -->
+  <main class="proj-feed">
+
+    <!-- ══════════════════════════════════════
+         PROJECT 1: Superstore Sales Dashboard
+    ═══════════════════════════════════════ -->
+    <article class="pcard" id="sales-dashboard">
+      <!-- Image -->
+      <div class="pcard__img-wrap">
+        <img src="{{ '/images/sales-dashboard.png' | relative_url }}" alt="Superstore Sales Executive Dashboard">
+        <span class="pcard__badge pcard__badge--done">✓ Completed</span>
+        <div class="pcard__img-overlay"></div>
+      </div>
+
+      <!-- Header row -->
+      <div class="pcard__header">
+        <div class="pcard__meta">
+          <span class="tag">Visualization</span>
+          <span class="tag tag--outline">Tableau</span>
+          <span class="tag tag--outline">Excel</span>
+          <span class="tag tag--outline">Time Series</span>
+        </div>
+        <h2 class="pcard__title">Superstore Sales Executive Dashboard</h2>
+        <p class="pcard__hook">
+          A single-screen command centre that turns four years of Superstore sales data into executive-ready insights — combining performance analysis with forward-looking forecasts so decision-makers never have to dig through a spreadsheet again.
+        </p>
+      </div>
+
+      <!-- Scannable content grid -->
+      <div class="pcard__body">
+
+        <div class="pcard__col">
+          <h4 class="pcard__col-title">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            The Problem
+          </h4>
+          <p>Leadership needed visibility into which regions, segments, and product categories were driving — or dragging — profitability, with no easy way to project where sales were heading.</p>
+        </div>
+
+        <div class="pcard__col">
+          <h4 class="pcard__col-title">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+            My Approach
+          </h4>
+          <p>Built a KPI-focused Tableau dashboard consolidating sales, profit, and order data. Layered in ARIMA/Prophet time series models for 6-month sales forecasting, and flagged loss-making categories directly on the viz.</p>
+        </div>
+
+        <div class="pcard__col">
+          <h4 class="pcard__col-title">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            Key Outcomes
+          </h4>
+          <ul class="pcard__bullets">
+            <li>Identified loss-making sub-categories dragging overall profit margin</li>
+            <li>Regional drill-downs revealing underperforming territories</li>
+            <li>Forecast integration enabling proactive stock and budget planning</li>
+            <li>Reduced time-to-insight from hours of Excel work to one dashboard</li>
+          </ul>
+        </div>
+
+        <div class="pcard__col">
+          <h4 class="pcard__col-title">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            Tech Used
+          </h4>
+          <div class="pcard__tech">
+            <span>Tableau</span><span>Excel</span><span>ARIMA</span><span>Prophet</span><span>Data Cleaning</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA row -->
+      <div class="pcard__cta">
+        <a href="#" class="btn-live">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          Live Demo
+        </a>
+        <a href="https://github.com/timmaina-devhub/superstore-executive-dashboard" target="_blank" rel="noopener" class="btn-gh">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </article>
+
+    <div class="feed-divider"></div>
+
+    <!-- ══════════════════════════════════════
+         PROJECT 2: Customer Churn Analysis
+    ═══════════════════════════════════════ -->
+    <article class="pcard" id="customer-analysis">
+      <div class="pcard__img-wrap">
+        <img src="{{ '/images/customer-analysis.png' | relative_url }}" alt="Customer Churn Analysis">
+        <span class="pcard__badge pcard__badge--done">✓ Completed</span>
+        <div class="pcard__img-overlay"></div>
+      </div>
+
+      <div class="pcard__header">
+        <div class="pcard__meta">
+          <span class="tag">Analytics</span>
+          <span class="tag tag--outline">Python</span>
+          <span class="tag tag--outline">Pandas</span>
+          <span class="tag tag--outline">scikit-learn</span>
+          <span class="tag tag--outline">Seaborn</span>
+        </div>
+        <h2 class="pcard__title">Customer Churn Analysis &amp; Segmentation</h2>
+        <p class="pcard__hook">
+          Why do customers leave — and who is most at risk right now? This end-to-end project answers both questions using machine learning and RFM segmentation, turning raw e-commerce transaction data into a clear retention playbook.
+        </p>
+      </div>
+
+      <div class="pcard__body">
+
+        <div class="pcard__col">
+          <h4 class="pcard__col-title">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            The Problem
+          </h4>
+          <p>The business had no systematic way to identify which customers were drifting toward churn or to distinguish loyal customers from one-time buyers — making retention efforts scattershot and expensive.</p>
+        </div>
+
+        <div class="pcard__col">
+          <h4 class="pcard__col-title">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+            My Approach
+          </h4>
+          <p>Combined RFM feature engineering with a logistic regression churn model optimised for recall — ensuring high-risk customers are caught, not missed. K-Means clustering then grouped customers into actionable segments (loyal, at-risk, inactive) surfaced through an interactive dashboard.</p>
+        </div>
+
+        <div class="pcard__col">
+          <h4 class="pcard__col-title">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            Key Outcomes
+          </h4>
+          <ul class="pcard__bullets">
+            <li>Churn model with strong recall — high-risk customers effectively flagged</li>
+            <li>Inactivity and refund behaviour identified as strongest churn signals</li>
+            <li>3 distinct customer segments enabling targeted retention campaigns</li>
+            <li>Interactive dashboard connecting insights directly to business actions</li>
+          </ul>
+        </div>
+
+        <div class="pcard__col">
+          <h4 class="pcard__col-title">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            Tech Used
+          </h4>
+          <div class="pcard__tech">
+            <span>Python</span><span>Pandas</span><span>scikit-learn</span><span>Seaborn</span><span>K-Means</span><span>Logistic Regression</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pcard__cta">
+        <a href="#" class="btn-live">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          Live Demo
+        </a>
+        <a href="https://github.com/timmaina-devhub/Customer-Churn-Analysis-and-Segmentation" target="_blank" rel="noopener" class="btn-gh">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </article>
+
+    <div class="feed-divider"></div>
+
+    <!-- ══════════════════════════════════════
+         PROJECT 3: Fraud Detection System
+    ═══════════════════════════════════════ -->
+    <article class="pcard" id="fraud-detection">
+      <div class="pcard__img-wrap">
+        <img src="{{ '/images/fraud-dashboard.png' | relative_url }}" alt="Fraud Detection System">
+        <span class="pcard__badge pcard__badge--wip">⚡ In Progress</span>
+        <div class="pcard__img-overlay"></div>
+      </div>
+
+      <div class="pcard__header">
+        <div class="pcard__meta">
+          <span class="tag">Machine Learning</span>
+          <span class="tag tag--outline">Python</span>
+          <span class="tag tag--outline">scikit-learn</span>
+          <span class="tag tag--outline">Tableau</span>
+          <span class="tag tag--outline">Random Forest</span>
+        </div>
+        <h2 class="pcard__title">Fraud Detection Command Centre</h2>
+        <p class="pcard__hook">
+          Financial fraud hides in behavioural patterns — not just transaction amounts. This end-to-end system engineers the right signals, trains a model to catch them, and surfaces everything through a real-time Tableau command centre built for fraud analysts.
+        </p>
+      </div>
+
+      <div class="pcard__body">
+
+        <div class="pcard__col">
+          <h4 class="pcard__col-title">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            The Problem
+          </h4>
+          <p>Rule-based fraud detection flags too many false positives and misses evolving patterns. The challenge was building a behavioural model that could detect fraud accurately on imbalanced, imperfect real-world data — then communicate findings to non-technical stakeholders.</p>
+        </div>
+
+        <div class="pcard__col">
+          <h4 class="pcard__col-title">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+            My Approach
+          </h4>
+          <p>Engineered behavioural features — transaction velocity, device/IP repetition, and time-window anomalies. Applied synthetic sampling to handle class imbalance, compared three models, and selected Random Forest for its precision-recall balance. Output fed directly into a Tableau command centre.</p>
+        </div>
+
+        <div class="pcard__col">
+          <h4 class="pcard__col-title">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            Key Outcomes
+          </h4>
+          <ul class="pcard__bullets">
+            <li>Random Forest model with strong precision-recall on imbalanced data</li>
+            <li>High-frequency burst patterns identified as primary fraud signal</li>
+            <li>Device &amp; IP repetition flagging catching repeat fraudsters</li>
+            <li>Tableau dashboard showing fraud trends, high-risk entities &amp; financial impact</li>
+          </ul>
+        </div>
+
+        <div class="pcard__col">
+          <h4 class="pcard__col-title">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            Tech Used
+          </h4>
+          <div class="pcard__tech">
+            <span>Python</span><span>scikit-learn</span><span>Random Forest</span><span>XGBoost</span><span>SMOTE</span><span>Tableau</span><span>Feature Engineering</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pcard__cta">
+        <a href="#" class="btn-live">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          Live Demo
+        </a>
+        <a href="https://github.com/timmaina-devhub/Fraud-Detection-System" target="_blank" rel="noopener" class="btn-gh">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </article>
+
+    <!-- ══════════════════════════════════════
+         ADD MORE PROJECTS BELOW THIS COMMENT
+         Copy the <article class="pcard"> block above,
+         add a new <div class="feed-divider"></div> before it,
+         and add a matching <a> in the sidebar nav.
+    ═══════════════════════════════════════ -->
+
+  </main>
+</div>
+
 <!-- FOOTER -->
 <footer class="footer">
-  © 2026 Timothy Maina
+  © 2026 Timothy Maina &nbsp;·&nbsp;
+  <a href="mailto:timothymaina382@gmail.com" style="color:#3b82f6;text-decoration:none;">Email-me</a>
 </footer>
 
-<style>
-/* ── Active nav link ───────────────────────────────── */
-.nav-active {
-  color: #3b82f6 !important;
-  font-weight: 600;
-}
+<!-- Sidebar active-link scroll spy -->
+<script>
+  const sections = document.querySelectorAll('.pcard');
+  const links = document.querySelectorAll('.sidebar-link');
 
-/* ── Page hero variant (shorter) ───────────────────── */
-.hero--sm {
-  padding: 80px 40px 60px;
-}
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active-link'));
+        const active = document.querySelector(`.sidebar-link[data-target="${entry.target.id}"]`);
+        if (active) active.classList.add('active-link');
+      }
+    });
+  }, { threshold: 0.35 });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+<style>
+/* ── Fonts ───────────────────────────────────────────── */
+body { font-family: 'DM Sans', sans-serif; }
+h1, h2, h3, h4 { font-family: 'DM Serif Display', serif; }
+
+/* ── Active nav ──────────────────────────────────────── */
+.nav-active { color: #3b82f6 !important; font-weight: 600; }
+
+/* ── Hero ────────────────────────────────────────────── */
+.hero--sm { padding: 80px 40px 50px; }
 .hero__eyebrow {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #3b82f6;
-  margin-bottom: 14px;
-}
-
-/* ── Project card (horizontal layout) ──────────────── */
-.project-card {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-  padding: 20px 0;
-}
-
-.project-card--reverse {
-  direction: rtl;
-}
-.project-card--reverse > * {
-  direction: ltr;
-}
-
-/* ── Project image block ────────────────────────────── */
-.project-image {
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.07);
-  background: #0f172a;
-  aspect-ratio: 16/10;
-}
-.project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  margin-bottom: 12px;
   display: block;
-  transition: transform 0.4s ease;
-}
-.project-card:hover .project-image img {
-  transform: scale(1.04);
 }
 
-/* ── Badge ──────────────────────────────────────────── */
-.project-badge {
-  position: absolute;
-  top: 14px;
-  right: 14px;
+/* Stats bar */
+.proj-stats {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  margin-top: 32px;
+  padding: 16px 28px;
+  background: rgba(15,23,42,0.6);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+}
+.proj-stat { text-align: center; }
+.proj-stat__num {
+  display: block;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.5rem;
+  color: #fff;
+  line-height: 1;
+}
+.proj-stat__label {
+  font-size: 0.72rem;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 3px;
+  display: block;
+}
+.proj-stat__div {
+  width: 1px;
+  height: 34px;
+  background: rgba(255,255,255,0.07);
+}
+
+/* ── Page layout: sidebar + feed ─────────────────────── */
+.proj-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px 80px;
+  align-items: start;
+}
+
+/* ── Sticky sidebar ──────────────────────────────────── */
+.proj-sidebar {
+  position: sticky;
+  top: 90px;
+  padding-right: 40px;
+}
+.sidebar-label {
   font-size: 0.72rem;
   font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 999px;
-  letter-spacing: 0.04em;
-}
-.project-badge--done {
-  background: rgba(16, 185, 129, 0.15);
-  color: #10b981;
-  border: 1px solid rgba(16, 185, 129, 0.3);
-}
-.project-badge--wip {
-  background: rgba(245, 158, 11, 0.15);
-  color: #f59e0b;
-  border: 1px solid rgba(245, 158, 11, 0.3);
-}
-
-/* ── Project body ───────────────────────────────────── */
-.project-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 18px;
-}
-
-.tag--outline {
-  background: transparent;
-  border: 1px solid rgba(59, 130, 246, 0.4);
-  color: #93c5fd;
-}
-
-.project-title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #475569;
   margin-bottom: 14px;
 }
-
-.project-desc {
-  color: #94a3b8;
-  font-size: 0.97rem;
-  line-height: 1.75;
-  margin-bottom: 20px;
-}
-
-.project-highlights {
-  list-style: none;
-  margin-bottom: 28px;
+.sidebar-nav {
   display: flex;
   flex-direction: column;
+  gap: 4px;
+}
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  color: #64748b;
+  transition: all 0.2s;
+  border-left: 2px solid transparent;
+}
+.sidebar-link:hover { color: #94a3b8; background: rgba(255,255,255,0.03); }
+.sidebar-link.active-link {
+  color: #3b82f6;
+  border-left-color: #3b82f6;
+  background: rgba(59,130,246,0.06);
+  font-weight: 500;
+}
+.sidebar-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+.active-link .sidebar-dot { opacity: 1; }
+
+.sidebar-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: 20px 0;
+}
+.sidebar-github {
+  display: flex;
+  align-items: center;
   gap: 8px;
+  font-size: 0.82rem;
+  color: #475569;
+  text-decoration: none;
+  transition: color 0.2s;
 }
-.project-highlights li {
-  font-size: 0.9rem;
-  color: #cbd5e1;
-  padding-left: 20px;
+.sidebar-github:hover { color: #94a3b8; }
+
+/* ── PROJECT CARD ────────────────────────────────────── */
+.pcard {
+  background: linear-gradient(160deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: border-color 0.3s;
+  scroll-margin-top: 100px;
+}
+.pcard:hover { border-color: rgba(59,130,246,0.2); }
+
+/* Image */
+.pcard__img-wrap {
   position: relative;
+  height: 260px;
+  overflow: hidden;
+  background: #0f172a;
 }
-.project-highlights li::before {
+.pcard__img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.pcard:hover .pcard__img-wrap img { transform: scale(1.03); }
+.pcard__img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(15,23,42,0.9) 100%);
+}
+
+/* Badge */
+.pcard__badge {
+  position: absolute;
+  top: 16px; right: 16px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  z-index: 2;
+}
+.pcard__badge--done {
+  background: rgba(16,185,129,0.15);
+  color: #10b981;
+  border: 1px solid rgba(16,185,129,0.3);
+}
+.pcard__badge--wip {
+  background: rgba(245,158,11,0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245,158,11,0.3);
+}
+
+/* Header */
+.pcard__header { padding: 28px 32px 0; }
+.pcard__meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.pcard__title {
+  font-size: 1.6rem;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.pcard__hook {
+  font-size: 1rem;
+  color: #94a3b8;
+  line-height: 1.7;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Body — 2×2 scannable grid */
+.pcard__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 0 32px;
+}
+.pcard__col {
+  padding: 24px 20px 24px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.pcard__col:nth-child(2) { padding-left: 24px; border-left: 1px solid rgba(255,255,255,0.05); }
+.pcard__col:nth-child(3) { border-bottom: none; }
+.pcard__col:nth-child(4) { border-bottom: none; border-left: 1px solid rgba(255,255,255,0.05); padding-left: 24px; }
+
+.pcard__col-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #3b82f6;
+  margin-bottom: 10px;
+  font-family: 'DM Sans', sans-serif;
+}
+.pcard__col > p {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  line-height: 1.7;
+}
+.pcard__bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+}
+.pcard__bullets li {
+  font-size: 0.86rem;
+  color: #cbd5e1;
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.5;
+}
+.pcard__bullets li::before {
   content: "▸";
   position: absolute;
   left: 0;
   color: #3b82f6;
-  font-size: 0.8rem;
-  top: 1px;
+  font-size: 0.75rem;
+  top: 2px;
+}
+.pcard__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.pcard__tech span {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  background: rgba(37,99,235,0.1);
+  border: 1px solid rgba(59,130,246,0.2);
+  border-radius: 999px;
+  color: #93c5fd;
+  font-family: 'DM Sans', sans-serif;
 }
 
-/* ── Buttons ────────────────────────────────────────── */
-.project-links {
+/* CTA row */
+.pcard__cta {
   display: flex;
   gap: 12px;
+  padding: 24px 32px;
+  border-top: 1px solid rgba(255,255,255,0.06);
   flex-wrap: wrap;
 }
-.btn {
-  display: inline-block;
-  padding: 10px 22px;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  cursor: pointer;
-}
-.btn--primary {
+.btn-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
   background: #2563eb;
-  color: #ffffff;
+  color: #fff;
   border: 1px solid #2563eb;
+  border-radius: 9px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s;
+  font-family: 'DM Sans', sans-serif;
 }
-.btn--primary:hover {
+.btn-live:hover {
   background: #1d4ed8;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 8px 20px rgba(37,99,235,0.35);
 }
-.btn--ghost {
+.btn-gh {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
   background: transparent;
   color: #94a3b8;
   border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 9px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.25s;
+  font-family: 'DM Sans', sans-serif;
 }
-.btn--ghost:hover {
+.btn-gh:hover {
   color: #e5e7eb;
   border-color: rgba(255,255,255,0.3);
   transform: translateY(-2px);
 }
 
-/* ── Divider ────────────────────────────────────────── */
-.project-divider {
-  height: 1px;
-  background: rgba(255,255,255,0.06);
-  margin: 60px 0;
+/* Tags */
+.tag {
+  display: inline-block;
+  padding: 4px 11px;
+  font-size: 0.73rem;
+  font-weight: 500;
+  background: #2563eb;
+  border-radius: 999px;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+}
+.tag--outline {
+  background: transparent;
+  border: 1px solid rgba(59,130,246,0.4);
+  color: #93c5fd;
 }
 
-/* ── Responsive ─────────────────────────────────────── */
-@media (max-width: 900px) {
-  .project-card,
-  .project-card--reverse {
+/* Divider between projects */
+.feed-divider { height: 40px; }
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 960px) {
+  .proj-layout {
     grid-template-columns: 1fr;
-    direction: ltr;
-    gap: 30px;
+    padding: 40px 24px 60px;
   }
+  .proj-sidebar {
+    position: static;
+    padding-right: 0;
+    margin-bottom: 40px;
+  }
+  .sidebar-nav { flex-direction: row; flex-wrap: wrap; gap: 8px; }
+  .sidebar-link { border-left: none; border-bottom: 2px solid transparent; }
+  .sidebar-link.active-link { border-left-color: transparent; border-bottom-color: #3b82f6; }
 }
 
-@media (max-width: 600px) {
-  .hero--sm {
-    padding: 60px 20px 40px;
-  }
-  .project-title {
-    font-size: 1.4rem;
-  }
+@media (max-width: 700px) {
+  .pcard__body { grid-template-columns: 1fr; }
+  .pcard__col:nth-child(2),
+  .pcard__col:nth-child(4) { border-left: none; padding-left: 0; }
+  .pcard__col:nth-child(3) { border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .pcard__header { padding: 20px 20px 0; }
+  .pcard__cta { padding: 20px; }
+  .pcard__body { padding: 0 20px; }
+  .pcard__img-wrap { height: 190px; }
+  .pcard__title { font-size: 1.3rem; }
+  .proj-stats { gap: 16px; padding: 14px 20px; }
+  .hero--sm { padding: 60px 20px 40px; }
 }
 </style>
