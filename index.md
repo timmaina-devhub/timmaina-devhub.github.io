@@ -20,9 +20,7 @@ title: Home
      HERO
 ════════════════════════════════════════════ -->
 <section class="h-hero">
-  <!-- Animated background grid -->
   <div class="h-hero__grid" aria-hidden="true"></div>
-  <!-- Glowing orbs -->
   <div class="h-orb h-orb--1" aria-hidden="true"></div>
   <div class="h-orb h-orb--2" aria-hidden="true"></div>
 
@@ -48,7 +46,6 @@ title: Home
       <a href="/contact" class="h-btn h-btn--ghost">Let's Talk</a>
     </div>
 
-    <!-- Trust bar -->
     <div class="h-trust">
       <div class="h-trust__item">
         <span class="h-trust__num">3+</span>
@@ -79,7 +76,6 @@ title: Home
     </div>
 
     <div class="h-pillars">
-
       <div class="h-pillar">
         <div class="h-pillar__icon">
           <svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7">
@@ -119,13 +115,12 @@ title: Home
           <span>scikit-learn</span><span>XGBoost</span><span>K-Means</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════
-     FEATURED PROJECTS
+     FEATURED PROJECTS — equal 2×2 grid
 ════════════════════════════════════════════ -->
 <section class="h-section h-section--alt">
   <div class="container">
@@ -135,15 +130,13 @@ title: Home
       <p class="h-section-sub">Each project was built to solve a real problem. Click any card to read the full breakdown.</p>
     </div>
 
-    <div class="h-projects">
+    <div class="h-projects-grid">
 
-      <!-- Featured (wide) card -->
-      <a href="/projects#sales-dashboard" class="h-proj h-proj--wide">
+      <!-- Card 1: Sales Dashboard -->
+      <a href="/projects#sales-dashboard" class="h-proj">
         <div class="h-proj__img">
           <img src="{{ '/images/sales-dashboard.png' | relative_url }}" alt="Sales Dashboard">
-          <div class="h-proj__overlay">
-            <span>View Project →</span>
-          </div>
+          <div class="h-proj__overlay"><span>View Project →</span></div>
         </div>
         <div class="h-proj__body">
           <div class="h-proj__tags">
@@ -157,48 +150,67 @@ title: Home
         </div>
       </a>
 
-      <!-- Two smaller cards -->
-      <div class="h-proj-pair">
+      <!-- Card 2: Customer Churn -->
+      <a href="/projects#customer-analysis" class="h-proj">
+        <div class="h-proj__img">
+          <img src="{{ '/images/customer-analysis.png' | relative_url }}" alt="Customer Churn Analysis">
+          <div class="h-proj__overlay"><span>View Project →</span></div>
+        </div>
+        <div class="h-proj__body">
+          <div class="h-proj__tags">
+            <span class="tag">Analytics</span>
+            <span class="tag tag--outline">Python</span>
+            <span class="tag tag--outline">scikit-learn</span>
+          </div>
+          <h3>Customer Churn Analysis</h3>
+          <p>Churn analysis using RFM-based features, machine learning, and customer segmentation to identify key churn drivers and highlight actionable retention strategies that translate data into clear business decisions.</p>
+          <span class="h-proj__cta">Read case study →</span>
+        </div>
+      </a>
 
-        <a href="/projects#customer-analysis" class="h-proj">
-          <div class="h-proj__img">
-            <img src="{{ '/images/customer-analysis.png' | relative_url }}" alt="Customer Analysis">
-            <div class="h-proj__overlay"><span>View →</span></div>
+      <!-- Card 3: Fraud Detection -->
+      <a href="/projects#predictive-model" class="h-proj">
+        <div class="h-proj__img">
+          <img src="{{ '/images/fraud-dashboard.png' | relative_url }}" alt="Fraud Detection Command Centre">
+          <div class="h-proj__overlay"><span>View Project →</span></div>
+        </div>
+        <div class="h-proj__body">
+          <div class="h-proj__tags">
+            <span class="tag">Machine Learning</span>
+            <span class="tag tag--outline">scikit-learn</span>
+            <span class="tag tag--outline">Tableau</span>
           </div>
-          <div class="h-proj__body">
-            <div class="h-proj__tags">
-              <span class="tag">Analytics</span>
-              <span class="tag tag--outline">Python</span>
-            </div>
-            <h3>Customer Analysis</h3>
-            <p>Customer churn analysis project focused on understanding why customers leave and how to retain them. Using RFM-based features, machine learning, and customer segmentation, the project identifies key churn drivers and highlights actionable strategies to improve retention and revenue. Designed to translate data into clear business decisions.</p>
-            <span class="h-proj__cta">Read case study →</span>
-          </div>
-        </a>
+          <h3>Fraud Detection Command Centre</h3>
+          <p>End-to-end fraud detection system combining machine learning with an interactive Tableau dashboard. Engineered behavioural features — transaction velocity, device patterns, temporal anomalies — with a Random Forest classifier achieving strong detection performance.</p>
+          <span class="h-proj__cta">Read case study →</span>
+        </div>
+      </a>
 
-        <a href="/projects#predictive-model" class="h-proj">
-          <div class="h-proj__img">
-            <img src="{{ '/images/fraud-dashboard.png' | relative_url }}" alt="Predictive Modeling">
-            <div class="h-proj__overlay"><span>View →</span></div>
+      <!-- Card 4: Coming Soon -->
+      <div class="h-proj h-proj--coming">
+        <div class="h-proj__img h-proj__img--placeholder">
+          <div class="h-proj__placeholder-inner">
+            <svg width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="#3b82f6" stroke-width="1.4">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+            </svg>
+            <span>In Progress</span>
           </div>
-          <div class="h-proj__body">
-            <div class="h-proj__tags">
-              <span class="tag">Machine Learning</span>
-              <span class="tag tag--outline">scikit-learn</span>
-            </div>
-            <h3>Fraud Detection Command Centre</h3>
-            <p>I developed an end-to-end fraud detection system that combines machine learning with an interactive analytics dashboard to identify suspicious transaction behaviour.The solution focuses on behavioural signals such as transaction velocity, device usage patterns, and temporal anomalies. By engineering these features and addressing class imbalance, I trained multiple models, with a Random Forest classifier achieving strong performance in detecting fraud while minimizing false alerts. The final output is a command centre dashboard built in Tableau, providing visibility into fraud trends, high-risk entities, and estimated financial impact. This project reflects my ability to move from raw data to a deployable analytical solution that supports real-world decision making..</p>
-            <span class="h-proj__cta">Read case study →</span>
+        </div>
+        <div class="h-proj__body">
+          <div class="h-proj__tags">
+            <span class="tag tag--coming">Coming Soon</span>
           </div>
-        </a>
-
+          <h3>Next Project</h3>
+          <p>A new end-to-end data project is currently in development. Check back soon — or follow my GitHub to see it take shape in real time.</p>
+          <a href="https://github.com/timmaina-devhub/TimothyMaina" target="_blank" rel="noopener" class="h-proj__cta">Follow on GitHub →</a>
+        </div>
       </div>
+
     </div>
 
     <div class="h-all-projects">
       <a href="/projects" class="h-btn h-btn--ghost">See All Projects →</a>
     </div>
-
   </div>
 </section>
 
@@ -250,9 +262,6 @@ title: Home
   <a href="mailto:timothymaina382@gmail.com" style="color:#3b82f6;text-decoration:none;">Email-me</a>
 </footer>
 
-<!-- ═══════════════════════════════════════════
-     PAGE-SPECIFIC STYLES
-════════════════════════════════════════════ -->
 <style>
 /* ── Fonts ───────────────────────────────────────────── */
 body { font-family: 'DM Sans', sans-serif; }
@@ -273,8 +282,6 @@ em { font-style: italic; color: #60a5fa; }
   overflow: hidden;
   background: #020617;
 }
-
-/* Grid lines */
 .h-hero__grid {
   position: absolute;
   inset: 0;
@@ -284,8 +291,6 @@ em { font-style: italic; color: #60a5fa; }
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
 }
-
-/* Glowing orbs */
 .h-orb {
   position: absolute;
   border-radius: 50%;
@@ -308,7 +313,6 @@ em { font-style: italic; color: #60a5fa; }
   0%, 100% { transform: translate(0,0); }
   50%       { transform: translate(30px, -30px); }
 }
-
 .h-hero__inner {
   position: relative;
   z-index: 2;
@@ -321,8 +325,6 @@ em { font-style: italic; color: #60a5fa; }
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
-/* Badge */
 .h-hero__badge {
   display: inline-flex;
   align-items: center;
@@ -347,8 +349,6 @@ em { font-style: italic; color: #60a5fa; }
   0%,100% { box-shadow: 0 0 0 2px rgba(16,185,129,0.25); }
   50%      { box-shadow: 0 0 0 5px rgba(16,185,129,0.06); }
 }
-
-/* Title */
 .h-hero__title {
   font-size: clamp(2.6rem, 6vw, 4.2rem);
   color: #ffffff;
@@ -356,8 +356,6 @@ em { font-style: italic; color: #60a5fa; }
   margin-bottom: 22px;
   animation: fadeUp 0.9s 0.2s ease both;
 }
-
-/* Subtitle */
 .h-hero__sub {
   font-size: 1.1rem;
   color: #94a3b8;
@@ -367,8 +365,6 @@ em { font-style: italic; color: #60a5fa; }
   animation: fadeUp 0.9s 0.3s ease both;
 }
 .h-hero__sub strong { color: #e2e8f0; }
-
-/* CTA buttons */
 .h-hero__actions {
   display: flex;
   gap: 14px;
@@ -377,7 +373,6 @@ em { font-style: italic; color: #60a5fa; }
   margin-bottom: 52px;
   animation: fadeUp 0.9s 0.4s ease both;
 }
-
 .h-btn {
   display: inline-block;
   padding: 13px 28px;
@@ -409,8 +404,6 @@ em { font-style: italic; color: #60a5fa; }
   border-color: rgba(255,255,255,0.3);
   transform: translateY(-3px);
 }
-
-/* Trust bar */
 .h-trust {
   display: flex;
   align-items: center;
@@ -447,11 +440,7 @@ em { font-style: italic; color: #60a5fa; }
   border-top: 1px solid rgba(255,255,255,0.05);
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
-
-.h-section-header {
-  text-align: center;
-  margin-bottom: 56px;
-}
+.h-section-header { text-align: center; margin-bottom: 56px; }
 .h-section-header h2 {
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
   color: #fff;
@@ -475,11 +464,7 @@ em { font-style: italic; color: #60a5fa; }
 }
 
 /* ── PILLARS ─────────────────────────────────────────── */
-.h-pillars {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
+.h-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .h-pillar {
   background: linear-gradient(145deg, #1e293b, #0f172a);
   border: 1px solid rgba(255,255,255,0.06);
@@ -501,22 +486,9 @@ em { font-style: italic; color: #60a5fa; }
   color: #60a5fa;
   margin-bottom: 20px;
 }
-.h-pillar h3 {
-  font-size: 1.15rem;
-  color: #fff;
-  margin-bottom: 12px;
-}
-.h-pillar p {
-  color: #94a3b8;
-  font-size: 0.9rem;
-  line-height: 1.7;
-  margin-bottom: 20px;
-}
-.h-pillar__tools {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
+.h-pillar h3 { font-size: 1.15rem; color: #fff; margin-bottom: 12px; }
+.h-pillar p { color: #94a3b8; font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px; }
+.h-pillar__tools { display: flex; flex-wrap: wrap; gap: 6px; }
 .h-pillar__tools span {
   font-size: 0.75rem;
   padding: 3px 10px;
@@ -526,19 +498,10 @@ em { font-style: italic; color: #60a5fa; }
   color: #93c5fd;
 }
 
-/* ── PROJECT CARDS ───────────────────────────────────── */
-.h-projects {
+/* ── PROJECT GRID — equal 2×2 ────────────────────────── */
+.h-projects-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  gap: 24px;
-}
-.h-proj--wide { grid-row: 1; grid-column: 1; }
-.h-proj-pair {
-  grid-row: 1;
-  grid-column: 2;
-  display: flex;
-  flex-direction: column;
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
 
@@ -559,21 +522,53 @@ em { font-style: italic; color: #60a5fa; }
   border-color: rgba(59,130,246,0.25);
 }
 
+/* Coming soon — dashed border, no lift */
+.h-proj--coming {
+  border-style: dashed;
+  border-color: rgba(255,255,255,0.1);
+  cursor: default;
+}
+.h-proj--coming:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: rgba(255,255,255,0.15);
+}
+
 .h-proj__img {
   position: relative;
   overflow: hidden;
   background: #0f172a;
+  height: 200px;
 }
-.h-proj--wide .h-proj__img { height: 220px; }
-.h-proj-pair .h-proj__img { height: 140px; }
-
 .h-proj__img img {
   width: 100%; height: 100%;
   object-fit: cover;
   display: block;
   transition: transform 0.4s ease;
 }
-.h-proj:hover .h-proj__img img { transform: scale(1.06); }
+.h-proj:not(.h-proj--coming):hover .h-proj__img img { transform: scale(1.06); }
+
+/* Placeholder for coming soon */
+.h-proj__img--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+.h-proj__placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.5;
+}
+.h-proj__placeholder-inner span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #3b82f6;
+}
 
 .h-proj__overlay {
   position: absolute;
@@ -587,40 +582,36 @@ em { font-style: italic; color: #60a5fa; }
   color: #fff;
   letter-spacing: 0.03em;
 }
-.h-proj:hover .h-proj__overlay { opacity: 1; }
+.h-proj:not(.h-proj--coming):hover .h-proj__overlay { opacity: 1; }
 
-.h-proj__body { padding: 22px; flex: 1; }
-.h-proj__tags {
+.h-proj__body {
+  padding: 24px;
+  flex: 1;
   display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-  margin-bottom: 12px;
+  flex-direction: column;
 }
-.h-proj__body h3 {
-  font-size: 1.15rem;
-  color: #fff;
-  margin-bottom: 8px;
-}
+.h-proj__tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 12px; }
+.h-proj__body h3 { font-size: 1.1rem; color: #fff; margin-bottom: 8px; }
 .h-proj__body p {
   color: #94a3b8;
   font-size: 0.88rem;
   line-height: 1.65;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
+  flex: 1;
 }
 .h-proj__cta {
   font-size: 0.85rem;
   font-weight: 600;
   color: #3b82f6;
   transition: color 0.2s;
+  text-decoration: none;
+  margin-top: auto;
 }
 .h-proj:hover .h-proj__cta { color: #60a5fa; }
 
-.h-all-projects {
-  text-align: center;
-  margin-top: 40px;
-}
+.h-all-projects { text-align: center; margin-top: 40px; }
 
-/* Tags (reuse base, add outline variant) */
+/* Tags */
 .tag {
   display: inline-block;
   padding: 4px 11px;
@@ -634,6 +625,11 @@ em { font-style: italic; color: #60a5fa; }
   background: transparent;
   border: 1px solid rgba(59,130,246,0.4);
   color: #93c5fd;
+}
+.tag--coming {
+  background: rgba(100,116,139,0.2);
+  border: 1px solid rgba(100,116,139,0.3);
+  color: #94a3b8;
 }
 
 /* ── STACK GRID ──────────────────────────────────────── */
@@ -656,11 +652,7 @@ em { font-style: italic; color: #60a5fa; }
   background: rgba(37,99,235,0.08);
   transform: translateY(-3px);
 }
-.h-stack__name {
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: #cbd5e1;
-}
+.h-stack__name { font-size: 0.88rem; font-weight: 500; color: #cbd5e1; }
 
 /* ── CTA BANNER ──────────────────────────────────────── */
 .h-cta-banner {
@@ -706,15 +698,13 @@ em { font-style: italic; color: #60a5fa; }
 /* ── RESPONSIVE ──────────────────────────────────────── */
 @media (max-width: 960px) {
   .h-pillars { grid-template-columns: 1fr 1fr; }
-  .h-projects { grid-template-columns: 1fr; }
-  .h-proj--wide, .h-proj-pair { grid-column: 1; grid-row: auto; }
-  .h-proj-pair { flex-direction: row; }
+  .h-projects-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 640px) {
   .h-hero__inner { padding: 0 20px; }
   .h-section { padding: 70px 20px; }
   .h-pillars { grid-template-columns: 1fr; }
-  .h-proj-pair { flex-direction: column; }
+  .h-projects-grid { grid-template-columns: 1fr; }
   .h-trust { gap: 20px; }
   .h-cta-banner { padding: 70px 20px; }
 }
