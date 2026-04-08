@@ -178,7 +178,7 @@ title: Home
 
         <a href="/projects#predictive-model" class="h-proj">
           <div class="h-proj__img">
-            <img src="{{ '/images/predictive-model.png' | relative_url }}" alt="Predictive Modeling">
+            <img src="{{ '/images/fraud-dashboard.png' | relative_url }}" alt="Predictive Modeling">
             <div class="h-proj__overlay"><span>View →</span></div>
           </div>
           <div class="h-proj__body">
@@ -186,8 +186,8 @@ title: Home
               <span class="tag">Machine Learning</span>
               <span class="tag tag--outline">scikit-learn</span>
             </div>
-            <h3>Predictive Modeling</h3>
-            <p>Sales forecasting pipeline comparing XGBoost, Random Forest, and Linear Regression models.</p>
+            <h3>Fraud Detection Command Centre</h3>
+            <p>I developed an end-to-end fraud detection system that combines machine learning with an interactive analytics dashboard to identify suspicious transaction behaviour.The solution focuses on behavioural signals such as transaction velocity, device usage patterns, and temporal anomalies. By engineering these features and addressing class imbalance, I trained multiple models, with a Random Forest classifier achieving strong performance in detecting fraud while minimizing false alerts. The final output is a command centre dashboard built in Tableau, providing visibility into fraud trends, high-risk entities, and estimated financial impact. This project reflects my ability to move from raw data to a deployable analytical solution that supports real-world decision making..</p>
             <span class="h-proj__cta">Read case study →</span>
           </div>
         </a>
