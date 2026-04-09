@@ -76,6 +76,7 @@ title: Projects
   ──────────────────────────────────── -->
   <article class="pj" id="sales-dashboard">
 
+    <!-- Top bar -->
     <div class="pj__topbar">
       <span class="pj__index">01</span>
       <div class="pj__topbar-tags">
@@ -87,19 +88,13 @@ title: Projects
       <span class="pj__badge pj__badge--done">✓ Completed</span>
     </div>
 
+    <!-- Title + hook -->
     <h2 class="pj__title">Superstore Sales Executive Dashboard</h2>
     <p class="pj__hook">A single-screen command centre that turns four years of Superstore data into executive-ready insights — combining performance analysis with forward-looking forecasts so decision-makers never have to dig through a spreadsheet again.</p>
 
-    <div class="pj__layout">
-      <div class="pj__img-col">
-        <div class="pj__img-frame">
-          <div class="pj__img-browser"><span></span><span></span><span></span></div>
-          <div class="pj__img-wrap">
-            <img src="{{ '/images/sales-dashboard.png' | relative_url }}" alt="Superstore Sales Dashboard">
-          </div>
-        </div>
-      </div>
-      <div class="pj__detail-col">
+    <!-- Content flow: 2-col grid (no image) -->
+    <div class="pj__content">
+      <div class="pj__col">
         <div class="pj__block">
           <h4 class="pj__block-title">
             <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -107,14 +102,16 @@ title: Projects
           </h4>
           <p>Leadership needed visibility into which regions, segments, and product categories were driving — or dragging — profitability, with no easy way to project where sales were heading.</p>
         </div>
-        <div class="pj__block">
+        <div class="pj__block pj__block--nb">
           <h4 class="pj__block-title">
             <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
             My Approach
           </h4>
           <p>Built a KPI-focused Tableau dashboard consolidating sales, profit, and order data. Layered in ARIMA/Prophet time series models for 6-month forecasting, and flagged loss-making categories directly in the viz.</p>
         </div>
-        <div class="pj__block pj__block--outcomes">
+      </div>
+      <div class="pj__col">
+        <div class="pj__block">
           <h4 class="pj__block-title">
             <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
             Key Outcomes
@@ -126,16 +123,20 @@ title: Projects
             <li>Time-to-insight reduced from hours of Excel work to one dashboard</li>
           </ul>
         </div>
-        <div class="pj__tech-row">
-          <span>Tableau</span><span>Excel</span><span>ARIMA</span><span>Prophet</span>
+        <div class="pj__block pj__block--nb">
+          <h4 class="pj__block-title">
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            Tech Stack
+          </h4>
+          <div class="pj__tech-row">
+            <span>Tableau</span><span>Excel</span><span>ARIMA</span><span>Prophet</span><span>Data Cleaning</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- DEMO PANELS -->
+    <!-- Dashboard panel: screenshot + download -->
     <div class="demo-section">
-
-      <!-- Dashboard preview + download -->
       <div class="dash-panel">
         <div class="dash-panel__left">
           <div class="dash-panel__screen">
@@ -144,7 +145,7 @@ title: Projects
               <div class="dash-panel__url">SuperStoreSales_Project1.twb &nbsp;·&nbsp; Tableau Workbook</div>
             </div>
             <div class="dash-panel__preview">
-              <img src="{{ '/images/sales-dashboard.png' | relative_url }}" alt="Superstore Dashboard Full Preview">
+              <img src="{{ '/images/sales-dashboard.png' | relative_url }}" alt="Superstore Dashboard Preview">
               <div class="dash-panel__shine"></div>
             </div>
           </div>
@@ -157,9 +158,7 @@ title: Projects
           <p>The full Tableau workbook is available for download. Open it in <strong>Tableau Desktop</strong> or the free <strong>Tableau Public Desktop</strong> app to explore every filter, drill-down, and forecast interaction.</p>
           <a href="https://github.com/timmaina-devhub/superstore-executive-dashboard/raw/main/dashboard/SuperStoreSales_Project1.twb"
              class="btn-download" download>
-            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-            </svg>
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
             Download Dashboard (.twb)
           </a>
           <p class="dash-panel__hint">
@@ -169,7 +168,7 @@ title: Projects
         </div>
       </div>
 
-      <!-- Notebook embed -->
+      <!-- Notebook -->
       <div class="demo-block">
         <div class="demo-block__header" onclick="toggleDemo('nb-1')" role="button" tabindex="0">
           <div class="demo-block__title">
@@ -182,21 +181,14 @@ title: Projects
           </button>
         </div>
         <div class="demo-frame" id="nb-1">
-          <iframe
-            src="https://nbviewer.org/github/timmaina-devhub/superstore-executive-dashboard/blob/main/notebooks/forecasting_superStoreSales.ipynb"
-            width="100%" height="650" frameborder="0" loading="lazy"
-            title="Superstore Sales Forecasting Notebook">
-          </iframe>
+          <iframe src="https://nbviewer.org/github/timmaina-devhub/superstore-executive-dashboard/blob/main/notebooks/forecasting_superStoreSales.ipynb"
+            width="100%" height="650" frameborder="0" loading="lazy" title="Superstore Notebook"></iframe>
         </div>
       </div>
     </div>
 
+    <!-- CTA: GitHub only + Next -->
     <div class="pj__cta">
-      <a href="https://github.com/timmaina-devhub/superstore-executive-dashboard/raw/main/dashboard/SuperStoreSales_Project1.twb"
-         class="btn-demo" download>
-        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-        Download Dashboard
-      </a>
       <a href="https://github.com/timmaina-devhub/superstore-executive-dashboard" target="_blank" rel="noopener" class="btn-gh">
         <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
         View on GitHub
@@ -224,19 +216,11 @@ title: Projects
       <span class="pj__badge pj__badge--done">✓ Completed</span>
     </div>
 
-    <h2 class="pj__title">E-COMMERCE CUSTOMER INTELLIGENCE SYSTEM </h2>
+    <h2 class="pj__title">Customer Churn Analysis &amp; Segmentation</h2>
     <p class="pj__hook">Why do customers leave — and who is most at risk right now? This end-to-end project answers both questions using machine learning and RFM segmentation, turning raw e-commerce data into a clear, actionable retention playbook.</p>
 
-    <div class="pj__layout pj__layout--flip">
-      <div class="pj__img-col">
-        <div class="pj__img-frame">
-          <div class="pj__img-browser"><span></span><span></span><span></span></div>
-          <div class="pj__img-wrap">
-            <img src="{{ '/images/customer-analysis.png' | relative_url }}" alt="Customer Churn Analysis">
-          </div>
-        </div>
-      </div>
-      <div class="pj__detail-col">
+    <div class="pj__content">
+      <div class="pj__col">
         <div class="pj__block">
           <h4 class="pj__block-title">
             <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -244,14 +228,16 @@ title: Projects
           </h4>
           <p>The business had no systematic way to identify which customers were drifting toward churn or to distinguish loyal customers from one-time buyers — making retention efforts scattershot and expensive.</p>
         </div>
-        <div class="pj__block">
+        <div class="pj__block pj__block--nb">
           <h4 class="pj__block-title">
             <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
             My Approach
           </h4>
-          <p>Combined RFM feature engineering with a logistic regression churn model optimised for recall. K-Means clustering then grouped customers into actionable segments surfaced through an interactive dashboard.</p>
+          <p>Combined RFM feature engineering with a logistic regression churn model optimised for recall. K-Means clustering grouped customers into actionable segments (loyal, at-risk, inactive) surfaced through an interactive dashboard.</p>
         </div>
-        <div class="pj__block pj__block--outcomes">
+      </div>
+      <div class="pj__col">
+        <div class="pj__block">
           <h4 class="pj__block-title">
             <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
             Key Outcomes
@@ -263,15 +249,19 @@ title: Projects
             <li>Dashboard connecting each insight directly to a recommended action</li>
           </ul>
         </div>
-        <div class="pj__tech-row">
-          <span>Python</span><span>Pandas</span><span>scikit-learn</span><span>K-Means</span><span>Seaborn</span>
+        <div class="pj__block pj__block--nb">
+          <h4 class="pj__block-title">
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            Tech Stack
+          </h4>
+          <div class="pj__tech-row">
+            <span>Python</span><span>Pandas</span><span>scikit-learn</span><span>K-Means</span><span>Seaborn</span><span>Logistic Regression</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- DEMO PANELS -->
     <div class="demo-section">
-
       <div class="dash-panel">
         <div class="dash-panel__left">
           <div class="dash-panel__screen">
@@ -280,7 +270,7 @@ title: Projects
               <div class="dash-panel__url">Ecommerce_project_portfolio.twb &nbsp;·&nbsp; Tableau Workbook</div>
             </div>
             <div class="dash-panel__preview">
-              <img src="{{ '/images/customer-analysis.png' | relative_url }}" alt="Customer Churn Dashboard Full Preview">
+              <img src="{{ '/images/customer-analysis.png' | relative_url }}" alt="Customer Churn Dashboard Preview">
               <div class="dash-panel__shine"></div>
             </div>
           </div>
@@ -293,9 +283,7 @@ title: Projects
           <p>The full Tableau workbook is available for download. Open it in <strong>Tableau Desktop</strong> or the free <strong>Tableau Public Desktop</strong> app to explore every filter, segment view, and churn breakdown.</p>
           <a href="https://github.com/timmaina-devhub/Customer-Churn-Analysis-and-Segmentation/raw/main/dashboard/Ecommerce_project_portfolio.twb"
              class="btn-download" download>
-            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-            </svg>
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
             Download Dashboard (.twb)
           </a>
           <p class="dash-panel__hint">
@@ -317,21 +305,13 @@ title: Projects
           </button>
         </div>
         <div class="demo-frame" id="nb-2">
-          <iframe
-            src="https://nbviewer.org/github/timmaina-devhub/Customer-Churn-Analysis-and-Segmentation/blob/main/notebooks/modeling_process(E-commerce_customer_segmentation%20%26%20_churn_prediction).ipynb"
-            width="100%" height="650" frameborder="0" loading="lazy"
-            title="Customer Churn Analysis Notebook">
-          </iframe>
+          <iframe src="https://nbviewer.org/github/timmaina-devhub/Customer-Churn-Analysis-and-Segmentation/blob/main/notebooks/modeling_process(E-commerce_customer_segmentation%20%26%20_churn_prediction).ipynb"
+            width="100%" height="650" frameborder="0" loading="lazy" title="Customer Churn Notebook"></iframe>
         </div>
       </div>
     </div>
 
     <div class="pj__cta">
-      <a href="https://github.com/timmaina-devhub/Customer-Churn-Analysis-and-Segmentation/raw/main/dashboard/Ecommerce_project_portfolio.twb"
-         class="btn-demo" download>
-        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-        Download Dashboard
-      </a>
       <a href="https://github.com/timmaina-devhub/Customer-Churn-Analysis-and-Segmentation" target="_blank" rel="noopener" class="btn-gh">
         <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
         View on GitHub
@@ -359,34 +339,28 @@ title: Projects
       <span class="pj__badge pj__badge--wip">⚡ In Progress</span>
     </div>
 
-    <h2 class="pj__title">FINANCE FRAUD DETECTION SYSTEM</h2>
+    <h2 class="pj__title">Fraud Detection Command Centre</h2>
     <p class="pj__hook">Financial fraud hides in behavioural patterns — not just transaction amounts. This end-to-end system engineers the right signals, trains a model to catch them, and surfaces everything through a real-time Tableau command centre built for fraud analysts.</p>
 
-    <div class="pj__layout">
-      <div class="pj__img-col">
-        <div class="pj__img-frame">
-          <div class="pj__img-browser"><span></span><span></span><span></span></div>
-          <div class="pj__img-wrap">
-            <img src="{{ '/images/fraud-dashboard.png' | relative_url }}" alt="Fraud Detection Command Centre">
-          </div>
-        </div>
-      </div>
-      <div class="pj__detail-col">
+    <div class="pj__content">
+      <div class="pj__col">
         <div class="pj__block">
           <h4 class="pj__block-title">
             <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             The Problem
           </h4>
-          <p>Rule-based fraud detection flags too many false positives and misses evolving patterns. The challenge: build a behavioural model that catches fraud accurately on imbalanced, imperfect real-world data and communicate it clearly to non-technical stakeholders.</p>
+          <p>Rule-based fraud detection flags too many false positives and misses evolving patterns. The challenge: build a behavioural model accurate on imbalanced, imperfect real-world data and communicate findings clearly to non-technical stakeholders.</p>
         </div>
-        <div class="pj__block">
+        <div class="pj__block pj__block--nb">
           <h4 class="pj__block-title">
             <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
             My Approach
           </h4>
-          <p>Engineered behavioural features — transaction velocity, device/IP repetition, and time-window anomalies. Applied SMOTE for class imbalance, compared three models, and selected Random Forest for its precision-recall balance, feeding output into Tableau.</p>
+          <p>Engineered behavioural features — transaction velocity, device/IP repetition, time-window anomalies. Applied SMOTE for class imbalance, compared three models, and selected Random Forest for its precision-recall balance, feeding output into Tableau.</p>
         </div>
-        <div class="pj__block pj__block--outcomes">
+      </div>
+      <div class="pj__col">
+        <div class="pj__block">
           <h4 class="pj__block-title">
             <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
             Key Outcomes
@@ -395,18 +369,22 @@ title: Projects
             <li>Random Forest achieving strong precision-recall on imbalanced data</li>
             <li>High-frequency burst patterns identified as primary fraud signal</li>
             <li>Device &amp; IP repetition flagging catching repeat offenders</li>
-            <li>Tableau dashboard showing fraud trends, high-risk entities &amp; financial impact</li>
+            <li>Tableau dashboard showing fraud trends, risk entities &amp; financial impact</li>
           </ul>
         </div>
-        <div class="pj__tech-row">
-          <span>Python</span><span>Random Forest</span><span>XGBoost</span><span>SMOTE</span><span>Tableau</span>
+        <div class="pj__block pj__block--nb">
+          <h4 class="pj__block-title">
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            Tech Stack
+          </h4>
+          <div class="pj__tech-row">
+            <span>Python</span><span>Random Forest</span><span>XGBoost</span><span>SMOTE</span><span>Tableau</span><span>Feature Engineering</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- DEMO PANELS -->
     <div class="demo-section">
-
       <div class="dash-panel">
         <div class="dash-panel__left">
           <div class="dash-panel__screen">
@@ -415,7 +393,7 @@ title: Projects
               <div class="dash-panel__url">Fraud_project_portfolio.twb &nbsp;·&nbsp; Tableau Workbook</div>
             </div>
             <div class="dash-panel__preview">
-              <img src="{{ '/images/fraud-dashboard.png' | relative_url }}" alt="Fraud Detection Dashboard Full Preview">
+              <img src="{{ '/images/fraud-dashboard.png' | relative_url }}" alt="Fraud Detection Dashboard Preview">
               <div class="dash-panel__shine"></div>
             </div>
           </div>
@@ -428,9 +406,7 @@ title: Projects
           <p>The full Tableau workbook is available for download. Open it in <strong>Tableau Desktop</strong> or the free <strong>Tableau Public Desktop</strong> app to explore fraud trends, entity risk scores, and estimated financial impact.</p>
           <a href="https://github.com/timmaina-devhub/Fraud-Detection-System/raw/main/dashboard/Fraud_project_portfolio.twb"
              class="btn-download" download>
-            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-            </svg>
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
             Download Dashboard (.twb)
           </a>
           <p class="dash-panel__hint">
@@ -452,21 +428,13 @@ title: Projects
           </button>
         </div>
         <div class="demo-frame" id="nb-3">
-          <iframe
-            src="https://nbviewer.org/github/timmaina-devhub/Fraud-Detection-System/blob/main/notebooks/modeling_merged_fraud_detection_data(Fraud%20Detection%20Project).ipynb"
-            width="100%" height="650" frameborder="0" loading="lazy"
-            title="Fraud Detection Notebook">
-          </iframe>
+          <iframe src="https://nbviewer.org/github/timmaina-devhub/Fraud-Detection-System/blob/main/notebooks/modeling_merged_fraud_detection_data(Fraud%20Detection%20Project).ipynb"
+            width="100%" height="650" frameborder="0" loading="lazy" title="Fraud Detection Notebook"></iframe>
         </div>
       </div>
     </div>
 
     <div class="pj__cta">
-      <a href="https://github.com/timmaina-devhub/Fraud-Detection-System/raw/main/dashboard/Fraud_project_portfolio.twb"
-         class="btn-demo" download>
-        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-        Download Dashboard
-      </a>
       <a href="https://github.com/timmaina-devhub/Fraud-Detection-System" target="_blank" rel="noopener" class="btn-gh">
         <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
         View on GitHub
@@ -483,12 +451,11 @@ title: Projects
 </footer>
 
 <script>
-// Float nav
+// Float nav show/hide
 const floatNav = document.getElementById('floatNav');
 window.addEventListener('scroll', () => {
   floatNav.classList.toggle('float-nav--visible', window.scrollY > 320);
 });
-
 // Scroll spy
 const projects = document.querySelectorAll('.pj');
 const pills    = document.querySelectorAll('.fnpill');
@@ -502,7 +469,6 @@ const spy = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.25 });
 projects.forEach(p => spy.observe(p));
-
 // Prev / Next
 const ids = Array.from(projects).map(p => p.id);
 let cur = 0;
@@ -518,8 +484,7 @@ document.getElementById('fnNext').addEventListener('click', () => {
   updateCur();
   document.getElementById(ids[Math.min(ids.length - 1, cur + 1)]).scrollIntoView({ behavior:'smooth', block:'start' });
 });
-
-// Notebook expand/collapse
+// Notebook toggle
 function toggleDemo(id) {
   const frame = document.getElementById(id);
   const btn   = document.getElementById('toggle-' + id);
@@ -533,11 +498,11 @@ function toggleDemo(id) {
 
 <style>
 :root {
-  --bg:     #020617; --sur:#0f172a; --sur2:#1e293b;
-  --bdr:    rgba(255,255,255,0.07);
-  --blue:   #2563eb; --blue-lt:#3b82f6; --blue-d:rgba(59,130,246,0.14);
-  --txt:    #e2e8f0; --muted:#94a3b8; --dim:#475569;
-  --green:  #10b981; --amber:#f59e0b;
+  --bg:#020617; --sur:#0f172a; --sur2:#1e293b;
+  --bdr:rgba(255,255,255,0.07);
+  --blue:#2563eb; --blue-lt:#3b82f6; --blue-d:rgba(59,130,246,0.14);
+  --txt:#e2e8f0; --muted:#94a3b8; --dim:#475569;
+  --green:#10b981; --amber:#f59e0b;
 }
 body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--txt); }
 h1,h2,h3,h4 { font-family:'DM Serif Display',serif; }
@@ -545,16 +510,16 @@ h1,h2,h3,h4 { font-family:'DM Serif Display',serif; }
 
 /* Hero */
 .ph { position:relative; padding:90px 60px 56px; text-align:center; overflow:hidden; }
-.ph__bg { position:absolute; inset:0; background:radial-gradient(ellipse 60% 60% at 50% 0%,rgba(37,99,235,.1),transparent), linear-gradient(rgba(59,130,246,.03) 1px,transparent 1px), linear-gradient(90deg,rgba(59,130,246,.03) 1px,transparent 1px); background-size:auto,56px 56px,56px 56px; mask-image:radial-gradient(ellipse 90% 100% at 50% 0%,black 50%,transparent 100%); }
+.ph__bg { position:absolute; inset:0; background:radial-gradient(ellipse 60% 60% at 50% 0%,rgba(37,99,235,.1),transparent),linear-gradient(rgba(59,130,246,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.03) 1px,transparent 1px); background-size:auto,56px 56px,56px 56px; mask-image:radial-gradient(ellipse 90% 100% at 50% 0%,black 50%,transparent 100%); }
 .ph__inner { position:relative; z-index:1; }
 .eyebrow { font-size:.75rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase; color:var(--blue-lt); display:block; margin-bottom:10px; }
 .ph__title { font-size:clamp(2.4rem,5vw,3.8rem); color:#fff; line-height:1.1; margin-bottom:14px; }
-.ph__sub   { font-size:1rem; color:var(--muted); max-width:500px; margin:0 auto 36px; line-height:1.7; }
+.ph__sub { font-size:1rem; color:var(--muted); max-width:500px; margin:0 auto 36px; line-height:1.7; }
 .ph__stats { display:inline-flex; align-items:center; gap:28px; padding:14px 28px; background:rgba(15,23,42,.7); border:1px solid var(--bdr); border-radius:14px; backdrop-filter:blur(8px); }
-.ph__stat  { text-align:center; }
-.ph__num   { display:block; font-family:'DM Serif Display',serif; font-size:1.5rem; color:#fff; line-height:1; }
-.ph__lbl   { display:block; font-size:.7rem; color:var(--dim); text-transform:uppercase; letter-spacing:.08em; margin-top:3px; }
-.ph__div   { width:1px; height:32px; background:var(--bdr); }
+.ph__stat { text-align:center; }
+.ph__num { display:block; font-family:'DM Serif Display',serif; font-size:1.5rem; color:#fff; line-height:1; }
+.ph__lbl { display:block; font-size:.7rem; color:var(--dim); text-transform:uppercase; letter-spacing:.08em; margin-top:3px; }
+.ph__div { width:1px; height:32px; background:var(--bdr); }
 
 /* Float nav */
 .float-nav { position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(20px); opacity:0; pointer-events:none; transition:opacity .35s,transform .35s; z-index:999; }
@@ -587,119 +552,57 @@ h1,h2,h3,h4 { font-family:'DM Serif Display',serif; }
 .pj__badge--done { background:rgba(16,185,129,.12); color:var(--green); border:1px solid rgba(16,185,129,.25); }
 .pj__badge--wip  { background:rgba(245,158,11,.12); color:var(--amber); border:1px solid rgba(245,158,11,.25); }
 .pj__title { font-size:clamp(1.4rem,2.5vw,1.9rem); color:#fff; line-height:1.2; padding:18px 28px 8px; }
-.pj__hook  { font-size:.95rem; color:var(--muted); line-height:1.75; padding:0 28px 24px; border-bottom:1px solid var(--bdr); }
-.pj__layout { display:grid; grid-template-columns:1fr 1fr; }
-.pj__layout--flip { direction:rtl; }
-.pj__layout--flip > * { direction:ltr; }
-.pj__img-col { padding:24px 0 24px 24px; display:flex; align-items:flex-start; }
-.pj__layout--flip .pj__img-col { padding:24px 24px 24px 0; }
-.pj__img-frame { width:100%; border-radius:14px; overflow:hidden; border:1px solid var(--bdr); background:var(--sur); box-shadow:0 12px 40px rgba(0,0,0,.35); }
-.pj__img-browser { display:flex; align-items:center; gap:5px; padding:9px 12px; background:rgba(2,6,23,.8); border-bottom:1px solid var(--bdr); }
-.pj__img-browser span { width:8px; height:8px; border-radius:50%; }
-.pj__img-browser span:nth-child(1){background:#ff5f57;}
-.pj__img-browser span:nth-child(2){background:#febc2e;}
-.pj__img-browser span:nth-child(3){background:#28c840;}
-.pj__img-wrap { overflow:hidden; aspect-ratio:16/9; background:var(--sur); }
-.pj__img-wrap img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s; }
-.pj:hover .pj__img-wrap img { transform:scale(1.04); }
-.pj__detail-col { padding:24px 28px; border-left:1px solid var(--bdr); display:flex; flex-direction:column; }
-.pj__layout--flip .pj__detail-col { border-left:none; border-right:1px solid var(--bdr); }
-.pj__block { padding-bottom:18px; margin-bottom:18px; border-bottom:1px solid rgba(255,255,255,.04); }
-.pj__block--outcomes { border-bottom:none; margin-bottom:0; padding-bottom:0; }
-.pj__block-title { display:flex; align-items:center; gap:6px; font-size:.7rem; font-weight:600; text-transform:uppercase; letter-spacing:.1em; color:var(--blue-lt); margin-bottom:8px; font-family:'DM Sans',sans-serif; }
-.pj__block > p { font-size:.875rem; color:var(--muted); line-height:1.7; }
-.pj__bullets { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:6px; }
-.pj__bullets li { font-size:.85rem; color:#cbd5e1; line-height:1.55; padding-left:15px; position:relative; }
-.pj__bullets li::before { content:"▸"; position:absolute; left:0; top:2px; color:var(--blue-lt); font-size:.7rem; }
-.pj__tech-row { display:flex; flex-wrap:wrap; gap:6px; margin-top:20px; padding-top:16px; border-top:1px solid var(--bdr); }
-.pj__tech-row span { font-size:.72rem; padding:3px 10px; background:var(--blue-d); border:1px solid rgba(59,130,246,.2); border-radius:999px; color:#93c5fd; font-family:'DM Sans',sans-serif; }
+.pj__hook  { font-size:.95rem; color:var(--muted); line-height:1.75; padding:0 28px 0; }
 
-/* Demo section */
-.demo-section { padding:20px 28px; border-top:1px solid var(--bdr); display:flex; flex-direction:column; gap:14px; }
-
-/* ── Dashboard preview panel ─────────────────────────── */
-.dash-panel {
+/* ── Content flow: 2-col grid ────────────────────────── */
+.pj__content {
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:0;
-  border:1px solid rgba(59,130,246,.15);
-  border-radius:16px;
-  overflow:hidden;
-  background:rgba(2,6,23,.5);
-}
-
-/* Left: screenshot */
-.dash-panel__left { padding:20px; background:rgba(15,23,42,.6); }
-.dash-panel__screen { border-radius:10px; overflow:hidden; border:1px solid var(--bdr); box-shadow:0 8px 30px rgba(0,0,0,.4); }
-.dash-panel__chrome {
-  display:flex; align-items:center; gap:5px;
-  padding:8px 12px;
-  background:rgba(2,6,23,.9);
+  padding:24px 28px;
   border-bottom:1px solid var(--bdr);
 }
+.pj__col { display:flex; flex-direction:column; gap:0; }
+.pj__col:last-child { padding-left:28px; border-left:1px solid var(--bdr); }
+
+.pj__block { padding-bottom:20px; margin-bottom:20px; border-bottom:1px solid rgba(255,255,255,.04); }
+.pj__block--nb { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+.pj__block-title { display:flex; align-items:center; gap:6px; font-size:.7rem; font-weight:600; text-transform:uppercase; letter-spacing:.1em; color:var(--blue-lt); margin-bottom:9px; font-family:'DM Sans',sans-serif; }
+.pj__block > p { font-size:.875rem; color:var(--muted); line-height:1.75; }
+.pj__bullets { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:7px; }
+.pj__bullets li { font-size:.85rem; color:#cbd5e1; line-height:1.55; padding-left:15px; position:relative; }
+.pj__bullets li::before { content:"▸"; position:absolute; left:0; top:2px; color:var(--blue-lt); font-size:.7rem; }
+.pj__tech-row { display:flex; flex-wrap:wrap; gap:6px; }
+.pj__tech-row span { font-size:.72rem; padding:3px 10px; background:var(--blue-d); border:1px solid rgba(59,130,246,.2); border-radius:999px; color:#93c5fd; font-family:'DM Sans',sans-serif; }
+
+/* ── Demo section ────────────────────────────────────── */
+.demo-section { padding:20px 28px; display:flex; flex-direction:column; gap:14px; }
+
+/* Dashboard panel */
+.dash-panel { display:grid; grid-template-columns:1fr 1fr; border:1px solid rgba(59,130,246,.15); border-radius:16px; overflow:hidden; background:rgba(2,6,23,.5); }
+.dash-panel__left { padding:18px; background:rgba(15,23,42,.6); }
+.dash-panel__screen { border-radius:10px; overflow:hidden; border:1px solid var(--bdr); box-shadow:0 8px 30px rgba(0,0,0,.4); }
+.dash-panel__chrome { display:flex; align-items:center; gap:5px; padding:8px 12px; background:rgba(2,6,23,.9); border-bottom:1px solid var(--bdr); }
 .dash-panel__chrome span { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
 .dash-panel__chrome span:nth-child(1){background:#ff5f57;}
 .dash-panel__chrome span:nth-child(2){background:#febc2e;}
 .dash-panel__chrome span:nth-child(3){background:#28c840;}
-.dash-panel__url {
-  font-size:.68rem; color:var(--dim);
-  background:rgba(255,255,255,.04);
-  border:1px solid var(--bdr);
-  border-radius:4px;
-  padding:2px 10px;
-  margin-left:8px;
-  font-family:monospace;
-  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
-}
+.dash-panel__url { font-size:.65rem; color:var(--dim); background:rgba(255,255,255,.04); border:1px solid var(--bdr); border-radius:4px; padding:2px 8px; margin-left:6px; font-family:monospace; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .dash-panel__preview { position:relative; aspect-ratio:16/9; overflow:hidden; background:var(--sur); }
 .dash-panel__preview img { width:100%; height:100%; object-fit:cover; display:block; }
-/* Glass shine overlay */
-.dash-panel__shine {
-  position:absolute; inset:0;
-  background:linear-gradient(135deg,rgba(255,255,255,.04) 0%,transparent 50%,rgba(0,0,0,.15) 100%);
-  pointer-events:none;
-}
-
-/* Right: download info */
-.dash-panel__right {
-  padding:28px 24px;
-  display:flex; flex-direction:column; gap:14px;
-  border-left:1px solid rgba(59,130,246,.12);
-}
-.dash-panel__icon {
-  width:48px; height:48px;
-  background:var(--blue-d);
-  border:1px solid rgba(59,130,246,.25);
-  border-radius:12px;
-  display:flex; align-items:center; justify-content:center;
-  color:var(--blue-lt);
-}
-.dash-panel__right h4 { font-size:1rem; color:#fff; margin:0; line-height:1.3; }
-.dash-panel__right > p { font-size:.85rem; color:var(--muted); line-height:1.7; margin:0; }
+.dash-panel__shine { position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,.04) 0%,transparent 50%,rgba(0,0,0,.15) 100%); pointer-events:none; }
+.dash-panel__right { padding:24px 22px; display:flex; flex-direction:column; gap:12px; border-left:1px solid rgba(59,130,246,.12); }
+.dash-panel__icon { width:44px; height:44px; background:var(--blue-d); border:1px solid rgba(59,130,246,.25); border-radius:11px; display:flex; align-items:center; justify-content:center; color:var(--blue-lt); }
+.dash-panel__right h4 { font-size:.98rem; color:#fff; margin:0; line-height:1.3; }
+.dash-panel__right > p { font-size:.83rem; color:var(--muted); line-height:1.7; margin:0; flex:1; }
 .dash-panel__right strong { color:var(--txt); }
-
-.btn-download {
-  display:inline-flex; align-items:center; gap:8px;
-  padding:11px 20px;
-  background:var(--blue); color:#fff;
-  border:1px solid var(--blue);
-  border-radius:9px;
-  font-size:.875rem; font-weight:600;
-  text-decoration:none;
-  transition:all .25s;
-  font-family:'DM Sans',sans-serif;
-  width:fit-content;
-}
+.btn-download { display:inline-flex; align-items:center; gap:8px; padding:10px 18px; background:var(--blue); color:#fff; border:1px solid var(--blue); border-radius:9px; font-size:.855rem; font-weight:600; text-decoration:none; transition:all .25s; font-family:'DM Sans',sans-serif; width:fit-content; }
 .btn-download:hover { background:#1d4ed8; transform:translateY(-2px); box-shadow:0 8px 22px rgba(37,99,235,.4); }
-
-.dash-panel__hint {
-  display:flex; align-items:center; gap:6px;
-  font-size:.75rem; color:var(--dim); margin:0;
-}
+.dash-panel__hint { display:flex; align-items:center; gap:6px; font-size:.72rem; color:var(--dim); margin:0; }
 .dash-panel__hint a { color:var(--blue-lt); text-decoration:none; }
 .dash-panel__hint a:hover { text-decoration:underline; }
 
-/* Notebook block */
+/* Notebook */
 .demo-block { border:1px solid var(--bdr); border-radius:14px; overflow:hidden; background:rgba(2,6,23,.4); }
 .demo-block__header { display:flex; align-items:center; justify-content:space-between; padding:12px 18px; background:rgba(15,23,42,.6); border-bottom:1px solid var(--bdr); cursor:pointer; user-select:none; }
 .demo-block__title { display:flex; align-items:center; gap:8px; font-size:.82rem; font-weight:600; color:var(--txt); font-family:'DM Sans',sans-serif; }
@@ -710,11 +613,9 @@ h1,h2,h3,h4 { font-family:'DM Serif Display',serif; }
 .demo-frame--open { max-height:700px; }
 .demo-frame iframe { display:block; }
 
-/* CTA row */
-.pj__cta { display:flex; gap:10px; flex-wrap:wrap; padding:20px 28px; border-top:1px solid var(--bdr); align-items:center; }
-.btn-demo,.btn-gh,.btn-next,.btn-top { display:inline-flex; align-items:center; gap:7px; padding:10px 20px; border-radius:9px; font-size:.875rem; font-weight:600; text-decoration:none; transition:all .25s; font-family:'DM Sans',sans-serif; }
-.btn-demo { background:var(--blue); color:#fff; border:1px solid var(--blue); box-shadow:0 4px 14px rgba(37,99,235,.28); }
-.btn-demo:hover { background:#1d4ed8; transform:translateY(-2px); box-shadow:0 8px 22px rgba(37,99,235,.4); }
+/* CTA */
+.pj__cta { display:flex; gap:10px; flex-wrap:wrap; padding:18px 28px; border-top:1px solid var(--bdr); align-items:center; }
+.btn-gh,.btn-next,.btn-top { display:inline-flex; align-items:center; gap:7px; padding:10px 20px; border-radius:9px; font-size:.875rem; font-weight:600; text-decoration:none; transition:all .25s; font-family:'DM Sans',sans-serif; }
 .btn-gh { background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,.12); }
 .btn-gh:hover { color:var(--txt); border-color:rgba(255,255,255,.28); transform:translateY(-2px); }
 .btn-next { margin-left:auto; background:transparent; color:var(--blue-lt); border:1px solid rgba(59,130,246,.3); font-size:.82rem; }
@@ -728,19 +629,18 @@ h1,h2,h3,h4 { font-family:'DM Serif Display',serif; }
 
 /* Responsive */
 @media (max-width:820px) {
-  .pj__layout,.pj__layout--flip { grid-template-columns:1fr; direction:ltr; }
-  .pj__img-col,.pj__layout--flip .pj__img-col { padding:20px 20px 0; }
-  .pj__detail-col,.pj__layout--flip .pj__detail-col { border-left:none; border-right:none; border-top:1px solid var(--bdr); padding:20px; }
+  .pj__content { grid-template-columns:1fr; }
+  .pj__col:last-child { border-left:none; padding-left:0; border-top:1px solid rgba(255,255,255,.04); padding-top:20px; margin-top:0; }
   .dash-panel { grid-template-columns:1fr; }
   .dash-panel__right { border-left:none; border-top:1px solid rgba(59,130,246,.12); }
   .float-nav__label { display:none; }
 }
 @media (max-width:600px) {
   .feed { padding:0 14px 100px; }
-  .ph  { padding:70px 20px 44px; }
+  .ph { padding:70px 20px 44px; }
   .pj__title { padding:16px 20px 8px; font-size:1.3rem; }
-  .pj__hook  { padding:0 20px 20px; }
-  .pj__topbar,.pj__cta,.demo-section { padding-left:16px; padding-right:16px; }
+  .pj__hook { padding:0 20px; }
+  .pj__content,.pj__cta,.demo-section { padding-left:16px; padding-right:16px; }
   .btn-next,.btn-top { margin-left:0; width:100%; justify-content:center; }
   .fnpill__name { display:none; }
 }
