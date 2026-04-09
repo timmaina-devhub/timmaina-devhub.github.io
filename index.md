@@ -33,9 +33,7 @@ title: Home
       <em>decisions that matter.</em>
     </h1>
     <p class="h-hero__sub">
-      I'm <strong>Timothy Maina</strong> — a Data Analyst specialising in
-      analytics, dashboards, and machine learning. I help teams stop
-      guessing and start knowing.
+      I'm <strong>Timothy Maina</strong> — I transform complex datasets into clear, evidence-based narratives through statistical analysis and machine learning. By overseeing the end-to-end data process—from rigorous cleaning to the development of intuitive dashboards—I distill intricate patterns into actionable insights that guide informed decision-making.
     </p>
     <div class="h-hero__actions">
       <a href="/projects" class="h-btn h-btn--primary">View My Work →</a>
