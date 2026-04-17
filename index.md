@@ -33,7 +33,7 @@ title: Home
       <em>decisions that matter.</em>
     </h1>
     <p class="h-hero__sub">
-      I'm <strong>Timothy Maina</strong> — I transform complex datasets into clear, evidence-based narratives through statistical analysis and machine learning. By overseeing the end-to-end data process—from rigorous cleaning to the development of intuitive dashboards—I distill intricate patterns into actionable insights that guide informed decision-making.
+      I'm <strong>Timothy Maina</strong> — I bridge the gap between raw data and strategic insight by leveraging statistical analysis and machine learning to uncover meaningful patterns. With a foundation in advanced data analytics and a focus on data integrity, I translate complex information into compelling visual stories that support critical problem-solving and adaptive growth.
     </p>
     <div class="h-hero__actions">
       <a href="/projects" class="h-btn h-btn--primary">View My Work →</a>
