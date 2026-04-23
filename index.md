@@ -521,7 +521,7 @@ em { font-style:italic; color:#60a5fa; }
 
 /* Scroll cue */
 .h-scroll-cue {
-  position:absolute; bottom:-4px; left:50%; transform:translateX(-50%);
+  position:absolute; bottom:0px; left:50%; transform:translateX(-50%);
   display:flex; flex-wrap:wrap; align-items:center; gap:8px;
   color:var(--dim); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase;
   animation:fadeUp .8s .8s ease both; z-index:2;
