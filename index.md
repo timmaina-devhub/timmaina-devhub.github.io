@@ -283,17 +283,7 @@ title: Home
       </button>
     </div>
 
-    <!-- API status badge -->
-    <div class="dm__api-bar dm__api-bar--offline">
-      <span class="dm__api-dot"></span>
-      <!-- ════════════════════════════════════════════
-           SWAP STEP 1: Replace the text below with
-           your Render API URL once deployed e.g:
-           "🟢 Connected · https://churn-api.onrender.com"
-           ════════════════════════════════════════════ -->
-      <span>Simulation mode · Connect API when deployed</span>
-      <span class="dm__api-tag">POST /predict</span>
-    </div>
+
 
     <div class="dm__body">
       <div class="dm__inputs">
@@ -383,16 +373,7 @@ title: Home
       </button>
     </div>
 
-    <div class="dm__api-bar dm__api-bar--offline">
-      <span class="dm__api-dot"></span>
-      <!-- ════════════════════════════════════════════
-           SWAP STEP 2: Replace the text below with
-           your Render API URL once deployed e.g:
-           "🟢 Connected · https://fraud-api.onrender.com"
-           ════════════════════════════════════════════ -->
-      <span>Simulation mode · Connect API when deployed</span>
-      <span class="dm__api-tag">POST /predict</span>
-    </div>
+
 
     <div class="dm__body">
       <div class="dm__inputs">
