@@ -511,27 +511,27 @@ title: Projects
       <span class="pj__badge pj__badge--wip">⚡ In Progress</span>
     </div>
     <h2 class="pj__title">Customer Credit Risk Assessment Model</h2>
-    <p class="pj__hook">Predicting default risk by analysing borrower behaviour, financial signals, and transaction data — helping lenders reduce losses and make more informed, risk-adjusted credit decisions.</p>
+    <p class="pj__hook">Addressing high default rates, limited credit data, and ineffective approval systems by redesigning credit risk modeling through feature engineering, proxy target construction, and machine learning — enabling more accurate and risk-sensitive lending decisions.</p>
     <div class="pj__content">
       <div class="pj__col">
         <div class="pj__block">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>The Problem</h4>
-          <p>The lending system was underperforming due to multiple structural and data limitations. The default rate stood at 18.3% compared to a 9.5% industry benchmark, leading to significant financial losses. At the same time, 12% of applicants lacked credit scores, yet a large portion of them were still creditworthy, highlighting gaps in traditional evaluation methods. A single approval threshold was applied across both small and large loans, reducing decision accuracy, while duplicate applications (~3%) were used to bypass rejection rules. Additionally, 35% of applicants relied on informal income, making standard credit assessment unreliable. Despite having access to rich transaction-level data, the existing model depended on only a few features, and the available default variable showed weak predictive signal, limiting the effectiveness of conventional machine learning approaches.</p>
+          <p>The lending system was underperforming with a default rate of 18.3% vs. 9.5% industry benchmark, resulting in significant financial losses. A large portion of applicants lacked credit scores despite being creditworthy, while a single approval threshold was applied across all loan sizes, reducing decision precision. Duplicate applications were used to bypass rejection rules, and informal income (35% of applicants) made traditional assessment unreliable. Despite having rich transaction data, the model relied on very few features, and the existing default variable showed weak predictive signal.</p>
         </div>
         <div class="pj__block pj__block--last">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>My Approach</h4>
-          <p>To address these limitations, I redesigned the credit risk framework by combining domain-driven feature engineering with a more flexible modeling strategy. I began by reconstructing the target variable using a composite risk scoring approach derived from key financial indicators and borrower behaviour, ensuring the model had a more meaningful signal to learn from. To avoid deterministic relationships and reduce leakage, I introduced controlled randomness within credit score bands, simulating real-world uncertainty in credit assessment. I then engineered additional financial features such as loan-to-income and debt-to-income ratios, and aggregated customer-level behavioural patterns to better capture repayment capacity. To handle class imbalance, SMOTE was applied, improving the model’s ability to detect high-risk customers. Finally, I trained and evaluated Logistic Regression, Random Forest, and XGBoost models, focusing on precision–recall trade-offs to prioritize the identification of potential defaulters while maintaining acceptable levels of false positives.</p>
+          <p>Redesigned the modeling framework by reconstructing the target variable using a composite risk scoring approach derived from borrower financial behaviour and credit characteristics. Introduced controlled randomness within credit score bands to reduce leakage and simulate real-world uncertainty, while engineering key financial features such as loan-to-income and debt-to-income ratios and aggregating customer-level behavioural patterns. Addressed class imbalance using SMOTE and trained Logistic Regression, Random Forest, and XGBoost models, evaluating performance through precision–recall trade-offs with a focus on improving risk detection.</p>
         </div>
       </div>
       <div class="pj__col pj__col--right">
         <div class="pj__block">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>Key Outcomes</h4>
           <ul class="pj__bullets">
-            <li>Improved model reliability by replacing a noisy target with a structured proxy</li>
-            <li>Achieved up to 0.76 F1-score with XGBoost</li>
-            <li>Increased recall to ~77%, improving detection of high-risk customers</li>
-            <li>Reduced leakage through stochastic feature engineering</li>
-            <li>Demonstrated real-world trade-offs between precision and recall in credit risk</li>
+            <li>Achieved up to 0.76 F1-score with XGBoost, balancing ~77% recall and ~75% precision</li>
+            <li>Improved detection of high-risk customers compared to baseline models</li>
+            <li>Reduced target leakage through stochastic feature engineering</li>
+            <li>Transformed an unreliable target into a structured, learnable risk signal</li>
+            <li>Demonstrated clear precision–recall trade-offs aligned with financial risk management</li>
           </ul>
         </div>
         <div class="pj__block pj__block--last">
@@ -543,6 +543,7 @@ title: Projects
             <span>Scikit-learn</span>
             <span>XGBoost</span>
             <span>SMOTE</span>
+            <span>Feature Engineering</span>
           </div>
         </div>
       </div>
