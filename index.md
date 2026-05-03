@@ -39,7 +39,7 @@ title: Home
       <a href="/contact" class="h-btn h-btn--ghost">Let's Talk</a>
     </div>
     <div class="h-trust">
-      <div class="h-trust__item"><span class="h-trust__num counter" data-target="3" data-suffix="+">0</span><span class="h-trust__label">Projects Shipped</span></div>
+      <div class="h-trust__item"><span class="h-trust__num counter" data-target="5" data-suffix="+">0</span><span class="h-trust__label">Projects Shipped</span></div>
       <div class="h-trust__divider"></div>
       <div class="h-trust__item"><span class="h-trust__num counter" data-target="3" data-suffix="">0</span><span class="h-trust__label">Core Disciplines</span></div>
       <div class="h-trust__divider"></div>
