@@ -605,31 +605,50 @@ title: Projects
     <div class="pj__topbar">
       <span class="pj__index">07</span>
       <div class="pj__topbar-tags">
-        <span class="tag tag--ol">Coming Soon</span>
+        <span class="tag">Supply Chain Analytics</span>
+        <span class="tag tag--ol">Regression</span>
+        <span class="tag tag--ol">Feature Engineering</span>
+        <span class="tag tag--ol">Machine Learning</span>
       </div>
       <span class="pj__badge pj__badge--wip">⚡ In Progress</span>
     </div>
     <h2 class="pj__title">Delivery Downtime Prediction &amp; Route Optimization</h2>
-    <p class="pj__hook">Predicting delivery delays before they happen and optimising routing decisions using ML — helping logistics teams proactively manage disruptions and reduce operational downtime. Full case study coming soon.</p>
+    <p class="pj__hook">Predicting logistics delivery delays using operational, driver, and environmental signals.</p>
     <div class="pj__content">
       <div class="pj__col">
         <div class="pj__block">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>The Problem</h4>
-          <p>Coming soon — full case study in development.</p>
+          <p>Logistics companies struggle to accurately predict delivery delays due to dynamic factors such as traffic congestion, driver performance, and environmental conditions. Poor predictions lead to missed SLAs, customer dissatisfaction, and inefficient planning.</p>
         </div>
         <div class="pj__block pj__block--last">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>My Approach</h4>
-          <p>Coming soon — full case study in development.</p>
+          <p>I built a regression-based machine learning system to predict delivery delay hours using operational and behavioral data. The project involved extensive data cleaning, feature engineering, and careful handling of data leakage.
+
+Key engineered features included proxy variables for traffic congestion and weather risk, derived from GPS speed patterns and historical delay behavior. Tree-based ensemble models were trained and evaluated to capture nonlinear relationships across routes, time, and driver performance.</p>
         </div>
       </div>
       <div class="pj__col pj__col--right">
         <div class="pj__block">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>Key Outcomes</h4>
-          <ul class="pj__bullets"><li>Coming soon — check back shortly</li></ul>
+          <ul class="pj__bullets">
+            <li>Achieved R² ≈ 0.70 using Random Forest Regressor</li>
+            <li>Engineered traffic congestion and weather risk without external APIs</li>
+            <li>Identified and removed data leakage features that inflated performance (~0.99 R²)</li>
+            <li>Demonstrated strong impact of driver performance and route conditions on delays</li>
+            <li>Built a realistic, production-aligned feature pipeline</li>
+            <li>Established a robust baseline for delay prediction in logistics systems</li>
+          </ul>
         </div>
         <div class="pj__block pj__block--last">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>Tech Stack</h4>
-          <div class="pj__tech-row"><span>Coming soon...</span></div>
+          <div class="pj__tech-row">
+            <span>Python</span>
+            <span>Pandas</span>
+            <span>NumPy</span>
+            <span>Scikit-learn</span>
+            <span>XGBoost</span>
+            <span>Power BI</span>
+          </div>
         </div>
       </div>
     </div>
