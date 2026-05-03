@@ -11,7 +11,7 @@ title: Home
     <a href="/" class="nav-active">Home</a>
     <a href="/about">About</a>
     <a href="/projects">Projects</a>
-    <a href="/ai_decision_intelligence_platform">Simulations</a>
+    <a href="/simulation_projects">Simulations</a>
     <a href="/contact">Contact</a>
   </div>
 </nav>
