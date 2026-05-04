@@ -110,7 +110,7 @@ title: Home
           <div class="fp-card__meta">
             <span class="fp-tag">Supply Chain Analytics</span>
             <span class="fp-tag fp-tag--ol">Power BI</span>
-            <span class="fp-tag fp-tag--ol">Machine Learning</span>
+            <span class="fp-tag fp-tag--ol">ML</span>
           </div>
           <h3 class="fp-card__title">Delivery Downtime & Route Optimization</h3>
           <p class="fp-card__desc">Predicting logistics delivery delays using operational, driver, and environmental signals.</p>
@@ -691,6 +691,41 @@ function showFraudResult(container, prob, amount, velocity, devices, hour) {
 </script>
 
 <style>
+  .demo-live-btn--green {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  
+  /* Typography */
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  
+  /* Styling */
+  background-color: #3dba7a; /* Professional Green */
+  color: #ffffff !important;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  
+  /* Interactions */
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(61, 186, 122, 0.2);
+  cursor: pointer;
+}
+
+.demo-live-btn--green:hover {
+  background-color: #34a86d;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(61, 186, 122, 0.3);
+}
+
+.demo-live-btn--green:active {
+  transform: translateY(0);
+}
 /* ── Tokens ─── */
 :root{--bg:#020617;--sur:#0f172a;--sur2:#1e293b;--bdr:rgba(255,255,255,0.07);--blue:#2563eb;--blue-lt:#3b82f6;--blue-d:rgba(59,130,246,0.14);--txt:#e2e8f0;--muted:#94a3b8;--dim:#475569;}
 *,*::before,*::after{box-sizing:border-box;}
