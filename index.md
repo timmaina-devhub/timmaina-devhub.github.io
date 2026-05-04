@@ -104,7 +104,7 @@ title: Home
             <img src="{{ '/images/coming_soon_banner.png' | relative_url }}" alt="Logistics Dashboard" loading="lazy">
             <div class="fp-card__img-overlay"></div>
           </div>
-          <span class="pj__badge pj__badge--wip">⚡ In Progress</span>
+          <span class="fp-card__badge fp-card__badge--wip">⚡ In Progress</span>
         </div>
         <div class="fp-card__body">
           <div class="fp-card__meta">
