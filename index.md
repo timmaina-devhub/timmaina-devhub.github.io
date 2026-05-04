@@ -122,12 +122,12 @@ title: Home
           <div class="fp-card__stack"><span>Regression</span><span>Feature Engineering</span><span>Python</span><span>Power BI</span></div>
         </div>
         <div class="fp-card__cta">
-          <a href="/intelligence_platform#logistics" target="_blank" rel="noopener noreferrer" class="demo-live-btn demo-live-btn--green" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
-            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <a href="/intelligence_platform#logistics" target="_blank" rel="noopener noreferrer" class="demo-live-btn--green">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
               <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
-            Launch Delay Predictor →
+            <span>Launch Delay Predictor →</span>
           </a>
 
           <a href="/projects#Delivery-Downtime-Route-Optimization" class="fp-btn fp-btn--ghost">
@@ -166,12 +166,12 @@ title: Home
           <div class="fp-card__stack"><span>Python</span><span>Pandas</span><span>scikit-learn</span><span>Seaborn</span></div>
         </div>
         <div class="fp-card__cta">
-          <a href="/intelligence_platform#churn" target="_blank" rel="noopener noreferrer" class="demo-live-btn demo-live-btn--green" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
-            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <a href="/intelligence_platform#churn" target="_blank" rel="noopener noreferrer" class="demo-live-btn--green">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
               <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
-            Launch Churn Predictor →
+            <span>Launch Churn Predictor →</span>
           </a>
           <a href="/projects#customer-analysis" class="fp-btn fp-btn--ghost">
             <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
@@ -209,12 +209,12 @@ title: Home
           <div class="fp-card__stack"><span>Python</span><span>Random Forest</span><span>SMOTE</span><span>Tableau</span></div>
         </div>
         <div class="fp-card__cta">
-          <a href="/intelligence_platform#fraud" target="_blank" rel="noopener noreferrer" class="demo-live-btn demo-live-btn--green" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
-            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <a href="/intelligence_platform#fraud" target="_blank" rel="noopener noreferrer" class="demo-live-btn--green">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
               <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
-            Launch Fraud Detector →
+            <span>Launch Fraud Detector →</span>
           </a>
 
           <a href="/projects#fraud-detection" class="fp-btn fp-btn--ghost">
