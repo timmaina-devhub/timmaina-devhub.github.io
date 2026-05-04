@@ -712,38 +712,43 @@ title: Intelligence Platform
 /**
  * Core Router Logic
  */
-function handleRouting() {
-  const pages = ['exec', 'sales', 'churn', 'fraud', 'marketing', 'supply', 'credit', 'logistics'];
-  const hash = window.location.hash.replace('#', '') || 'exec';
-  
-  // 1. Hide all pages and remove active class from sidebar
-  pages.forEach(id => {
-    const pageEl = document.getElementById(`page-${id}`);
-    const navEl = document.getElementById(`nav-${id}`);
-    if (pageEl) pageEl.classList.add('hidden');
-    if (navEl) navEl.classList.remove('active');
-  });
+// Global object to track chart instances and prevent memory leaks/errors
+const chartInstances = {};
 
-  // 2. Show the targeted page and update sidebar
-  const activePage = document.getElementById(`page-${hash}`);
-  const activeNav = document.getElementById(`nav-${hash}`);
-  
-  if (activePage) {
-    activePage.classList.remove('hidden');
-    if (activeNav) activeNav.classList.add('active');
-  } else {
-    // Default fallback to exec
-    document.getElementById('page-exec').classList.remove('hidden');
-    document.getElementById('nav-exec').classList.add('active');
-  }
+/**
+ * Handles Page Navigation via URL Hash
+ */
+function handleRouting() {
+    const pages = ['exec', 'sales', 'churn', 'fraud', 'marketing', 'supply', 'credit', 'logistics'];
+    const hash = window.location.hash.replace('#', '') || 'exec';
+    
+    // 1. Manage Visibility
+    pages.forEach(id => {
+        const pageEl = document.getElementById(`page-${id}`);
+        const navEl = document.getElementById(`nav-${id}`);
+        if (pageEl) pageEl.classList.add('hidden');
+        if (navEl) navEl.classList.remove('active');
+    });
+
+    // 2. Activate Current Page
+    const activePage = document.getElementById(`page-${hash}`);
+    const activeNav = document.getElementById(`nav-${hash}`);
+    
+    if (activePage) {
+        activePage.classList.remove('hidden');
+        if (activeNav) activeNav.classList.add('active');
+        
+        // 3. Trigger Chart Build AFTER page is visible
+        buildCharts(hash);
+    } else {
+        // Fallback to executive if hash is invalid
+        window.location.hash = '#exec';
+    }
 }
 
-// Global Listeners for Routing
+// Global Listeners
 window.addEventListener('hashchange', handleRouting);
-window.addEventListener('DOMContentLoaded', () => {
-    handleRouting();
-    initCharts(); // Initialize your charts on load
-});
+window.addEventListener('DOMContentLoaded', handleRouting);
 
 // ─── YOUR EXISTING FUNCTIONS (KEPT FOR APP FUNCTIONALITY) ───
 // ─── COLOURS (hex for Chart.js) ───
@@ -755,12 +760,23 @@ const charts={};
 function mk(id,cfg){if(charts[id])charts[id].destroy();const c=document.getElementById(id);if(!c)return;charts[id]=new Chart(c,cfg)}
 
 // ─── NAVIGATION ───
-function showPage(id, el){
-  document.querySelectorAll('[id^="page-"]').forEach(p=>p.classList.add('hidden'));
-  document.getElementById('page-'+id).classList.remove('hidden');
-  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
-  el.classList.add('active');
-  buildCharts(id);
+// Navigation function with integrated chart building
+function showPage(pageId, el) {
+  // Hide all pages
+  document.querySelectorAll('.main > div').forEach(p => p.classList.add('hidden'));
+  
+  // Show target page
+  const targetPage = document.getElementById('page-' + pageId);
+  if (targetPage) {
+    targetPage.classList.remove('hidden');
+    
+    // BUILD CHARTS for the active page once it is visible
+    buildCharts(pageId); 
+  }
+  
+  // Update sidebar active state
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  if (el) el.classList.add('active');
 }
 
 // ─── CHARTS ───
