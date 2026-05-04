@@ -279,9 +279,13 @@ title: Home
           <p>Adjust inputs to simulate a customer profile and predict churn risk</p>
         </div>
       </div>
-      <button class="dm__close" onclick="closeDemo()" aria-label="Close">
-        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-      </button>
+      <a href="/intelligence_platform#churn" target="_blank" rel="noopener noreferrer" class="demo-live-btn demo-live-btn--green" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Launch Churn Predictor →
+      </a>
     </div>
 
 
@@ -434,10 +438,14 @@ title: Home
     </div>
 
     <div class="dm__footer">
-      <button class="dm__run-btn dm__run-btn--red" id="fraud-run" onclick="runFraud()">
-        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-        <span id="fraud-btn-text">Analyse Transaction</span>
-      </button>
+      <a href="/intelligence_platform#fraud" target="_blank" rel="noopener noreferrer" class="demo-live-btn demo-live-btn--green" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Launch Fraud Detector →
+      </a>
+
       <a href="/projects#fraud-detection" class="dm__case-link">View full case study →</a>
     </div>
   </div>
