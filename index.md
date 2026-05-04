@@ -93,7 +93,7 @@ title: Home
 
     <div class="fp-grid">
 
-      <!-- Card 3: Fraud — Live Demo + Case Study -->
+      <!-- Card 1: Logistics -->
       <div class="fp-card reveal-up" style="--d:.05s">
         <div class="fp-card__img">
           <div class="fp-card__chrome">
@@ -112,32 +112,28 @@ title: Home
             <span class="fp-tag fp-tag--ol">Power BI</span>
             <span class="fp-tag fp-tag--ol">ML</span>
           </div>
-          <h3 class="fp-card__title">Delivery Downtime & Route Optimization</h3>
-          <p class="fp-card__desc">Predicting logistics delivery delays using operational, driver, and environmental signals.</p>
+          <h3 class="fp-card__title">Delivery Downtime &amp; Route Optimization</h3>
+          <p class="fp-card__desc">Predicting logistics delivery delays using operational, driver, and environmental signals to reduce downtime and improve routing efficiency.</p>
           <ul class="fp-card__bullets">
-            <li>Demonstrated strong impact of driver performance and route conditions on delays.</li>
-            <li>Built a realistic, production-aligned feature pipeline.</li>
+            <li>Driver performance &amp; route conditions identified as strongest delay signals.</li>
+            <li>Built a production-aligned feature pipeline for real-world deployment.</li>
             <li>Established a robust baseline for delay prediction in logistics systems.</li>
           </ul>
           <div class="fp-card__stack"><span>Regression</span><span>Feature Engineering</span><span>Python</span><span>Power BI</span></div>
         </div>
         <div class="fp-card__cta">
-          <a href="/intelligence_platform#logistics" target="_blank" rel="noopener noreferrer" class="demo-live-btn--green">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Launch Delay Predictor →</span>
+          <a href="/intelligence_platform#logistics" class="fp-cta-btn fp-cta-btn--primary">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Launch Delay Predictor
           </a>
-
-          <a href="/projects#Delivery-Downtime-Route-Optimization" class="fp-btn fp-btn--ghost">
+          <a href="/projects#Delivery-Downtime-Route-Optimization" class="fp-cta-btn fp-cta-btn--ghost">
             <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
             Case Study
           </a>
         </div>
       </div>
 
-      <!-- Card 2: Churn — Live Demo + Case Study -->
+      <!-- Card 2: Churn -->
       <div class="fp-card reveal-up" style="--d:.15s">
         <div class="fp-card__img">
           <div class="fp-card__chrome">
@@ -157,30 +153,27 @@ title: Home
             <span class="fp-tag fp-tag--ol">ML</span>
           </div>
           <h3 class="fp-card__title">Customer Churn Analysis &amp; Segmentation</h3>
-          <p class="fp-card__desc">An end-to-end churn prediction system combining RFM feature engineering with machine learning to flag at-risk customers before they leave — and show exactly who they are.</p>
+          <p class="fp-card__desc">An end-to-end churn prediction system combining RFM feature engineering with machine learning to flag at-risk customers before they leave.</p>
           <ul class="fp-card__bullets">
-            <li>Inactivity &amp; refund behaviour identified as strongest churn signals</li>
-            <li>3 actionable customer segments surfaced via K-Means clustering</li>
-            <li>High-recall model ensuring no at-risk customer goes undetected</li>
+            <li>Inactivity &amp; refund behaviour identified as the strongest churn signals.</li>
+            <li>3 actionable customer segments surfaced via K-Means clustering.</li>
+            <li>High-recall model ensuring no at-risk customer goes undetected.</li>
           </ul>
           <div class="fp-card__stack"><span>Python</span><span>Pandas</span><span>scikit-learn</span><span>Seaborn</span></div>
         </div>
         <div class="fp-card__cta">
-          <a href="/intelligence_platform#churn" target="_blank" rel="noopener noreferrer" class="demo-live-btn--green">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Launch Churn Predictor →</span>
+          <a href="/intelligence_platform#churn" class="fp-cta-btn fp-cta-btn--primary">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Launch Churn Predictor
           </a>
-          <a href="/projects#customer-analysis" class="fp-btn fp-btn--ghost">
+          <a href="/projects#customer-analysis" class="fp-cta-btn fp-cta-btn--ghost">
             <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
             Case Study
           </a>
         </div>
       </div>
 
-      <!-- Card 3: Fraud — Live Demo + Case Study -->
+      <!-- Card 3: Fraud -->
       <div class="fp-card reveal-up" style="--d:.25s">
         <div class="fp-card__img">
           <div class="fp-card__chrome">
@@ -200,24 +193,20 @@ title: Home
             <span class="fp-tag fp-tag--ol">Tableau</span>
           </div>
           <h3 class="fp-card__title">Fraud Detection Command Centre</h3>
-          <p class="fp-card__desc">A behavioural ML pipeline that identifies fraudulent transactions by analysing velocity patterns, device signals, and time anomalies — visualised through a real-time Tableau command centre.</p>
+          <p class="fp-card__desc">A behavioural ML pipeline identifying fraudulent transactions by analysing velocity patterns, device signals, and time anomalies — visualised in a Tableau command centre.</p>
           <ul class="fp-card__bullets">
-            <li>Random Forest with strong precision-recall on heavily imbalanced data</li>
-            <li>High-frequency burst patterns flagged as the primary fraud signal</li>
-            <li>Tableau dashboard tracking fraud trends &amp; estimated financial impact</li>
+            <li>Random Forest with strong precision-recall on heavily imbalanced data.</li>
+            <li>High-frequency burst patterns flagged as the primary fraud signal.</li>
+            <li>Tableau dashboard tracking fraud trends &amp; estimated financial impact.</li>
           </ul>
           <div class="fp-card__stack"><span>Python</span><span>Random Forest</span><span>SMOTE</span><span>Tableau</span></div>
         </div>
         <div class="fp-card__cta">
-          <a href="/intelligence_platform#fraud" target="_blank" rel="noopener noreferrer" class="demo-live-btn--green">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Launch Fraud Detector →</span>
+          <a href="/intelligence_platform#fraud" class="fp-cta-btn fp-cta-btn--primary">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Launch Fraud Detector
           </a>
-
-          <a href="/projects#fraud-detection" class="fp-btn fp-btn--ghost">
+          <a href="/projects#fraud-detection" class="fp-cta-btn fp-cta-btn--ghost">
             <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
             Case Study
           </a>
@@ -275,197 +264,6 @@ title: Home
   <a href="mailto:timothymaina382@gmail.com" style="color:#3b82f6;text-decoration:none;">Email-me</a>
 </footer>
 
-<!-- ═══════════════════════════════════════════
-     DEMO MODALS
-════════════════════════════════════════════ -->
-
-<!-- CHURN MODAL -->
-<div class="dm" id="modal-churn" role="dialog" aria-modal="true" aria-label="Customer Churn Predictor">
-  <div class="dm__backdrop" onclick="closeDemo()"></div>
-  <div class="dm__panel">
-
-    <div class="dm__header">
-      <div class="dm__header-left">
-        <div class="dm__icon dm__icon--blue">
-          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-        </div>
-        <div>
-          <h3>Customer Churn Predictor</h3>
-          <p>Adjust inputs to simulate a customer profile and predict churn risk</p>
-        </div>
-      </div>
-      <a href="/intelligence_platform#churn" target="_blank" rel="noopener noreferrer" class="demo-live-btn demo-live-btn--green" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
-            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            Launch Churn Predictor →
-      </a>
-    </div>
-
-
-
-    <div class="dm__body">
-      <div class="dm__inputs">
-
-        <div class="dm__field">
-          <div class="dm__field-label">
-            <label>Days Since Last Purchase</label>
-            <span class="dm__val" id="cv-recency">45 days</span>
-          </div>
-          <p class="dm__hint">Higher inactivity = higher churn risk</p>
-          <input class="dm__slider" type="range" id="c-recency" min="1" max="365" value="45"
-            oninput="document.getElementById('cv-recency').textContent=this.value+' days'">
-          <div class="dm__marks"><span>1d</span><span>180d</span><span>365d</span></div>
-        </div>
-
-        <div class="dm__field">
-          <div class="dm__field-label">
-            <label>Total Orders Placed</label>
-            <span class="dm__val" id="cv-freq">3 orders</span>
-          </div>
-          <p class="dm__hint">Fewer orders = lower engagement</p>
-          <input class="dm__slider" type="range" id="c-freq" min="1" max="50" value="3"
-            oninput="document.getElementById('cv-freq').textContent=this.value+' orders'">
-          <div class="dm__marks"><span>1</span><span>25</span><span>50</span></div>
-        </div>
-
-        <div class="dm__field">
-          <div class="dm__field-label">
-            <label>Total Spend</label>
-            <span class="dm__val" id="cv-spend">$120</span>
-          </div>
-          <p class="dm__hint">Monetary value of the customer</p>
-          <input class="dm__slider" type="range" id="c-spend" min="10" max="5000" value="120" step="10"
-            oninput="document.getElementById('cv-spend').textContent='$'+Number(this.value).toLocaleString()">
-          <div class="dm__marks"><span>$10</span><span>$2,500</span><span>$5,000</span></div>
-        </div>
-
-        <div class="dm__field">
-          <div class="dm__field-label">
-            <label>Refund Rate</label>
-            <span class="dm__val" id="cv-refund">10%</span>
-          </div>
-          <p class="dm__hint">High refunds signal dissatisfaction</p>
-          <input class="dm__slider" type="range" id="c-refund" min="0" max="100" value="10"
-            oninput="document.getElementById('cv-refund').textContent=this.value+'%'">
-          <div class="dm__marks"><span>0%</span><span>50%</span><span>100%</span></div>
-        </div>
-
-      </div>
-
-      <!-- Result panel -->
-      <div class="dm__result" id="churn-result">
-        <div class="dm__result-idle">
-          <svg width="40" height="40" fill="none" viewBox="0 0 24 24" stroke="#3b82f6" stroke-width="1.3"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-          <p>Adjust the sliders then click<br><strong>Run Prediction</strong></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="dm__footer">
-      <button class="dm__run-btn" id="churn-run" onclick="runChurn()">
-        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        <span id="churn-btn-text">Run Prediction</span>
-      </button>
-      <a href="/projects#customer-analysis" class="dm__case-link">View full case study →</a>
-    </div>
-  </div>
-</div>
-
-<!-- FRAUD MODAL -->
-<div class="dm" id="modal-fraud" role="dialog" aria-modal="true" aria-label="Fraud Detection Simulator">
-  <div class="dm__backdrop" onclick="closeDemo()"></div>
-  <div class="dm__panel">
-
-    <div class="dm__header">
-      <div class="dm__header-left">
-        <div class="dm__icon dm__icon--red">
-          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-        </div>
-        <div>
-          <h3>Fraud Detection Simulator</h3>
-          <p>Simulate a transaction to get an instant fraud risk score</p>
-        </div>
-      </div>
-      <button class="dm__close" onclick="closeDemo()" aria-label="Close">
-        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-      </button>
-    </div>
-
-
-
-    <div class="dm__body">
-      <div class="dm__inputs">
-
-        <div class="dm__field">
-          <div class="dm__field-label">
-            <label>Transaction Amount</label>
-            <span class="dm__val" id="fv-amount">$250</span>
-          </div>
-          <p class="dm__hint">Unusually large amounts raise fraud risk</p>
-          <input class="dm__slider" type="range" id="f-amount" min="1" max="10000" value="250" step="10"
-            oninput="document.getElementById('fv-amount').textContent='$'+Number(this.value).toLocaleString()">
-          <div class="dm__marks"><span>$1</span><span>$5,000</span><span>$10,000</span></div>
-        </div>
-
-        <div class="dm__field">
-          <div class="dm__field-label">
-            <label>Transactions in Last Hour</label>
-            <span class="dm__val" id="fv-velocity">2 txns</span>
-          </div>
-          <p class="dm__hint">High velocity bursts are the primary fraud signal</p>
-          <input class="dm__slider" type="range" id="f-velocity" min="1" max="30" value="2"
-            oninput="document.getElementById('fv-velocity').textContent=this.value+' txns'">
-          <div class="dm__marks"><span>1</span><span>15</span><span>30</span></div>
-        </div>
-
-        <div class="dm__field">
-          <div class="dm__field-label">
-            <label>Distinct Devices Used</label>
-            <span class="dm__val" id="fv-devices">1 device</span>
-          </div>
-          <p class="dm__hint">Multiple devices signal account takeover</p>
-          <input class="dm__slider" type="range" id="f-devices" min="1" max="10" value="1"
-            oninput="document.getElementById('fv-devices').textContent=this.value+' device'+(this.value>1?'s':'')">
-          <div class="dm__marks"><span>1</span><span>5</span><span>10</span></div>
-        </div>
-
-        <div class="dm__field">
-          <div class="dm__field-label">
-            <label>Time of Day</label>
-            <span class="dm__val" id="fv-hour">14:00</span>
-          </div>
-          <p class="dm__hint">Late-night transactions carry elevated risk</p>
-          <input class="dm__slider" type="range" id="f-hour" min="0" max="23" value="14"
-            oninput="document.getElementById('fv-hour').textContent=String(this.value).padStart(2,'0')+':00'">
-          <div class="dm__marks"><span>00:00</span><span>12:00</span><span>23:00</span></div>
-        </div>
-
-      </div>
-
-      <div class="dm__result" id="fraud-result">
-        <div class="dm__result-idle">
-          <svg width="40" height="40" fill="none" viewBox="0 0 24 24" stroke="#f59e0b" stroke-width="1.3"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-          <p>Adjust the sliders then click<br><strong>Analyse Transaction</strong></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="dm__footer">
-      <a href="/intelligence_platform#fraud" target="_blank" rel="noopener noreferrer" class="demo-live-btn demo-live-btn--green" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
-            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            Launch Fraud Detector →
-      </a>
-
-      <a href="/projects#fraud-detection" class="dm__case-link">View full case study →</a>
-    </div>
-  </div>
-</div>
-
 <!-- JAVASCRIPT -->
 <script>
 /* ── Particles ─────────────── */
@@ -482,250 +280,9 @@ title: Home
 
 /* ── Scroll cue hide ───────── */
 (function(){const cue=document.querySelector('.h-scroll-cue');if(!cue)return;window.addEventListener('scroll',()=>{cue.style.opacity=window.scrollY>80?'0':'1';},{passive:true});})();
-
-/* ── Modal open/close ──────── */
-function openDemo(type) {
-  const modal = document.getElementById('modal-' + type);
-  if (!modal) return;
-  modal.classList.add('dm--open');
-  document.body.style.overflow = 'hidden';
-}
-function closeDemo() {
-  document.querySelectorAll('.dm').forEach(m => m.classList.remove('dm--open'));
-  document.body.style.overflow = '';
-}
-// Close on Escape key
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDemo(); });
-
-/* ══════════════════════════════════════════════════════
-   CHURN SIMULATION
-   ─────────────────────────────────────────────────────
-   HOW TO CONNECT YOUR REAL API (when ready):
-   1. Deploy your FastAPI app on Render.com
-   2. Copy your Render URL e.g. https://churn-api-xxxx.onrender.com
-   3. Replace CHURN_API_URL below with that URL
-   4. Remove the "// SIMULATION MODE" block
-   5. Uncomment the "// LIVE API MODE" block
-   ══════════════════════════════════════════════════════ */
-const CHURN_API_URL = 'https://YOUR-CHURN-API.onrender.com/predict'; // ← SWAP THIS
-
-async function runChurn() {
-  const btn    = document.getElementById('churn-run');
-  const btnTxt = document.getElementById('churn-btn-text');
-  const result = document.getElementById('churn-result');
-
-  const recency   = +document.getElementById('c-recency').value;
-  const frequency = +document.getElementById('c-freq').value;
-  const monetary  = +document.getElementById('c-spend').value;
-  const refund    = +document.getElementById('c-refund').value;
-
-  // Loading state
-  btn.disabled = true;
-  btnTxt.textContent = 'Running model…';
-  result.innerHTML = `<div class="dm__result-loading"><div class="dm__spinner"></div><p>Running prediction…</p></div>`;
-
-  await new Promise(r => setTimeout(r, 1200)); // simulate latency
-
-  // ── SIMULATION MODE (remove this block when API is live) ──
-  const churnProb = simulateChurn(recency, frequency, monetary, refund);
-  showChurnResult(result, churnProb, recency, frequency, monetary, refund);
-  // ─────────────────────────────────────────────────────────
-
-  /* ── LIVE API MODE (uncomment when API is deployed) ───────
-  try {
-    const res  = await fetch(CHURN_API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ recency, frequency, monetary, refund_rate: refund })
-    });
-    const data = await res.json();
-    showChurnResult(result, data.churn_probability, recency, frequency, monetary, refund);
-  } catch (err) {
-    result.innerHTML = `<div class="dm__result-error"><p>⚠️ API not reachable. Running in simulation mode.</p></div>`;
-    const churnProb = simulateChurn(recency, frequency, monetary, refund);
-    showChurnResult(result, churnProb, recency, frequency, monetary, refund);
-  }
-  ──────────────────────────────────────────────────────── */
-
-  btn.disabled = false;
-  btnTxt.textContent = 'Run Again';
-}
-
-function simulateChurn(recency, frequency, monetary, refund) {
-  // Weighted scoring matching RFM + refund logic from the actual model
-  let score = 0;
-  score += Math.min((recency / 365) * 45, 45);       // recency: up to 45pts
-  score += Math.max(0, (1 - frequency / 50) * 25);   // frequency: up to 25pts
-  score += Math.max(0, (1 - monetary / 5000) * 15);  // monetary: up to 15pts
-  score += (refund / 100) * 15;                       // refund: up to 15pts
-  return Math.min(Math.round(score), 98);
-}
-
-function showChurnResult(container, prob, recency, freq, monetary, refund) {
-  const isHigh = prob >= 60;
-  const isMed  = prob >= 30 && prob < 60;
-  const colour = isHigh ? '#ef4444' : isMed ? '#f59e0b' : '#10b981';
-  const label  = isHigh ? 'High Risk' : isMed ? 'Medium Risk' : 'Low Risk';
-  const segment = freq >= 20 && monetary >= 1000 ? 'Loyal Customer'
-                : isHigh ? 'At-Risk Customer'
-                : isMed  ? 'Passive Customer'
-                : 'Active Customer';
-  const action  = isHigh ? 'Launch immediate re-engagement campaign'
-                : isMed  ? 'Send personalised retention offer'
-                : 'Continue standard engagement';
-
-  container.innerHTML = `
-    <div class="dm__result-card">
-      <div class="dm__gauge-wrap">
-        <svg class="dm__gauge" viewBox="0 0 120 70">
-          <path d="M10 65 A55 55 0 0 1 110 65" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="10" stroke-linecap="round"/>
-          <path d="M10 65 A55 55 0 0 1 110 65" fill="none" stroke="${colour}" stroke-width="10" stroke-linecap="round"
-            stroke-dasharray="173" stroke-dashoffset="${173 - (173 * prob / 100)}"
-            style="transition:stroke-dashoffset 1s ease;"/>
-        </svg>
-        <div class="dm__gauge-num" style="color:${colour}">${prob}%</div>
-        <div class="dm__gauge-sub">Churn Probability</div>
-      </div>
-      <div class="dm__result-details">
-        <div class="dm__result-badge" style="background:${colour}22;color:${colour};border:1px solid ${colour}44">${label}</div>
-        <div class="dm__result-row"><span>Segment</span><strong>${segment}</strong></div>
-        <div class="dm__result-row"><span>Key Driver</span><strong>${recency > 180 ? 'High inactivity' : refund > 40 ? 'High refund rate' : freq < 3 ? 'Low engagement' : 'Healthy profile'}</strong></div>
-        <div class="dm__result-action">💡 ${action}</div>
-      </div>
-    </div>`;
-}
-
-/* ══════════════════════════════════════════════════════
-   FRAUD SIMULATION
-   HOW TO CONNECT YOUR REAL API (when ready):
-   1. Deploy your FastAPI app on Render.com
-   2. Replace FRAUD_API_URL below with your Render URL
-   3. Follow the same swap pattern as churn above
-   ══════════════════════════════════════════════════════ */
-const FRAUD_API_URL = 'https://YOUR-FRAUD-API.onrender.com/predict'; // ← SWAP THIS
-
-async function runFraud() {
-  const btn    = document.getElementById('fraud-run');
-  const btnTxt = document.getElementById('fraud-btn-text');
-  const result = document.getElementById('fraud-result');
-
-  const amount   = +document.getElementById('f-amount').value;
-  const velocity = +document.getElementById('f-velocity').value;
-  const devices  = +document.getElementById('f-devices').value;
-  const hour     = +document.getElementById('f-hour').value;
-
-  btn.disabled = true;
-  btnTxt.textContent = 'Analysing…';
-  result.innerHTML = `<div class="dm__result-loading"><div class="dm__spinner dm__spinner--red"></div><p>Analysing transaction…</p></div>`;
-
-  await new Promise(r => setTimeout(r, 1400));
-
-  // ── SIMULATION MODE ──
-  const fraudProb = simulateFraud(amount, velocity, devices, hour);
-  showFraudResult(result, fraudProb, amount, velocity, devices, hour);
-  // ─────────────────────
-
-  /* ── LIVE API MODE ──────────────────────────────────────
-  try {
-    const res  = await fetch(FRAUD_API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ amount, velocity_1h: velocity, distinct_devices: devices, hour })
-    });
-    const data = await res.json();
-    showFraudResult(result, data.fraud_probability, amount, velocity, devices, hour);
-  } catch (err) {
-    const fraudProb = simulateFraud(amount, velocity, devices, hour);
-    showFraudResult(result, fraudProb, amount, velocity, devices, hour);
-  }
-  ──────────────────────────────────────────────────────── */
-
-  btn.disabled = false;
-  btnTxt.textContent = 'Analyse Again';
-}
-
-function simulateFraud(amount, velocity, devices, hour) {
-  let score = 0;
-  score += Math.min((amount / 10000) * 30, 30);          // amount: up to 30pts
-  score += Math.min(((velocity - 1) / 29) * 40, 40);    // velocity: up to 40pts (key signal)
-  score += Math.min(((devices - 1) / 9) * 20, 20);      // devices: up to 20pts
-  const nightRisk = (hour >= 0 && hour <= 5) ? 10 : 0;  // late night: up to 10pts
-  score += nightRisk;
-  return Math.min(Math.round(score), 99);
-}
-
-function showFraudResult(container, prob, amount, velocity, devices, hour) {
-  const isHigh = prob >= 65;
-  const isMed  = prob >= 35 && prob < 65;
-  const colour = isHigh ? '#ef4444' : isMed ? '#f59e0b' : '#10b981';
-  const label  = isHigh ? '🚨 High Fraud Risk' : isMed ? '⚠️ Suspicious' : '✅ Likely Legitimate';
-  const action  = isHigh ? 'Block transaction — flag for manual review'
-                : isMed  ? 'Trigger additional authentication step'
-                : 'Approve transaction — continue monitoring';
-  const driver  = velocity >= 15 ? 'Transaction velocity burst'
-                : devices >= 5   ? 'Multiple device usage'
-                : amount >= 5000 ? 'High transaction amount'
-                : hour <= 4      ? 'Late-night timing'
-                : 'No significant risk signals';
-
-  container.innerHTML = `
-    <div class="dm__result-card">
-      <div class="dm__gauge-wrap">
-        <svg class="dm__gauge" viewBox="0 0 120 70">
-          <path d="M10 65 A55 55 0 0 1 110 65" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="10" stroke-linecap="round"/>
-          <path d="M10 65 A55 55 0 0 1 110 65" fill="none" stroke="${colour}" stroke-width="10" stroke-linecap="round"
-            stroke-dasharray="173" stroke-dashoffset="${173 - (173 * prob / 100)}"
-            style="transition:stroke-dashoffset 1s ease;"/>
-        </svg>
-        <div class="dm__gauge-num" style="color:${colour}">${prob}%</div>
-        <div class="dm__gauge-sub">Fraud Probability</div>
-      </div>
-      <div class="dm__result-details">
-        <div class="dm__result-badge" style="background:${colour}22;color:${colour};border:1px solid ${colour}44">${label}</div>
-        <div class="dm__result-row"><span>Primary Signal</span><strong>${driver}</strong></div>
-        <div class="dm__result-row"><span>Velocity</span><strong>${velocity} txn/hr ${velocity >= 15 ? '🔴' : velocity >= 8 ? '🟡' : '🟢'}</strong></div>
-        <div class="dm__result-action">🛡️ ${action}</div>
-      </div>
-    </div>`;
-}
 </script>
 
 <style>
-  .demo-live-btn--green {
-  /* Layout */
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  
-  /* Typography */
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-  letter-spacing: 0.02em;
-  
-  /* Styling */
-  background-color: #3dba7a; /* Professional Green */
-  color: #ffffff !important;
-  border-radius: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  
-  /* Interactions */
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(61, 186, 122, 0.2);
-  cursor: pointer;
-}
-
-.demo-live-btn--green:hover {
-  background-color: #34a86d;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(61, 186, 122, 0.3);
-}
-
-.demo-live-btn--green:active {
-  transform: translateY(0);
-}
 /* ── Tokens ─── */
 :root{--bg:#020617;--sur:#0f172a;--sur2:#1e293b;--bdr:rgba(255,255,255,0.07);--blue:#2563eb;--blue-lt:#3b82f6;--blue-d:rgba(59,130,246,0.14);--txt:#e2e8f0;--muted:#94a3b8;--dim:#475569;}
 *,*::before,*::after{box-sizing:border-box;}
@@ -798,10 +355,12 @@ em{font-style:italic;color:#60a5fa;}
 .h-pillar__tools span{font-size:.72rem;padding:3px 9px;background:var(--blue-d);border:1px solid rgba(59,130,246,.2);border-radius:999px;color:#93c5fd;}
 
 /* ══ FEATURED PROJECTS CARDS ══ */
-.fp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start;}
+.fp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch;}
+
+/* Cards stretch to equal height via the grid */
 .fp-card{display:flex;flex-direction:column;background:#ffffff08;border:1px solid rgba(255,255,255,.09);border-radius:20px;overflow:hidden;transition:transform .32s ease,box-shadow .32s ease,border-color .32s ease;backdrop-filter:blur(4px);}
 .fp-card:hover{transform:translateY(-10px);box-shadow:0 32px 64px rgba(0,0,0,.55),0 0 0 1px rgba(59,130,246,.2);border-color:rgba(59,130,246,.25);}
-.fp-card__img{position:relative;}
+.fp-card__img{position:relative;flex-shrink:0;}
 .fp-card__chrome{display:flex;align-items:center;gap:5px;padding:8px 12px;background:rgba(2,6,23,.9);border-bottom:1px solid rgba(255,255,255,.06);}
 .fp-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
 .fp-dot--r{background:#ff5f57;}.fp-dot--y{background:#febc2e;}.fp-dot--g{background:#28c840;}
@@ -813,6 +372,8 @@ em{font-style:italic;color:#60a5fa;}
 .fp-card__badge{position:absolute;top:12px;right:12px;font-size:.66rem;font-weight:700;padding:3px 9px;border-radius:999px;letter-spacing:.04em;}
 .fp-card__badge--done{background:rgba(16,185,129,.15);color:#10b981;border:1px solid rgba(16,185,129,.3);}
 .fp-card__badge--wip{background:rgba(245,158,11,.15);color:#f59e0b;border:1px solid rgba(245,158,11,.3);}
+
+/* Card body grows to fill — pushes CTA to bottom */
 .fp-card__body{padding:20px 20px 0;flex:1;display:flex;flex-direction:column;}
 .fp-card__meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
 .fp-card__title{font-size:1.05rem;color:#fff;line-height:1.3;margin-bottom:10px;}
@@ -822,19 +383,16 @@ em{font-style:italic;color:#60a5fa;}
 .fp-card__bullets li::before{content:"▸";position:absolute;left:0;top:1px;color:var(--blue-lt);font-size:.7rem;}
 .fp-card__stack{display:flex;flex-wrap:wrap;gap:5px;padding:12px 0;border-top:1px solid rgba(255,255,255,.05);margin-top:auto;}
 .fp-card__stack span{font-size:.7rem;padding:3px 8px;background:rgba(37,99,235,.1);border:1px solid rgba(59,130,246,.18);border-radius:999px;color:#93c5fd;font-family:'DM Sans',sans-serif;}
-.fp-card__cta{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:16px 20px;border-top:1px solid rgba(255,255,255,.06);background:rgba(0,0,0,.15);}
-.fp-card__cta--single{grid-template-columns:1fr;}
-.fp-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 14px;border-radius:8px;font-size:.8rem;font-weight:600;text-decoration:none;transition:all .22s ease;font-family:'DM Sans',sans-serif;cursor:pointer;border:none;}
-.fp-btn--primary{background:var(--blue);color:#fff;border:1px solid var(--blue);}
-.fp-btn--primary:hover{background:#1d4ed8;transform:translateY(-2px);box-shadow:0 6px 18px rgba(37,99,235,.4);}
-.fp-btn--full{grid-column:1/-1;}
-.fp-btn--ghost{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,.12);}
-.fp-btn--ghost:hover{color:var(--txt);border-color:rgba(255,255,255,.28);transform:translateY(-2px);}
-/* Live Demo button */
-.fp-btn--demo{background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff;border:1px solid rgba(99,155,255,.3);box-shadow:0 0 12px rgba(37,99,235,.25);}
-.fp-btn--demo:hover{background:linear-gradient(135deg,#1e40af,#1d4ed8);transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,99,235,.45);}
-.fp-btn--demo--red{background:linear-gradient(135deg,#b91c1c,#dc2626);border-color:rgba(239,68,68,.3);box-shadow:0 0 12px rgba(220,38,38,.2);}
-.fp-btn--demo--red:hover{background:linear-gradient(135deg,#991b1b,#b91c1c);box-shadow:0 6px 20px rgba(220,38,38,.4);}
+
+/* ── CTA button row — always pinned to card bottom ── */
+.fp-card__cta{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px 16px;border-top:1px solid rgba(255,255,255,.06);background:rgba(0,0,0,.15);flex-shrink:0;}
+
+/* New unified CTA button styles */
+.fp-cta-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 14px;border-radius:9px;font-size:.8rem;font-weight:600;text-decoration:none;transition:all .22s ease;font-family:'DM Sans',sans-serif;letter-spacing:.01em;white-space:nowrap;}
+.fp-cta-btn--primary{background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff;border:1px solid rgba(99,155,255,.25);box-shadow:0 2px 10px rgba(37,99,235,.3);}
+.fp-cta-btn--primary:hover{background:linear-gradient(135deg,#1e40af,#1d4ed8);transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,99,235,.45);}
+.fp-cta-btn--ghost{background:rgba(255,255,255,.04);color:var(--muted);border:1px solid rgba(255,255,255,.1);}
+.fp-cta-btn--ghost:hover{color:var(--txt);background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22);transform:translateY(-2px);}
 
 .fp-tag{display:inline-block;padding:4px 10px;font-size:.7rem;font-weight:500;background:var(--blue);border-radius:999px;color:#fff;font-family:'DM Sans',sans-serif;white-space:nowrap;}
 .fp-tag--ol{background:transparent;border:1px solid rgba(59,130,246,.4);color:#93c5fd;}
@@ -854,87 +412,9 @@ em{font-style:italic;color:#60a5fa;}
 .h-cta-banner__inner p{color:var(--muted);font-size:.97rem;line-height:1.75;margin-bottom:34px;}
 .h-cta-banner__actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
 
-/* ══════════════════════════════════════
-   DEMO MODAL STYLES
-══════════════════════════════════════ */
-.dm{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s ease;}
-.dm--open{opacity:1;pointer-events:all;}
-.dm__backdrop{position:absolute;inset:0;background:rgba(2,6,23,.85);backdrop-filter:blur(6px);}
-.dm__panel{position:relative;z-index:1;background:linear-gradient(160deg,#1e293b,#0f172a);border:1px solid rgba(255,255,255,.1);border-radius:22px;width:100%;max-width:780px;max-height:90vh;overflow-y:auto;display:flex;flex-direction:column;box-shadow:0 32px 80px rgba(0,0,0,.7);animation:panelIn .35s ease both;}
-.dm--open .dm__panel{animation:panelIn .35s ease both;}
-@keyframes panelIn{from{opacity:0;transform:translateY(24px) scale(.97);}to{opacity:1;transform:translateY(0) scale(1);}}
-
-/* Header */
-.dm__header{display:flex;align-items:center;justify-content:space-between;padding:22px 24px;border-bottom:1px solid rgba(255,255,255,.07);}
-.dm__header-left{display:flex;align-items:center;gap:14px;}
-.dm__icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.dm__icon--blue{background:rgba(37,99,235,.15);border:1px solid rgba(59,130,246,.25);color:var(--blue-lt);}
-.dm__icon--red{background:rgba(220,38,38,.12);border:1px solid rgba(239,68,68,.25);color:#f87171;}
-.dm__header-left h3{font-size:1.05rem;color:#fff;margin:0 0 3px;}
-.dm__header-left p{font-size:.8rem;color:var(--muted);margin:0;}
-.dm__close{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;color:var(--muted);cursor:pointer;transition:all .2s;}
-.dm__close:hover{background:rgba(255,255,255,.1);color:#fff;}
-
-/* API status bar */
-.dm__api-bar{display:flex;align-items:center;gap:8px;padding:8px 24px;font-size:.75rem;font-family:'DM Sans',sans-serif;}
-.dm__api-bar--offline{background:rgba(245,158,11,.06);border-bottom:1px solid rgba(245,158,11,.12);color:#f59e0b;}
-.dm__api-bar--online{background:rgba(16,185,129,.06);border-bottom:1px solid rgba(16,185,129,.12);color:#10b981;}
-.dm__api-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0;}
-.dm__api-tag{margin-left:auto;font-family:monospace;font-size:.7rem;opacity:.6;}
-
-/* Body: inputs + result */
-.dm__body{display:grid;grid-template-columns:1fr 1fr;gap:0;flex:1;}
-.dm__inputs{padding:22px 20px;border-right:1px solid rgba(255,255,255,.07);display:flex;flex-direction:column;gap:18px;}
-.dm__field{display:flex;flex-direction:column;gap:5px;}
-.dm__field-label{display:flex;justify-content:space-between;align-items:baseline;}
-.dm__field-label label{font-size:.78rem;font-weight:600;color:#e2e8f0;}
-.dm__val{font-size:.82rem;font-weight:700;color:var(--blue-lt);font-family:'DM Sans',sans-serif;}
-.dm__hint{font-size:.72rem;color:var(--dim);margin:0;line-height:1.4;}
-.dm__slider{width:100%;height:4px;border-radius:999px;outline:none;cursor:pointer;accent-color:var(--blue-lt);}
-.dm__marks{display:flex;justify-content:space-between;font-size:.65rem;color:var(--dim);margin-top:2px;}
-
-/* Result panel */
-.dm__result{padding:22px 20px;display:flex;align-items:center;justify-content:center;min-height:260px;}
-.dm__result-idle{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;}
-.dm__result-idle p{font-size:.85rem;color:var(--dim);line-height:1.6;margin:0;}
-.dm__result-idle strong{color:var(--txt);}
-.dm__result-loading{display:flex;flex-direction:column;align-items:center;gap:14px;}
-.dm__result-loading p{font-size:.82rem;color:var(--muted);}
-.dm__spinner{width:32px;height:32px;border:3px solid rgba(59,130,246,.2);border-top-color:var(--blue-lt);border-radius:50%;animation:spin .7s linear infinite;}
-.dm__spinner--red{border-color:rgba(239,68,68,.2);border-top-color:#f87171;}
-@keyframes spin{to{transform:rotate(360deg);}}
-
-/* Result card */
-.dm__result-card{display:flex;flex-direction:column;gap:16px;width:100%;}
-.dm__gauge-wrap{position:relative;display:flex;flex-direction:column;align-items:center;}
-.dm__gauge{width:140px;overflow:visible;}
-.dm__gauge-num{font-family:'DM Serif Display',serif;font-size:2rem;line-height:1;margin-top:-8px;}
-.dm__gauge-sub{font-size:.7rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;}
-.dm__result-details{display:flex;flex-direction:column;gap:10px;}
-.dm__result-badge{display:inline-block;font-size:.78rem;font-weight:700;padding:5px 12px;border-radius:999px;width:fit-content;}
-.dm__result-row{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;padding:7px 10px;background:rgba(255,255,255,.04);border-radius:8px;}
-.dm__result-row span{color:var(--muted);}
-.dm__result-row strong{color:var(--txt);text-align:right;}
-.dm__result-action{font-size:.8rem;color:#e2e8f0;background:rgba(37,99,235,.1);border:1px solid rgba(59,130,246,.2);border-radius:8px;padding:10px 12px;line-height:1.5;}
-
-/* Footer */
-.dm__footer{display:flex;align-items:center;gap:14px;padding:16px 24px;border-top:1px solid rgba(255,255,255,.07);background:rgba(0,0,0,.1);}
-.dm__run-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 24px;background:var(--blue);color:#fff;border:1px solid var(--blue);border-radius:10px;font-size:.88rem;font-weight:600;cursor:pointer;transition:all .25s;font-family:'DM Sans',sans-serif;}
-.dm__run-btn:hover:not(:disabled){background:#1d4ed8;transform:translateY(-2px);box-shadow:0 8px 22px rgba(37,99,235,.4);}
-.dm__run-btn:disabled{opacity:.6;cursor:not-allowed;}
-.dm__run-btn--red{background:#dc2626;border-color:#dc2626;}
-.dm__run-btn--red:hover:not(:disabled){background:#b91c1c;box-shadow:0 8px 22px rgba(220,38,38,.4);}
-.dm__case-link{margin-left:auto;font-size:.8rem;color:var(--blue-lt);text-decoration:none;font-weight:500;}
-.dm__case-link:hover{text-decoration:underline;}
-
 /* ══ Responsive ══ */
 @media(max-width:1000px){.fp-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:900px){.h-pillars{grid-template-columns:1fr 1fr;}}
-@media(max-width:700px){
-  .dm__body{grid-template-columns:1fr;}
-  .dm__inputs{border-right:none;border-bottom:1px solid rgba(255,255,255,.07);}
-  .dm__panel{max-height:95vh;}
-}
 @media(max-width:640px){
   .h-section{padding:60px 18px;}
   .h-hero__inner{padding:0 18px;}
@@ -944,9 +424,6 @@ em{font-style:italic;color:#60a5fa;}
   .h-trust__divider{height:28px;}
   .h-cta-banner{padding:60px 20px;}
   .h-stack{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:10px;}
-  .dm__header{padding:16px 18px;}
-  .dm__inputs,.dm__result{padding:16px 18px;}
-  .dm__footer{padding:14px 18px;}
 }
 @media(max-width:400px){
   .h-hero__title{font-size:2rem;}
