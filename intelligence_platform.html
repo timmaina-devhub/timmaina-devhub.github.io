@@ -263,6 +263,7 @@ title: Intelligence Platform
 
     <div class="main">
 
+      <!-- ████ EXECUTIVE DASHBOARD ████ -->
       <div id="page-exec">
         <div class="page-hdr">
           <div class="page-hdr-left">
@@ -325,7 +326,10 @@ title: Intelligence Platform
             </tbody>
           </table>
         </div>
-      </div><div id="page-sales" class="hidden">
+      </div><!-- /exec -->
+
+      <!-- ████ SALES INTELLIGENCE ████ -->
+      <div id="page-sales" class="hidden">
         <div class="page-hdr">
           <div class="page-hdr-left">
             <h2>Sales Intelligence — Superstore</h2>
@@ -392,7 +396,10 @@ title: Intelligence Platform
             <div class="insight"><strong>Insight:</strong> Tables sub-category is consistently unprofitable across East region. Recommend pricing review or product discontinuation.</div>
           </div>
         </div>
-      </div><div id="page-churn" class="hidden">
+      </div><!-- /sales -->
+
+      <!-- ████ CHURN ████ -->
+      <div id="page-churn" class="hidden">
         <div class="page-hdr">
           <div class="page-hdr-left">
             <h2>Customer Churn & Segmentation</h2>
@@ -451,7 +458,10 @@ title: Intelligence Platform
             </table>
           </div>
         </div>
-      </div><div id="page-fraud" class="hidden">
+      </div><!-- /churn -->
+
+      <!-- ████ FRAUD ████ -->
+      <div id="page-fraud" class="hidden">
         <div class="page-hdr">
           <div class="page-hdr-left">
             <h2>Fraud Detection Command Centre</h2>
@@ -493,9 +503,212 @@ title: Intelligence Platform
             <div class="feature-row"><div class="feature-label"><span>Transaction velocity (burst pattern)</span><span>41%</span></div><div class="feature-bar"><div class="feature-fill f-red" style="width:41%"></div></div></div>
             <div class="feature-row"><div class="feature-label"><span>Device count (account takeover)</span><span>26%</span></div><div class="feature-bar"><div class="feature-fill f-amber" style="width:26%"></div></div></div>
             <div class="feature-row"><div class="feature-label"><span>IP repetition (repeat offender)</span><span>21%</span></div><div class="feature-bar"><div class="feature-fill f-amber" style="width:21%"></div></div></div>
+            <div class="feature-row"><div class="feature-label"><span>Transaction amount anomaly</span><span>12%</span></div><div class="feature-bar"><div class="feature-fill f-blue" style="width:12%"></div></div></div>
+            <div class="insight"><strong>Model insight:</strong> High-frequency burst patterns are the primary fraud signal. Velocity spikes of 15+ transactions/hour flag with 94% precision in the Random Forest model.</div>
+          </div>
+          <div class="card">
+            <h4>High-Risk Entities — Live Flag</h4>
+            <table class="data-table">
+              <thead><tr><th>Entity</th><th>Score</th><th>Primary Signal</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr><td>Card_7821</td><td style="color:var(--red);font-weight:700">0.94</td><td><span class="pill pill-red">Velocity burst</span></td><td>Block</td></tr>
+                <tr><td>IP_192.11</td><td style="color:var(--red);font-weight:700">0.87</td><td><span class="pill pill-red">IP repeat</span></td><td>Block</td></tr>
+                <tr><td>User_4420</td><td style="color:var(--amber);font-weight:700">0.73</td><td><span class="pill pill-amber">Multi-device</span></td><td>Flag</td></tr>
+                <tr><td>Card_3312</td><td style="color:var(--amber);font-weight:700">0.61</td><td><span class="pill pill-amber">High amount</span></td><td>Monitor</td></tr>
+                <tr><td>User_8891</td><td style="color:var(--green);font-weight:700">0.28</td><td><span class="pill pill-green">Low risk</span></td><td>Pass</td></tr>
+              </tbody>
+            </table>
           </div>
         </div>
-      </div></div></div></div><script>
+      </div><!-- /fraud -->
+
+      <!-- ████ MARKETING ████ -->
+      <div id="page-marketing" class="hidden">
+        <div class="page-hdr">
+          <div class="page-hdr-left">
+            <h2>Marketing ROI Optimization</h2>
+            <p>Markov Chain Attribution · Random Forest revenue prediction · Power BI · R² 0.79</p>
+            <div class="page-hdr-tags">
+              <span class="tag tag-blue">Markov Chain</span><span class="tag tag-blue">Random Forest</span>
+              <span class="tag tag-green">Completed · R² 0.79</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h4>Campaign Inputs</h4>
+            <div class="form-row"><label>Total campaign spend ($) <span class="val" id="mk-spend-v">$5,000</span></label><input type="range" min="500" max="100000" value="5000" id="mk-spend" oninput="document.getElementById('mk-spend-v').textContent='$'+parseInt(this.value).toLocaleString()"></div>
+            <div class="form-row"><label>Cost per acquisition ($) <span class="val" id="mk-cpa-v">$45</span></label><input type="range" min="1" max="500" value="45" id="mk-cpa" oninput="document.getElementById('mk-cpa-v').textContent='$'+this.value"></div>
+            <div class="form-row"><label>Conversion rate (%) <span class="val" id="mk-conv-v">4%</span></label><input type="range" min="1" max="30" value="4" id="mk-conv" oninput="document.getElementById('mk-conv-v').textContent=this.value+'%'"></div>
+            <div class="form-row"><label>Channel touchpoints <span class="val" id="mk-touch-v">3</span></label><input type="range" min="1" max="8" value="3" id="mk-touch" oninput="document.getElementById('mk-touch-v').textContent=this.value"></div>
+            <button class="predict-btn" id="btn-marketing" onclick="runPred('marketing')">Predict Revenue →</button>
+            <div id="marketing-result" class="result-box">
+              <div class="result-label">Predicted Revenue</div>
+              <div class="result-primary" id="mk-rev" style="color:var(--green)">—</div>
+              <div class="result-tags">
+                <span class="pill" id="mk-roi-pill"></span>
+                <span class="pill pill-green" id="mk-ch-pill"></span>
+              </div>
+              <div class="result-insight" id="mk-insight"></div>
+            </div>
+          </div>
+          <div class="card">
+            <h4>Markov Chain Attribution — Channel Contribution</h4>
+            <div class="chart-wrap"><canvas id="c-marketing" height="200"></canvas></div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom:14px">
+          <h4>Budget Reallocation Recommendation</h4>
+          <div class="insight" style="margin-bottom:12px"><strong>Model insight:</strong> CPA is the dominant driver of revenue (feature importance: 38%). Channels with lower CPA yield disproportionately higher returns under the Markov attribution framework.</div>
+          <table class="data-table">
+            <thead><tr><th>Channel</th><th>Current Spend</th><th>Attribution %</th><th>CPA</th><th>Predicted ROI</th><th>Recommendation</th></tr></thead>
+            <tbody>
+              <tr><td>Email</td><td>$1,200</td><td>34%</td><td style="color:var(--green)">$12</td><td>8.4×</td><td><span class="pill pill-green">↑ Increase budget</span></td></tr>
+              <tr><td>Paid Search</td><td>$2,100</td><td>28%</td><td style="color:var(--amber)">$38</td><td>3.1×</td><td><span class="pill pill-amber">→ Maintain</span></td></tr>
+              <tr><td>Social</td><td>$900</td><td>22%</td><td style="color:var(--amber)">$55</td><td>2.4×</td><td><span class="pill pill-amber">→ Maintain</span></td></tr>
+              <tr><td>Display</td><td>$800</td><td>16%</td><td style="color:var(--red)">$89</td><td>1.2×</td><td><span class="pill pill-red">↓ Reduce budget</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div><!-- /marketing -->
+
+      <!-- ████ SUPPLY CHAIN ████ -->
+      <div id="page-supply" class="hidden">
+        <div class="page-hdr">
+          <div class="page-hdr-left">
+            <h2>Supply Chain & Inventory Optimization</h2>
+            <p>Prophet · ARIMA · Safety Stock · Reorder Point · EOQ · 1,900+ stockout events identified</p>
+            <div class="page-hdr-tags">
+              <span class="tag tag-blue">Prophet</span><span class="tag tag-blue">ARIMA</span>
+              <span class="tag tag-blue">EOQ · SS · ROP</span><span class="tag tag-amber">In Progress</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h4>SKU Inputs</h4>
+            <div class="form-row"><label>Avg daily demand (units) <span class="val" id="sc-demand-v">50</span></label><input type="range" min="1" max="500" value="50" id="sc-demand" oninput="document.getElementById('sc-demand-v').textContent=this.value"></div>
+            <div class="form-row"><label>Lead time (days) <span class="val" id="sc-lead-v">7d</span></label><input type="range" min="1" max="60" value="7" id="sc-lead" oninput="document.getElementById('sc-lead-v').textContent=this.value+'d'"></div>
+            <div class="form-row"><label>Demand std dev σ <span class="val" id="sc-sigma-v">10</span></label><input type="range" min="1" max="100" value="10" id="sc-sigma" oninput="document.getElementById('sc-sigma-v').textContent=this.value"></div>
+            <div class="form-row"><label>Service level target <span class="val" id="sc-svc-v">95%</span></label><input type="range" min="80" max="99" value="95" id="sc-svc" oninput="document.getElementById('sc-svc-v').textContent=this.value+'%'"></div>
+            <div class="form-row"><label>Holding cost ($/unit/yr) <span class="val" id="sc-hold-v">$2</span></label><input type="range" min="1" max="20" value="2" id="sc-hold" oninput="document.getElementById('sc-hold-v').textContent='$'+this.value"></div>
+            <div class="form-row"><label>Order cost ($) <span class="val" id="sc-order-v">$50</span></label><input type="range" min="10" max="500" value="50" id="sc-order" oninput="document.getElementById('sc-order-v').textContent='$'+this.value"></div>
+            <button class="predict-btn" id="btn-supply" onclick="runPred('supply')">Optimise Inventory →</button>
+            <div id="supply-result" class="result-box">
+              <div class="result-grid">
+                <div class="result-mini"><div class="val" id="sc-ss-v" style="color:var(--amber)">—</div><div class="lbl">Safety Stock (units)</div></div>
+                <div class="result-mini"><div class="val" id="sc-rop-v" style="color:var(--blue)">—</div><div class="lbl">Reorder Point (units)</div></div>
+                <div class="result-mini"><div class="val" id="sc-eoq-v" style="color:var(--green)">—</div><div class="lbl">EOQ (units/order)</div></div>
+                <div class="result-mini"><div class="val" id="sc-fore-v" style="color:var(--purple)">—</div><div class="lbl">30-Day Forecast (units)</div></div>
+              </div>
+              <div class="result-insight" id="sc-insight"></div>
+            </div>
+          </div>
+          <div class="card">
+            <h4>Demand Forecast — Prophet + Historical</h4>
+            <div class="chart-wrap"><canvas id="c-supply" height="280"></canvas></div>
+          </div>
+        </div>
+      </div><!-- /supply -->
+
+      <!-- ████ CREDIT RISK ████ -->
+      <div id="page-credit" class="hidden">
+        <div class="page-hdr">
+          <div class="page-hdr-left">
+            <h2>Customer Credit Risk Assessment</h2>
+            <p>XGBoost · SMOTE · Composite risk scoring · 18.3% default rate vs 9.5% benchmark</p>
+            <div class="page-hdr-tags">
+              <span class="tag tag-blue">XGBoost</span><span class="tag tag-blue">SMOTE</span>
+              <span class="tag tag-blue">Feature Engineering</span><span class="tag tag-amber">In Progress · F1 0.76</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h4>Borrower Profile Inputs</h4>
+            <div class="form-row"><label>Annual income ($) <span class="val" id="cr-inc-v">$45,000</span></label><input type="range" min="10000" max="300000" value="45000" id="cr-inc" oninput="document.getElementById('cr-inc-v').textContent='$'+parseInt(this.value).toLocaleString()"></div>
+            <div class="form-row"><label>Debt-to-income ratio (%) <span class="val" id="cr-dti-v">35%</span></label><input type="range" min="0" max="100" value="35" id="cr-dti" oninput="document.getElementById('cr-dti-v').textContent=this.value+'%'"></div>
+            <div class="form-row"><label>Credit score <span class="val" id="cr-score-v">680</span></label><input type="range" min="300" max="850" value="680" id="cr-score" oninput="document.getElementById('cr-score-v').textContent=this.value"></div>
+            <div class="form-row"><label>Loan amount ($) <span class="val" id="cr-loan-v">$15,000</span></label><input type="range" min="1000" max="200000" value="15000" id="cr-loan" oninput="document.getElementById('cr-loan-v').textContent='$'+parseInt(this.value).toLocaleString()"></div>
+            <button class="predict-btn" id="btn-credit" onclick="runPred('credit')">Assess Credit Risk →</button>
+            <div id="credit-result" class="result-box">
+              <div class="result-label">Default Probability</div>
+              <div class="result-primary" id="cr-prob">—</div>
+              <div class="result-tags">
+                <span class="pill" id="cr-tier-pill"></span>
+                <span class="pill" id="cr-rec-pill"></span>
+              </div>
+              <div class="result-insight" id="cr-insight"></div>
+            </div>
+          </div>
+          <div class="card">
+            <h4>Risk Tier Distribution</h4>
+            <div class="chart-wrap"><canvas id="c-credit" height="160"></canvas></div>
+            <div class="sep"></div>
+            <h4>Feature Importance — XGBoost</h4>
+            <div class="feature-row"><div class="feature-label"><span>Debt-to-income ratio</span><span>31%</span></div><div class="feature-bar"><div class="feature-fill f-red" style="width:31%"></div></div></div>
+            <div class="feature-row"><div class="feature-label"><span>Credit score band</span><span>28%</span></div><div class="feature-bar"><div class="feature-fill f-blue" style="width:28%"></div></div></div>
+            <div class="feature-row"><div class="feature-label"><span>Loan-to-income ratio</span><span>22%</span></div><div class="feature-bar"><div class="feature-fill f-amber" style="width:22%"></div></div></div>
+            <div class="feature-row"><div class="feature-label"><span>Income level</span><span>19%</span></div><div class="feature-bar"><div class="feature-fill f-green" style="width:19%"></div></div></div>
+          </div>
+        </div>
+      </div><!-- /credit -->
+
+      <!-- ████ LOGISTICS ████ -->
+      <div id="page-logistics" class="hidden">
+        <div class="page-hdr">
+          <div class="page-hdr-left">
+            <h2>Logistics & Delivery Optimization</h2>
+            <p>Random Forest Regressor · R² 0.70 · Traffic & weather proxy features · Driver performance analysis</p>
+            <div class="page-hdr-tags">
+              <span class="tag tag-blue">Random Forest</span><span class="tag tag-blue">Feature Engineering</span>
+              <span class="tag tag-amber">In Progress · R² 0.70</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h4>Shipment Inputs</h4>
+            <div class="form-row"><label>Route distance (km) <span class="val" id="lg-dist-v">250km</span></label><input type="range" min="10" max="2000" value="250" id="lg-dist" oninput="document.getElementById('lg-dist-v').textContent=this.value+'km'"></div>
+            <div class="form-row"><label>Historical delay rate (%) <span class="val" id="lg-hdr-v">15%</span></label><input type="range" min="0" max="80" value="15" id="lg-hdr" oninput="document.getElementById('lg-hdr-v').textContent=this.value+'%'"></div>
+            <div class="form-row"><label>Weather risk score (1-10) <span class="val" id="lg-wx-v">3</span></label><input type="range" min="1" max="10" value="3" id="lg-wx" oninput="document.getElementById('lg-wx-v').textContent=this.value"></div>
+            <div class="form-row"><label>Traffic congestion (1-5) <span class="val" id="lg-traf-v">2</span></label><input type="range" min="1" max="5" value="2" id="lg-traf" oninput="document.getElementById('lg-traf-v').textContent=this.value"></div>
+            <div class="form-row"><label>Carrier</label><select id="lg-carrier"><option>FastShip</option><option>SecureLog</option><option>EcoRoute</option></select></div>
+            <button class="predict-btn" id="btn-logistics" onclick="runPred('logistics')">Predict Delay →</button>
+            <div id="logistics-result" class="result-box">
+              <div class="result-label">Delay Probability</div>
+              <div class="result-primary" id="lg-prob">—</div>
+              <div class="result-tags">
+                <span class="pill" id="lg-window-pill"></span>
+                <span class="pill" id="lg-route-pill"></span>
+              </div>
+              <div class="result-insight" id="lg-insight"></div>
+            </div>
+          </div>
+          <div class="card">
+            <h4>Delay Distribution — Historical Buckets</h4>
+            <div class="chart-wrap"><canvas id="c-logistics" height="190"></canvas></div>
+            <div class="sep"></div>
+            <h4>Feature Importance — R² 0.70 Model</h4>
+            <div class="feature-row"><div class="feature-label"><span>Driver performance score</span><span>33%</span></div><div class="feature-bar"><div class="feature-fill f-red" style="width:33%"></div></div></div>
+            <div class="feature-row"><div class="feature-label"><span>Route conditions</span><span>27%</span></div><div class="feature-bar"><div class="feature-fill f-amber" style="width:27%"></div></div></div>
+            <div class="feature-row"><div class="feature-label"><span>Weather risk proxy</span><span>22%</span></div><div class="feature-bar"><div class="feature-fill f-amber" style="width:22%"></div></div></div>
+            <div class="feature-row"><div class="feature-label"><span>Traffic congestion proxy</span><span>18%</span></div><div class="feature-bar"><div class="feature-fill f-blue" style="width:18%"></div></div></div>
+            <div class="insight" style="margin-top:6px"><strong>Key finding:</strong> Data leakage features were identified and removed (inflated R² to ~0.99). Final R² 0.70 represents a realistic, production-aligned baseline.</div>
+          </div>
+        </div>
+      </div><!-- /logistics -->
+
+    </div><!-- /main -->
+  </div><!-- /body -->
+</div><!-- /shell -->
+
+<script>
 /**
  * Core Router Logic
  */
