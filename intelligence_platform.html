@@ -224,33 +224,34 @@ title: Intelligence Platform
   <div class="body">
     <!-- ══════════════ SIDEBAR ══════════════ -->
     <div class="sidebar">
-      <div class="sidebar-section">Overview</div>
-      <div class="nav-item active" onclick="showPage('exec',this)">
-        <div class="nav-icon">◈</div> Executive Dashboard
-      </div>
+  <div class="sidebar-section">Overview</div>
+  <a href="#exec" class="nav-item active" id="nav-exec">
+    <div class="nav-icon">◈</div> Executive Dashboard
+  </a>
 
-      <div class="sidebar-section">ML Modules</div>
-      <div class="nav-item" onclick="showPage('sales',this)">
-        <div class="nav-icon">📈</div> Sales Intelligence <span class="nav-sub">01</span>
-      </div>
-      <div class="nav-item" onclick="showPage('churn',this)">
-        <div class="nav-icon">👥</div> Churn & Segmentation <span class="nav-sub">02</span>
-      </div>
-      <div class="nav-item" onclick="showPage('fraud',this)">
-        <div class="nav-icon">🛡</div> Fraud Command Centre <span class="nav-sub">03</span>
-      </div>
-      <div class="nav-item" onclick="showPage('marketing',this)">
-        <div class="nav-icon">📣</div> Marketing ROI <span class="nav-sub">04</span>
-      </div>
-      <div class="nav-item" onclick="showPage('supply',this)">
-        <div class="nav-icon">📦</div> Supply Chain <span class="nav-sub">05</span>
-      </div>
-      <div class="nav-item" onclick="showPage('credit',this)">
-        <div class="nav-icon">💳</div> Credit Risk <span class="nav-sub">06</span>
-      </div>
-      <div class="nav-item" onclick="showPage('logistics',this)">
-        <div class="nav-icon">🚚</div> Logistics <span class="nav-sub">07</span>
-      </div>
+  <div class="sidebar-section">ML Modules</div>
+  <a href="#sales" class="nav-item" id="nav-sales">
+    <div class="nav-icon">📈</div> Sales Intelligence <span class="nav-sub">01</span>
+  </a>
+  <a href="#churn" class="nav-item" id="nav-churn">
+    <div class="nav-icon">👥</div> Churn & Segmentation <span class="nav-sub">02</span>
+  </a>
+  <a href="#fraud" class="nav-item" id="nav-fraud">
+    <div class="nav-icon">🛡</div> Fraud Command Centre <span class="nav-sub">03</span>
+  </a>
+  <a href="#marketing" class="nav-item" id="nav-marketing">
+    <div class="nav-icon">📣</div> Marketing ROI <span class="nav-sub">04</span>
+  </a>
+  <a href="#supply" class="nav-item" id="nav-supply">
+    <div class="nav-icon">📦</div> Supply Chain <span class="nav-sub">05</span>
+  </a>
+  <a href="#credit" class="nav-item" id="nav-credit">
+    <div class="nav-icon">💳</div> Credit Risk <span class="nav-sub">06</span>
+  </a>
+  <a href="#logistics" class="nav-item" id="nav-logistics">
+    <div class="nav-icon">🚚</div> Logistics <span class="nav-sub">07</span>
+  </a>
+  </div>
 
       <div class="sidebar-section">System</div>
       <div class="nav-item"><div class="nav-icon">⚙</div> Settings</div>
@@ -332,7 +333,7 @@ title: Intelligence Platform
       </div><!-- /exec -->
 
       <!-- ████ SALES INTELLIGENCE ████ -->
-      <div id="page-sales">
+      <div id="page-sales" class="hidden">
         <div class="page-hdr">
           <div class="page-hdr-left">
             <h2>Sales Intelligence — Superstore</h2>
@@ -402,7 +403,7 @@ title: Intelligence Platform
       </div><!-- /sales -->
 
       <!-- ████ CHURN ████ -->
-      <div id="page-churn">
+      <div id="page-churn" class="hidden">
         <div class="page-hdr">
           <div class="page-hdr-left">
             <h2>Customer Churn & Segmentation</h2>
@@ -464,7 +465,7 @@ title: Intelligence Platform
       </div><!-- /churn -->
 
       <!-- ████ FRAUD ████ -->
-      <div id="page-fraud">
+      <div id="page-fraud" class="hidden">
         <div class="page-hdr">
           <div class="page-hdr-left">
             <h2>Fraud Detection Command Centre</h2>
@@ -526,7 +527,7 @@ title: Intelligence Platform
       </div><!-- /fraud -->
 
       <!-- ████ MARKETING ████ -->
-      <div id="page-marketing">
+      <div id="page-marketing" class="hidden">
         <div class="page-hdr">
           <div class="page-hdr-left">
             <h2>Marketing ROI Optimization</h2>
@@ -578,7 +579,7 @@ title: Intelligence Platform
       </div><!-- /marketing -->
 
       <!-- ████ SUPPLY CHAIN ████ -->
-      <div id="page-supply">
+      <div id="page-supply" class="hidden">
         <div class="page-hdr">
           <div class="page-hdr-left">
             <h2>Supply Chain & Inventory Optimization</h2>
@@ -618,7 +619,7 @@ title: Intelligence Platform
       </div><!-- /supply -->
 
       <!-- ████ CREDIT RISK ████ -->
-      <div id="page-credit">
+      <div id="page-credit" class="hidden">
         <div class="page-hdr">
           <div class="page-hdr-left">
             <h2>Customer Credit Risk Assessment</h2>
@@ -662,7 +663,7 @@ title: Intelligence Platform
       </div><!-- /credit -->
 
       <!-- ████ LOGISTICS ████ -->
-      <div id="page-logistics">
+      <div id="page-logistics" class="hidden">
         <div class="page-hdr">
           <div class="page-hdr-left">
             <h2>Logistics & Delivery Optimization</h2>
@@ -721,13 +722,43 @@ const charts={};
 function mk(id,cfg){if(charts[id])charts[id].destroy();const c=document.getElementById(id);if(!c)return;charts[id]=new Chart(c,cfg)}
 
 // ─── NAVIGATION ───
-function showPage(id, el){
-  document.querySelectorAll('[id^="page-"]').forEach(p=>p.classList.add('hidden'));
-  document.getElementById('page-'+id).classList.remove('hidden');
-  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
-  el.classList.add('active');
-  buildCharts(id);
+/**
+ * Handles page visibility and sidebar styling based on the URL hash.
+ */
+function handleRouting() {
+  // Get the current hash (e.g., "#sales"), defaulting to "#exec" if empty
+  const hash = window.location.hash || '#exec';
+  const pageId = hash.replace('#', '');
+  
+  // 1. Hide all pages
+  const pages = ['exec', 'sales', 'churn', 'fraud', 'marketing', 'supply', 'credit', 'logistics'];
+  pages.forEach(id => {
+    const el = document.getElementById(`page-${id}`);
+    if (el) el.classList.add('hidden');
+  });
+
+  // 2. Show the active page
+  const activePage = document.getElementById(`page-${pageId}`);
+  if (activePage) {
+    activePage.classList.remove('hidden');
+  } else {
+    // Fallback if the hash is invalid
+    document.getElementById('page-exec').classList.remove('hidden');
+  }
+
+  // 3. Update Sidebar Active State
+  document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+  const activeNav = document.getElementById(`nav-${pageId}`);
+  if (activeNav) activeNav.classList.add('active');
 }
+
+// Listen for hash changes (back/forward button or link clicks)
+window.addEventListener('hashchange', handleRouting);
+
+// Run on initial load
+window.addEventListener('DOMContentLoaded', handleRouting);
+
+  
 
 // ─── CHARTS ───
 const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
