@@ -93,38 +93,46 @@ title: Home
 
     <div class="fp-grid">
 
-      <!-- Card 1: Superstore — Case Study only -->
+      <!-- Card 3: Fraud — Live Demo + Case Study -->
       <div class="fp-card reveal-up" style="--d:.05s">
         <div class="fp-card__img">
           <div class="fp-card__chrome">
             <span class="fp-dot fp-dot--r"></span><span class="fp-dot fp-dot--y"></span><span class="fp-dot fp-dot--g"></span>
-            <span class="fp-card__url">sales-dashboard · Tableau</span>
+            <span class="fp-card__url">Delivery Downtime Prediction & Route Optimization</span>
           </div>
           <div class="fp-card__screen">
-            <img src="{{ '/images/sales-dashboard.png' | relative_url }}" alt="Superstore Sales Dashboard" loading="lazy">
+            <img src="{{ '/images/coming_soon_banner.png' | relative_url }}" alt="Logistics Dashboard" loading="lazy">
             <div class="fp-card__img-overlay"></div>
           </div>
-          <span class="fp-card__badge fp-card__badge--done">✓ Completed</span>
+          <span class="pj__badge pj__badge--wip">⚡ In Progress</span>
         </div>
         <div class="fp-card__body">
           <div class="fp-card__meta">
-            <span class="fp-tag">Visualization</span>
-            <span class="fp-tag fp-tag--ol">Tableau</span>
-            <span class="fp-tag fp-tag--ol">Time Series</span>
+            <span class="fp-tag">Supply Chain Analytics</span>
+            <span class="fp-tag fp-tag--ol">Power BI</span>
+            <span class="fp-tag fp-tag--ol">Machine Learning</span>
           </div>
-          <h3 class="fp-card__title">Superstore Sales Executive Dashboard</h3>
-          <p class="fp-card__desc">An executive command centre that turns four years of Superstore data into one decision-ready view — combining KPI tracking, regional breakdowns, and ARIMA/Prophet sales forecasts.</p>
+          <h3 class="fp-card__title">Delivery Downtime & Route Optimization</h3>
+          <p class="fp-card__desc">Predicting logistics delivery delays using operational, driver, and environmental signals.</p>
           <ul class="fp-card__bullets">
-            <li>Identified loss-making sub-categories draining profit margin</li>
-            <li>6-month forecast enabling proactive budget planning</li>
-            <li>Reduced time-to-insight from hours of Excel work to one screen</li>
+            <li>Demonstrated strong impact of driver performance and route conditions on delays.</li>
+            <li>Built a realistic, production-aligned feature pipeline.</li>
+            <li>Established a robust baseline for delay prediction in logistics systems.</li>
           </ul>
-          <div class="fp-card__stack"><span>Tableau</span><span>Excel</span><span>ARIMA</span><span>Prophet</span></div>
+          <div class="fp-card__stack"><span>Regression</span><span>Feature Engineering</span><span>Python</span><span>Power BI</span></div>
         </div>
-        <div class="fp-card__cta fp-card__cta--single">
-          <a href="/projects#sales-dashboard" class="fp-btn fp-btn--primary fp-btn--full">
+        <div class="fp-card__cta">
+          <a href="/intelligence_platform#logistics" target="_blank" rel="noopener noreferrer" class="demo-live-btn demo-live-btn--green" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Launch Delay Predictor →
+          </a>
+
+          <a href="/projects#Delivery-Downtime-Route-Optimization" class="fp-btn fp-btn--ghost">
             <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-            View Case Study
+            Case Study
           </a>
         </div>
       </div>
@@ -158,10 +166,13 @@ title: Home
           <div class="fp-card__stack"><span>Python</span><span>Pandas</span><span>scikit-learn</span><span>Seaborn</span></div>
         </div>
         <div class="fp-card__cta">
-          <button class="fp-btn fp-btn--demo" onclick="openDemo('churn')">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            Live Demo
-          </button>
+          <a href="/intelligence_platform#churn" target="_blank" rel="noopener noreferrer" class="demo-live-btn demo-live-btn--green" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Launch Churn Predictor →
+          </a>
           <a href="/projects#customer-analysis" class="fp-btn fp-btn--ghost">
             <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
             Case Study
@@ -198,10 +209,14 @@ title: Home
           <div class="fp-card__stack"><span>Python</span><span>Random Forest</span><span>SMOTE</span><span>Tableau</span></div>
         </div>
         <div class="fp-card__cta">
-          <button class="fp-btn fp-btn--demo fp-btn--demo--red" onclick="openDemo('fraud')">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            Live Demo
-          </button>
+          <a href="/intelligence_platform#fraud" target="_blank" rel="noopener noreferrer" class="demo-live-btn demo-live-btn--green" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Launch Fraud Detector →
+          </a>
+
           <a href="/projects#fraud-detection" class="fp-btn fp-btn--ghost">
             <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
             Case Study
