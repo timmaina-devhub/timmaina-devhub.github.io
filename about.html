@@ -34,7 +34,7 @@ title: About
       <h1 class="ab-hero__name">Timothy Maina</h1>
       <p class="ab-hero__role">Applied Data Scientist &amp; Analytics Professional</p>
       <p class="ab-hero__tagline">
-        Building machine learning workflows, predictive models, and business intelligence systems that ground operational choices in empirical evidence. Based in Nairobi, working globally.
+        I'm Timothy Maina, an Applied Data Scientist based in Nairobi. I clean messy datasets, build dashboards people actually use, and train ML models on real business problems. Most of my work lives somewhere between SQL queries and a stakeholder asking "so what does this mean?"
       </p>
       <div class="ab-hero__chips">
         <span>📍 Nairobi, Kenya</span>
@@ -57,50 +57,51 @@ title: About
         <span>Overview</span>
         <div class="ab-story__line"></div>
       </div>
-      <h2 class="ab-section-title">Professional Introduction</h2>
       
-      <p style="line-height: 1.8; color: var(--txt); margin-bottom: 24px;">
-        I operate at the intersection of data engineering, applied machine learning, and business intelligence. With a formal background in statistics and computer science, my work focuses on translating raw backend logs, financial records, and operational databases into stable predictive systems and production-ready reporting pipelines.
+      <h2 class="ab-section-title">Professional Introduction</h2>
+      <p style="line-height: 1.8; color: var(--txt); margin-bottom: 32px;">
+        My interest in data comes from a background in statistics and computer science, but my day-to-day work is mostly about practical implementation. I spend less time thinking about theoretical algorithms and much more time figuring out why a production script failed, why an operational database has missing values, or how to write an aggregation pipeline that runs without timing out. I build classification systems and reporting workflows that sit within regular business operations.
       </p>
 
-      <h2 class="ab-section-title" style="margin-top: 48px;">What I Work On</h2>
+      <h2 class="ab-section-title" style="margin-top: 48px;">The Problems I Work On</h2>
       <div class="ab-story__grid">
         <div class="ab-story__block">
           <div class="ab-story__icon">
             <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           </div>
-          <h3>Classification &amp; Risk Workflows</h3>
-          <p>Developing machine learning models for risk mitigation, specifically around fraud detection and credit risk assessment, where class imbalance requires deliberate resampling and threshold optimization.</p>
+          <h3>Risk &amp; Fraud Detection</h3>
+          <p>Training classification workflows to catch fraudulent activity and evaluate credit risk modeling. This work usually involves dealing with massive class imbalances and deciding where to set probability thresholds based on the cost of false positives.</p>
         </div>
         <div class="ab-story__block">
           <div class="ab-story__icon">
             <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
           </div>
-          <h3>Predictive Analytics &amp; Churn</h3>
-          <p>Isolating churn indicators and operational bottlenecks by engineering behavioral features from messy, time-series telemetry datasets. I focus on actionable retention scoring over uncalibrated probabilities.</p>
+          <h3>Churn Prediction &amp; Forecasting</h3>
+          <p>Isolating churn indicators by digging through time-series user logs. I use historical patterns to build forecasting models that flag accounts likely to leave, giving operational teams a clear list to act on.</p>
         </div>
         <div class="ab-story__block">
           <div class="ab-story__icon">
             <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
           </div>
-          <h3>BI Systems &amp; Logistics Tracking</h3>
-          <p>Architecting semantic data layers and interactive dashboards in Power BI and Tableau. Designed to monitor real-time distribution, fleet telemetry, or core financial KPIs for cross-functional stakeholders.</p>
+          <h3>Dashboards &amp; Logistics</h3>
+          <p>Setting up reporting structures in Power BI and Tableau for logistics analytics and traffic congestion analysis. I track fleet movements and operational bottlenecks so teams can see current performance clearly.</p>
         </div>
       </div>
 
-      <h2 class="ab-section-title" style="margin-top: 48px;">How I Approach Projects</h2>
-      <p style="line-height: 1.8; color: var(--muted); margin-bottom: 20px;">
-        A high test-accuracy score matters very little if a model is trained on data leakage or proves too computationally heavy to evaluate within a production pipeline. My analytical approach centers on concrete engineering trade-offs:
+      <h2 class="ab-section-title" style="margin-top: 48px;">Project Approach &amp; Workflows</h2>
+      <p style="line-height: 1.8; color: var(--txt); margin-bottom: 20px;">
+        When I start a project, I expect the initial data to be noisy, poorly formatted, and missing context. Most of the heavy lifting happens in the preprocessing phase, where I handle structural issues, clean up duplicate logs, and spend time on feature engineering before any modeling takes place.
       </p>
-      <ul style="line-height: 1.8; color: var(--txt); padding-left: 20px; margin-bottom: 40px;">
-        <li style="margin-bottom: 12px;"><strong>Data Preprocessing &amp; Realities:</strong> Real-world datasets arrive broken. I spend significant time handling structural anomalies, addressing extreme class imbalances using techniques like SMOTE or cost-sensitive learning, and setting up strict validation splits.</li>
-        <li style="margin-bottom: 12px;"><strong>Iterative Dashboard Revision:</strong> Effective business intelligence requires constant feedback loops. I build reporting layers iteratively, revising data models based on how operations teams query performance metrics.</li>
-        <li style="margin-bottom: 12px;"><strong>Practical Communication:</strong> Translating a complex ROC-AUC curve or a matrix factorization layout into baseline trade-offs means focusing entirely on cost-benefit outcomes, financial risk exposure, and system latency.</li>
-      </ul>
+      <p style="line-height: 1.8; color: var(--txt); margin-bottom: 20px;">
+        A major part of my workflow is model evaluation. High test accuracy looks good on paper, but if a model relies on data leakage or uses features that aren't available at runtime, it fails in production. I prefer evaluating trade-offs carefully, choosing simpler models that are easier to debug over overly complex ones that behave unpredictably.
+      </p>
+      <p style="line-height: 1.8; color: var(--txt); margin-bottom: 32px;">
+        For business intelligence, my process relies heavily on iterative dashboard revisions. The first version of a dashboard is rarely the final one. I update views and adjust data models based on how end users actually click through the charts and ask questions about the numbers. It is about translating technical outputs into business-facing reporting that makes sense without requiring a background in data science.
+      </p>
 
       <blockquote class="ab-quote">
         <svg class="ab-quote__mark" width="32" height="32" viewBox="0 0 32 32" fill="currentColor"><path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"/></svg>
-        An analytical architecture is only useful if it functions reliably under changing production conditions and outputs metrics that domain experts can confidently interpret.
+        Data pipelines and predictive models are only useful if they run reliably on ugly production data and give stakeholders answers they can actually use.
         <cite>Timothy Maina</cite>
       </blockquote>
     </div>
@@ -116,60 +117,61 @@ title: About
         <div class="ab-story__line"></div>
       </div>
       <h2 class="ab-section-title">Technical Focus Areas</h2>
-      <p class="ab-section-sub">Tools and analytical methodologies utilized in my daily workflows to wrangle structured data, evaluate models, and deploy reporting infrastructure.</p>
+      <p class="ab-section-sub">The code, frameworks, and tools I use to clean datasets, build out analytical infrastructure, and handle reporting pipelines.</p>
     </div>
 
     <div class="ab-skills reveal">
       <div class="ab-skill-group">
         <h4 class="ab-skill-title">
           <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10"/></svg>
-          Analytics &amp; Data Engineering
+          Core Scripting &amp; Queries
         </h4>
         <div class="ab-pill-row">
           <span class="ab-pill">Python</span>
+          <span class="ab-pill">SQL</span>
           <span class="ab-pill">Pandas</span>
           <span class="ab-pill">NumPy</span>
-          <span class="ab-pill">SQL</span>
-          <span class="ab-pill">Data Pipelines</span>
-        </div>
-      </div>
-
-      <div class="ab-skill-group">
-        <h4 class="ab-skill-title">
-          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/></svg>
-          Business Intelligence
-        </h4>
-        <div class="ab-pill-row">
-          <span class="ab-pill">Power BI</span>
-          <span class="ab-pill">Tableau</span>
-          <span class="ab-pill">DAX / Power Query</span>
-          <span class="ab-pill">Semantic Modeling</span>
+          <span class="ab-pill">Data Preprocessing</span>
         </div>
       </div>
 
       <div class="ab-skill-group">
         <h4 class="ab-skill-title">
           <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          Machine Learning
+          Machine Learning Workflows
         </h4>
         <div class="ab-pill-row">
           <span class="ab-pill">scikit-learn</span>
           <span class="ab-pill">XGBoost</span>
           <span class="ab-pill">Random Forest</span>
-          <span class="ab-pill">SMOTE</span>
+          <span class="ab-pill">SMOTE / Resampling</span>
           <span class="ab-pill">Model Evaluation</span>
         </div>
       </div>
 
       <div class="ab-skill-group">
         <h4 class="ab-skill-title">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/></svg>
+          Reporting &amp; Visuals
+        </h4>
+        <div class="ab-pill-row">
+          <span class="ab-pill">Power BI</span>
+          <span class="ab-pill">Tableau</span>
+          <span class="ab-pill">DAX</span>
+          <span class="ab-pill">Power Query</span>
+          <span class="ab-pill">Data Modeling</span>
+        </div>
+      </div>
+
+      <div class="ab-skill-group">
+        <h4 class="ab-skill-title">
           <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          Statistical Frameworks
+          Applied Statistics
         </h4>
         <div class="ab-pill-row">
           <span class="ab-pill">Hypothesis Testing</span>
-          <span class="ab-pill">A/B Testing Experiments</span>
           <span class="ab-pill">Regression Diagnostics</span>
+          <span class="ab-pill">Experimental Evaluation</span>
         </div>
       </div>
     </div>
@@ -184,7 +186,7 @@ title: About
         <span>Timeline</span>
         <div class="ab-story__line"></div>
       </div>
-      <h2 class="ab-section-title">Experience &amp; Core Education</h2>
+      <h2 class="ab-section-title">Experience &amp; Education</h2>
     </div>
 
     <div class="ab-timeline reveal">
@@ -198,9 +200,9 @@ title: About
           <div class="ab-tl-badge ab-tl-badge--green">Active Practice</div>
           <h3>Applied Data Scientist &amp; Analyst</h3>
           <p class="ab-tl-org">Independent Projects &amp; Contract Deployments</p>
-          <p>Scoping, developing, and executing end-to-end data products. Past work includes engineering customer churn classification systems, standing up automated distribution analytics dashboards, and training fraud identification pipelines using highly skewed production data logs.</p>
+          <p>Scoping and executing data pipelines, building dashboards, and deploying classification models. I work directly on practical problems like customer churn tracking, fraud identification pipelines, and logistics reporting configurations using highly skewed, noisy operational data.</p>
           <div class="ab-tl-tags">
-            <span>Python</span><span>scikit-learn</span><span>Power BI</span><span>SQL Pipelines</span>
+            <span>Python</span><span>scikit-learn</span><span>Power BI</span><span>SQL</span>
           </div>
         </div>
       </div>
@@ -214,8 +216,8 @@ title: About
           <span class="ab-tl-date">Current Development Focus</span>
           <div class="ab-tl-badge ab-tl-badge--blue">Technical Specialization</div>
           <h3>Google Advanced Data Analytics Frameworks</h3>
-          <p class="ab-tl-org">Google / Coursera Continuous Validation</p>
-          <p>Advanced statistical modeling, regression diagnostics, cluster analysis, and predictive pipeline development. Applied specifically toward complex dataset cleaning and business reporting mechanics.</p>
+          <p class="ab-tl-org">Continuous Skill Validation</p>
+          <p>Structuring complex data cleaning routines, running regression diagnostics, and validating predictive modeling code. Applied toward building reliable backend workflows and clean reporting setups.</p>
           <div class="ab-tl-tags">
             <span>Statistical Analysis</span><span>Machine Learning Workflows</span><span>Tableau</span>
           </div>
@@ -231,7 +233,7 @@ title: About
           <div class="ab-tl-badge ab-tl-badge--purple">Academic Foundation</div>
           <h3>BSc. Statistics &amp; Computer Science</h3>
           <p class="ab-tl-org">Kenyatta University</p>
-          <p>Core education across mathematical statistics, experimental design, programmatic logic, data structures, and computational algorithms.</p>
+          <p>Academic coursework in mathematical statistics, experimental design, programmatic logic, data structures, and computational workflows.</p>
           <div class="ab-tl-tags">
             <span>Mathematical Statistics</span><span>Computation &amp; Algorithms</span>
           </div>
@@ -245,8 +247,8 @@ title: About
   <div class="ab-cta-strip__glow" aria-hidden="true"></div>
   <div class="ab-cta-strip__inner reveal">
     <p class="ab-eyebrow" style="color:#93c5fd;">Engagement</p>
-    <h2>Available for Data Roles &amp; Project Engagements</h2>
-    <p>Open to discussions regarding full-time analytics roles, machine learning engineering contracts, predictive infrastructure development, or specialized business intelligence projects.</p>
+    <h2>Available for Data Roles &amp; Projects</h2>
+    <p>I am open to conversations about data science roles, analytics contracts, dashboard revisions, or setting up machine learning classification systems.</p>
     <div class="ab-cta-strip__btns">
       <a href="/contact" class="ab-btn ab-btn--primary">Get In Touch</a>
       <a href="/projects" class="ab-btn ab-btn--ghost">Review Project Code</a>
