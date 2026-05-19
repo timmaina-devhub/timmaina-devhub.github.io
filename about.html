@@ -5,6 +5,7 @@ title: About
 <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 
+<!-- NAVBAR -->
 <nav class="navbar">
   <div class="logo"><strong>Timothy Maina</strong></div>
   <div class="nav-links">
@@ -16,12 +17,16 @@ title: About
   </div>
 </nav>
 
+<!-- ═══════════════════════════════════
+     HERO — full-width cinematic intro
+════════════════════════════════════ -->
 <section class="ab-hero">
   <div class="ab-hero__bg" aria-hidden="true"></div>
   <div class="ab-hero__orb ab-hero__orb--1" aria-hidden="true"></div>
   <div class="ab-hero__orb ab-hero__orb--2" aria-hidden="true"></div>
 
   <div class="ab-hero__inner">
+    <!-- Profile photo — square crop on mobile fix -->
     <div class="ab-photo-ring">
       <div class="ab-photo-wrap">
         <img src="{{ '/images/profile.png' | relative_url }}" alt="Timothy Maina" class="ab-photo">
@@ -30,178 +35,205 @@ title: About
     </div>
 
     <div class="ab-hero__text reveal">
-      <p class="ab-eyebrow">Profile</p>
+      <p class="ab-eyebrow">Get to know me</p>
       <h1 class="ab-hero__name">Timothy Maina</h1>
-      <p class="ab-hero__role">Applied Data Scientist</p>
+      <p class="ab-hero__role">Applied Data Scientist &nbsp;·&nbsp; Analytics Professional</p>
       <p class="ab-hero__tagline">
-        Most of my projects start with inconsistent data, unclear patterns, or business questions that are difficult to measure directly. I usually spend more time on preprocessing, feature engineering, and interpretation than model selection itself. A lot of the work involves figuring out which signals are actually useful before building dashboards or predictive workflows around them.
+        I build predictive models, analytical pipelines, and dashboards<br>
+        on real datasets. Based in Nairobi, available for remote work.
       </p>
       <div class="ab-hero__chips">
         <span>📍 Nairobi, Kenya</span>
         <span>🎓 BSc. Statistics &amp; Computer Science</span>
+        <span>💼 Open to opportunities</span>
       </div>
       <div class="ab-hero__actions">
-        <a href="/projects" class="ab-btn ab-btn--primary">View Portfolio Projects</a>
-        <a href="/contact" class="ab-btn ab-btn--ghost">Contact</a>
+        <a href="/projects" class="ab-btn ab-btn--primary">View My Projects →</a>
+        <a href="/contact" class="ab-btn ab-btn--ghost">Get In Touch</a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ═══════════════════════════════════
+     STORY — who I am
+════════════════════════════════════ -->
 <section class="ab-section">
   <div class="ab-container">
     <div class="ab-story reveal">
       <div class="ab-story__label">
         <div class="ab-story__line"></div>
-        <span>Overview</span>
+        <span>My Story</span>
         <div class="ab-story__line"></div>
       </div>
-      
-      <h2 class="ab-section-title">Professional Introduction</h2>
-      <p style="line-height: 1.8; color: var(--txt); margin-bottom: 32px;">
-        My interest in data comes from a background in statistics and computer science, but my day-to-day work is mostly about practical implementation. I spend less time thinking about theoretical algorithms and much more time figuring out why a production script failed, why an operational database has missing values, or how to write an aggregation pipeline that runs without timing out. I build classification systems and reporting workflows that sit within regular business operations.
-      </p>
+      <p class="ab-eyebrow">Background</p>
+      <h2 class="ab-section-title">Who I Am</h2>
 
-      <h2 class="ab-section-title" style="margin-top: 48px;">The Problems I Work On</h2>
       <div class="ab-story__grid">
-        <div class="ab-story__block">
-          <div class="ab-story__icon">
-            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-          </div>
-          <h3>Risk &amp; Fraud Detection</h3>
-          <p>Training classification workflows to catch fraudulent activity and evaluate credit risk modeling. This work usually involves dealing with massive class imbalances and deciding where to set probability thresholds based on the cost of false positives.</p>
-        </div>
-        <div class="ab-story__block">
-          <div class="ab-story__icon">
-            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-          </div>
-          <h3>Churn Prediction &amp; Forecasting</h3>
-          <p>Isolating churn indicators by digging through time-series user logs. I use historical patterns to build forecasting models that flag accounts likely to leave, giving operational teams a clear list to act on.</p>
-        </div>
         <div class="ab-story__block">
           <div class="ab-story__icon">
             <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
           </div>
-          <h3>Dashboards &amp; Logistics</h3>
-          <p>Setting up reporting structures in Power BI and Tableau for logistics analytics and traffic congestion analysis. I track fleet movements and operational bottlenecks so teams can see current performance clearly.</p>
+          <h3>The Work</h3>
+          <p>I work across the full analytics pipeline: data cleaning, feature engineering, model training, evaluation, and building dashboards that hold up after handoff. Most of my projects involve messy or imbalanced data where the preprocessing decisions matter as much as the model choice.</p>
+        </div>
+        <div class="ab-story__block">
+          <div class="ab-story__icon">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+          </div>
+          <h3>The Approach</h3>
+          <p>I spend more time on problem framing and feature design than most people expect. A model trained on leaky features or a poorly structured target variable will look great in training and fail in practice. I've caught that mistake more than once, which is why I check for it deliberately now.</p>
+        </div>
+        <div class="ab-story__block">
+          <div class="ab-story__icon">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3>The Direction</h3>
+          <p>My background is in Statistics and Computer Science, and my project work has moved progressively toward ML applications in operational contexts: fraud, credit risk, logistics, forecasting. I'm looking for roles where analytical rigour is taken seriously and the work connects to real decisions.</p>
         </div>
       </div>
 
-      <h2 class="ab-section-title" style="margin-top: 48px;">Project Approach &amp; Workflows</h2>
-      <p style="line-height: 1.8; color: var(--txt); margin-bottom: 20px;">
-        When I start a project, I expect the initial data to be noisy, poorly formatted, and missing context. Most of the heavy lifting happens in the preprocessing phase, where I handle structural issues, clean up duplicate logs, and spend time on feature engineering before any modeling takes place.
-      </p>
-      <p style="line-height: 1.8; color: var(--txt); margin-bottom: 20px;">
-        A major part of my workflow is model evaluation. High test accuracy looks good on paper, but if a model relies on data leakage or uses features that aren't available at runtime, it fails in production. I prefer evaluating trade-offs carefully, choosing simpler models that are easier to debug over overly complex ones that behave unpredictably.
-      </p>
-      <p style="line-height: 1.8; color: var(--txt); margin-bottom: 32px;">
-        For business intelligence, my process relies heavily on iterative dashboard revisions. The first version of a dashboard is rarely the final one. I update views and adjust data models based on how end users actually click through the charts and ask questions about the numbers. It is about translating technical outputs into business-facing reporting that makes sense without requiring a background in data science.
-      </p>
-
       <blockquote class="ab-quote">
         <svg class="ab-quote__mark" width="32" height="32" viewBox="0 0 32 32" fill="currentColor"><path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"/></svg>
-        Data pipelines and predictive models are only useful if they run reliably on ugly production data and give stakeholders answers they can actually use.
+        The gap between a model that works on paper and one that's actually useful in practice is mostly a data quality and framing problem. That's where I've spent most of my time, and where I think the real work happens.
         <cite>Timothy Maina</cite>
       </blockquote>
     </div>
   </div>
 </section>
 
+<!-- ═══════════════════════════════════
+     SKILLS — visual pill grid
+════════════════════════════════════ -->
 <section class="ab-section ab-section--alt">
   <div class="ab-container">
     <div class="reveal">
       <div class="ab-story__label">
         <div class="ab-story__line"></div>
-        <span>Stack</span>
+        <span>What I Know</span>
         <div class="ab-story__line"></div>
       </div>
-      <h2 class="ab-section-title">Technical Focus Areas</h2>
-      <p class="ab-section-sub">The code, frameworks, and tools I use to clean datasets, build out analytical infrastructure, and handle reporting pipelines.</p>
+      <h2 class="ab-section-title">Skills &amp; Tools</h2>
+      <p class="ab-section-sub">Tools and methods I use regularly across analytics, modelling, and visualisation work.</p>
     </div>
 
     <div class="ab-skills reveal">
-      <div class="ab-skill-group">
-        <h4 class="ab-skill-title">
-          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10"/></svg>
-          Core Scripting &amp; Queries
-        </h4>
-        <div class="ab-pill-row">
-          <span class="ab-pill">Python</span>
-          <span class="ab-pill">SQL</span>
-          <span class="ab-pill">Pandas</span>
-          <span class="ab-pill">NumPy</span>
-          <span class="ab-pill">Data Preprocessing</span>
-        </div>
-      </div>
 
       <div class="ab-skill-group">
         <h4 class="ab-skill-title">
-          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          Machine Learning Workflows
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10"/></svg>
+          Analytics &amp; Data
         </h4>
         <div class="ab-pill-row">
-          <span class="ab-pill">scikit-learn</span>
-          <span class="ab-pill">XGBoost</span>
-          <span class="ab-pill">Random Forest</span>
-          <span class="ab-pill">SMOTE / Resampling</span>
-          <span class="ab-pill">Model Evaluation</span>
+          <span class="ab-pill">Python</span>
+          <span class="ab-pill">Pandas</span>
+          <span class="ab-pill">NumPy</span>
+          <span class="ab-pill">SQL</span>
+          <span class="ab-pill">Excel</span>
+          <span class="ab-pill">Google Sheets</span>
         </div>
       </div>
 
       <div class="ab-skill-group">
         <h4 class="ab-skill-title">
           <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/></svg>
-          Reporting &amp; Visuals
+          Visualisation
         </h4>
         <div class="ab-pill-row">
-          <span class="ab-pill">Power BI</span>
           <span class="ab-pill">Tableau</span>
-          <span class="ab-pill">DAX</span>
-          <span class="ab-pill">Power Query</span>
-          <span class="ab-pill">Data Modeling</span>
+          <span class="ab-pill">Power BI</span>
+          <span class="ab-pill">Matplotlib</span>
+          <span class="ab-pill">Seaborn</span>
+          <span class="ab-pill">Plotly</span>
+        </div>
+      </div>
+
+      <div class="ab-skill-group">
+        <h4 class="ab-skill-title">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          Machine Learning
+        </h4>
+        <div class="ab-pill-row">
+          <span class="ab-pill">scikit-learn</span>
+          <span class="ab-pill">XGBoost</span>
+          <span class="ab-pill">Random Forest</span>
+          <span class="ab-pill">K-Means</span>
+          <span class="ab-pill">Logistic Regression</span>
+          <span class="ab-pill">SMOTE</span>
+        </div>
+      </div>
+
+      <div class="ab-skill-group">
+        <h4 class="ab-skill-title">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          Tools &amp; Workflow
+        </h4>
+        <div class="ab-pill-row">
+          <span class="ab-pill">Git &amp; GitHub</span>
+          <span class="ab-pill">Jupyter Notebooks</span>
+          <span class="ab-pill">VS Code</span>
+          <span class="ab-pill">Google Colab</span>
         </div>
       </div>
 
       <div class="ab-skill-group">
         <h4 class="ab-skill-title">
           <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          Applied Statistics
+          Statistics
         </h4>
         <div class="ab-pill-row">
           <span class="ab-pill">Hypothesis Testing</span>
-          <span class="ab-pill">Regression Diagnostics</span>
-          <span class="ab-pill">Experimental Evaluation</span>
+          <span class="ab-pill">A/B Testing</span>
+          <span class="ab-pill">Statistical Reporting</span>
         </div>
       </div>
+
+      <div class="ab-skill-group">
+        <h4 class="ab-skill-title">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg>
+          Soft Skills
+        </h4>
+        <div class="ab-pill-row">
+          <span class="ab-pill">Data Storytelling</span>
+          <span class="ab-pill">Stakeholder Communication</span>
+          <span class="ab-pill">Project Management</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
+<!-- ═══════════════════════════════════
+     TIMELINE — journey
+════════════════════════════════════ -->
 <section class="ab-section">
   <div class="ab-container">
     <div class="reveal">
       <div class="ab-story__label">
         <div class="ab-story__line"></div>
-        <span>Timeline</span>
+        <span>My Journey</span>
         <div class="ab-story__line"></div>
       </div>
       <h2 class="ab-section-title">Experience &amp; Education</h2>
+      <p class="ab-section-sub" style="text-align:center;color:var(--muted);font-size:.9rem;max-width:540px;margin:0 auto 48px;line-height:1.7;">A BSc in Statistics and Computer Science, followed by applied project work across ML, analytics, and BI systems.</p>
     </div>
 
     <div class="ab-timeline reveal">
+
       <div class="ab-tl-item">
         <div class="ab-tl-left">
           <div class="ab-tl-dot ab-tl-dot--active"></div>
           <div class="ab-tl-line"></div>
         </div>
         <div class="ab-tl-card">
-          <span class="ab-tl-date">Present</span>
-          <div class="ab-tl-badge ab-tl-badge--green">Active Practice</div>
-          <h3>Applied Data Scientist &amp; Analyst</h3>
-          <p class="ab-tl-org">Independent Projects &amp; Contract Deployments</p>
-          <p>Scoping and executing data pipelines, building dashboards, and deploying classification models. I work directly on practical problems like customer churn tracking, fraud identification pipelines, and logistics reporting configurations using highly skewed, noisy operational data.</p>
+          <span class="ab-tl-date">2024 – Present</span>
+          <div class="ab-tl-badge ab-tl-badge--green">Active</div>
+          <h3>Applied Data Science and Analytics, Self-directed Projects</h3>
+          <p class="ab-tl-org">Independent</p>
+          <p>Built seven end-to-end projects covering fraud detection, customer churn prediction, credit risk modelling, demand forecasting, marketing attribution, logistics delay prediction, and executive sales dashboards. Each project runs the full cycle: raw data ingestion, cleaning, feature engineering, model training and evaluation, and a connected dashboard or reporting layer. Tools vary by project requirements, primarily Python, scikit-learn, XGBoost, Power BI, and Tableau.</p>
           <div class="ab-tl-tags">
-            <span>Python</span><span>scikit-learn</span><span>Power BI</span><span>SQL</span>
+            <span>Python</span><span>scikit-learn</span><span>XGBoost</span><span>Power BI</span><span>Tableau</span><span>Feature Engineering</span>
           </div>
         </div>
       </div>
@@ -212,13 +244,13 @@ title: About
           <div class="ab-tl-line"></div>
         </div>
         <div class="ab-tl-card">
-          <span class="ab-tl-date">Current Development Focus</span>
-          <div class="ab-tl-badge ab-tl-badge--blue">Technical Specialization</div>
-          <h3>Google Advanced Data Analytics Frameworks</h3>
-          <p class="ab-tl-org">Continuous Skill Validation</p>
-          <p>Structuring complex data cleaning routines, running regression diagnostics, and validating predictive modeling code. Applied toward building reliable backend workflows and clean reporting setups.</p>
+          <span class="ab-tl-date">2025 – 2026</span>
+          <div class="ab-tl-badge ab-tl-badge--blue">Certification</div>
+          <h3>Google Advanced Data Analytics Professional Certificate</h3>
+          <p class="ab-tl-org">Google / Coursera</p>
+          <p>Advanced programme covering statistical analysis, Python, regression and classification modelling, and communicating analytical outputs to non-technical audiences. Completed alongside active project work, so most of the material was applied directly rather than studied in isolation.</p>
           <div class="ab-tl-tags">
-            <span>Statistical Analysis</span><span>Machine Learning Workflows</span><span>Tableau</span>
+            <span>Python</span><span>Statistics</span><span>Machine Learning</span><span>Tableau</span>
           </div>
         </div>
       </div>
@@ -228,38 +260,197 @@ title: About
           <div class="ab-tl-dot"></div>
         </div>
         <div class="ab-tl-card">
-          <span class="ab-tl-date">Graduated 2024</span>
-          <div class="ab-tl-badge ab-tl-badge--purple">Academic Foundation</div>
+          <span class="ab-tl-date">2024</span>
+          <div class="ab-tl-badge ab-tl-badge--purple">Degree</div>
           <h3>BSc. Statistics &amp; Computer Science</h3>
           <p class="ab-tl-org">Kenyatta University</p>
-          <p>Academic coursework in mathematical statistics, experimental design, programmatic logic, data structures, and computational workflows.</p>
+          <p>Covered probability theory, statistical inference, algorithms, and data structures. The combination of statistics and CS gave me a practical grounding in both the mathematical side of modelling and the implementation side, which has been directly useful in every project since.</p>
           <div class="ab-tl-tags">
-            <span>Mathematical Statistics</span><span>Computation &amp; Algorithms</span>
+            <span>Statistics</span><span>Probability</span><span>Algorithms</span><span>Programming</span>
           </div>
         </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     WHAT I WORK ON
+════════════════════════════════════ -->
+<section class="ab-section">
+  <div class="ab-container">
+    <div class="reveal">
+      <div class="ab-story__label">
+        <div class="ab-story__line"></div>
+        <span>Focus Areas</span>
+        <div class="ab-story__line"></div>
+      </div>
+      <h2 class="ab-section-title">What I Work On</h2>
+      <p class="ab-section-sub">Projects I've completed or am currently working through, and the problem types I know well enough to be useful on quickly.</p>
+    </div>
+    <div class="ab-story__grid reveal" style="margin-top:40px;">
+      <div class="ab-story__block">
+        <div class="ab-story__icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        </div>
+        <h3>Predictive Modelling</h3>
+        <p>Classification and regression on operational datasets. I've worked on fraud detection, churn prediction, credit risk, and logistics delay modelling. The common thread is handling class imbalance, feature leakage, and threshold decisions that depend on the cost of each error type.</p>
+      </div>
+      <div class="ab-story__block">
+        <div class="ab-story__icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
+        </div>
+        <h3>Business Intelligence and Dashboards</h3>
+        <p>Building Power BI and Tableau dashboards that people actually open after the first week. I pay attention to filter logic, layout, and what happens when the underlying data changes. Iterative revision is normal; the first version is rarely what gets used.</p>
+      </div>
+      <div class="ab-story__block">
+        <div class="ab-story__icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+        </div>
+        <h3>Forecasting and Time Series</h3>
+        <p>Demand forecasting with ARIMA and Prophet on multi-SKU inventory data, and sales forecasting layered into executive dashboards. The practical challenge is usually choosing the right model per product type rather than one model for everything.</p>
+      </div>
+      <div class="ab-story__block">
+        <div class="ab-story__icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0l-4-4m4 4l-4 4"/></svg>
+        </div>
+        <h3>Segmentation and Clustering</h3>
+        <p>Customer segmentation using K-Means on RFM features, and multi-channel marketing attribution using Markov Chain models. Useful when there's a need to treat groups differently rather than apply one rule to everyone.</p>
+      </div>
+      <div class="ab-story__block">
+        <div class="ab-story__icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        </div>
+        <h3>Operational and Exploratory Analytics</h3>
+        <p>Profiling datasets, identifying anomalies, building reporting pipelines that produce consistent output. A lot of this is unglamorous but necessary: cleaning, reshaping, validating, and writing SQL that other people can read and maintain.</p>
+      </div>
+      <div class="ab-story__block">
+        <div class="ab-story__icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+        </div>
+        <h3>Feature Engineering and Pipeline Design</h3>
+        <p>Building features from raw transactional or operational data, handling missing values, encoding categoricals, and constructing pipelines that are repeatable. In my logistics project this took longer than the modelling itself, which is probably about right for messy real-world data.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ═══════════════════════════════════
+     HOW I APPROACH PROJECTS
+════════════════════════════════════ -->
+<section class="ab-section ab-section--alt">
+  <div class="ab-container">
+    <div class="reveal">
+      <div class="ab-story__label">
+        <div class="ab-story__line"></div>
+        <span>Working Style</span>
+        <div class="ab-story__line"></div>
+      </div>
+      <h2 class="ab-section-title">How I Approach Projects</h2>
+    </div>
+    <div style="max-width:720px;margin:40px auto 0;" class="reveal">
+      <div style="display:flex;flex-direction:column;gap:24px;">
+
+        <div style="display:flex;gap:20px;align-items:flex-start;">
+          <div style="width:36px;height:36px;background:var(--blue-d);border:1px solid rgba(59,130,246,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--blue-lt);flex-shrink:0;font-family:'DM Serif Display',serif;font-size:1rem;color:#93c5fd;">01</div>
+          <div>
+            <h4 style="color:#fff;font-size:.95rem;margin-bottom:6px;font-family:'DM Sans',sans-serif;font-weight:600;">Understand the data before modelling anything</h4>
+            <p style="color:var(--muted);font-size:.86rem;line-height:1.75;margin:0;">I profile the dataset first: distributions, missing values, duplicates, outliers, class balance. This usually surfaces problems that would cause the model to fail silently if ignored. It also tends to reveal which features are actually informative before running any model at all.</p>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:20px;align-items:flex-start;">
+          <div style="width:36px;height:36px;background:var(--blue-d);border:1px solid rgba(59,130,246,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--blue-lt);flex-shrink:0;font-family:'DM Serif Display',serif;font-size:1rem;color:#93c5fd;">02</div>
+          <div>
+            <h4 style="color:#fff;font-size:.95rem;margin-bottom:6px;font-family:'DM Sans',sans-serif;font-weight:600;">Check for leakage before tuning anything</h4>
+            <p style="color:var(--muted);font-size:.86rem;line-height:1.75;margin:0;">A model with suspiciously high validation scores is usually a leakage problem, not a good model. I check this explicitly, especially when target construction involves derived variables. In my logistics project I had R² of 0.99 before finding and removing the leaky features that caused it.</p>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:20px;align-items:flex-start;">
+          <div style="width:36px;height:36px;background:var(--blue-d);border:1px solid rgba(59,130,246,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--blue-lt);flex-shrink:0;font-family:'DM Serif Display',serif;font-size:1rem;color:#93c5fd;">03</div>
+          <div>
+            <h4 style="color:#fff;font-size:.95rem;margin-bottom:6px;font-family:'DM Sans',sans-serif;font-weight:600;">Choose evaluation metrics based on what errors cost</h4>
+            <p style="color:var(--muted);font-size:.86rem;line-height:1.75;margin:0;">Accuracy is often the wrong metric. For churn I optimise for recall because missing an at-risk customer is more costly than sending a retention offer to someone who wasn't churning. For fraud it's precision-recall balance because flooding analysts with false alerts has a real operational cost. The metric choice should reflect the actual tradeoff, not just what's easiest to report.</p>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:20px;align-items:flex-start;">
+          <div style="width:36px;height:36px;background:var(--blue-d);border:1px solid rgba(59,130,246,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--blue-lt);flex-shrink:0;font-family:'DM Serif Display',serif;font-size:1rem;color:#93c5fd;">04</div>
+          <div>
+            <h4 style="color:#fff;font-size:.95rem;margin-bottom:6px;font-family:'DM Sans',sans-serif;font-weight:600;">Build outputs that stay useful after the project ends</h4>
+            <p style="color:var(--muted);font-size:.86rem;line-height:1.75;margin:0;">A dashboard that requires the original analyst to interpret it is only half-finished. I structure reports and dashboards so that someone unfamiliar with the project can navigate them without a walkthrough. This usually means fewer views, clearer labels, and explicit annotation of what each number means and what to do with it.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     CURRENT DEVELOPMENT FOCUS
+════════════════════════════════════ -->
+<section class="ab-section">
+  <div class="ab-container">
+    <div class="reveal">
+      <div class="ab-story__label">
+        <div class="ab-story__line"></div>
+        <span>Currently</span>
+        <div class="ab-story__line"></div>
+      </div>
+      <h2 class="ab-section-title">Current Development Focus</h2>
+      <p class="ab-section-sub">What I'm actively working on or studying right now, alongside the project pipeline.</p>
+    </div>
+    <div class="ab-story__grid reveal" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:40px;">
+      <div class="ab-story__block">
+        <div class="ab-story__icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+        <h3>ML Model Deployment</h3>
+        <p>Working on exposing trained models through a lightweight API layer so the live demo tools on this portfolio reflect actual model output rather than simulation. FastAPI on Render is the current approach.</p>
+      </div>
+      <div class="ab-story__block">
+        <div class="ab-story__icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+        </div>
+        <h3>Analytics Engineering Practices</h3>
+        <p>Learning dbt and structured SQL transformation patterns. Most of my SQL to date has been ad hoc; I'm building familiarity with modular, version-controlled data transformation as a more sustainable workflow for operational reporting.</p>
+      </div>
+      <div class="ab-story__block">
+        <div class="ab-story__icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        </div>
+        <h3>Completing the Project Pipeline</h3>
+        <p>Two projects, logistics delay prediction and fraud detection, are still in progress. The modelling is done; the remaining work is the Power BI dashboards and some additional validation. Both should be complete within the next few months.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     CTA STRIP
+════════════════════════════════════ -->
 <section class="ab-cta-strip">
   <div class="ab-cta-strip__glow" aria-hidden="true"></div>
   <div class="ab-cta-strip__inner reveal">
-    <p class="ab-eyebrow" style="color:#93c5fd;">Engagement</p>
-    <h2>Available for Data Roles &amp; Projects</h2>
-    <p>I am open to conversations about data science roles, analytics contracts, dashboard revisions, or setting up machine learning classification systems.</p>
+    <p class="ab-eyebrow" style="color:#93c5fd;">Open to opportunities</p>
+    <h2>Looking for an analyst who ships complete work?</h2>
+    <p>Available for full-time roles in data science, analytics, or BI, as well as contract and freelance projects. Happy to discuss what you're working on.</p>
     <div class="ab-cta-strip__btns">
-      <a href="/contact" class="ab-btn ab-btn--primary">Get In Touch</a>
-      <a href="/projects" class="ab-btn ab-btn--ghost">Review Project Code</a>
+      <a href="/contact" class="ab-btn ab-btn--primary">Get In Touch →</a>
+      <a href="/projects" class="ab-btn ab-btn--ghost">See My Work</a>
     </div>
   </div>
 </section>
 
 <footer class="footer">
   © 2026 Timothy Maina &nbsp;·&nbsp;
-  <a href="mailto:timothymaina382@gmail.com" style="color:#3b82f6;text-decoration:none;">Email</a>
+  <a href="mailto:timothymaina382@gmail.com" style="color:#3b82f6;text-decoration:none;">Email-me</a>
 </footer>
 
+<!-- Scroll reveal -->
 <script>
 (function() {
   const els = document.querySelectorAll('.reveal');
@@ -280,7 +471,7 @@ title: About
 </script>
 
 <style>
-/* Styling remains completely unchanged to ensure structural, visual, and design continuity */
+/* ── Tokens ──────────────────────────────────────────── */
 :root {
   --bg:#020617; --sur:#0f172a; --sur2:#1e293b;
   --bdr:rgba(255,255,255,0.07);
@@ -293,6 +484,7 @@ body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--txt);
 h1,h2,h3 { font-family:'DM Serif Display',serif; }
 .nav-active { color:var(--blue-lt)!important; font-weight:600; }
 
+/* ── Scroll reveal ───────────────────────────────────── */
 .reveal {
   opacity:0;
   transform:translateY(32px);
@@ -303,6 +495,9 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
   transform:translateY(0);
 }
 
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
 .ab-hero {
   position:relative;
   min-height:100vh;
@@ -335,6 +530,7 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
   max-width:720px; width:100%;
 }
 
+/* ── Profile photo ───────────────────────────────────── */
 .ab-photo-ring {
   position:relative;
   flex-shrink:0;
@@ -343,8 +539,8 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
 @keyframes fadeUp { from{opacity:0;transform:translateY(24px);} to{opacity:1;transform:translateY(0);} }
 
 .ab-photo-wrap {
-  width:160px; height:160px;
-  border-radius:50%;
+  width:160px; height:160px;        /* square container */
+  border-radius:50%;                /* circle */
   overflow:hidden;
   border:3px solid rgba(59,130,246,.5);
   box-shadow:0 0 0 6px rgba(37,99,235,.1), 0 16px 48px rgba(0,0,0,.5);
@@ -355,7 +551,7 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:center top;
+  object-position:center top;  /* show face on mobile, not waist */
   display:block;
 }
 .ab-photo-ring__pulse {
@@ -370,6 +566,7 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
   50%     {transform:scale(1.06); opacity:.2;}
 }
 
+/* ── Hero text ───────────────────────────────────────── */
 .ab-hero__text { animation:fadeUp .9s .25s ease both; }
 .ab-eyebrow { font-size:.75rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase; color:var(--blue-lt); display:block; margin-bottom:10px; }
 .ab-hero__name { font-size:clamp(2.2rem,6vw,3.6rem); color:#fff; line-height:1.1; margin-bottom:10px; }
@@ -389,6 +586,7 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
 }
 .ab-hero__actions { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
 
+/* Buttons */
 .ab-btn {
   display:inline-block; padding:11px 24px;
   border-radius:10px; font-size:.9rem; font-weight:600;
@@ -400,6 +598,9 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
 .ab-btn--ghost { background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,.12); }
 .ab-btn--ghost:hover { color:var(--txt); border-color:rgba(255,255,255,.3); transform:translateY(-2px); }
 
+/* ══════════════════════════════════════
+   SHARED SECTION STYLES
+══════════════════════════════════════ */
 .ab-section { padding:80px 24px; }
 .ab-section--alt { background:rgba(15,23,42,.5); border-top:1px solid var(--bdr); border-bottom:1px solid var(--bdr); }
 .ab-container { max-width:960px; margin:0 auto; }
@@ -415,6 +616,9 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
 .ab-section-title { font-size:clamp(1.7rem,4vw,2.4rem); color:#fff; text-align:center; margin-bottom:14px; line-height:1.2; }
 .ab-section-sub { font-size:.9rem; color:var(--muted); text-align:center; max-width:520px; margin:0 auto 48px; line-height:1.7; }
 
+/* ══════════════════════════════════════
+   STORY BLOCKS
+══════════════════════════════════════ */
 .ab-story__grid {
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -444,6 +648,7 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
 .ab-story__block h3 { font-size:1rem; color:#fff; margin-bottom:10px; }
 .ab-story__block p { font-size:.86rem; color:var(--muted); line-height:1.7; margin:0; }
 
+/* Quote */
 .ab-quote {
   border-left:3px solid var(--blue-lt);
   padding:20px 28px;
@@ -456,6 +661,9 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
 .ab-quote { font-size:1rem; color:var(--txt); line-height:1.8; font-style:italic; }
 .ab-quote cite { display:block; margin-top:12px; font-size:.8rem; font-style:normal; font-weight:600; color:var(--blue-lt); }
 
+/* ══════════════════════════════════════
+   SKILLS
+══════════════════════════════════════ */
 .ab-skills {
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
@@ -488,6 +696,9 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
 }
 .ab-pill:hover { border-color:var(--blue-lt); color:#93c5fd; background:rgba(37,99,235,.1); }
 
+/* ══════════════════════════════════════
+   TIMELINE
+══════════════════════════════════════ */
 .ab-timeline {
   max-width:720px;
   margin:48px auto 0;
@@ -560,6 +771,9 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
 .ab-tl-tags { display:flex; flex-wrap:wrap; gap:6px; }
 .ab-tl-tags span { font-size:.7rem; padding:3px 9px; background:var(--blue-d); border:1px solid rgba(59,130,246,.2); border-radius:999px; color:#93c5fd; }
 
+/* ══════════════════════════════════════
+   CTA STRIP
+══════════════════════════════════════ */
 .ab-cta-strip {
   position:relative; overflow:hidden;
   padding:90px 24px;
@@ -577,13 +791,19 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
 .ab-cta-strip__inner > p { font-size:.95rem; color:var(--muted); line-height:1.75; margin-bottom:32px; }
 .ab-cta-strip__btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
 @media (max-width:820px) {
   .ab-story__grid { grid-template-columns:1fr; }
 }
 
 @media (max-width:640px) {
   .ab-hero { min-height:auto; padding:100px 20px 60px; }
+
+  /* Profile stays circular, correctly sized on mobile */
   .ab-photo-wrap { width:130px; height:130px; }
+
   .ab-hero__name { font-size:2rem; }
   .ab-section { padding:60px 18px; }
   .ab-skills { grid-template-columns:1fr; }
