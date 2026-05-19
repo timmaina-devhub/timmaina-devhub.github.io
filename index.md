@@ -29,7 +29,7 @@ title: Home
       <span class="typewriter-wrap"><em id="typewriter"></em><span class="tw-cursor">|</span></span>
     </h1>
     <p class="h-hero__sub">
-      I'm <strong>Timothy Maina</strong> — a Data Analyst who bridges the gap between raw numbers and strategic clarity. I surface the patterns that matter, build the dashboards that inform, and train the models that predict — so teams can stop guessing and start deciding with confidence.
+      I'm <strong>Timothy Maina</strong>, a Data Analyst based in Nairobi. I clean messy datasets, build dashboards people actually use, and train ML models on real business problems. Most of my work lives somewhere between SQL queries and a stakeholder asking "so what does this mean?"
     </p>
     <div class="h-hero__actions">
       <a href="/projects" class="h-btn h-btn--primary">
@@ -57,25 +57,25 @@ title: Home
   <div class="container">
     <div class="h-section-header reveal-up">
       <p class="h-eyebrow">What I Do</p>
-      <h2>Where data meets <em>impact</em></h2>
+      <h2>Where data meets <em>purpose</em></h2>
     </div>
     <div class="h-pillars">
       <div class="h-pillar reveal-up" style="--d:.05s">
         <div class="h-pillar__icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
         <h3>Data Analytics</h3>
-        <p>Cleaning, exploring, and modelling datasets to surface trends and answer the business questions that actually matter.</p>
+        <p>Profiling, cleaning, and exploring datasets to figure out what's actually going on. I write SQL and Python to answer specific questions, not just to produce outputs.</p>
         <div class="h-pillar__tools"><span>Python</span><span>SQL</span><span>Pandas</span><span>Excel</span></div>
       </div>
       <div class="h-pillar reveal-up" style="--d:.15s">
         <div class="h-pillar__icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg></div>
         <h3>Dashboards &amp; Visualisation</h3>
-        <p>Building interactive dashboards that give stakeholders a clear, real-time view of performance without needing to ask for a report.</p>
+        <p>Building dashboards in Power BI and Tableau that are actually maintained after handoff. I focus on layout and filter logic so the thing stays useful beyond the first demo.</p>
         <div class="h-pillar__tools"><span>Power BI</span><span>Plotly</span><span>Seaborn</span><span>Tableau</span></div>
       </div>
       <div class="h-pillar reveal-up" style="--d:.25s">
         <div class="h-pillar__icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
         <h3>Machine Learning</h3>
-        <p>Training and evaluating predictive models — from customer churn to fraud detection — with a focus on results non-technical stakeholders can act on.</p>
+        <p>Training classification and regression models on real, messy data. I care about precision-recall tradeoffs, feature leakage, and whether the output is something a non-technical person can actually use.</p>
         <div class="h-pillar__tools"><span>scikit-learn</span><span>XGBoost</span><span>K-Means</span></div>
       </div>
     </div>
@@ -88,7 +88,7 @@ title: Home
     <div class="h-section-header reveal-up">
       <p class="h-eyebrow">Selected Work</p>
       <h2>Featured <em>Projects</em></h2>
-      <p class="h-section-sub">Real problems. Real data. Real outcomes. Explore the case studies — or run a live model simulation.</p>
+      <p class="h-section-sub">Seven end-to-end projects across ML, analytics, and visualisation. Each one started from raw data and went through the full process.</p>
     </div>
 
     <div class="fp-grid">
@@ -113,11 +113,11 @@ title: Home
             <span class="fp-tag fp-tag--ol">ML</span>
           </div>
           <h3 class="fp-card__title">Delivery Downtime &amp; Route Optimization</h3>
-          <p class="fp-card__desc">Predicting logistics delivery delays using operational, driver, and environmental signals to reduce downtime and improve routing efficiency.</p>
+          <p class="fp-card__desc">Predicting delivery delay hours using operational and driver data. The main challenge was engineering useful features without leaking target information into the inputs.</p>
           <ul class="fp-card__bullets">
-            <li>Driver performance &amp; route conditions identified as strongest delay signals.</li>
-            <li>Built a production-aligned feature pipeline for real-world deployment.</li>
-            <li>Established a robust baseline for delay prediction in logistics systems.</li>
+            <li>Driver behaviour and route conditions turned out to matter more than distance.</li>
+            <li>Traffic and weather proxied from GPS speed patterns, no external APIs.</li>
+            <li>R² of ~0.70 after removing features that caused ~0.99 leakage.</li>
           </ul>
           <div class="fp-card__stack"><span>Regression</span><span>Feature Engineering</span><span>Python</span><span>Power BI</span></div>
         </div>
@@ -153,11 +153,11 @@ title: Home
             <span class="fp-tag fp-tag--ol">ML</span>
           </div>
           <h3 class="fp-card__title">Customer Churn Analysis &amp; Segmentation</h3>
-          <p class="fp-card__desc">An end-to-end churn prediction system combining RFM feature engineering with machine learning to flag at-risk customers before they leave.</p>
+          <p class="fp-card__desc">Built RFM features from transaction history, trained a logistic regression model for churn prediction, and ran K-Means to group customers into segments worth treating differently.</p>
           <ul class="fp-card__bullets">
-            <li>Inactivity &amp; refund behaviour identified as the strongest churn signals.</li>
-            <li>3 actionable customer segments surfaced via K-Means clustering.</li>
-            <li>High-recall model ensuring no at-risk customer goes undetected.</li>
+            <li>Days since last purchase and refund rate were the strongest predictors.</li>
+            <li>Optimised for recall so fewer at-risk customers slip through undetected.</li>
+            <li>K-Means produced 3 stable segments with clear behavioural differences.</li>
           </ul>
           <div class="fp-card__stack"><span>Python</span><span>Pandas</span><span>scikit-learn</span><span>Seaborn</span></div>
         </div>
@@ -193,11 +193,11 @@ title: Home
             <span class="fp-tag fp-tag--ol">Tableau</span>
           </div>
           <h3 class="fp-card__title">Fraud Detection Command Centre</h3>
-          <p class="fp-card__desc">A behavioural ML pipeline identifying fraudulent transactions by analysing velocity patterns, device signals, and time anomalies — visualised in a Tableau command centre.</p>
+          <p class="fp-card__desc">Fraud detection built around behavioural features rather than transaction amounts alone. The dataset was heavily imbalanced, so model selection was mostly about finding a precision-recall tradeoff that made operational sense.</p>
           <ul class="fp-card__bullets">
-            <li>Random Forest with strong precision-recall on heavily imbalanced data.</li>
-            <li>High-frequency burst patterns flagged as the primary fraud signal.</li>
-            <li>Tableau dashboard tracking fraud trends &amp; estimated financial impact.</li>
+            <li>Transaction velocity in the past hour was the single strongest fraud signal.</li>
+            <li>SMOTE helped, but threshold tuning did most of the precision-recall work.</li>
+            <li>Tableau dashboard shows flagged entities and estimated exposure over time.</li>
           </ul>
           <div class="fp-card__stack"><span>Python</span><span>Random Forest</span><span>SMOTE</span><span>Tableau</span></div>
         </div>
@@ -249,9 +249,9 @@ title: Home
 <section class="h-cta-banner">
   <div class="h-cta-banner__glow" aria-hidden="true"></div>
   <div class="h-cta-banner__inner reveal-up">
-    <p class="h-eyebrow" style="color:#93c5fd;">Ready to collaborate?</p>
-    <h2>Have data? Let's make it work for you.</h2>
-    <p>I'm open to full-time analyst roles, freelance projects, and data science collaborations. Let's talk about what your data could be telling you.</p>
+    <p class="h-eyebrow" style="color:#93c5fd;">Open to opportunities</p>
+    <h2>Looking for an analyst who ships complete work?</h2>
+    <p>I'm available for full-time analyst roles, contract work, and ML projects. If you have a dataset that needs proper attention, I'm happy to talk through what's possible.</p>
     <div class="h-cta-banner__actions">
       <a href="/contact" class="h-btn h-btn--primary">Get In Touch →</a>
       <a href="/about" class="h-btn h-btn--ghost">Learn More About Me</a>
@@ -270,7 +270,7 @@ title: Home
 (function(){const c=document.getElementById('particles'),ctx=c.getContext('2d');let W,H,P=[];function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;}resize();window.addEventListener('resize',resize,{passive:true});function rnd(a,b){return Math.random()*(b-a)+a;}function mk(){return{x:rnd(0,W),y:rnd(0,H),r:rnd(1,2.4),vx:rnd(-.2,.2),vy:rnd(-.35,-.08),a:rnd(.15,.65),fade:rnd(.003,.006)};}for(let i=0;i<70;i++)P.push(mk());function draw(){ctx.clearRect(0,0,W,H);P.forEach((p,i)=>{ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=`rgba(99,155,255,${p.a})`;ctx.fill();p.x+=p.vx;p.y+=p.vy;p.a-=p.fade;if(p.a<=0||p.y<-10)P[i]=mk();});requestAnimationFrame(draw);}draw();})();
 
 /* ── Typewriter ─────────────── */
-(function(){const phrases=['decisions that matter.','patterns that predict.','stories that persuade.','clarity from complexity.'];const el=document.getElementById('typewriter');let pi=0,ci=0,del=false;function tick(){const ph=phrases[pi];if(!del){el.textContent=ph.slice(0,++ci);if(ci===ph.length){del=true;setTimeout(tick,2000);return;}}else{el.textContent=ph.slice(0,--ci);if(ci===0){del=false;pi=(pi+1)%phrases.length;}}setTimeout(tick,del?28:55);}setTimeout(tick,900);})();
+(function(){const phrases=['numbers that make sense.','models that hold up.','reports people read.','predictions worth acting on.'];const el=document.getElementById('typewriter');let pi=0,ci=0,del=false;function tick(){const ph=phrases[pi];if(!del){el.textContent=ph.slice(0,++ci);if(ci===ph.length){del=true;setTimeout(tick,2000);return;}}else{el.textContent=ph.slice(0,--ci);if(ci===0){del=false;pi=(pi+1)%phrases.length;}}setTimeout(tick,del?28:55);}setTimeout(tick,900);})();
 
 /* ── Counters ──────────────── */
 (function(){const els=document.querySelectorAll('.counter');let done=false;function run(){els.forEach(el=>{const t=+el.dataset.target,s=el.dataset.suffix||'';let n=0,step=Math.ceil(t/40);const tm=setInterval(()=>{n=Math.min(n+step,t);el.textContent=n+s;if(n>=t)clearInterval(tm);},40);});}const obs=new IntersectionObserver(e=>{if(e[0].isIntersecting&&!done){done=true;setTimeout(run,600);}},{threshold:.4});const hero=document.querySelector('.h-hero');if(hero)obs.observe(hero);})();
