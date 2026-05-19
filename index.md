@@ -29,7 +29,7 @@ title: Home
       <span class="typewriter-wrap"><em id="typewriter"></em><span class="tw-cursor">|</span></span>
     </h1>
     <p class="h-hero__sub">
-      I'm <strong>Timothy Maina</strong>, a Data Analyst based in Nairobi. I clean messy datasets, build dashboards people actually use, and train ML models on real business problems. Most of my work lives somewhere between SQL queries and a stakeholder asking "so what does this mean?"
+      I'm <strong>Timothy Maina</strong>, an Applied Data Scientist &amp; Analytics Professional based in Nairobi. I clean messy datasets, build dashboards people actually use, and train ML models on real business problems. Most of my work lives somewhere between SQL queries and a stakeholder asking "so what does this mean?"
     </p>
     <div class="h-hero__actions">
       <a href="/projects" class="h-btn h-btn--primary">
