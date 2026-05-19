@@ -249,9 +249,9 @@ title: Home
 <section class="h-cta-banner">
   <div class="h-cta-banner__glow" aria-hidden="true"></div>
   <div class="h-cta-banner__inner reveal-up">
-    <p class="h-eyebrow" style="color:#93c5fd;">Open to opportunities</p>
+    <p class="h-eyebrow" style="color:#93c5fd;">Available for analytics, BI, and machine learning work</p>
     <h2>Looking for an analyst who ships complete work?</h2>
-    <p>I'm available for full-time analyst roles, contract work, and ML projects. If you have a dataset that needs proper attention, I'm happy to talk through what's possible.</p>
+    <p>Most of my projects involve predictive analytics, operational reporting, and machine learning workflows built around real business problems. I'm open to full-time roles, contract work, and analytical projects where the goal is making data easier to understand and act on. If you have a dataset, reporting challenge, or workflow that needs careful analysis, I'm happy to talk through it.</p>
     <div class="h-cta-banner__actions">
       <a href="/contact" class="h-btn h-btn--primary">Get In Touch →</a>
       <a href="/about" class="h-btn h-btn--ghost">Learn More About Me</a>
