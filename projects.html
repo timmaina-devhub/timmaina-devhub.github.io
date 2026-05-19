@@ -21,7 +21,7 @@ title: Projects
   <div class="ph__inner">
     <p class="eyebrow">Portfolio</p>
     <h1 class="ph__title">Projects</h1>
-    <p class="ph__sub">End-to-end data projects — from raw, messy data to decisions that matter.</p>
+    <p class="ph__sub">Seven projects built end-to-end, from raw data through modelling and visualisation. All code is on GitHub.</p>
     <div class="ph__stats">
       <div class="ph__stat"><span class="ph__num">5</span><span class="ph__lbl">Completed</span></div>
       <div class="ph__div"></div>
@@ -68,26 +68,26 @@ title: Projects
       <span class="pj__badge pj__badge--done">✓ Completed</span>
     </div>
     <h2 class="pj__title">Customer Churn Analysis &amp; Segmentation</h2>
-    <p class="pj__hook">Why do customers leave — and who is most at risk right now? This end-to-end project answers both questions using machine learning and RFM segmentation, turning raw e-commerce data into a clear, actionable retention playbook.</p>
+    <p class="pj__hook">The starting point was a simple question: which customers are about to leave, and how do you tell them apart from customers who just buy infrequently? I built this end-to-end on e-commerce transaction data, combining RFM features with a churn model and customer segmentation in one pipeline.</p>
     <div class="pj__content">
       <div class="pj__col">
         <div class="pj__block">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>The Problem</h4>
-          <p>The business had no systematic way to identify which customers were drifting toward churn or to distinguish loyal customers from one-time buyers — making retention efforts scattershot and expensive.</p>
+          <p>Retention efforts were being applied uniformly across all customers. There was no way to tell who was genuinely at risk versus who just hadn't bought recently. Loyal and one-time buyers looked the same without some structure around behaviour.</p>
         </div>
         <div class="pj__block pj__block--last">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>My Approach</h4>
-          <p>Combined RFM feature engineering with a logistic regression churn model optimised for recall. K-Means clustering grouped customers into actionable segments — loyal, at-risk, inactive — surfaced through an interactive dashboard.</p>
+          <p>I engineered recency, frequency, and monetary features from raw order data, then trained a logistic regression model tuned for recall rather than accuracy, since missing an at-risk customer is the more costly error. K-Means segmentation ran separately on the RFM features to group customers into behaviorally distinct clusters. The whole thing feeds into a Tableau dashboard.</p>
         </div>
       </div>
       <div class="pj__col pj__col--right">
         <div class="pj__block">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>Key Outcomes</h4>
           <ul class="pj__bullets">
-            <li>High-recall churn model ensuring at-risk customers are never missed</li>
-            <li>Inactivity &amp; refund behaviour identified as strongest churn signals</li>
-            <li>5 distinct segments enabling targeted, cost-efficient retention campaigns</li>
-            <li>Dashboard connecting each insight directly to a recommended action</li>
+            <li>Days since last purchase and refund rate came out as the strongest churn signals, ahead of order count</li>
+            <li>K-Means produced 3 stable segments with meaningfully different purchase and refund patterns</li>
+            <li>Recall-optimised threshold reduced missed at-risk customers at the cost of some precision, which was the right tradeoff here</li>
+            <li>Dashboard filters by segment so retention actions can be targeted rather than broadcast</li>
           </ul>
         </div>
         <div class="pj__block pj__block--last">
@@ -125,7 +125,7 @@ title: Projects
         </div>
         <div class="demo-live-block__body">
           <div class="demo-live-block__chip"><span class="dlc-dot dlc-dot--blue"></span>Logistic Regression · K-Means Clustering</div>
-          <p>Input a customer's RFM profile and get an instant churn probability score, customer segment label, and a recommended retention action — powered by the model trained in this project.</p>
+          <p>Enter a customer's recency, order frequency, total spend, and refund rate. The model returns a churn probability, assigns a segment label, and suggests a retention response based on the profile.</p>
           <div class="demo-live-block__inputs-preview">
             <div class="dlip"><span>Days inactive</span><span>→</span><span>Churn %</span></div>
             <div class="dlip"><span>Order frequency</span><span>→</span><span>Segment</span></div>
@@ -155,26 +155,26 @@ title: Projects
       <span class="pj__badge pj__badge--done">✓ Completed</span>
     </div>
     <h2 class="pj__title">Fraud Detection Command Centre</h2>
-    <p class="pj__hook">Financial fraud hides in behavioural patterns — not just transaction amounts. This end-to-end system engineers the right signals, trains a model to catch them, and surfaces everything through a real-time command centre built for fraud analysts.</p>
+    <p class="pj__hook">The dataset was severely imbalanced, rule-based detection was producing too many false positives, and the fraud patterns were shifting over time. I built a behavioural feature pipeline from scratch and compared three models before settling on Random Forest, then connected it to a Tableau dashboard for ongoing monitoring.</p>
     <div class="pj__content">
       <div class="pj__col">
         <div class="pj__block">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>The Problem</h4>
-          <p>Rule-based fraud detection flags too many false positives and misses evolving patterns. The challenge: build a behavioural model accurate on imbalanced, imperfect real-world data and communicate findings clearly to non-technical stakeholders.</p>
+          <p>The existing rule-based system flagged too many legitimate transactions and missed fraud that didn't fit the predefined patterns. The goal was a model that could catch evolving behaviour without flooding analysts with false alerts.</p>
         </div>
         <div class="pj__block pj__block--last">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>My Approach</h4>
-          <p>Engineered behavioural features — transaction velocity, device/IP repetition, time-window anomalies. Applied SMOTE for class imbalance, compared three models, and selected Random Forest for its precision-recall balance, feeding output into Tableau.</p>
+          <p>I built features around transaction velocity within time windows, device and IP repetition across accounts, and hour-of-day patterns. Applied SMOTE to handle class imbalance, then tested Logistic Regression, XGBoost, and Random Forest. Random Forest had the best precision-recall balance at a threshold that kept false positives manageable. Output goes into Tableau for analyst review.</p>
         </div>
       </div>
       <div class="pj__col pj__col--right">
         <div class="pj__block">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>Key Outcomes</h4>
           <ul class="pj__bullets">
-            <li>Random Forest achieving strong precision-recall on imbalanced data</li>
-            <li>High-frequency burst patterns identified as primary fraud signal</li>
-            <li>Device &amp; IP repetition flagging catching repeat offenders</li>
-            <li>Tableau dashboard showing fraud trends, risk entities &amp; financial impact</li>
+            <li>Transaction velocity in the last hour was the strongest single predictor, well ahead of amount</li>
+            <li>Device and IP repetition caught a distinct pattern of repeat offenders the rule system was missing</li>
+            <li>SMOTE helped with minority class recall, but threshold tuning did most of the precision-recall work</li>
+            <li>Tableau dashboard tracks flagged entities, fraud rate trends, and estimated financial exposure by period</li>
           </ul>
         </div>
         <div class="pj__block pj__block--last">
@@ -212,7 +212,7 @@ title: Projects
         </div>
         <div class="demo-live-block__body">
           <div class="demo-live-block__chip demo-live-block__chip--red"><span class="dlc-dot dlc-dot--red"></span>Random Forest · SMOTE · Feature Engineering</div>
-          <p>Simulate a transaction by adjusting velocity, amount, device signals, and timing. The model returns an instant fraud probability score, primary risk signal, and recommended action.</p>
+          <p>Adjust transaction amount, velocity in the last hour, number of devices, and time of day. The model returns a fraud probability, flags the primary risk signal, and suggests whether to block or approve.</p>
           <div class="demo-live-block__inputs-preview">
             <div class="dlip"><span>Transaction amount</span><span>→</span><span>Fraud %</span></div>
             <div class="dlip"><span>Velocity / hour</span><span>→</span><span>Risk level</span></div>
@@ -242,27 +242,26 @@ title: Projects
       <span class="pj__badge pj__badge--done">✓ Completed</span>
     </div>
     <h2 class="pj__title">Multi-Channel Marketing Attribution &amp; ROI Optimization</h2>
-    <p class="pj__hook">A data-driven case study analysing multi-channel customer journeys and campaign performance to quantify channel contribution and predict revenue outcomes. Combines probabilistic attribution modelling with machine learning to support more efficient marketing budget allocation.</p>
+    <p class="pj__hook">Most marketing attribution in practice defaults to last-click, which gives all the credit to whichever channel happened to be last in the sequence. I wanted to see how a probabilistic model would distribute credit differently, and whether that changes which channels look worth spending on.</p>
     <div class="pj__content">
       <div class="pj__col">
         <div class="pj__block">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>The Problem</h4>
-          <p>Traditional attribution models such as last-click oversimplify customer journeys, misrepresenting the true contribution of channels. Businesses risk misallocating marketing budgets and overlooking inefficiencies in campaign performance.</p>
+          <p>Last-click attribution consistently overstates the value of bottom-funnel channels and understates anything that appears earlier in a customer journey. Budget decisions made on that data tend to cut channels that were actually doing useful work upstream.</p>
         </div>
         <div class="pj__block pj__block--last">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>My Approach</h4>
-          <p>Built a Markov Chain attribution framework to capture transition behaviour across channels and quantify contribution using removal effects. In parallel, trained a tuned Random Forest revenue prediction model with time-aware validation for realistic forecasting.</p>
+          <p>Built a Markov Chain model over customer journey sequences to estimate each channel's removal effect, i.e., how much conversion probability drops when that channel is taken out. Separately, trained a Random Forest on campaign-level features to predict revenue, using time-based train/test splits to avoid leakage from future data. The two outputs together give both attribution credit and a revenue forecast.</p>
         </div>
       </div>
       <div class="pj__col pj__col--right">
         <div class="pj__block">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>Key Outcomes</h4>
           <ul class="pj__bullets">
-            <li>Quantified true channel contribution using Markov Chain attribution</li>
-            <li>Achieved ~0.79 R² in revenue prediction on unseen data</li>
-            <li>CPA identified as the dominant driver of revenue</li>
-            <li>Demonstrated efficiency metrics outperform raw engagement metrics</li>
-            <li>Built ROI-driven marketing budget allocation framework</li>
+            <li>Markov attribution redistributed credit away from last-click channels, some mid-funnel channels looked considerably more valuable under this model</li>
+            <li>Revenue prediction hit ~0.79 R² on hold-out data using time-aware validation</li>
+            <li>CPA was the dominant revenue predictor, more so than impressions or raw spend</li>
+            <li>Efficiency metrics (CPA, conversion rate) consistently outperformed volume metrics in feature importance</li>
           </ul>
         </div>
         <div class="pj__block pj__block--last">
@@ -282,7 +281,7 @@ title: Projects
         <div class="dash-panel__info-side">
           <div class="dash-panel__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M11.5 2v4.5H9V8h2.5v4.5H13V8h2.5V6.5H13V2zm5.25 7.25V13h-2.5v1.5h2.5V18h1.5v-3.5H21V13h-2.75V9.25zM2 9.25V13h2.75v3.5h1.5V13H9V11.5H6.25V9.25zm9.5 5.25V19h1.5v-4.5H13zM9 17.5V22h1.5v-4.5zm5 0V22h1.5v-4.5z"/></svg></div>
           <h4>Interactive Dashboard</h4>
-          <p>Open in <strong>Power BI Desktop</strong> to explore marketing attribution insights, customer journey behaviour, and data-driven opportunities for maximising campaign ROI.</p>
+          <p>Open in <strong>Power BI Desktop</strong> to explore channel attribution scores, campaign-level revenue predictions, and how CPA and conversion rate relate to spend efficiency.</p>
           <a href="https://github.com/timmaina-devhub/Multi-Channel-Marketing-Attribution-ROI-Optimization/releases/download/v1.0/c3_marketing_visualization.pbix" class="btn-dl" id="dl-3">
             <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
             <span>Download Dashboard (.pbix)</span>
@@ -300,7 +299,7 @@ title: Projects
         </div>
         <div class="demo-live-block__body">
           <div class="demo-live-block__chip demo-live-block__chip--purple"><span class="dlc-dot dlc-dot--purple"></span>Random Forest · Markov Chain Attribution</div>
-          <p>Input campaign metrics — spend, impressions, CPA, and channel mix — and get a predicted revenue outcome plus recommended budget reallocation based on channel attribution scores.</p>
+          <p>Enter campaign spend, CPA, conversion rate, and channel touchpoints. The model returns a revenue estimate and identifies which channel configuration looks most efficient under the attribution model.</p>
           <div class="demo-live-block__inputs-preview">
             <div class="dlip"><span>Channel spend</span><span>→</span><span>Revenue $</span></div>
             <div class="dlip"><span>CPA / conversions</span><span>→</span><span>ROI %</span></div>
@@ -330,27 +329,26 @@ title: Projects
       <span class="pj__badge pj__badge--wip">⚡ In Progress</span>
     </div>
     <h2 class="pj__title">Demand Forecasting &amp; Inventory Optimization System</h2>
-    <p class="pj__hook">Addressing critical supply chain inefficiencies — stockouts, excess inventory, poor forecast accuracy — by combining advanced time series forecasting with inventory optimisation frameworks (Safety Stock, ROP, EOQ) and a Power BI command centre.</p>
+    <p class="pj__hook">Stockouts and excess inventory are both expensive, but they're caused by different forecasting failures. This project compared ARIMA and Prophet on multi-SKU demand data, then built out Safety Stock, ROP, and EOQ calculations on top of whichever forecast was more accurate per product.</p>
     <div class="pj__content">
       <div class="pj__col">
         <div class="pj__block">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>The Problem</h4>
-          <p>Approximately 12% of SKU-days experience stockouts causing lost sales, while capital is tied up in slow-moving inventory. Excel-based forecasting fails to capture seasonality, and supplier delays further distort demand signals and disrupt inventory decisions.</p>
+          <p>About 12% of SKU-days had stockouts. At the same time, a lot of capital was sitting in slow-moving lines. The existing Excel forecasting didn't account for seasonality, and supplier lead time variability made standard safety stock calculations unreliable.</p>
         </div>
         <div class="pj__block pj__block--last">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>My Approach</h4>
-          <p>Compared ARIMA and Prophet forecasting models to improve demand prediction accuracy. Assessed inventory performance across SKUs and warehouses, evaluated supplier delays, and designed an optimisation framework incorporating Safety Stock, Reorder Point, and EOQ models.</p>
+          <p>Ran ARIMA and Prophet on each SKU's demand history and compared forecast error. Prophet handled seasonality better for most SKUs. On top of the forecast output I calculated safety stock using historical demand variance and lead time distributions, then derived reorder points and EOQ per SKU. Everything feeds into a Power BI dashboard showing stockout risk and reorder recommendations.</p>
         </div>
       </div>
       <div class="pj__col pj__col--right">
         <div class="pj__block">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>Key Outcomes</h4>
           <ul class="pj__bullets">
-            <li>Improved forecast accuracy significantly over Excel baseline</li>
-            <li>1,900+ stockout events identified impacting product availability</li>
-            <li>Thousands of delayed shipments flagged affecting supply reliability</li>
-            <li>Seasonal demand patterns captured using advanced forecasting</li>
-            <li>Inventory optimisation framework (SS, ROP, EOQ) designed for better control</li>
+            <li>Prophet outperformed ARIMA on seasonal SKUs; ARIMA held up better on flat demand profiles</li>
+            <li>1,900+ stockout events identified across the period, concentrated in a subset of high-velocity SKUs</li>
+            <li>Supplier delay data showed a meaningful portion of shipments arriving outside stated lead time, which affected safety stock sizing</li>
+            <li>ROP and EOQ calculations gave planners a starting point that accounts for demand variability, not just average demand</li>
           </ul>
         </div>
         <div class="pj__block pj__block--last">
@@ -388,7 +386,7 @@ title: Projects
         </div>
         <div class="demo-live-block__body">
           <div class="demo-live-block__chip demo-live-block__chip--teal"><span class="dlc-dot dlc-dot--teal"></span>Prophet · ARIMA · Safety Stock · EOQ · ROP</div>
-          <p>Input SKU demand data — average daily demand, lead time, and holding costs — and get a demand forecast, safety stock recommendation, reorder point, and optimal order quantity instantly.</p>
+          <p>Enter average daily demand, lead time, demand standard deviation, and target service level. The calculator returns safety stock, reorder point, and EOQ using the same formulas from the project.</p>
           <div class="demo-live-block__inputs-preview">
             <div class="dlip"><span>Daily demand + lead time</span><span>→</span><span>Forecast</span></div>
             <div class="dlip"><span>Holding cost + order cost</span><span>→</span><span>EOQ</span></div>
@@ -419,27 +417,26 @@ title: Projects
       <span class="pj__badge pj__badge--wip">⚡ In Progress</span>
     </div>
     <h2 class="pj__title">Customer Credit Risk Assessment Model</h2>
-    <p class="pj__hook">Addressing high default rates, limited credit data, and ineffective approval systems by redesigning credit risk modeling through feature engineering, proxy target construction, and machine learning — enabling more accurate and risk-sensitive lending decisions.</p>
+    <p class="pj__hook">The original default variable in this dataset was weak as a target. A lot of the modelling work here was actually about reconstructing a more reliable label before fitting anything, then handling the usual complications: class imbalance, informal income, and missing credit scores for a large portion of applicants.</p>
     <div class="pj__content">
       <div class="pj__col">
         <div class="pj__block">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>The Problem</h4>
-          <p>The lending system was underperforming with a default rate of 18.3% vs. 9.5% industry benchmark. A large portion of applicants lacked credit scores despite being creditworthy, while a single approval threshold applied across all loan sizes reduced decision precision. Informal income (35% of applicants) made traditional assessment unreliable, and the existing default variable showed weak predictive signal.</p>
+          <p>Default rate was running at 18.3% against an industry benchmark of around 9.5%. A single approval threshold applied to all loan sizes regardless of borrower profile. About 35% of applicants had informal income, making traditional credit assessment unreliable. A subset of rejected applicants were reapplying repeatedly to bypass the system.</p>
         </div>
         <div class="pj__block pj__block--last">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>My Approach</h4>
-          <p>Redesigned the modeling framework by reconstructing the target variable using a composite risk scoring approach. Introduced controlled randomness within credit score bands to reduce leakage, engineered key financial features such as loan-to-income and debt-to-income ratios, addressed class imbalance using SMOTE, and trained Logistic Regression, Random Forest, and XGBoost models.</p>
+          <p>Rebuilt the target variable using a composite risk score from borrower financial behaviour and credit characteristics. Added controlled noise within credit score bands to reduce target leakage. Engineered loan-to-income and debt-to-income ratios, aggregated account-level behavioural patterns, applied SMOTE, then compared Logistic Regression, Random Forest, and XGBoost on precision-recall curves rather than just accuracy.</p>
         </div>
       </div>
       <div class="pj__col pj__col--right">
         <div class="pj__block">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>Key Outcomes</h4>
           <ul class="pj__bullets">
-            <li>Achieved up to 0.76 F1-score with XGBoost, balancing ~77% recall and ~75% precision</li>
-            <li>Improved detection of high-risk customers compared to baseline models</li>
-            <li>Reduced target leakage through stochastic feature engineering</li>
-            <li>Transformed an unreliable target into a structured, learnable risk signal</li>
-            <li>Demonstrated clear precision–recall trade-offs aligned with financial risk management</li>
+            <li>XGBoost reached 0.76 F1-score with ~77% recall and ~75% precision on the reconstructed target</li>
+            <li>The stochastic noise added to credit score bands meaningfully reduced leakage from the target construction step</li>
+            <li>Debt-to-income ratio and loan-to-income ratio were more informative than raw credit score in most model configurations</li>
+            <li>Precision-recall tradeoffs were evaluated explicitly given the cost asymmetry between false approvals and false rejections</li>
           </ul>
         </div>
         <div class="pj__block pj__block--last">
@@ -477,7 +474,7 @@ title: Projects
         </div>
         <div class="demo-live-block__body">
           <div class="demo-live-block__chip demo-live-block__chip--amber"><span class="dlc-dot dlc-dot--amber"></span>Classification Model · Risk Scoring</div>
-          <p>Input borrower financial profile — income, debt ratio, credit history, loan amount — and get an instant default probability score, risk tier classification, and lending recommendation.</p>
+          <p>Enter annual income, debt-to-income ratio, credit score, and loan amount. The model returns a default probability, risk tier, and a lending recommendation based on the same feature relationships found during training.</p>
           <div class="demo-live-block__inputs-preview">
             <div class="dlip"><span>Income + debt ratio</span><span>→</span><span>Default %</span></div>
             <div class="dlip"><span>Credit history</span><span>→</span><span>Risk tier</span></div>
@@ -499,7 +496,7 @@ title: Projects
     <div class="pj__topbar">
       <span class="pj__index">06</span>
       <div class="pj__topbar-tags">
-        <span class="tag">Logistics Analytics</span>
+        <span class="tag">Supply Chain Analytics</span>
         <span class="tag tag--ol">Regression</span>
         <span class="tag tag--ol">Feature Engineering</span>
         <span class="tag tag--ol">Machine Learning</span>
@@ -507,28 +504,26 @@ title: Projects
       <span class="pj__badge pj__badge--wip">⚡ In Progress</span>
     </div>
     <h2 class="pj__title">Delivery Downtime Prediction &amp; Route Optimization</h2>
-    <p class="pj__hook">Predicting logistics delivery delays using operational, driver, and environmental signals to reduce missed SLAs, improve customer satisfaction, and support smarter routing decisions.</p>
+    <p class="pj__hook">The tricky part of this project wasn't the modelling, it was building features that actually represented route difficulty without using variables that would leak information from the target. Traffic and weather aren't directly in most logistics datasets, so I had to proxy them from what was available.</p>
     <div class="pj__content">
       <div class="pj__col">
         <div class="pj__block">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>The Problem</h4>
-          <p>Logistics companies struggle to accurately predict delivery delays due to dynamic factors such as traffic congestion, driver performance, and environmental conditions. Poor predictions lead to missed SLAs, customer dissatisfaction, and inefficient planning.</p>
+          <p>Delivery SLA breaches were happening regularly and there was no good way to predict which shipments were most likely to be delayed before they went out. The contributing factors, driver behaviour, route difficulty, time of day, conditions, interact in non-obvious ways that a simple rule can't capture.</p>
         </div>
         <div class="pj__block pj__block--last">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>My Approach</h4>
-          <p>Built a regression-based ML system to predict delivery delay hours using operational and behavioral data. Key engineered features included proxy variables for traffic congestion and weather risk derived from GPS speed patterns and historical delay behavior. Tree-based ensemble models were trained to capture nonlinear relationships across routes, time, and driver performance.</p>
+          <p>I built proxy features for congestion from GPS speed deviation patterns, and weather risk from historical delay rates by region and season. Removed several features that initially looked useful but were essentially restatements of the delay target. Trained Random Forest and XGBoost regressors; Random Forest generalised better on the holdout set. The model predicts delay hours, not just a binary flag.</p>
         </div>
       </div>
       <div class="pj__col pj__col--right">
         <div class="pj__block">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>Key Outcomes</h4>
           <ul class="pj__bullets">
-            <li>Achieved R² ≈ 0.70 using Random Forest Regressor</li>
-            <li>Engineered traffic congestion and weather risk without external APIs</li>
-            <li>Identified and removed data leakage features that inflated performance (~0.99 R²)</li>
-            <li>Demonstrated strong impact of driver performance and route conditions on delays</li>
-            <li>Built a realistic, production-aligned feature pipeline</li>
-            <li>Established a robust baseline for delay prediction in logistics systems</li>
+            <li>R² of ~0.70 after removing leaky features that had artificially inflated it to ~0.99</li>
+            <li>Driver performance metrics and route-level historical delay rate were the most predictive inputs</li>
+            <li>Traffic and weather proxied from internal data without external API calls, which made the pipeline more portable</li>
+            <li>The feature engineering process took longer than the modelling itself, which is probably realistic for this type of problem</li>
           </ul>
         </div>
         <div class="pj__block pj__block--last">
@@ -542,18 +537,18 @@ title: Projects
         <div class="dash-panel__img-side">
           <div class="dash-panel__screen">
             <div class="dash-panel__chrome"><span class="dc-dot dc-dot--r"></span><span class="dc-dot dc-dot--y"></span><span class="dc-dot dc-dot--g"></span><div class="dash-panel__url">Delivery Downtime Prediction &amp; Route Optimization</div></div>
-            <div class="dash-panel__preview"><img src="{{ '/images/logistics_dashboard.png' | relative_url }}" alt="Logistics Dashboard"><div class="dash-panel__shine"></div></div>
+            <div class="dash-panel__preview"><img src="{{ '/images/coming_soon_banner.png' | relative_url }}" alt="Logistics Dashboard"><div class="dash-panel__shine"></div></div>
           </div>
         </div>
         <div class="dash-panel__info-side">
           <div class="dash-panel__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M11.5 2v4.5H9V8h2.5v4.5H13V8h2.5V6.5H13V2zm5.25 7.25V13h-2.5v1.5h2.5V18h1.5v-3.5H21V13h-2.75V9.25zM2 9.25V13h2.75v3.5h1.5V13H9V11.5H6.25V9.25zm9.5 5.25V19h1.5v-4.5H13zM9 17.5V22h1.5v-4.5zm5 0V22h1.5v-4.5z"/></svg></div>
-          <h4>Interactive Dashboard</h4>
-          <p>Open in <strong>Power BI</strong> to explore delivery delay drivers, predictive risk signals, and operational improvement opportunities.</p>
-          <a href="https://github.com/timmaina-devhub/Delivery-Downtime-Prediction-Route-Optimization/releases/download/v1.0/c6_logistics_project_visualization.pbix" class="btn-dl" id="dl-5">
-            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-            <span>Download Dashboard (.pbix)</span>
+          <h4>Dashboard Coming Soon</h4>
+          <p>The <strong>Power BI</strong> dashboard for this project is currently in progress. Check back soon to explore delay predictions and route analytics.</p>
+          <a href="https://github.com/timmaina-devhub/Delivery-Downtime-Prediction-Route-Optimization" target="_blank" rel="noopener" class="btn-dl" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);color:var(--muted);">
+            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            <span>View on GitHub</span>
           </a>
-          <p class="dash-hint"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Free viewer: <a href="https://www.microsoft.com/en-us/download/details.aspx?id=58494" target="_blank" rel="noopener">Power BI Desktop</a></p>
+          <p class="dash-hint"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Dashboard will be available once project is complete</p>
         </div>
       </div>
       <div class="demo-live-block demo-live-block--green">
@@ -566,7 +561,7 @@ title: Projects
         </div>
         <div class="demo-live-block__body">
           <div class="demo-live-block__chip demo-live-block__chip--green"><span class="dlc-dot dlc-dot--green"></span>Delay Prediction · Route Optimisation</div>
-          <p>Input shipment parameters — distance, carrier, weather conditions, and historical delay rate — and get a predicted delivery delay probability, estimated delay window, and route recommendation.</p>
+          <p>Enter route distance, historical delay rate for the carrier, weather risk score, and traffic congestion level. The model returns a delay probability, estimated ETA adjustment, and primary risk factor.</p>
           <div class="demo-live-block__inputs-preview">
             <div class="dlip"><span>Distance + carrier</span><span>→</span><span>Delay %</span></div>
             <div class="dlip"><span>Weather + time window</span><span>→</span><span>ETA adjustment</span></div>
@@ -596,26 +591,26 @@ title: Projects
       <span class="pj__badge pj__badge--done">✓ Completed</span>
     </div>
     <h2 class="pj__title">Superstore Sales Executive Dashboard</h2>
-    <p class="pj__hook">A single-screen command centre that turns four years of Superstore data into executive-ready insights — combining performance analysis with forward-looking forecasts so decision-makers never have to dig through a spreadsheet again.</p>
+    <p class="pj__hook">This started as a straightforward dashboard project on the Superstore dataset and turned into a proper forecasting exercise when it became clear that the sales trends had enough structure to model. ARIMA and Prophet both ran on the time series; results are embedded directly in the dashboard.</p>
     <div class="pj__content">
       <div class="pj__col">
         <div class="pj__block">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>The Problem</h4>
-          <p>Leadership needed visibility into which regions, segments, and product categories were driving — or dragging — profitability, with no easy way to project where sales were heading.</p>
+          <p>Leadership had no single view of which regions, product categories, or customer segments were profitable versus which were quietly losing money. Pulling that together required combining four years of order, returns, and segment data that wasn't structured for analysis.</p>
         </div>
         <div class="pj__block pj__block--last">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>My Approach</h4>
-          <p>Built a KPI-focused Tableau dashboard consolidating sales, profit, and order data. Layered in ARIMA/Prophet time series models for 12-month forecasting, and flagged loss-making categories directly in the viz.</p>
+          <p>Cleaned and structured the data in Excel before connecting it to Tableau. Built KPI views for sales, profit margin, and order volume with regional and category drill-downs. Ran ARIMA and Prophet on the monthly sales series to generate a 12-month forward forecast, then added that as a separate view in the dashboard so the history and projection sit in the same place.</p>
         </div>
       </div>
       <div class="pj__col pj__col--right">
         <div class="pj__block">
           <h4 class="pj__block-title"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>Key Outcomes</h4>
           <ul class="pj__bullets">
-            <li>Loss-making sub-categories surfaced and flagged automatically</li>
-            <li>Regional drill-downs revealing underperforming territories</li>
-            <li>12-month forecast enabling proactive stock and budget planning</li>
-            <li>Time-to-insight reduced from hours of Excel work to one dashboard</li>
+            <li>Several sub-categories were generating positive revenue but negative profit, which wasn't visible in the existing reports</li>
+            <li>Regional performance varied significantly when broken down by segment, not just geography</li>
+            <li>12-month forecast gives planners a baseline to work from, with visible uncertainty bands</li>
+            <li>The full analysis fits on one dashboard screen, which makes it usable rather than just comprehensive</li>
           </ul>
         </div>
         <div class="pj__block pj__block--last">
