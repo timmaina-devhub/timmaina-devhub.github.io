@@ -250,7 +250,7 @@ title: Home
   <div class="h-cta-banner__glow" aria-hidden="true"></div>
   <div class="h-cta-banner__inner reveal-up">
     <p class="h-eyebrow" style="color:#93c5fd;">Available for analytics, BI, and machine learning work</p>
-    <p>Most of my projects involve predictive analytics, operational reporting, and machine learning workflows built around real business problems. I'm open to full-time roles, contract work, and analytical projects where the goal is making data easier to understand and act on. If you have a dataset, reporting challenge, or workflow that needs careful analysis, I'm happy to talk through it.</p>
+    <p>Most of my projects involve predictive analytics, operational reporting, and machine learning workflows tied to real business problems. I'm open to full-time roles, contract work, and analytical projects where the focus is understanding patterns, improving reporting, or building practical ML solutions. If you have a dataset, reporting challenge, or workflow that needs careful analysis, I'm happy to talk through it.</p>
     <div class="h-cta-banner__actions">
       <a href="/contact" class="h-btn h-btn--primary">Get In Touch →</a>
       <a href="/about" class="h-btn h-btn--ghost">Learn More About Me</a>
