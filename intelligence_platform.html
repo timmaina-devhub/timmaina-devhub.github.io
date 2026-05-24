@@ -3,815 +3,867 @@ layout: bare
 title: Intelligence Platform
 ---
 <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
-
-<nav class="navbar">
-  <div class="logo"><strong>Timothy Maina</strong></div>
-  <div class="nav-links">
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/projects">Projects</a>
-    <a href="/intelligence_platform" class="nav-active">Intelligence Platform</a>
-    <a href="/contact">Contact</a>
-  </div>
-</nav>
-
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> Decision Intelligence Platform · Timothy Maina</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:ital@0;1&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+
 <style>
-  /* ─── RESET & BASE ─── */
-  *{box-sizing:border-box;margin:0;padding:0}
-  :root{
-    --bg0:#0a0c10;--bg1:#111318;--bg2:#181c23;--bg3:#1e2330;
-    --border:#2a3040;--border2:#364055;
-    --text0:#f0f2f7;--text1:#b8bfd4;--text2:#7a849c;--text3:#4a5568;
-    --blue:#4d9de0;--blue-d:#1e4d7a;--blue-bg:#0d1e30;
-    --green:#3dba7a;--green-d:#1a5c3a;--green-bg:#0a1f14;
-    --red:#e05555;--red-d:#7a1e1e;--red-bg:#200d0d;
-    --amber:#e0a83d;--amber-d:#7a5a1a;--amber-bg:#201500;
-    --purple:#8b6de0;--teal:#2ec4b6;
-    --font:'Inter',system-ui,sans-serif;
-    --radius:8px;--radius-lg:12px;
-    --sidebar:220px;--topbar:54px;
-  }
-  html,body{height:100%;font-family:var(--font);background:var(--bg0);color:var(--text0);font-size:14px;line-height:1.5}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f5f6f8;
+  --surface:#ffffff;
+  --surface2:#f0f2f6;
+  --border:#e0e4eb;
+  --border2:#cbd0da;
+  --text0:#1a1d23;
+  --text1:#3d4352;
+  --text2:#6b7280;
+  --text3:#9ca3af;
+  --blue:#2563eb;
+  --blue-lt:#eff4ff;
+  --blue-mid:#dbeafe;
+  --green:#16a34a;
+  --green-lt:#f0fdf4;
+  --green-mid:#dcfce7;
+  --red:#dc2626;
+  --red-lt:#fff1f2;
+  --red-mid:#fee2e2;
+  --amber:#d97706;
+  --amber-lt:#fffbeb;
+  --amber-mid:#fef3c7;
+  --purple:#7c3aed;
+  --purple-lt:#f5f3ff;
+  --teal:#0d9488;
+  --teal-lt:#f0fdfa;
+  --font:'IBM Plex Sans',sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+  --serif:'IBM Plex Serif',serif;
+  --sidebar:230px;
+  --radius:8px;
+  --radius-lg:12px;
+  --shadow:0 1px 4px rgba(0,0,0,.08),0 0 0 1px rgba(0,0,0,.04);
+  --shadow-md:0 4px 16px rgba(0,0,0,.1),0 0 0 1px rgba(0,0,0,.05);
+}
 
-  /* ─── LAYOUT ─── */
-  .shell{display:flex;flex-direction:column;height:100vh;overflow:hidden}
-  .body{display:flex;flex:1;overflow:hidden}
+html,body{height:100%;font-family:var(--font);background:var(--bg);color:var(--text0);font-size:14px;line-height:1.6}
 
-  /* ─── TOPBAR ─── */
-  .topbar{height:var(--topbar);background:var(--bg1);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 20px;gap:16px;flex-shrink:0;z-index:10}
-  .brand{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;white-space:nowrap;color:var(--text0)}
-  .brand-icon{width:28px;height:28px;border-radius:6px;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center;font-size:14px}
-  .topbar-filters{display:flex;align-items:center;gap:8px;flex:1;max-width:520px}
-  .topbar-filters select{font-size:12px;padding:5px 10px;border:1px solid var(--border2);border-radius:6px;background:var(--bg2);color:var(--text1);outline:none;cursor:pointer}
-  .topbar-filters select:focus{border-color:var(--blue)}
-  .topbar-right{display:flex;align-items:center;gap:12px;margin-left:auto;font-size:12px;color:var(--text2)}
-  .version-badge{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:3px 8px;font-size:11px;font-weight:600;color:var(--blue);letter-spacing:.03em}
-  .alert-dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 6px var(--red);animation:pulse 2s infinite}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
-  .live-badge{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--green)}
+/* ── LAYOUT ── */
+.shell{display:flex;height:100vh;overflow:hidden}
 
-  /* ─── SIDEBAR ─── */
-  .sidebar{width:var(--sidebar);background:var(--bg1);border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto;padding:8px 0 16px}
-  .sidebar::-webkit-scrollbar{width:4px}
-  .sidebar::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
-  .sidebar-section{padding:14px 16px 4px;font-size:10px;font-weight:700;color:var(--text3);letter-spacing:.1em;text-transform:uppercase}
-  .nav-item{display:flex;align-items:center;gap:10px;padding:8px 14px;font-size:12px;cursor:pointer;border-radius:6px;margin:2px 6px;color:var(--text2);transition:all .15s;border:1px solid transparent; text-decoration: none;}
-  .nav-item:hover{background:var(--bg2);color:var(--text0)}
-  .nav-item.active{background:var(--blue-bg);color:var(--blue);border-color:var(--blue-d);font-weight:500}
-  .nav-icon{width:18px;height:18px;border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px}
-  .nav-sub{font-size:10px;margin-left:auto;background:var(--bg3);border-radius:3px;padding:1px 5px;color:var(--text3)}
-  .nav-item.active .nav-sub{background:var(--blue-d);color:var(--blue)}
+/* ── SIDEBAR ── */
+.sidebar{
+  width:var(--sidebar);
+  background:var(--surface);
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;
+  flex-shrink:0;overflow-y:auto;
+  padding:0 0 20px
+}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
 
-  /* ─── MAIN ─── */
-  .main{flex:1;overflow-y:auto;padding:20px;background:var(--bg0)}
-  .main::-webkit-scrollbar{width:5px}
-  .main::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+.sb-brand{
+  padding:18px 16px 14px;
+  border-bottom:1px solid var(--border);
+  margin-bottom:8px
+}
+.sb-brand-title{
+  font-size:13px;font-weight:600;color:var(--text0);
+  display:flex;align-items:center;gap:8px;line-height:1.3
+}
+.sb-brand-icon{
+  width:28px;height:28px;border-radius:6px;
+  background:var(--blue);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;flex-shrink:0
+}
+.sb-brand-sub{font-size:11px;color:var(--text3);margin-top:3px}
 
-  /* ─── PAGE HEADER ─── */
-  .page-hdr{margin-bottom:18px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
-  .page-hdr-left h2{font-size:18px;font-weight:600;margin-bottom:3px}
-  .page-hdr-left p{font-size:12px;color:var(--text2)}
-  .page-hdr-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
-  .tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:3px;letter-spacing:.04em}
-  .tag-blue{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-d)}
-  .tag-green{background:var(--green-bg);color:var(--green);border:1px solid var(--green-d)}
-  .tag-amber{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-d)}
-  .tag-red{background:var(--red-bg);color:var(--red);border:1px solid var(--red-d)}
-  .tag-purple{background:#1a1030;color:var(--purple);border:1px solid #4a2a90}
+.sb-section{
+  font-size:10px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--text3);
+  padding:12px 16px 4px
+}
 
-  /* ─── KPI GRID ─── */
-  .kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:16px}
-  .kpi-card{background:var(--bg1);border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 16px;position:relative;overflow:hidden}
-  .kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
-  .kpi-card.blue::before{background:var(--blue)}
-  .kpi-card.green::before{background:var(--green)}
-  .kpi-card.red::before{background:var(--red)}
-  .kpi-card.amber::before{background:var(--amber)}
-  .kpi-card.purple::before{background:var(--purple)}
-  .kpi-card.teal::before{background:var(--teal)}
-  .kpi-label{font-size:11px;color:var(--text2);margin-bottom:6px;font-weight:500}
-  .kpi-value{font-size:22px;font-weight:700;line-height:1;color:var(--text0);margin-bottom:4px}
-  .kpi-delta{font-size:11px;display:flex;align-items:center;gap:3px}
-  .up{color:var(--green)}.dn{color:var(--red)}.warn{color:var(--amber)}
+.nav-item{
+  display:flex;align-items:center;gap:10px;
+  padding:8px 12px;margin:1px 8px;
+  font-size:12.5px;font-weight:400;color:var(--text1);
+  border-radius:var(--radius);cursor:pointer;
+  text-decoration:none;transition:all .15s;
+  border:1px solid transparent
+}
+.nav-item:hover{background:var(--bg);color:var(--text0)}
+.nav-item.active{
+  background:var(--blue-lt);color:var(--blue);
+  border-color:var(--blue-mid);font-weight:500
+}
+.nav-icon{font-size:15px;width:20px;text-align:center;flex-shrink:0}
+.nav-badge{
+  margin-left:auto;font-size:10px;font-family:var(--mono);
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:3px;padding:1px 5px;color:var(--text3)
+}
+.nav-item.active .nav-badge{background:var(--blue-mid);border-color:#bfdbfe;color:var(--blue)}
 
-  /* ─── GRID LAYOUTS ─── */
-  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
-  .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px}
-  .grid-1{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:14px}
-  .col-span-2{grid-column:span 2}
+.sb-footer{
+  margin-top:auto;padding:14px 16px 0;
+  font-size:11px;color:var(--text3);line-height:1.7;
+  border-top:1px solid var(--border)
+}
+.sb-footer a{color:var(--blue);text-decoration:none}
+.sb-footer a:hover{text-decoration:underline}
 
-  /* ─── CARDS ─── */
-  .card{background:var(--bg1);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px}
-  .card h4{font-size:12px;font-weight:600;color:var(--text2);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em}
-  .card-full{grid-column:1/-1}
+/* ── MAIN ── */
+.main{
+  flex:1;overflow-y:auto;
+  background:var(--bg);padding:24px 28px
+}
+.main::-webkit-scrollbar{width:4px}
+.main::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
 
-  /* ─── ALERTS ─── */
-  .alert-item{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:12px;color:var(--text1)}
-  .alert-item:last-child{border-bottom:none;padding-bottom:0}
-  .alert-item:first-child{padding-top:0}
-  .alert-time{margin-left:auto;font-size:11px;color:var(--text3);white-space:nowrap}
-  .pill{font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;white-space:nowrap;letter-spacing:.04em}
-  .pill-red{background:var(--red-bg);color:var(--red);border:1px solid var(--red-d)}
-  .pill-amber{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-d)}
-  .pill-green{background:var(--green-bg);color:var(--green);border:1px solid var(--green-d)}
-  .pill-blue{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-d)}
+/* ── PAGE HEADER ── */
+.page-hdr{margin-bottom:24px}
+.page-hdr-eyebrow{
+  font-size:11px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--blue);margin-bottom:5px
+}
+.page-hdr h2{
+  font-size:22px;font-weight:600;color:var(--text0);
+  margin-bottom:5px;line-height:1.25
+}
+.page-hdr-sub{font-size:13px;color:var(--text2);line-height:1.6;max-width:640px}
+.page-hdr-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
 
-  /* ─── FORMS ─── */
-  .form-row{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
-  .form-row label{font-size:11px;color:var(--text2);display:flex;justify-content:space-between;align-items:center}
-  .form-row label .val{font-size:12px;font-weight:600;color:var(--blue)}
-  .form-row input[type=range]{width:100%;accent-color:var(--blue);cursor:pointer}
-  .form-row select{font-size:12px;padding:7px 10px;border:1px solid var(--border2);border-radius:6px;background:var(--bg2);color:var(--text0);outline:none;cursor:pointer;width:100%}
-  .form-row select:focus{border-color:var(--blue)}
+/* ── PILL / TAG ── */
+.pill{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:11px;font-weight:500;padding:3px 10px;
+  border-radius:999px;font-family:var(--mono)
+}
+.pill-blue{background:var(--blue-lt);color:var(--blue);border:1px solid var(--blue-mid)}
+.pill-green{background:var(--green-lt);color:var(--green);border:1px solid var(--green-mid)}
+.pill-red{background:var(--red-lt);color:var(--red);border:1px solid var(--red-mid)}
+.pill-amber{background:var(--amber-lt);color:var(--amber);border:1px solid var(--amber-mid)}
+.pill-purple{background:var(--purple-lt);color:var(--purple);border:1px solid #ddd6fe}
+.pill-teal{background:var(--teal-lt);color:var(--teal);border:1px solid #99f6e4}
+.pill-gray{background:var(--surface2);color:var(--text2);border:1px solid var(--border)}
 
-  /* ─── PREDICT BUTTON ─── */
-  .predict-btn{width:100%;padding:10px;font-size:13px;font-weight:600;border:1px solid var(--blue-d);border-radius:8px;background:var(--blue-bg);color:var(--blue);cursor:pointer;transition:all .2s;letter-spacing:.02em;margin-top:4px}
-  .predict-btn:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
-  .predict-btn:disabled{opacity:.5;cursor:not-allowed}
-  .predict-btn.running{animation:shimmer 1.2s infinite}
-  @keyframes shimmer{0%,100%{opacity:.5}50%{opacity:1}}
+/* ── KPI ROW ── */
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:20px}
+.kpi-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:16px 18px;
+  box-shadow:var(--shadow);position:relative;overflow:hidden
+}
+.kpi-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px
+}
+.kpi-card.kc-blue::after{background:var(--blue)}
+.kpi-card.kc-green::after{background:var(--green)}
+.kpi-card.kc-red::after{background:var(--red)}
+.kpi-card.kc-amber::after{background:var(--amber)}
+.kpi-card.kc-purple::after{background:var(--purple)}
+.kpi-card.kc-teal::after{background:var(--teal)}
+.kpi-label{font-size:11px;color:var(--text2);font-weight:500;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.kpi-val{font-size:24px;font-weight:700;font-family:var(--mono);color:var(--text0);line-height:1}
+.kpi-delta{font-size:11px;margin-top:5px;color:var(--text2)}
+.kpi-delta.up{color:var(--green)}.kpi-delta.dn{color:var(--red)}.kpi-delta.warn{color:var(--amber)}
 
-  /* ─── RESULT BOX ─── */
-  .result-box{background:var(--bg0);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:14px;margin-top:12px;display:none}
-  .result-box.show{display:block}
-  .result-primary{font-size:32px;font-weight:800;line-height:1;margin-bottom:4px;font-variant-numeric:tabular-nums}
-  .result-label{font-size:11px;color:var(--text2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
-  .result-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-  .result-insight{font-size:11px;color:var(--text2);margin-top:10px;padding:8px;background:var(--bg2);border-radius:6px;border-left:2px solid var(--blue);line-height:1.5}
-  .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
-  .result-mini{background:var(--bg2);border-radius:6px;padding:10px}
-  .result-mini .val{font-size:18px;font-weight:700;color:var(--text0)}
-  .result-mini .lbl{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-top:2px}
+/* ── GRID ── */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px}
 
-  /* ─── FEATURE BARS ─── */
-  .feature-row{margin-bottom:8px}
-  .feature-label{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px;color:var(--text2)}
-  .feature-label span:last-child{font-weight:600;color:var(--text1)}
-  .feature-bar{height:6px;border-radius:3px;background:var(--bg3)}
-  .feature-fill{height:100%;border-radius:3px;transition:width .5s ease}
-  .f-blue{background:var(--blue)}.f-red{background:var(--red)}.f-amber{background:var(--amber)}.f-green{background:var(--green)}.f-purple{background:var(--purple)}
+/* ── CARD ── */
+.card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:20px;
+  box-shadow:var(--shadow)
+}
+.card-title{
+  font-size:12px;font-weight:600;color:var(--text2);
+  text-transform:uppercase;letter-spacing:.07em;
+  margin-bottom:14px;display:flex;align-items:center;gap:7px
+}
+.card-title .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
 
-  /* ─── TABLES ─── */
-  .data-table{width:100%;border-collapse:collapse;font-size:12px}
-  .data-table th{text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:var(--text3);border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:.06em}
-  .data-table td{padding:8px 10px;border-bottom:1px solid var(--border);color:var(--text1)}
-  .data-table tr:last-child td{border-bottom:none}
-  .data-table tr:hover td{background:var(--bg2)}
+/* ── FORM ── */
+.form-group{margin-bottom:14px}
+.form-group label{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:12px;font-weight:500;color:var(--text1);margin-bottom:5px
+}
+.form-group label .val{
+  font-size:12px;font-weight:600;font-family:var(--mono);
+  color:var(--blue);background:var(--blue-lt);
+  padding:1px 7px;border-radius:4px
+}
+input[type=range]{
+  width:100%;accent-color:var(--blue);cursor:pointer;
+  height:5px;outline:none
+}
+select{
+  width:100%;padding:7px 10px;
+  border:1px solid var(--border2);border-radius:var(--radius);
+  background:var(--surface);color:var(--text0);
+  font-size:12px;font-family:var(--font);outline:none;cursor:pointer;
+  transition:border-color .15s
+}
+select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
 
-  /* ─── MINI BARS ─── */
-  .mini-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:11px;color:var(--text2)}
-  .mini-bar-label{width:80px;flex-shrink:0}
-  .mini-bar-track{flex:1;height:8px;background:var(--bg3);border-radius:4px;overflow:hidden}
-  .mini-bar-fill{height:100%;border-radius:4px;transition:width .5s}
-  .mini-bar-val{width:36px;text-align:right;font-weight:600;color:var(--text1)}
+/* ── RUN BUTTON ── */
+.run-btn{
+  width:100%;padding:10px 16px;
+  background:var(--blue);color:#fff;
+  border:none;border-radius:var(--radius);
+  font-size:13px;font-weight:600;font-family:var(--font);
+  cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  margin-top:4px
+}
+.run-btn:hover:not(:disabled){background:#1d4ed8;transform:translateY(-1px);box-shadow:0 4px 14px rgba(37,99,235,.3)}
+.run-btn:disabled{opacity:.6;cursor:not-allowed}
+.run-btn.loading{animation:pulse-btn 1s infinite}
+@keyframes pulse-btn{0%,100%{opacity:.6}50%{opacity:1}}
 
-  /* ─── CHART CONTAINER ─── */
-  .chart-wrap{position:relative;width:100%}
+/* ── RESULT BOX ── */
+.result-box{
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:16px;
+  margin-top:14px;display:none
+}
+.result-box.show{display:block}
+.result-num{
+  font-size:36px;font-weight:700;font-family:var(--mono);
+  line-height:1;margin-bottom:5px
+}
+.result-lbl{font-size:11px;color:var(--text2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px}
+.result-pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.result-note{
+  font-size:12px;color:var(--text2);line-height:1.7;
+  background:var(--blue-lt);border:1px solid var(--blue-mid);
+  border-radius:var(--radius);padding:10px 12px
+}
+.result-note strong{color:var(--blue)}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.result-mini{
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:12px
+}
+.result-mini .mn{font-size:20px;font-weight:700;font-family:var(--mono)}
+.result-mini .ml{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
 
-  /* ─── INSIGHT BOX ─── */
-  .insight{font-size:11px;color:var(--text2);padding:10px 12px;background:var(--bg2);border-radius:6px;border-left:2px solid var(--blue);line-height:1.6;margin-top:10px}
-  .insight strong{color:var(--blue);font-weight:600}
+/* ── FEATURE BARS ── */
+.feat-row{margin-bottom:10px}
+.feat-label{display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;color:var(--text1)}
+.feat-label strong{font-family:var(--mono);font-weight:600;color:var(--text0)}
+.feat-track{height:8px;background:var(--surface2);border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+.feat-fill{height:100%;border-radius:4px;transition:width .6s ease}
+.fb-blue{background:var(--blue)}.fb-green{background:var(--green)}.fb-red{background:var(--red)}.fb-amber{background:var(--amber)}.fb-purple{background:var(--purple)}
 
-  /* ─── WHAT-IF ─── */
-  .whatif{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:12px;margin-top:10px}
-  .whatif-result{font-size:12px;color:var(--teal);margin-top:8px;font-weight:500}
+/* ── TABLE ── */
+.tbl{width:100%;border-collapse:collapse;font-size:12px}
+.tbl th{
+  text-align:left;padding:8px 10px;
+  font-size:10px;font-weight:700;color:var(--text3);
+  border-bottom:2px solid var(--border);
+  text-transform:uppercase;letter-spacing:.07em
+}
+.tbl td{padding:9px 10px;border-bottom:1px solid var(--border);color:var(--text1);vertical-align:middle}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover td{background:var(--bg)}
 
-  /* ─── STATUS DOT ─── */
-  .status-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-  .dot-green{background:var(--green);box-shadow:0 0 5px var(--green)}
-  .dot-red{background:var(--red);box-shadow:0 0 5px var(--red);animation:pulse 2s infinite}
-  .dot-amber{background:var(--amber)}
+/* ── ALERT ── */
+.alert-row{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:10px 0;border-bottom:1px solid var(--border);
+  font-size:12.5px;color:var(--text1);line-height:1.5
+}
+.alert-row:last-child{border-bottom:none;padding-bottom:0}
+.alert-row:first-child{padding-top:0}
+.alert-time{margin-left:auto;font-size:11px;color:var(--text3);white-space:nowrap;flex-shrink:0;font-family:var(--mono)}
+.status-dot{width:7px;height:7px;border-radius:50%;margin-top:4px;flex-shrink:0}
+.dot-red{background:var(--red)}.dot-amber{background:var(--amber)}.dot-green{background:var(--green)}
 
-  /* ─── SEPARATOR ─── */
-  .sep{height:1px;background:var(--border);margin:14px 0}
+/* ── MINI BARS ── */
+.mini-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:12px}
+.mini-lbl{width:100px;flex-shrink:0;color:var(--text2)}
+.mini-track{flex:1;height:8px;background:var(--surface2);border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+.mini-fill{height:100%;border-radius:4px}
+.mini-val{width:34px;text-align:right;font-weight:600;font-family:var(--mono);color:var(--text1);font-size:11px}
 
-  .hidden{display:none!important}
+/* ── INFO BOX ── */
+.info-box{
+  background:var(--blue-lt);border:1px solid var(--blue-mid);
+  border-radius:var(--radius);padding:11px 13px;
+  font-size:12px;color:var(--text1);line-height:1.7;margin-top:12px
+}
+.info-box strong{color:var(--blue);font-weight:600}
+.info-box.warn{background:var(--amber-lt);border-color:var(--amber-mid)}
+.info-box.warn strong{color:var(--amber)}
+.info-box.good{background:var(--green-lt);border-color:var(--green-mid)}
+.info-box.good strong{color:var(--green)}
 
-  /* ─── SCROLLBAR GLOBAL ─── */
-  ::-webkit-scrollbar{width:5px;height:5px}
-  ::-webkit-scrollbar-track{background:var(--bg1)}
-  ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+/* ── CHART ── */
+.chart-wrap{position:relative;width:100%}
+
+/* ── DIVIDER ── */
+.divider{height:1px;background:var(--border);margin:16px 0}
+
+/* ── STATUS CHIP ── */
+.status-chip{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600}
+.sc-dot{width:7px;height:7px;border-radius:50%}
+
+/* ── HIDDEN ── */
+.hidden{display:none!important}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  :root{--sidebar:52px}
+  .nav-item span:not(.nav-icon):not(.nav-badge){display:none}
+  .sb-brand-title span,.sb-brand-sub,.sb-section,.sb-footer p{display:none}
+  .main{padding:16px}
+  .grid-2,.grid-3{grid-template-columns:1fr}
+  .kpi-row{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .kpi-row{grid-template-columns:1fr}
+  .result-grid{grid-template-columns:1fr}
+}
 </style>
-</head>
-<body>
+
 <div class="shell">
 
-  <div class="topbar">
-    <div class="brand">
-      <div class="brand-icon">⬡</div>
-      AI Decision Intelligence Platform
+  <!-- ── SIDEBAR ── -->
+  <div class="sidebar">
+    <div class="sb-brand">
+      <div class="sb-brand-title">
+        <div class="sb-brand-icon">🔬</div>
+        <span>ML Intelligence</span>
+      </div>
+      <div class="sb-brand-sub">Timothy Maina · Data Portfolio</div>
     </div>
-    <div class="topbar-filters">
-      <select><option>Last 12 months</option><option>Last 6 months</option><option>Last 30 days</option><option>This week</option></select>
-      <select><option>All Regions</option><option>East</option><option>West</option><option>Central</option><option>South</option></select>
-      <select><option>All Segments</option><option>Consumer</option><option>Corporate</option><option>Home Office</option></select>
-    </div>
-    <div class="topbar-right">
-      <div class="live-badge"><div class="status-dot dot-green"></div> Live</div>
-      <span class="version-badge">Model v1.0</span>
-      <div style="display:flex;align-items:center;gap:5px"><div class="alert-dot"></div><span>3 alerts</span></div>
-      <span style="color:var(--text3)">Timothy Maina · Data Portfolio</span>
+
+    <div class="sb-section">Overview</div>
+    <a href="#exec" class="nav-item" id="nav-exec">
+      <span class="nav-icon">🏠</span> Executive Overview
+    </a>
+
+    <div class="sb-section">Models</div>
+    <a href="#sales" class="nav-item" id="nav-sales">
+      <span class="nav-icon">📈</span> Sales Forecast <span class="nav-badge">01</span>
+    </a>
+    <a href="#churn" class="nav-item" id="nav-churn">
+      <span class="nav-icon">👥</span> Churn Predictor <span class="nav-badge">02</span>
+    </a>
+    <a href="#fraud" class="nav-item" id="nav-fraud">
+      <span class="nav-icon">🛡</span> Fraud Detector <span class="nav-badge">03</span>
+    </a>
+    <a href="#marketing" class="nav-item" id="nav-marketing">
+      <span class="nav-icon">📣</span> Marketing ROI <span class="nav-badge">04</span>
+    </a>
+    <a href="#supply" class="nav-item" id="nav-supply">
+      <span class="nav-icon">📦</span> Inventory Sim <span class="nav-badge">05</span>
+    </a>
+    <a href="#credit" class="nav-item" id="nav-credit">
+      <span class="nav-icon">💳</span> Credit Risk <span class="nav-badge">06</span>
+    </a>
+    <a href="#logistics" class="nav-item" id="nav-logistics">
+      <span class="nav-icon">🚚</span> Delay Predictor <span class="nav-badge">07</span>
+    </a>
+
+    <div class="sb-footer">
+      <p>Models trained on real data.<br>Predictions are simulations.<br>
+      <a href="/projects">Full case studies →</a></p>
     </div>
   </div>
 
-  <div class="body">
-    <div class="sidebar">
-      <div class="sidebar-section">Overview</div>
-      <a href="#exec" class="nav-item active" id="nav-exec">
-        <div class="nav-icon">◈</div> Executive Dashboard
-      </a>
+  <!-- ── MAIN ── -->
+  <div class="main">
 
-      <div class="sidebar-section">ML Modules</div>
-      <a href="#sales" class="nav-item" id="nav-sales">
-        <div class="nav-icon">📈</div> Sales Intelligence <span class="nav-sub">01</span>
-      </a>
-      <a href="#churn" class="nav-item" id="nav-churn">
-        <div class="nav-icon">👥</div> Churn & Segmentation <span class="nav-sub">02</span>
-      </a>
-      <a href="#fraud" class="nav-item" id="nav-fraud">
-        <div class="nav-icon">🛡</div> Fraud Command Centre <span class="nav-sub">03</span>
-      </a>
-      <a href="#marketing" class="nav-item" id="nav-marketing">
-        <div class="nav-icon">📣</div> Marketing ROI <span class="nav-sub">04</span>
-      </a>
-      <a href="#supply" class="nav-item" id="nav-supply">
-        <div class="nav-icon">📦</div> Supply Chain <span class="nav-sub">05</span>
-      </a>
-      <a href="#credit" class="nav-item" id="nav-credit">
-        <div class="nav-icon">💳</div> Credit Risk <span class="nav-sub">06</span>
-      </a>
-      <a href="#logistics" class="nav-item" id="nav-logistics">
-        <div class="nav-icon">🚚</div> Logistics <span class="nav-sub">07</span>
-      </a>
-
-      <div class="sidebar-section">System</div>
-      <div class="nav-item"><div class="nav-icon">⚙</div> Settings</div>
-      <div class="nav-item"><div class="nav-icon">📁</div> Model Registry</div>
-
-      <div style="margin-top:auto;padding:14px 12px 0;font-size:10px;color:var(--text3);line-height:1.6">
-        All models trained on real data.<br>
-        Predictions are simulations.<br>
-        <a href="https://timmaina-devhub.github.io/projects" target="_blank" style="color:var(--blue);text-decoration:none">View full portfolio →</a>
+    <!-- ████ EXECUTIVE OVERVIEW ████ -->
+    <div id="page-exec" class="hidden">
+      <div class="page-hdr">
+        <div class="page-hdr-eyebrow">Overview</div>
+        <h2>Executive Overview</h2>
+        <p class="page-hdr-sub">Seven ML models across fraud, churn, credit risk, logistics, supply chain, marketing, and sales — all trained on real datasets. Use the sidebar to explore each model interactively.</p>
+        <div class="page-hdr-pills">
+          <span class="pill pill-blue">7 Models</span>
+          <span class="pill pill-green">4 Completed</span>
+          <span class="pill pill-amber">3 In Progress</span>
+        </div>
       </div>
-    </div>
 
-    <div class="main">
+      <div class="kpi-row">
+        <div class="kpi-card kc-blue"><div class="kpi-label">Sales Revenue</div><div class="kpi-val">$4.2M</div><div class="kpi-delta up">↑ 8.3% vs prior period</div></div>
+        <div class="kpi-card kc-amber"><div class="kpi-label">Churn Rate</div><div class="kpi-val">14.2%</div><div class="kpi-delta warn">⚠ +1.8% month-on-month</div></div>
+        <div class="kpi-card kc-red"><div class="kpi-label">Fraud Loss</div><div class="kpi-val">2.1%</div><div class="kpi-delta dn">↑ spike detected</div></div>
+        <div class="kpi-card kc-green"><div class="kpi-label">Marketing ROI</div><div class="kpi-val">3.4×</div><div class="kpi-delta up">Email channel leading</div></div>
+        <div class="kpi-card kc-amber"><div class="kpi-label">Stockout Rate</div><div class="kpi-val">12.3%</div><div class="kpi-delta warn">1,900+ events flagged</div></div>
+        <div class="kpi-card kc-red"><div class="kpi-label">Default Rate</div><div class="kpi-val">18.3%</div><div class="kpi-delta dn">vs 9.5% benchmark</div></div>
+        <div class="kpi-card kc-amber"><div class="kpi-label">Delivery Delays</div><div class="kpi-val">15.0%</div><div class="kpi-delta warn">30% weather-driven</div></div>
+      </div>
 
-      <!-- ████ EXECUTIVE DASHBOARD ████ -->
-      <div id="page-exec">
-        <div class="page-hdr">
-          <div class="page-hdr-left">
-            <h2>Executive Dashboard</h2>
-            <p>Unified AI command centre — all 7 decision systems · Updated 2 min ago</p>
-            <div class="page-hdr-tags">
-              <span class="tag tag-blue">7 Active Models</span>
-              <span class="tag tag-green">4 Completed Projects</span>
-              <span class="tag tag-amber">3 In Progress</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="kpi-grid">
-          <div class="kpi-card blue"><div class="kpi-label">Total Revenue</div><div class="kpi-value">$4.2M</div><div class="kpi-delta up">↑ 8.3% vs prior period</div></div>
-          <div class="kpi-card blue"><div class="kpi-label">Forecast Revenue</div><div class="kpi-value">$4.9M</div><div class="kpi-delta up">↑ 12-month ARIMA outlook</div></div>
-          <div class="kpi-card amber"><div class="kpi-label">Churn Rate</div><div class="kpi-value">14.2%</div><div class="kpi-delta warn">⚠ +1.8% MoM — action needed</div></div>
-          <div class="kpi-card red"><div class="kpi-label">Fraud Loss %</div><div class="kpi-value">2.1%</div><div class="kpi-delta dn">↑ spike detected this week</div></div>
-          <div class="kpi-card green"><div class="kpi-label">Marketing ROI</div><div class="kpi-value">3.4×</div><div class="kpi-delta up">↑ Email channel leading</div></div>
-          <div class="kpi-card amber"><div class="kpi-label">Stockout Rate</div><div class="kpi-value">12.3%</div><div class="kpi-delta warn">1,900+ events flagged</div></div>
-          <div class="kpi-card red"><div class="kpi-label">Default Risk Rate</div><div class="kpi-value">18.3%</div><div class="kpi-delta dn">vs 9.5% industry benchmark</div></div>
-          <div class="kpi-card amber"><div class="kpi-label">Delivery Delay %</div><div class="kpi-value">15.0%</div><div class="kpi-delta warn">30% weather-driven</div></div>
-        </div>
-
-        <div class="card" style="margin-bottom:14px">
-          <h4>Live System Alerts</h4>
-          <div class="alert-item"><div class="status-dot dot-red"></div><span class="pill pill-red">HIGH</span>Fraud spike — Card_7821 velocity +340% in 15 min. Recommend block.<span class="alert-time">2 min ago</span></div>
-          <div class="alert-item"><div class="status-dot dot-amber"></div><span class="pill pill-amber">WARN</span>Stockout risk — SKU-4421 hits reorder point in 3 days. EOQ order recommended.<span class="alert-time">14 min ago</span></div>
-          <div class="alert-item"><div class="status-dot dot-amber"></div><span class="pill pill-amber">WARN</span>High-risk loan applications up 23% this week. Review approval thresholds.<span class="alert-time">1 hr ago</span></div>
-          <div class="alert-item"><div class="status-dot dot-green"></div><span class="pill pill-green">OK</span>Churn model retrained — recall improved 0.82 → 0.88 on latest validation batch.<span class="alert-time">3 hr ago</span></div>
-        </div>
-
-        <div class="grid-2">
-          <div class="card"><h4>Revenue trend + 12-month forecast</h4><div class="chart-wrap"><canvas id="c-exec-revenue" height="160"></canvas></div></div>
-          <div class="card"><h4>Churn distribution by RFM segment</h4><div class="chart-wrap"><canvas id="c-exec-churn" height="160"></canvas></div></div>
-          <div class="card"><h4>Fraud incidents — 13-week trend</h4><div class="chart-wrap"><canvas id="c-exec-fraud" height="150"></canvas></div></div>
-          <div class="card"><h4>Inventory stockout risk by warehouse</h4>
-            <div style="margin-top:6px">
-              <div class="mini-bar-row"><span class="mini-bar-label">Warehouse A</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:82%;background:var(--red)"></div></div><span class="mini-bar-val">82%</span></div>
-              <div class="mini-bar-row"><span class="mini-bar-label">Warehouse B</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:61%;background:var(--amber)"></div></div><span class="mini-bar-val">61%</span></div>
-              <div class="mini-bar-row"><span class="mini-bar-label">Warehouse C</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:54%;background:var(--amber)"></div></div><span class="mini-bar-val">54%</span></div>
-              <div class="mini-bar-row"><span class="mini-bar-label">Warehouse D</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:28%;background:var(--green)"></div></div><span class="mini-bar-val">28%</span></div>
-              <div class="mini-bar-row"><span class="mini-bar-label">Warehouse E</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:17%;background:var(--green)"></div></div><span class="mini-bar-val">17%</span></div>
-            </div>
-          </div>
-        </div>
-
+      <div class="grid-2">
         <div class="card">
-          <h4>Module Performance Registry</h4>
-          <table class="data-table">
-            <thead><tr><th>#</th><th>Module</th><th>Model Architecture</th><th>Key Metric</th><th>Last Run</th><th>GitHub</th><th>Status</th></tr></thead>
+          <div class="card-title"><div class="dot" style="background:var(--red)"></div>Live Alerts</div>
+          <div class="alert-row"><div class="status-dot dot-red"></div><span><span class="pill pill-red" style="margin-right:6px">HIGH</span>Fraud spike — Card_7821 velocity +340% in 15 min</span><span class="alert-time">2 min ago</span></div>
+          <div class="alert-row"><div class="status-dot dot-amber"></div><span><span class="pill pill-amber" style="margin-right:6px">WARN</span>Stockout risk — SKU-4421 hits reorder point in 3 days</span><span class="alert-time">14 min ago</span></div>
+          <div class="alert-row"><div class="status-dot dot-amber"></div><span><span class="pill pill-amber" style="margin-right:6px">WARN</span>High-risk loan applications up 23% this week</span><span class="alert-time">1 hr ago</span></div>
+          <div class="alert-row"><div class="status-dot dot-green"></div><span><span class="pill pill-green" style="margin-right:6px">OK</span>Churn model retrained — recall improved 0.82 → 0.88</span><span class="alert-time">3 hr ago</span></div>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="dot" style="background:var(--blue)"></div>Revenue Trend + Forecast</div>
+          <div class="chart-wrap"><canvas id="c-exec-rev" height="180"></canvas></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><div class="dot" style="background:var(--purple)"></div>Model Registry</div>
+        <table class="tbl">
+          <thead><tr><th>#</th><th>Model</th><th>Algorithm</th><th>Key Metric</th><th>GitHub</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">01</td><td>Sales Forecast</td><td>ARIMA / Prophet</td><td style="font-family:var(--mono)">R² 0.84</td><td><a href="https://github.com/timmaina-devhub/superstore-executive-dashboard" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:11px">→ repo</a></td><td><span class="pill pill-green">Live</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">02</td><td>Churn Predictor</td><td>Logistic Reg + K-Means</td><td style="font-family:var(--mono)">Recall 0.88</td><td><a href="https://github.com/timmaina-devhub/Customer-Churn-Analysis-and-Segmentation" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:11px">→ repo</a></td><td><span class="pill pill-green">Live</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">03</td><td>Fraud Detector</td><td>Random Forest + SMOTE</td><td style="font-family:var(--mono)">F1 0.91</td><td><a href="https://github.com/timmaina-devhub/Fraud-Detection-System" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:11px">→ repo</a></td><td><span class="pill pill-red">Alert</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">04</td><td>Marketing ROI</td><td>Markov Chain + RF</td><td style="font-family:var(--mono)">R² 0.79</td><td><a href="https://github.com/timmaina-devhub/Multi-Channel-Marketing-Attribution-ROI-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:11px">→ repo</a></td><td><span class="pill pill-green">Live</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">05</td><td>Inventory Sim</td><td>Prophet + EOQ/SS/ROP</td><td style="font-family:var(--mono)">MAPE 8.2%</td><td><a href="https://github.com/timmaina-devhub/Supply-Chain-Analytics-Inventory-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:11px">→ repo</a></td><td><span class="pill pill-amber">In progress</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">06</td><td>Credit Risk</td><td>XGBoost + SMOTE</td><td style="font-family:var(--mono)">F1 0.76</td><td><a href="https://github.com/timmaina-devhub/Customer-Credit-Risk-Assessment-Model" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:11px">→ repo</a></td><td><span class="pill pill-amber">In progress</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">07</td><td>Delay Predictor</td><td>Random Forest Regressor</td><td style="font-family:var(--mono)">R² 0.70</td><td><a href="https://github.com/timmaina-devhub/Delivery-Downtime-Prediction-Route-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:11px">→ repo</a></td><td><span class="pill pill-amber">In progress</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div><!-- /exec -->
+
+    <!-- ████ SALES ████ -->
+    <div id="page-sales" class="hidden">
+      <div class="page-hdr">
+        <div class="page-hdr-eyebrow">Module 01</div>
+        <h2>Superstore Sales Forecast</h2>
+        <p class="page-hdr-sub">4-year Superstore dataset. ARIMA and Prophet time-series models forecast 12 months of revenue by region and category. Several sub-categories were running at negative profit margin, which wasn't visible in the original reports.</p>
+        <div class="page-hdr-pills">
+          <span class="pill pill-blue">ARIMA</span><span class="pill pill-blue">Prophet</span>
+          <span class="pill pill-blue">Excel · Tableau</span><span class="pill pill-green">Completed</span>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title"><div class="dot" style="background:var(--blue)"></div>Forecast Inputs</div>
+          <div class="form-group"><label>Region <span class="val" id="s-reg-v">West</span></label><select id="s-region" onchange="document.getElementById('s-reg-v').textContent=this.value"><option>West</option><option>East</option><option>Central</option><option>South</option></select></div>
+          <div class="form-group"><label>Category <span class="val" id="s-cat-v">Technology</span></label><select id="s-cat" onchange="document.getElementById('s-cat-v').textContent=this.value"><option>Technology</option><option>Furniture</option><option>Office Supplies</option></select></div>
+          <div class="form-group"><label>Segment <span class="val" id="s-seg-v">Corporate</span></label><select id="s-seg" onchange="document.getElementById('s-seg-v').textContent=this.value"><option>Corporate</option><option>Consumer</option><option>Home Office</option></select></div>
+          <button class="run-btn" id="btn-sales" onclick="runPred('sales')">▶ Run 12-Month Forecast</button>
+          <div id="sales-result" class="result-box">
+            <div class="result-lbl">Predicted 12-Month Revenue</div>
+            <div class="result-num" id="sales-rev" style="color:var(--blue)">—</div>
+            <div class="result-pills">
+              <span class="pill" id="sales-profit-pill"></span>
+              <span class="pill pill-gray">ARIMA v1.0</span>
+            </div>
+            <div class="result-note" id="sales-insight"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="dot" style="background:var(--blue)"></div>Revenue Trend + 12-Month Forecast</div>
+          <div class="chart-wrap"><canvas id="c-sales" height="220"></canvas></div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title"><div class="dot" style="background:var(--red)"></div>Loss-Making Sub-Categories</div>
+          <table class="tbl">
+            <thead><tr><th>Sub-Category</th><th>Region</th><th>Margin</th><th>Flag</th></tr></thead>
             <tbody>
-              <tr><td>01</td><td>Sales Intelligence</td><td>ARIMA / Prophet</td><td>R² 0.84</td><td>2 min ago</td><td><a href="https://github.com/timmaina-devhub/superstore-executive-dashboard" target="_blank" style="color:var(--blue);text-decoration:none">→ Repo</a></td><td><span class="pill pill-green">LIVE</span></td></tr>
-              <tr><td>02</td><td>Churn & Segmentation</td><td>Logistic Reg · K-Means</td><td>Recall 0.88</td><td>3 hr ago</td><td><a href="https://github.com/timmaina-devhub/Customer-Churn-Analysis-and-Segmentation" target="_blank" style="color:var(--blue);text-decoration:none">→ Repo</a></td><td><span class="pill pill-green">LIVE</span></td></tr>
-              <tr><td>03</td><td>Fraud Command Centre</td><td>Random Forest · SMOTE</td><td>F1 0.91</td><td>2 min ago</td><td><a href="https://github.com/timmaina-devhub/Fraud-Detection-System" target="_blank" style="color:var(--blue);text-decoration:none">→ Repo</a></td><td><span class="pill pill-red">ALERT</span></td></tr>
-              <tr><td>04</td><td>Marketing ROI</td><td>Markov Chain · RF</td><td>R² 0.79</td><td>1 hr ago</td><td><a href="https://github.com/timmaina-devhub/Multi-Channel-Marketing-Attribution-ROI-Optimization" target="_blank" style="color:var(--blue);text-decoration:none">→ Repo</a></td><td><span class="pill pill-green">LIVE</span></td></tr>
-              <tr><td>05</td><td>Supply Chain</td><td>Prophet · EOQ · SS · ROP</td><td>MAPE 8.2%</td><td>30 min ago</td><td><a href="https://github.com/timmaina-devhub/Supply-Chain-Analytics-Inventory-Optimization" target="_blank" style="color:var(--blue);text-decoration:none">→ Repo</a></td><td><span class="pill pill-amber">IN PROG</span></td></tr>
-              <tr><td>06</td><td>Credit Risk</td><td>XGBoost · SMOTE</td><td>F1 0.76</td><td>1 hr ago</td><td><a href="https://github.com/timmaina-devhub/Customer-Credit-Risk-Assessment-Model" target="_blank" style="color:var(--blue);text-decoration:none">→ Repo</a></td><td><span class="pill pill-amber">IN PROG</span></td></tr>
-              <tr><td>07</td><td>Logistics Optimization</td><td>Random Forest Regressor</td><td>R² 0.70</td><td>15 min ago</td><td><a href="https://github.com/timmaina-devhub/Delivery-Downtime-Prediction-Route-Optimization" target="_blank" style="color:var(--blue);text-decoration:none">→ Repo</a></td><td><span class="pill pill-amber">IN PROG</span></td></tr>
+              <tr><td>Tables</td><td>East</td><td style="color:var(--red);font-family:var(--mono)">-8.4%</td><td><span class="pill pill-red">Unprofitable</span></td></tr>
+              <tr><td>Bookcases</td><td>Central</td><td style="color:var(--red);font-family:var(--mono)">-2.1%</td><td><span class="pill pill-red">Unprofitable</span></td></tr>
+              <tr><td>Supplies</td><td>West</td><td style="color:var(--amber);font-family:var(--mono)">-0.9%</td><td><span class="pill pill-amber">Marginal</span></td></tr>
+              <tr><td>Machines</td><td>South</td><td style="color:var(--amber);font-family:var(--mono)">+1.2%</td><td><span class="pill pill-amber">Watch</span></td></tr>
+            </tbody>
+          </table>
+          <div class="info-box warn" style="margin-top:12px"><strong>Finding:</strong> Tables sub-category is consistently unprofitable in the East region. Revenue is positive but discounting erases the margin.</div>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="dot" style="background:var(--amber)"></div>What drives the forecast?</div>
+          <div class="feat-row"><div class="feat-label"><span>Regional sales index</span><strong>42%</strong></div><div class="feat-track"><div class="feat-fill fb-blue" style="width:42%"></div></div></div>
+          <div class="feat-row"><div class="feat-label"><span>Category base revenue</span><strong>33%</strong></div><div class="feat-track"><div class="feat-fill fb-amber" style="width:33%"></div></div></div>
+          <div class="feat-row"><div class="feat-label"><span>Seasonality (ARIMA)</span><strong>25%</strong></div><div class="feat-track"><div class="feat-fill fb-green" style="width:25%"></div></div></div>
+          <div class="info-box"><strong>Note:</strong> The 12-month forecast includes uncertainty bands — visible in the Tableau dashboard download on the projects page.</div>
+        </div>
+      </div>
+    </div><!-- /sales -->
+
+    <!-- ████ CHURN ████ -->
+    <div id="page-churn" class="hidden">
+      <div class="page-hdr">
+        <div class="page-hdr-eyebrow">Module 02</div>
+        <h2>Customer Churn Predictor</h2>
+        <p class="page-hdr-sub">RFM features (recency, frequency, monetary + refund rate) fed into a logistic regression model tuned for recall. K-Means then groups customers into behaviorally distinct segments. Days since last purchase and refund rate came out as the two strongest churn signals.</p>
+        <div class="page-hdr-pills">
+          <span class="pill pill-blue">Logistic Regression</span><span class="pill pill-blue">K-Means</span>
+          <span class="pill pill-blue">RFM</span><span class="pill pill-green">Completed · Recall 0.88</span>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title"><div class="dot" style="background:var(--blue)"></div>Customer Profile — Adjust &amp; Predict</div>
+          <div class="form-group"><label>Days since last purchase <span class="val" id="ch-days-v">45</span></label><input type="range" min="1" max="365" value="45" id="ch-days" oninput="document.getElementById('ch-days-v').textContent=this.value"></div>
+          <div class="form-group"><label>Total orders placed <span class="val" id="ch-freq-v">3</span></label><input type="range" min="1" max="50" value="3" id="ch-freq" oninput="document.getElementById('ch-freq-v').textContent=this.value"></div>
+          <div class="form-group"><label>Total spend ($) <span class="val" id="ch-spend-v">120</span></label><input type="range" min="10" max="5000" value="120" id="ch-spend" oninput="document.getElementById('ch-spend-v').textContent=this.value"></div>
+          <div class="form-group"><label>Refund rate (%) <span class="val" id="ch-ref-v">10</span></label><input type="range" min="0" max="100" value="10" id="ch-ref" oninput="document.getElementById('ch-ref-v').textContent=this.value"></div>
+          <button class="run-btn" id="btn-churn" onclick="runPred('churn')">▶ Predict Churn Risk</button>
+          <div id="churn-result" class="result-box">
+            <div class="result-lbl">Churn Probability</div>
+            <div class="result-num" id="ch-prob">—</div>
+            <div class="result-pills">
+              <span class="pill" id="ch-seg-pill"></span>
+              <span class="pill" id="ch-action-pill"></span>
+            </div>
+            <div class="result-note" id="ch-insight"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="dot" style="background:var(--blue)"></div>Segment Distribution (K-Means)</div>
+          <div class="chart-wrap"><canvas id="c-churn-seg" height="200"></canvas></div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title"><div class="dot" style="background:var(--amber)"></div>What drives churn? (Feature importance)</div>
+          <div class="feat-row"><div class="feat-label"><span>Days inactive (recency)</span><strong>38%</strong></div><div class="feat-track"><div class="feat-fill fb-red" style="width:38%"></div></div></div>
+          <div class="feat-row"><div class="feat-label"><span>Refund behaviour</span><strong>27%</strong></div><div class="feat-track"><div class="feat-fill fb-amber" style="width:27%"></div></div></div>
+          <div class="feat-row"><div class="feat-label"><span>Order frequency</span><strong>19%</strong></div><div class="feat-track"><div class="feat-fill fb-blue" style="width:19%"></div></div></div>
+          <div class="feat-row"><div class="feat-label"><span>Total spend (monetary)</span><strong>16%</strong></div><div class="feat-track"><div class="feat-fill fb-green" style="width:16%"></div></div></div>
+          <div class="info-box"><strong>Observation:</strong> Customers inactive 90+ days with a refund rate above 20% are roughly 4× more likely to churn. The model was optimised for recall so fewer at-risk customers go undetected.</div>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="dot" style="background:var(--green)"></div>Retention Actions by Segment</div>
+          <table class="tbl">
+            <thead><tr><th>Segment</th><th>Risk</th><th>Suggested Action</th></tr></thead>
+            <tbody>
+              <tr><td>Champions</td><td><span class="pill pill-green">Low</span></td><td>Loyalty rewards + referral</td></tr>
+              <tr><td>Loyal Customers</td><td><span class="pill pill-green">Low</span></td><td>Upsell + NPS survey</td></tr>
+              <tr><td>At-Risk</td><td><span class="pill pill-red">High</span></td><td>Win-back email + 15% off</td></tr>
+              <tr><td>Inactive</td><td><span class="pill pill-red">Very High</span></td><td>Reactivation campaign</td></tr>
+              <tr><td>New Customers</td><td><span class="pill pill-blue">New</span></td><td>Onboarding sequence</td></tr>
             </tbody>
           </table>
         </div>
-      </div><!-- /exec -->
+      </div>
+    </div><!-- /churn -->
 
-      <!-- ████ SALES INTELLIGENCE ████ -->
-      <div id="page-sales" class="hidden">
-        <div class="page-hdr">
-          <div class="page-hdr-left">
-            <h2>Sales Intelligence — Superstore</h2>
-            <p>4-year Superstore dataset · ARIMA / Prophet time-series forecasting · Tableau + Excel</p>
-            <div class="page-hdr-tags">
-              <span class="tag tag-blue">ARIMA</span><span class="tag tag-blue">Prophet</span>
-              <span class="tag tag-green">Completed</span><span class="tag tag-amber">12-Month Forecast</span>
+    <!-- ████ FRAUD ████ -->
+    <div id="page-fraud" class="hidden">
+      <div class="page-hdr">
+        <div class="page-hdr-eyebrow">Module 03</div>
+        <h2>Fraud Detection</h2>
+        <p class="page-hdr-sub">Behavioural features — transaction velocity, device count, IP repetition, and time-window patterns — fed into a Random Forest. SMOTE handled class imbalance. Transaction velocity in the past hour was the single strongest predictor, well ahead of transaction amount.</p>
+        <div class="page-hdr-pills">
+          <span class="pill pill-blue">Random Forest</span><span class="pill pill-blue">SMOTE</span>
+          <span class="pill pill-blue">Feature Engineering</span><span class="pill pill-green">Completed · F1 0.91</span>
+          <span class="pill pill-red">Alert Active</span>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title"><div class="dot" style="background:var(--red)"></div>Transaction — Adjust &amp; Analyse</div>
+          <div class="form-group"><label>Transaction amount ($) <span class="val" id="fr-amt-v">250</span></label><input type="range" min="1" max="10000" value="250" id="fr-amt" oninput="document.getElementById('fr-amt-v').textContent=parseInt(this.value).toLocaleString()"></div>
+          <div class="form-group"><label>Transactions in last hour <span class="val" id="fr-vel-v">2</span></label><input type="range" min="1" max="30" value="2" id="fr-vel" oninput="document.getElementById('fr-vel-v').textContent=this.value"></div>
+          <div class="form-group"><label>Distinct devices used <span class="val" id="fr-dev-v">1</span></label><input type="range" min="1" max="10" value="1" id="fr-dev" oninput="document.getElementById('fr-dev-v').textContent=this.value"></div>
+          <div class="form-group"><label>IP repetition score (1–10) <span class="val" id="fr-ip-v">1</span></label><input type="range" min="1" max="10" value="1" id="fr-ip" oninput="document.getElementById('fr-ip-v').textContent=this.value"></div>
+          <button class="run-btn" id="btn-fraud" onclick="runPred('fraud')">▶ Analyse Transaction</button>
+          <div id="fraud-result" class="result-box">
+            <div class="result-lbl">Fraud Probability</div>
+            <div class="result-num" id="fr-prob">—</div>
+            <div class="result-pills">
+              <span class="pill" id="fr-level-pill"></span>
+              <span class="pill" id="fr-driver-pill"></span>
             </div>
+            <div class="result-note" id="fr-insight"></div>
           </div>
         </div>
-
-        <div class="grid-2">
-          <div class="card">
-            <h4>Prediction Inputs</h4>
-            <div class="form-row"><label>Region</label><select id="s-region"><option>West</option><option>East</option><option>Central</option><option>South</option></select></div>
-            <div class="form-row"><label>Category</label><select id="s-cat"><option>Technology</option><option>Furniture</option><option>Office Supplies</option></select></div>
-            <div class="form-row"><label>Segment</label><select id="s-seg"><option>Corporate</option><option>Consumer</option><option>Home Office</option></select></div>
-            <div class="form-row"><label>Forecast Horizon</label><select id="s-horizon"><option>12 months</option><option>6 months</option><option>3 months</option></select></div>
-            <button class="predict-btn" id="btn-sales" onclick="runPred('sales')">Run Forecast →</button>
-            <div id="sales-result" class="result-box">
-              <div class="result-label">12-Month Forecasted Revenue</div>
-              <div class="result-primary" id="sales-rev" style="color:var(--blue)">—</div>
-              <div class="result-tags">
-                <span class="pill" id="sales-profit-pill"></span>
-                <span class="pill pill-blue">ARIMA · v1.0</span>
-              </div>
-              <div class="result-insight" id="sales-insight"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Explainability — Feature Importance</h4>
-            <div id="sales-explain">
-              <div style="font-size:12px;color:var(--text3);margin-top:24px;text-align:center">Run a forecast to see feature importance</div>
-            </div>
-          </div>
+        <div class="card">
+          <div class="card-title"><div class="dot" style="background:var(--red)"></div>Fraud Incidents — Last 30 Days</div>
+          <div class="chart-wrap"><canvas id="c-fraud" height="200"></canvas></div>
         </div>
+      </div>
 
-        <div class="card" style="margin-bottom:14px">
-          <h4>Revenue Trend + 12-Month Forecast</h4>
-          <div class="chart-wrap"><canvas id="c-sales" height="150"></canvas></div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title"><div class="dot" style="background:var(--amber)"></div>What drives fraud detection?</div>
+          <div class="feat-row"><div class="feat-label"><span>Transaction velocity (burst pattern)</span><strong>41%</strong></div><div class="feat-track"><div class="feat-fill fb-red" style="width:41%"></div></div></div>
+          <div class="feat-row"><div class="feat-label"><span>Device count (account takeover signal)</span><strong>26%</strong></div><div class="feat-track"><div class="feat-fill fb-amber" style="width:26%"></div></div></div>
+          <div class="feat-row"><div class="feat-label"><span>IP repetition (repeat offender)</span><strong>21%</strong></div><div class="feat-track"><div class="feat-fill fb-amber" style="width:21%"></div></div></div>
+          <div class="feat-row"><div class="feat-label"><span>Transaction amount anomaly</span><strong>12%</strong></div><div class="feat-track"><div class="feat-fill fb-blue" style="width:12%"></div></div></div>
+          <div class="info-box"><strong>Key finding:</strong> Velocity spikes of 15+ transactions/hour flag with 94% precision. Amount alone is a weak signal — it's the behavioural pattern that matters.</div>
         </div>
-
-        <div class="grid-2">
-          <div class="card">
-            <h4>What-If Scenario Simulation</h4>
-            <div class="whatif">
-              <div class="form-row"><label>Discount applied (%)<span class="val" id="s-disc-v">10%</span></label><input type="range" min="0" max="50" value="10" oninput="document.getElementById('s-disc-v').textContent=this.value+'%';updateSalesWhatif()"></div>
-              <div class="form-row"><label>Marketing spend increase (%)<span class="val" id="s-mkt-v">+20%</span></label><input type="range" min="0" max="100" value="20" oninput="document.getElementById('s-mkt-v').textContent='+'+this.value+'%';updateSalesWhatif()"></div>
-              <div class="form-row"><label>Headcount growth (%)<span class="val" id="s-hc-v">+5%</span></label><input type="range" min="0" max="50" value="5" oninput="document.getElementById('s-hc-v').textContent='+'+this.value+'%';updateSalesWhatif()"></div>
-              <div class="whatif-result" id="s-whatif-result">⟳ Scenario impact: Est. +$84K revenue with current settings</div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Loss-Making Sub-Categories — Flagged</h4>
-            <table class="data-table">
-              <thead><tr><th>Sub-Category</th><th>Region</th><th>Margin</th><th>Signal</th></tr></thead>
-              <tbody>
-                <tr><td>Tables</td><td>East</td><td style="color:var(--red)">-8.4%</td><td><span class="pill pill-red">Unprofitable</span></td></tr>
-                <tr><td>Bookcases</td><td>Central</td><td style="color:var(--red)">-2.1%</td><td><span class="pill pill-red">Unprofitable</span></td></tr>
-                <tr><td>Supplies</td><td>West</td><td style="color:var(--amber)">-0.9%</td><td><span class="pill pill-amber">Marginal</span></td></tr>
-                <tr><td>Machines</td><td>South</td><td style="color:var(--amber)">1.2%</td><td><span class="pill pill-amber">Watch</span></td></tr>
-              </tbody>
-            </table>
-            <div class="insight"><strong>Insight:</strong> Tables sub-category is consistently unprofitable across East region. Recommend pricing review or product discontinuation.</div>
-          </div>
-        </div>
-      </div><!-- /sales -->
-
-      <!-- ████ CHURN ████ -->
-      <div id="page-churn" class="hidden">
-        <div class="page-hdr">
-          <div class="page-hdr-left">
-            <h2>Customer Churn & Segmentation</h2>
-            <p>E-commerce dataset · Logistic Regression (high-recall) · K-Means RFM Clustering · Tableau</p>
-            <div class="page-hdr-tags">
-              <span class="tag tag-blue">Logistic Regression</span><span class="tag tag-blue">K-Means</span>
-              <span class="tag tag-blue">RFM</span><span class="tag tag-green">Completed · Recall 0.88</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <div class="card">
-            <h4>Customer Profile Inputs</h4>
-            <div class="form-row"><label>Days since last purchase <span class="val" id="ch-days-v">45d</span></label><input type="range" min="1" max="365" value="45" id="ch-days" oninput="document.getElementById('ch-days-v').textContent=this.value+'d'"></div>
-            <div class="form-row"><label>Total orders placed <span class="val" id="ch-freq-v">3</span></label><input type="range" min="1" max="50" value="3" id="ch-freq" oninput="document.getElementById('ch-freq-v').textContent=this.value"></div>
-            <div class="form-row"><label>Total spend ($) <span class="val" id="ch-spend-v">$120</span></label><input type="range" min="10" max="5000" value="120" id="ch-spend" oninput="document.getElementById('ch-spend-v').textContent='$'+this.value"></div>
-            <div class="form-row"><label>Refund rate (%) <span class="val" id="ch-ref-v">10%</span></label><input type="range" min="0" max="100" value="10" id="ch-ref" oninput="document.getElementById('ch-ref-v').textContent=this.value+'%'"></div>
-            <button class="predict-btn" id="btn-churn" onclick="runPred('churn')">Predict Churn →</button>
-            <div id="churn-result" class="result-box">
-              <div class="result-label">Churn Probability</div>
-              <div class="result-primary" id="ch-prob">—</div>
-              <div class="result-tags">
-                <span class="pill" id="ch-seg-pill"></span>
-                <span class="pill" id="ch-action-pill"></span>
-              </div>
-              <div class="result-insight" id="ch-insight"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>RFM Segment Distribution</h4>
-            <div class="chart-wrap"><canvas id="c-churn-seg" height="200"></canvas></div>
-          </div>
-        </div>
-
-        <div class="grid-2" style="margin-top:0">
-          <div class="card">
-            <h4>Model Feature Importance</h4>
-            <div class="feature-row"><div class="feature-label"><span>Days inactive</span><span>38%</span></div><div class="feature-bar"><div class="feature-fill f-red" style="width:38%"></div></div></div>
-            <div class="feature-row"><div class="feature-label"><span>Refund behaviour</span><span>27%</span></div><div class="feature-bar"><div class="feature-fill f-amber" style="width:27%"></div></div></div>
-            <div class="feature-row"><div class="feature-label"><span>Order frequency</span><span>19%</span></div><div class="feature-bar"><div class="feature-fill f-blue" style="width:19%"></div></div></div>
-            <div class="feature-row"><div class="feature-label"><span>Total spend (monetary)</span><span>16%</span></div><div class="feature-bar"><div class="feature-fill f-green" style="width:16%"></div></div></div>
-            <div class="insight"><strong>Model insight:</strong> High inactivity combined with elevated refund rate is the strongest predictor of churn. Customers inactive 90+ days with >20% refund rate are 4× more likely to churn.</div>
-          </div>
-          <div class="card">
-            <h4>Retention Action Playbook</h4>
-            <table class="data-table">
-              <thead><tr><th>Segment</th><th>Risk</th><th>Action</th></tr></thead>
-              <tbody>
-                <tr><td>Champions</td><td><span class="pill pill-green">Low</span></td><td>Loyalty rewards + referral</td></tr>
-                <tr><td>Loyal Customers</td><td><span class="pill pill-green">Low</span></td><td>Upsell + NPS survey</td></tr>
-                <tr><td>At-Risk</td><td><span class="pill pill-red">High</span></td><td>Win-back email + 15% off</td></tr>
-                <tr><td>Inactive</td><td><span class="pill pill-red">Very High</span></td><td>Reactivation campaign</td></tr>
-                <tr><td>New Customers</td><td><span class="pill pill-blue">New</span></td><td>Onboarding sequence</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div><!-- /churn -->
-
-      <!-- ████ FRAUD ████ -->
-      <div id="page-fraud" class="hidden">
-        <div class="page-hdr">
-          <div class="page-hdr-left">
-            <h2>Fraud Detection Command Centre</h2>
-            <p>Random Forest · SMOTE class balancing · Behavioural feature engineering · Tableau</p>
-            <div class="page-hdr-tags">
-              <span class="tag tag-blue">Random Forest</span><span class="tag tag-blue">SMOTE</span>
-              <span class="tag tag-red">ALERT ACTIVE</span><span class="tag tag-green">F1 0.91 · Completed</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <div class="card">
-            <h4>Transaction Inputs</h4>
-            <div class="form-row"><label>Transaction amount ($) <span class="val" id="fr-amt-v">$250</span></label><input type="range" min="1" max="10000" value="250" id="fr-amt" oninput="document.getElementById('fr-amt-v').textContent='$'+parseInt(this.value).toLocaleString()"></div>
-            <div class="form-row"><label>Transactions per hour <span class="val" id="fr-vel-v">2</span></label><input type="range" min="1" max="30" value="2" id="fr-vel" oninput="document.getElementById('fr-vel-v').textContent=this.value"></div>
-            <div class="form-row"><label>Distinct devices used <span class="val" id="fr-dev-v">1</span></label><input type="range" min="1" max="10" value="1" id="fr-dev" oninput="document.getElementById('fr-dev-v').textContent=this.value"></div>
-            <div class="form-row"><label>IP repetition score <span class="val" id="fr-ip-v">1</span></label><input type="range" min="1" max="10" value="1" id="fr-ip" oninput="document.getElementById('fr-ip-v').textContent=this.value"></div>
-            <button class="predict-btn" id="btn-fraud" onclick="runPred('fraud')">Analyse Transaction →</button>
-            <div id="fraud-result" class="result-box">
-              <div class="result-label">Fraud Probability</div>
-              <div class="result-primary" id="fr-prob">—</div>
-              <div class="result-tags">
-                <span class="pill" id="fr-level-pill"></span>
-                <span class="pill" id="fr-driver-pill"></span>
-              </div>
-              <div class="result-insight" id="fr-insight"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Fraud Trend — Last 30 Days</h4>
-            <div class="chart-wrap"><canvas id="c-fraud" height="200"></canvas></div>
-          </div>
-        </div>
-
-        <div class="grid-2" style="margin-top:0">
-          <div class="card">
-            <h4>Feature Importance — Fraud Signals</h4>
-            <div class="feature-row"><div class="feature-label"><span>Transaction velocity (burst pattern)</span><span>41%</span></div><div class="feature-bar"><div class="feature-fill f-red" style="width:41%"></div></div></div>
-            <div class="feature-row"><div class="feature-label"><span>Device count (account takeover)</span><span>26%</span></div><div class="feature-bar"><div class="feature-fill f-amber" style="width:26%"></div></div></div>
-            <div class="feature-row"><div class="feature-label"><span>IP repetition (repeat offender)</span><span>21%</span></div><div class="feature-bar"><div class="feature-fill f-amber" style="width:21%"></div></div></div>
-            <div class="feature-row"><div class="feature-label"><span>Transaction amount anomaly</span><span>12%</span></div><div class="feature-bar"><div class="feature-fill f-blue" style="width:12%"></div></div></div>
-            <div class="insight"><strong>Model insight:</strong> High-frequency burst patterns are the primary fraud signal. Velocity spikes of 15+ transactions/hour flag with 94% precision in the Random Forest model.</div>
-          </div>
-          <div class="card">
-            <h4>High-Risk Entities — Live Flag</h4>
-            <table class="data-table">
-              <thead><tr><th>Entity</th><th>Score</th><th>Primary Signal</th><th>Action</th></tr></thead>
-              <tbody>
-                <tr><td>Card_7821</td><td style="color:var(--red);font-weight:700">0.94</td><td><span class="pill pill-red">Velocity burst</span></td><td>Block</td></tr>
-                <tr><td>IP_192.11</td><td style="color:var(--red);font-weight:700">0.87</td><td><span class="pill pill-red">IP repeat</span></td><td>Block</td></tr>
-                <tr><td>User_4420</td><td style="color:var(--amber);font-weight:700">0.73</td><td><span class="pill pill-amber">Multi-device</span></td><td>Flag</td></tr>
-                <tr><td>Card_3312</td><td style="color:var(--amber);font-weight:700">0.61</td><td><span class="pill pill-amber">High amount</span></td><td>Monitor</td></tr>
-                <tr><td>User_8891</td><td style="color:var(--green);font-weight:700">0.28</td><td><span class="pill pill-green">Low risk</span></td><td>Pass</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div><!-- /fraud -->
-
-      <!-- ████ MARKETING ████ -->
-      <div id="page-marketing" class="hidden">
-        <div class="page-hdr">
-          <div class="page-hdr-left">
-            <h2>Marketing ROI Optimization</h2>
-            <p>Markov Chain Attribution · Random Forest revenue prediction · Power BI · R² 0.79</p>
-            <div class="page-hdr-tags">
-              <span class="tag tag-blue">Markov Chain</span><span class="tag tag-blue">Random Forest</span>
-              <span class="tag tag-green">Completed · R² 0.79</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <div class="card">
-            <h4>Campaign Inputs</h4>
-            <div class="form-row"><label>Total campaign spend ($) <span class="val" id="mk-spend-v">$5,000</span></label><input type="range" min="500" max="100000" value="5000" id="mk-spend" oninput="document.getElementById('mk-spend-v').textContent='$'+parseInt(this.value).toLocaleString()"></div>
-            <div class="form-row"><label>Cost per acquisition ($) <span class="val" id="mk-cpa-v">$45</span></label><input type="range" min="1" max="500" value="45" id="mk-cpa" oninput="document.getElementById('mk-cpa-v').textContent='$'+this.value"></div>
-            <div class="form-row"><label>Conversion rate (%) <span class="val" id="mk-conv-v">4%</span></label><input type="range" min="1" max="30" value="4" id="mk-conv" oninput="document.getElementById('mk-conv-v').textContent=this.value+'%'"></div>
-            <div class="form-row"><label>Channel touchpoints <span class="val" id="mk-touch-v">3</span></label><input type="range" min="1" max="8" value="3" id="mk-touch" oninput="document.getElementById('mk-touch-v').textContent=this.value"></div>
-            <button class="predict-btn" id="btn-marketing" onclick="runPred('marketing')">Predict Revenue →</button>
-            <div id="marketing-result" class="result-box">
-              <div class="result-label">Predicted Revenue</div>
-              <div class="result-primary" id="mk-rev" style="color:var(--green)">—</div>
-              <div class="result-tags">
-                <span class="pill" id="mk-roi-pill"></span>
-                <span class="pill pill-green" id="mk-ch-pill"></span>
-              </div>
-              <div class="result-insight" id="mk-insight"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Markov Chain Attribution — Channel Contribution</h4>
-            <div class="chart-wrap"><canvas id="c-marketing" height="200"></canvas></div>
-          </div>
-        </div>
-
-        <div class="card" style="margin-bottom:14px">
-          <h4>Budget Reallocation Recommendation</h4>
-          <div class="insight" style="margin-bottom:12px"><strong>Model insight:</strong> CPA is the dominant driver of revenue (feature importance: 38%). Channels with lower CPA yield disproportionately higher returns under the Markov attribution framework.</div>
-          <table class="data-table">
-            <thead><tr><th>Channel</th><th>Current Spend</th><th>Attribution %</th><th>CPA</th><th>Predicted ROI</th><th>Recommendation</th></tr></thead>
+        <div class="card">
+          <div class="card-title"><div class="dot" style="background:var(--red)"></div>High-Risk Entities — Live Queue</div>
+          <table class="tbl">
+            <thead><tr><th>Entity</th><th>Score</th><th>Primary Signal</th><th>Action</th></tr></thead>
             <tbody>
-              <tr><td>Email</td><td>$1,200</td><td>34%</td><td style="color:var(--green)">$12</td><td>8.4×</td><td><span class="pill pill-green">↑ Increase budget</span></td></tr>
-              <tr><td>Paid Search</td><td>$2,100</td><td>28%</td><td style="color:var(--amber)">$38</td><td>3.1×</td><td><span class="pill pill-amber">→ Maintain</span></td></tr>
-              <tr><td>Social</td><td>$900</td><td>22%</td><td style="color:var(--amber)">$55</td><td>2.4×</td><td><span class="pill pill-amber">→ Maintain</span></td></tr>
-              <tr><td>Display</td><td>$800</td><td>16%</td><td style="color:var(--red)">$89</td><td>1.2×</td><td><span class="pill pill-red">↓ Reduce budget</span></td></tr>
+              <tr><td style="font-family:var(--mono)">Card_7821</td><td style="color:var(--red);font-family:var(--mono);font-weight:700">0.94</td><td><span class="pill pill-red">Velocity burst</span></td><td>Block</td></tr>
+              <tr><td style="font-family:var(--mono)">IP_192.11</td><td style="color:var(--red);font-family:var(--mono);font-weight:700">0.87</td><td><span class="pill pill-red">IP repeat</span></td><td>Block</td></tr>
+              <tr><td style="font-family:var(--mono)">User_4420</td><td style="color:var(--amber);font-family:var(--mono);font-weight:700">0.73</td><td><span class="pill pill-amber">Multi-device</span></td><td>Flag</td></tr>
+              <tr><td style="font-family:var(--mono)">Card_3312</td><td style="color:var(--amber);font-family:var(--mono);font-weight:700">0.61</td><td><span class="pill pill-amber">High amount</span></td><td>Monitor</td></tr>
+              <tr><td style="font-family:var(--mono)">User_8891</td><td style="color:var(--green);font-family:var(--mono);font-weight:700">0.28</td><td><span class="pill pill-green">Low risk</span></td><td>Pass</td></tr>
             </tbody>
           </table>
         </div>
-      </div><!-- /marketing -->
+      </div>
+    </div><!-- /fraud -->
 
-      <!-- ████ SUPPLY CHAIN ████ -->
-      <div id="page-supply" class="hidden">
-        <div class="page-hdr">
-          <div class="page-hdr-left">
-            <h2>Supply Chain & Inventory Optimization</h2>
-            <p>Prophet · ARIMA · Safety Stock · Reorder Point · EOQ · 1,900+ stockout events identified</p>
-            <div class="page-hdr-tags">
-              <span class="tag tag-blue">Prophet</span><span class="tag tag-blue">ARIMA</span>
-              <span class="tag tag-blue">EOQ · SS · ROP</span><span class="tag tag-amber">In Progress</span>
+    <!-- ████ MARKETING ████ -->
+    <div id="page-marketing" class="hidden">
+      <div class="page-hdr">
+        <div class="page-hdr-eyebrow">Module 04</div>
+        <h2>Marketing ROI &amp; Attribution</h2>
+        <p class="page-hdr-sub">Markov Chain attribution distributes conversion credit across all channel touchpoints, not just the last click. A Random Forest then predicts campaign revenue. CPA was the dominant revenue predictor — more so than total spend or impressions.</p>
+        <div class="page-hdr-pills">
+          <span class="pill pill-blue">Markov Chain Attribution</span><span class="pill pill-blue">Random Forest</span>
+          <span class="pill pill-green">Completed · R² 0.79</span>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title"><div class="dot" style="background:var(--blue)"></div>Campaign Inputs</div>
+          <div class="form-group"><label>Total campaign spend ($) <span class="val" id="mk-spend-v">5,000</span></label><input type="range" min="500" max="100000" value="5000" id="mk-spend" oninput="document.getElementById('mk-spend-v').textContent=parseInt(this.value).toLocaleString()"></div>
+          <div class="form-group"><label>Cost per acquisition ($) <span class="val" id="mk-cpa-v">45</span></label><input type="range" min="1" max="500" value="45" id="mk-cpa" oninput="document.getElementById('mk-cpa-v').textContent=this.value"></div>
+          <div class="form-group"><label>Conversion rate (%) <span class="val" id="mk-conv-v">4</span></label><input type="range" min="1" max="30" value="4" id="mk-conv" oninput="document.getElementById('mk-conv-v').textContent=this.value"></div>
+          <div class="form-group"><label>Channel touchpoints <span class="val" id="mk-touch-v">3</span></label><input type="range" min="1" max="8" value="3" id="mk-touch" oninput="document.getElementById('mk-touch-v').textContent=this.value"></div>
+          <button class="run-btn" id="btn-marketing" onclick="runPred('marketing')">▶ Predict Revenue</button>
+          <div id="marketing-result" class="result-box">
+            <div class="result-lbl">Predicted Revenue</div>
+            <div class="result-num" id="mk-rev" style="color:var(--green)">—</div>
+            <div class="result-pills">
+              <span class="pill" id="mk-roi-pill"></span>
+              <span class="pill pill-gray" id="mk-ch-pill"></span>
             </div>
+            <div class="result-note" id="mk-insight"></div>
           </div>
         </div>
+        <div class="card">
+          <div class="card-title"><div class="dot" style="background:var(--green)"></div>Markov Attribution — Channel Contribution</div>
+          <div class="chart-wrap"><canvas id="c-marketing" height="200"></canvas></div>
+        </div>
+      </div>
 
-        <div class="grid-2">
-          <div class="card">
-            <h4>SKU Inputs</h4>
-            <div class="form-row"><label>Avg daily demand (units) <span class="val" id="sc-demand-v">50</span></label><input type="range" min="1" max="500" value="50" id="sc-demand" oninput="document.getElementById('sc-demand-v').textContent=this.value"></div>
-            <div class="form-row"><label>Lead time (days) <span class="val" id="sc-lead-v">7d</span></label><input type="range" min="1" max="60" value="7" id="sc-lead" oninput="document.getElementById('sc-lead-v').textContent=this.value+'d'"></div>
-            <div class="form-row"><label>Demand std dev σ <span class="val" id="sc-sigma-v">10</span></label><input type="range" min="1" max="100" value="10" id="sc-sigma" oninput="document.getElementById('sc-sigma-v').textContent=this.value"></div>
-            <div class="form-row"><label>Service level target <span class="val" id="sc-svc-v">95%</span></label><input type="range" min="80" max="99" value="95" id="sc-svc" oninput="document.getElementById('sc-svc-v').textContent=this.value+'%'"></div>
-            <div class="form-row"><label>Holding cost ($/unit/yr) <span class="val" id="sc-hold-v">$2</span></label><input type="range" min="1" max="20" value="2" id="sc-hold" oninput="document.getElementById('sc-hold-v').textContent='$'+this.value"></div>
-            <div class="form-row"><label>Order cost ($) <span class="val" id="sc-order-v">$50</span></label><input type="range" min="10" max="500" value="50" id="sc-order" oninput="document.getElementById('sc-order-v').textContent='$'+this.value"></div>
-            <button class="predict-btn" id="btn-supply" onclick="runPred('supply')">Optimise Inventory →</button>
-            <div id="supply-result" class="result-box">
-              <div class="result-grid">
-                <div class="result-mini"><div class="val" id="sc-ss-v" style="color:var(--amber)">—</div><div class="lbl">Safety Stock (units)</div></div>
-                <div class="result-mini"><div class="val" id="sc-rop-v" style="color:var(--blue)">—</div><div class="lbl">Reorder Point (units)</div></div>
-                <div class="result-mini"><div class="val" id="sc-eoq-v" style="color:var(--green)">—</div><div class="lbl">EOQ (units/order)</div></div>
-                <div class="result-mini"><div class="val" id="sc-fore-v" style="color:var(--purple)">—</div><div class="lbl">30-Day Forecast (units)</div></div>
-              </div>
-              <div class="result-insight" id="sc-insight"></div>
+      <div class="card">
+        <div class="card-title"><div class="dot" style="background:var(--amber)"></div>Budget Reallocation — Markov Attribution Output</div>
+        <div class="info-box" style="margin-bottom:14px"><strong>Finding:</strong> CPA is the dominant revenue driver (38% feature importance). Channels with lower CPA yield disproportionately higher returns once Markov attribution redistributes credit away from the last click.</div>
+        <table class="tbl">
+          <thead><tr><th>Channel</th><th>Current Spend</th><th>Attribution %</th><th>CPA</th><th>Predicted ROI</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Email</td><td style="font-family:var(--mono)">$1,200</td><td style="font-family:var(--mono)">34%</td><td style="color:var(--green);font-family:var(--mono)">$12</td><td style="font-family:var(--mono)">8.4×</td><td><span class="pill pill-green">↑ Increase budget</span></td></tr>
+            <tr><td>Paid Search</td><td style="font-family:var(--mono)">$2,100</td><td style="font-family:var(--mono)">28%</td><td style="color:var(--amber);font-family:var(--mono)">$38</td><td style="font-family:var(--mono)">3.1×</td><td><span class="pill pill-amber">→ Maintain</span></td></tr>
+            <tr><td>Social</td><td style="font-family:var(--mono)">$900</td><td style="font-family:var(--mono)">22%</td><td style="color:var(--amber);font-family:var(--mono)">$55</td><td style="font-family:var(--mono)">2.4×</td><td><span class="pill pill-amber">→ Maintain</span></td></tr>
+            <tr><td>Display</td><td style="font-family:var(--mono)">$800</td><td style="font-family:var(--mono)">16%</td><td style="color:var(--red);font-family:var(--mono)">$89</td><td style="font-family:var(--mono)">1.2×</td><td><span class="pill pill-red">↓ Reduce</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div><!-- /marketing -->
+
+    <!-- ████ SUPPLY ████ -->
+    <div id="page-supply" class="hidden">
+      <div class="page-hdr">
+        <div class="page-hdr-eyebrow">Module 05</div>
+        <h2>Inventory Optimisation</h2>
+        <p class="page-hdr-sub">Demand forecasting using Prophet and ARIMA on multi-SKU data. Prophet handled seasonality better on most products; ARIMA held up on flat demand profiles. On top of forecasts, Safety Stock, Reorder Point, and EOQ are calculated per SKU. Over 1,900 stockout events were identified in the dataset.</p>
+        <div class="page-hdr-pills">
+          <span class="pill pill-blue">Prophet</span><span class="pill pill-blue">ARIMA</span>
+          <span class="pill pill-blue">Safety Stock · ROP · EOQ</span><span class="pill pill-amber">In Progress</span>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title"><div class="dot" style="background:var(--teal)"></div>SKU Parameters — Adjust &amp; Calculate</div>
+          <div class="form-group"><label>Avg daily demand (units) <span class="val" id="sc-demand-v">50</span></label><input type="range" min="1" max="500" value="50" id="sc-demand" oninput="document.getElementById('sc-demand-v').textContent=this.value"></div>
+          <div class="form-group"><label>Lead time (days) <span class="val" id="sc-lead-v">7</span></label><input type="range" min="1" max="60" value="7" id="sc-lead" oninput="document.getElementById('sc-lead-v').textContent=this.value"></div>
+          <div class="form-group"><label>Demand variability σ <span class="val" id="sc-sigma-v">10</span></label><input type="range" min="1" max="100" value="10" id="sc-sigma" oninput="document.getElementById('sc-sigma-v').textContent=this.value"></div>
+          <div class="form-group"><label>Service level target (%) <span class="val" id="sc-svc-v">95</span></label><input type="range" min="80" max="99" value="95" id="sc-svc" oninput="document.getElementById('sc-svc-v').textContent=this.value"></div>
+          <div class="form-group"><label>Holding cost ($/unit/yr) <span class="val" id="sc-hold-v">2</span></label><input type="range" min="1" max="20" value="2" id="sc-hold" oninput="document.getElementById('sc-hold-v').textContent=this.value"></div>
+          <div class="form-group"><label>Order cost ($) <span class="val" id="sc-order-v">50</span></label><input type="range" min="10" max="500" value="50" id="sc-order" oninput="document.getElementById('sc-order-v').textContent=this.value"></div>
+          <button class="run-btn" id="btn-supply" onclick="runPred('supply')">▶ Calculate Inventory Parameters</button>
+          <div id="supply-result" class="result-box">
+            <div class="result-grid">
+              <div class="result-mini"><div class="mn" id="sc-ss-v" style="color:var(--amber)">—</div><div class="ml">Safety Stock (units)</div></div>
+              <div class="result-mini"><div class="mn" id="sc-rop-v" style="color:var(--blue)">—</div><div class="ml">Reorder Point (units)</div></div>
+              <div class="result-mini"><div class="mn" id="sc-eoq-v" style="color:var(--green)">—</div><div class="ml">EOQ (units/order)</div></div>
+              <div class="result-mini"><div class="mn" id="sc-fore-v" style="color:var(--purple)">—</div><div class="ml">30-Day Forecast</div></div>
             </div>
-          </div>
-          <div class="card">
-            <h4>Demand Forecast — Prophet + Historical</h4>
-            <div class="chart-wrap"><canvas id="c-supply" height="280"></canvas></div>
+            <div class="result-note" id="sc-insight" style="margin-top:12px"></div>
           </div>
         </div>
-      </div><!-- /supply -->
+        <div class="card">
+          <div class="card-title"><div class="dot" style="background:var(--teal)"></div>Demand Forecast — Prophet + Historical</div>
+          <div class="chart-wrap"><canvas id="c-supply" height="280"></canvas></div>
+          <div class="divider"></div>
+          <div class="card-title" style="margin-bottom:8px"><div class="dot" style="background:var(--red)"></div>Stockout Risk by Warehouse</div>
+          <div class="mini-row"><span class="mini-lbl">Warehouse A</span><div class="mini-track"><div class="mini-fill" style="width:82%;background:var(--red)"></div></div><span class="mini-val">82%</span></div>
+          <div class="mini-row"><span class="mini-lbl">Warehouse B</span><div class="mini-track"><div class="mini-fill" style="width:61%;background:var(--amber)"></div></div><span class="mini-val">61%</span></div>
+          <div class="mini-row"><span class="mini-lbl">Warehouse C</span><div class="mini-track"><div class="mini-fill" style="width:54%;background:var(--amber)"></div></div><span class="mini-val">54%</span></div>
+          <div class="mini-row"><span class="mini-lbl">Warehouse D</span><div class="mini-track"><div class="mini-fill" style="width:28%;background:var(--green)"></div></div><span class="mini-val">28%</span></div>
+          <div class="mini-row"><span class="mini-lbl">Warehouse E</span><div class="mini-track"><div class="mini-fill" style="width:17%;background:var(--green)"></div></div><span class="mini-val">17%</span></div>
+        </div>
+      </div>
+    </div><!-- /supply -->
 
-      <!-- ████ CREDIT RISK ████ -->
-      <div id="page-credit" class="hidden">
-        <div class="page-hdr">
-          <div class="page-hdr-left">
-            <h2>Customer Credit Risk Assessment</h2>
-            <p>XGBoost · SMOTE · Composite risk scoring · 18.3% default rate vs 9.5% benchmark</p>
-            <div class="page-hdr-tags">
-              <span class="tag tag-blue">XGBoost</span><span class="tag tag-blue">SMOTE</span>
-              <span class="tag tag-blue">Feature Engineering</span><span class="tag tag-amber">In Progress · F1 0.76</span>
+    <!-- ████ CREDIT ████ -->
+    <div id="page-credit" class="hidden">
+      <div class="page-hdr">
+        <div class="page-hdr-eyebrow">Module 06</div>
+        <h2>Credit Risk Assessment</h2>
+        <p class="page-hdr-sub">The target variable was reconstructed from a composite risk score — the original default label had weak predictive signal. Debt-to-income and loan-to-income ratios were more informative than raw credit score in most configurations. XGBoost reached F1 0.76 with ~77% recall and ~75% precision.</p>
+        <div class="page-hdr-pills">
+          <span class="pill pill-blue">XGBoost</span><span class="pill pill-blue">SMOTE</span>
+          <span class="pill pill-blue">Feature Engineering</span><span class="pill pill-amber">In Progress · F1 0.76</span>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title"><div class="dot" style="background:var(--amber)"></div>Borrower Profile — Adjust &amp; Assess</div>
+          <div class="form-group"><label>Annual income ($) <span class="val" id="cr-inc-v">45,000</span></label><input type="range" min="10000" max="300000" value="45000" id="cr-inc" oninput="document.getElementById('cr-inc-v').textContent=parseInt(this.value).toLocaleString()"></div>
+          <div class="form-group"><label>Debt-to-income ratio (%) <span class="val" id="cr-dti-v">35</span></label><input type="range" min="0" max="100" value="35" id="cr-dti" oninput="document.getElementById('cr-dti-v').textContent=this.value"></div>
+          <div class="form-group"><label>Credit score <span class="val" id="cr-score-v">680</span></label><input type="range" min="300" max="850" value="680" id="cr-score" oninput="document.getElementById('cr-score-v').textContent=this.value"></div>
+          <div class="form-group"><label>Loan amount ($) <span class="val" id="cr-loan-v">15,000</span></label><input type="range" min="1000" max="200000" value="15000" id="cr-loan" oninput="document.getElementById('cr-loan-v').textContent=parseInt(this.value).toLocaleString()"></div>
+          <button class="run-btn" id="btn-credit" onclick="runPred('credit')">▶ Assess Credit Risk</button>
+          <div id="credit-result" class="result-box">
+            <div class="result-lbl">Default Probability</div>
+            <div class="result-num" id="cr-prob">—</div>
+            <div class="result-pills">
+              <span class="pill" id="cr-tier-pill"></span>
+              <span class="pill" id="cr-rec-pill"></span>
             </div>
+            <div class="result-note" id="cr-insight"></div>
           </div>
         </div>
+        <div class="card">
+          <div class="card-title"><div class="dot" style="background:var(--amber)"></div>Risk Tier Distribution</div>
+          <div class="chart-wrap"><canvas id="c-credit" height="170"></canvas></div>
+          <div class="divider"></div>
+          <div class="card-title" style="margin-bottom:8px"><div class="dot" style="background:var(--amber)"></div>Feature Importance — XGBoost</div>
+          <div class="feat-row"><div class="feat-label"><span>Debt-to-income ratio</span><strong>31%</strong></div><div class="feat-track"><div class="feat-fill fb-red" style="width:31%"></div></div></div>
+          <div class="feat-row"><div class="feat-label"><span>Credit score band</span><strong>28%</strong></div><div class="feat-track"><div class="feat-fill fb-blue" style="width:28%"></div></div></div>
+          <div class="feat-row"><div class="feat-label"><span>Loan-to-income ratio</span><strong>22%</strong></div><div class="feat-track"><div class="feat-fill fb-amber" style="width:22%"></div></div></div>
+          <div class="feat-row"><div class="feat-label"><span>Income level</span><strong>19%</strong></div><div class="feat-track"><div class="feat-fill fb-green" style="width:19%"></div></div></div>
+          <div class="info-box warn"><strong>Note:</strong> DTI above 43% is a strong default signal in this model. The default rate in the training data was 18.3% vs 9.5% industry benchmark.</div>
+        </div>
+      </div>
+    </div><!-- /credit -->
 
-        <div class="grid-2">
-          <div class="card">
-            <h4>Borrower Profile Inputs</h4>
-            <div class="form-row"><label>Annual income ($) <span class="val" id="cr-inc-v">$45,000</span></label><input type="range" min="10000" max="300000" value="45000" id="cr-inc" oninput="document.getElementById('cr-inc-v').textContent='$'+parseInt(this.value).toLocaleString()"></div>
-            <div class="form-row"><label>Debt-to-income ratio (%) <span class="val" id="cr-dti-v">35%</span></label><input type="range" min="0" max="100" value="35" id="cr-dti" oninput="document.getElementById('cr-dti-v').textContent=this.value+'%'"></div>
-            <div class="form-row"><label>Credit score <span class="val" id="cr-score-v">680</span></label><input type="range" min="300" max="850" value="680" id="cr-score" oninput="document.getElementById('cr-score-v').textContent=this.value"></div>
-            <div class="form-row"><label>Loan amount ($) <span class="val" id="cr-loan-v">$15,000</span></label><input type="range" min="1000" max="200000" value="15000" id="cr-loan" oninput="document.getElementById('cr-loan-v').textContent='$'+parseInt(this.value).toLocaleString()"></div>
-            <button class="predict-btn" id="btn-credit" onclick="runPred('credit')">Assess Credit Risk →</button>
-            <div id="credit-result" class="result-box">
-              <div class="result-label">Default Probability</div>
-              <div class="result-primary" id="cr-prob">—</div>
-              <div class="result-tags">
-                <span class="pill" id="cr-tier-pill"></span>
-                <span class="pill" id="cr-rec-pill"></span>
-              </div>
-              <div class="result-insight" id="cr-insight"></div>
+    <!-- ████ LOGISTICS ████ -->
+    <div id="page-logistics" class="hidden">
+      <div class="page-hdr">
+        <div class="page-hdr-eyebrow">Module 07</div>
+        <h2>Delivery Delay Predictor</h2>
+        <p class="page-hdr-sub">Traffic congestion and weather risk were proxied from GPS speed patterns and historical delay data — no external APIs needed. Several early feature candidates had to be removed because they were effectively restatements of the target variable. Final R² of 0.70 after removing leaky features that had inflated it to ~0.99.</p>
+        <div class="page-hdr-pills">
+          <span class="pill pill-blue">Random Forest Regressor</span><span class="pill pill-blue">Feature Engineering</span>
+          <span class="pill pill-amber">In Progress · R² 0.70</span>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title"><div class="dot" style="background:var(--green)"></div>Shipment Parameters — Adjust &amp; Predict</div>
+          <div class="form-group"><label>Route distance (km) <span class="val" id="lg-dist-v">250</span></label><input type="range" min="10" max="2000" value="250" id="lg-dist" oninput="document.getElementById('lg-dist-v').textContent=this.value"></div>
+          <div class="form-group"><label>Historical delay rate (%) <span class="val" id="lg-hdr-v">15</span></label><input type="range" min="0" max="80" value="15" id="lg-hdr" oninput="document.getElementById('lg-hdr-v').textContent=this.value"></div>
+          <div class="form-group"><label>Weather risk score (1–10) <span class="val" id="lg-wx-v">3</span></label><input type="range" min="1" max="10" value="3" id="lg-wx" oninput="document.getElementById('lg-wx-v').textContent=this.value"></div>
+          <div class="form-group"><label>Traffic congestion (1–5) <span class="val" id="lg-traf-v">2</span></label><input type="range" min="1" max="5" value="2" id="lg-traf" oninput="document.getElementById('lg-traf-v').textContent=this.value"></div>
+          <div class="form-group"><label>Carrier <span class="val" id="lg-car-v">FastShip</span></label><select id="lg-carrier" onchange="document.getElementById('lg-car-v').textContent=this.value"><option>FastShip</option><option>SecureLog</option><option>EcoRoute</option></select></div>
+          <button class="run-btn" id="btn-logistics" onclick="runPred('logistics')">▶ Predict Delay Risk</button>
+          <div id="logistics-result" class="result-box">
+            <div class="result-lbl">Delay Probability</div>
+            <div class="result-num" id="lg-prob">—</div>
+            <div class="result-pills">
+              <span class="pill" id="lg-window-pill"></span>
+              <span class="pill" id="lg-route-pill"></span>
             </div>
-          </div>
-          <div class="card">
-            <h4>Risk Tier Distribution</h4>
-            <div class="chart-wrap"><canvas id="c-credit" height="160"></canvas></div>
-            <div class="sep"></div>
-            <h4>Feature Importance — XGBoost</h4>
-            <div class="feature-row"><div class="feature-label"><span>Debt-to-income ratio</span><span>31%</span></div><div class="feature-bar"><div class="feature-fill f-red" style="width:31%"></div></div></div>
-            <div class="feature-row"><div class="feature-label"><span>Credit score band</span><span>28%</span></div><div class="feature-bar"><div class="feature-fill f-blue" style="width:28%"></div></div></div>
-            <div class="feature-row"><div class="feature-label"><span>Loan-to-income ratio</span><span>22%</span></div><div class="feature-bar"><div class="feature-fill f-amber" style="width:22%"></div></div></div>
-            <div class="feature-row"><div class="feature-label"><span>Income level</span><span>19%</span></div><div class="feature-bar"><div class="feature-fill f-green" style="width:19%"></div></div></div>
+            <div class="result-note" id="lg-insight"></div>
           </div>
         </div>
-      </div><!-- /credit -->
-
-      <!-- ████ LOGISTICS ████ -->
-      <div id="page-logistics" class="hidden">
-        <div class="page-hdr">
-          <div class="page-hdr-left">
-            <h2>Logistics & Delivery Optimization</h2>
-            <p>Random Forest Regressor · R² 0.70 · Traffic & weather proxy features · Driver performance analysis</p>
-            <div class="page-hdr-tags">
-              <span class="tag tag-blue">Random Forest</span><span class="tag tag-blue">Feature Engineering</span>
-              <span class="tag tag-amber">In Progress · R² 0.70</span>
-            </div>
-          </div>
+        <div class="card">
+          <div class="card-title"><div class="dot" style="background:var(--green)"></div>Delay Distribution — Historical Buckets</div>
+          <div class="chart-wrap"><canvas id="c-logistics" height="190"></canvas></div>
+          <div class="divider"></div>
+          <div class="card-title" style="margin-bottom:8px"><div class="dot" style="background:var(--amber)"></div>Feature Importance — R² 0.70 Model</div>
+          <div class="feat-row"><div class="feat-label"><span>Driver performance score</span><strong>33%</strong></div><div class="feat-track"><div class="feat-fill fb-red" style="width:33%"></div></div></div>
+          <div class="feat-row"><div class="feat-label"><span>Route conditions (historical)</span><strong>27%</strong></div><div class="feat-track"><div class="feat-fill fb-amber" style="width:27%"></div></div></div>
+          <div class="feat-row"><div class="feat-label"><span>Weather risk proxy</span><strong>22%</strong></div><div class="feat-track"><div class="feat-fill fb-amber" style="width:22%"></div></div></div>
+          <div class="feat-row"><div class="feat-label"><span>Traffic congestion proxy</span><strong>18%</strong></div><div class="feat-track"><div class="feat-fill fb-blue" style="width:18%"></div></div></div>
+          <div class="info-box"><strong>Key finding:</strong> Feature engineering took longer than the modelling itself. Leakage features (R² ~0.99) were identified and removed. Final baseline of R² 0.70 is realistic for this problem type.</div>
         </div>
+      </div>
+    </div><!-- /logistics -->
 
-        <div class="grid-2">
-          <div class="card">
-            <h4>Shipment Inputs</h4>
-            <div class="form-row"><label>Route distance (km) <span class="val" id="lg-dist-v">250km</span></label><input type="range" min="10" max="2000" value="250" id="lg-dist" oninput="document.getElementById('lg-dist-v').textContent=this.value+'km'"></div>
-            <div class="form-row"><label>Historical delay rate (%) <span class="val" id="lg-hdr-v">15%</span></label><input type="range" min="0" max="80" value="15" id="lg-hdr" oninput="document.getElementById('lg-hdr-v').textContent=this.value+'%'"></div>
-            <div class="form-row"><label>Weather risk score (1-10) <span class="val" id="lg-wx-v">3</span></label><input type="range" min="1" max="10" value="3" id="lg-wx" oninput="document.getElementById('lg-wx-v').textContent=this.value"></div>
-            <div class="form-row"><label>Traffic congestion (1-5) <span class="val" id="lg-traf-v">2</span></label><input type="range" min="1" max="5" value="2" id="lg-traf" oninput="document.getElementById('lg-traf-v').textContent=this.value"></div>
-            <div class="form-row"><label>Carrier</label><select id="lg-carrier"><option>FastShip</option><option>SecureLog</option><option>EcoRoute</option></select></div>
-            <button class="predict-btn" id="btn-logistics" onclick="runPred('logistics')">Predict Delay →</button>
-            <div id="logistics-result" class="result-box">
-              <div class="result-label">Delay Probability</div>
-              <div class="result-primary" id="lg-prob">—</div>
-              <div class="result-tags">
-                <span class="pill" id="lg-window-pill"></span>
-                <span class="pill" id="lg-route-pill"></span>
-              </div>
-              <div class="result-insight" id="lg-insight"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Delay Distribution — Historical Buckets</h4>
-            <div class="chart-wrap"><canvas id="c-logistics" height="190"></canvas></div>
-            <div class="sep"></div>
-            <h4>Feature Importance — R² 0.70 Model</h4>
-            <div class="feature-row"><div class="feature-label"><span>Driver performance score</span><span>33%</span></div><div class="feature-bar"><div class="feature-fill f-red" style="width:33%"></div></div></div>
-            <div class="feature-row"><div class="feature-label"><span>Route conditions</span><span>27%</span></div><div class="feature-bar"><div class="feature-fill f-amber" style="width:27%"></div></div></div>
-            <div class="feature-row"><div class="feature-label"><span>Weather risk proxy</span><span>22%</span></div><div class="feature-bar"><div class="feature-fill f-amber" style="width:22%"></div></div></div>
-            <div class="feature-row"><div class="feature-label"><span>Traffic congestion proxy</span><span>18%</span></div><div class="feature-bar"><div class="feature-fill f-blue" style="width:18%"></div></div></div>
-            <div class="insight" style="margin-top:6px"><strong>Key finding:</strong> Data leakage features were identified and removed (inflated R² to ~0.99). Final R² 0.70 represents a realistic, production-aligned baseline.</div>
-          </div>
-        </div>
-      </div><!-- /logistics -->
-
-    </div><!-- /main -->
-  </div><!-- /body -->
+  </div><!-- /main -->
 </div><!-- /shell -->
 
 <script>
-/**
- * Core Router Logic
- */
-// Global object to track chart instances and prevent memory leaks/errors
-const chartInstances = {};
-
-/**
- * Handles Page Navigation via URL Hash
- */
-function handleRouting() {
-    const pages = ['exec', 'sales', 'churn', 'fraud', 'marketing', 'supply', 'credit', 'logistics'];
-    const hash = window.location.hash.replace('#', '') || 'exec';
-    
-    // 1. Manage Visibility
-    pages.forEach(id => {
-        const pageEl = document.getElementById(`page-${id}`);
-        const navEl = document.getElementById(`nav-${id}`);
-        if (pageEl) pageEl.classList.add('hidden');
-        if (navEl) navEl.classList.remove('active');
-    });
-
-    // 2. Activate Current Page
-    const activePage = document.getElementById(`page-${hash}`);
-    const activeNav = document.getElementById(`nav-${hash}`);
-    
-    if (activePage) {
-        activePage.classList.remove('hidden');
-        if (activeNav) activeNav.classList.add('active');
-        
-        // 3. Trigger Chart Build AFTER page is visible
-        buildCharts(hash);
-    } else {
-        // Fallback to executive if hash is invalid
-        window.location.hash = '#exec';
-    }
-}
-
-// Global Listeners
-window.addEventListener('hashchange', handleRouting);
-window.addEventListener('DOMContentLoaded', handleRouting);
-
-// ─── YOUR EXISTING FUNCTIONS (KEPT FOR APP FUNCTIONALITY) ───
-// ─── COLOURS (hex for Chart.js) ───
-const BLU='#4d9de0',GRN='#3dba7a',RED='#e05555',AMB='#e0a83d',PUR='#8b6de0',TEA='#2ec4b6',GRY='#4a5568';
-const GRID='rgba(255,255,255,0.05)',TICK={color:'#7a849c',font:{size:10,family:'Inter'}};
-const opts=(extra={})=>({responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},...(extra.plugins||{})},scales:{y:{ticks:TICK,grid:{color:GRID}},...(extra.scales||{x:{ticks:TICK,grid:{color:'transparent'}}})},...extra});
-
+// ── CHART DEFAULTS ──
+const BLU='#2563eb',GRN='#16a34a',RED='#dc2626',AMB='#d97706',PUR='#7c3aed',TEA='#0d9488',GRY='#9ca3af';
+const GRID='rgba(0,0,0,0.05)';
+const TICK={color:'#9ca3af',font:{size:10,family:'IBM Plex Mono'}};
 const charts={};
 function mk(id,cfg){if(charts[id])charts[id].destroy();const c=document.getElementById(id);if(!c)return;charts[id]=new Chart(c,cfg)}
-
-// ─── NAVIGATION ───
-// Navigation function with integrated chart building
-function showPage(pageId, el) {
-  // Hide all pages
-  document.querySelectorAll('.main > div').forEach(p => p.classList.add('hidden'));
-  
-  // Show target page
-  const targetPage = document.getElementById('page-' + pageId);
-  if (targetPage) {
-    targetPage.classList.remove('hidden');
-    
-    // BUILD CHARTS for the active page once it is visible
-    buildCharts(pageId); 
-  }
-  
-  // Update sidebar active state
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  if (el) el.classList.add('active');
-}
-
-// ─── CHARTS ───
+const baseOpts=(ex={})=>({responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},...(ex.plugins||{})},scales:{y:{ticks:TICK,grid:{color:GRID},border:{color:'transparent'}},...(ex.scales||{x:{ticks:TICK,grid:{color:'transparent'},border:{color:'transparent'}}})},...ex});
 const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
+// ── ROUTING ──
+function handleRoute(){
+  const pages=['exec','sales','churn','fraud','marketing','supply','credit','logistics'];
+  const hash=window.location.hash.replace('#','')||'exec';
+  pages.forEach(id=>{
+    const p=document.getElementById('page-'+id);
+    const n=document.getElementById('nav-'+id);
+    if(p)p.classList.add('hidden');
+    if(n)n.classList.remove('active');
+  });
+  const active=document.getElementById('page-'+hash);
+  const activeNav=document.getElementById('nav-'+hash);
+  if(active){
+    active.classList.remove('hidden');
+    if(activeNav)activeNav.classList.add('active');
+    buildCharts(hash);
+  } else {window.location.hash='#exec';}
+}
+window.addEventListener('hashchange',handleRoute);
+window.addEventListener('DOMContentLoaded',handleRoute);
+
+// ── CHARTS ──
 function buildCharts(page){
   if(page==='exec'){
     const act=[320,295,410,380,445,390,420,480,370,510,490,530];
-    mk('c-exec-revenue',{type:'line',data:{labels:[...MONTHS,'Jan\'26','Feb\'26','Mar\'26','Apr\'26'],datasets:[
-      {label:'Actual',data:[...act,null,null,null,null],borderColor:BLU,backgroundColor:BLU+'33',fill:true,tension:.4,pointRadius:3,pointBackgroundColor:BLU},
-      {label:'Forecast',data:[...Array(10).fill(null),490,550,610,670,720,790],borderColor:AMB,borderDash:[5,3],fill:false,tension:.4,pointRadius:3,pointBackgroundColor:AMB}
-    ]},options:opts({plugins:{legend:{display:true,labels:{color:'#b8bfd4',font:{size:10},boxWidth:10}}}})});
-    mk('c-exec-churn',{type:'doughnut',data:{labels:['Champions','At-Risk','Inactive','New','Potential'],datasets:[{data:[32,18,15,22,13],backgroundColor:[GRN,RED,RED+'aa',BLU,AMB],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:'#b8bfd4',font:{size:10},boxWidth:10}}}}});
-    const fd=[4,7,5,9,6,12,8,14,10,18,22,16,20];
-    mk('c-exec-fraud',{type:'bar',data:{labels:['W1','W2','W3','W4','W5','W6','W7','W8','W9','W10','W11','W12','W13'],datasets:[{data:fd,backgroundColor:fd.map(v=>v>15?RED:v>10?AMB:GRY+'88'),borderRadius:3}]},options:opts()});
+    mk('c-exec-rev',{type:'line',data:{labels:[...MONTHS,'Jan\'26','Feb\'26','Mar\'26','Apr\'26'],datasets:[
+      {label:'Actual ($K)',data:[...act,null,null,null,null],borderColor:BLU,backgroundColor:BLU+'22',fill:true,tension:.4,pointRadius:3,pointBackgroundColor:BLU,pointBorderColor:'#fff',pointBorderWidth:2},
+      {label:'Forecast ($K)',data:[...Array(10).fill(null),490,550,610,670,720,790],borderColor:AMB,borderDash:[5,3],fill:false,tension:.4,pointRadius:3,pointBackgroundColor:AMB,pointBorderColor:'#fff',pointBorderWidth:2}
+    ]},options:baseOpts({plugins:{legend:{display:true,labels:{color:'#6b7280',font:{size:10},boxWidth:10,usePointStyle:true}}}})});
   }
   if(page==='sales'){
     const rev=[280,310,295,340,320,380,360,410,390,450,420,490];
     mk('c-sales',{type:'line',data:{labels:[...MONTHS,'Jan\'26','Feb\'26','Mar\'26','Apr\'26'],datasets:[
-      {label:'Revenue ($K)',data:[...rev,null,null,null,null],borderColor:BLU,backgroundColor:BLU+'22',fill:true,tension:.4,pointRadius:3,pointBackgroundColor:BLU},
+      {label:'Revenue ($K)',data:[...rev,null,null,null,null],borderColor:BLU,backgroundColor:BLU+'18',fill:true,tension:.4,pointRadius:3,pointBackgroundColor:BLU,pointBorderColor:'#fff',pointBorderWidth:2},
       {label:'Forecast ($K)',data:[...Array(10).fill(null),430,465,510,540],borderColor:AMB,borderDash:[5,3],fill:false,tension:.4,pointRadius:3,pointBackgroundColor:AMB}
-    ]},options:opts({plugins:{legend:{display:true,labels:{color:'#b8bfd4',font:{size:10},boxWidth:10}}},scales:{y:{ticks:{...TICK,callback:v=>'$'+v+'K'},grid:{color:GRID}},x:{ticks:TICK,grid:{color:'transparent'}}}})});
+    ]},options:baseOpts({plugins:{legend:{display:true,labels:{color:'#6b7280',font:{size:10},boxWidth:10,usePointStyle:true}}},scales:{y:{ticks:{...TICK,callback:v=>'$'+v+'K'},grid:{color:GRID},border:{color:'transparent'}},x:{ticks:TICK,grid:{color:'transparent'},border:{color:'transparent'}}}})});
   }
   if(page==='churn'){
-    mk('c-churn-seg',{type:'bar',data:{labels:['Champions','Loyal','At-Risk','Need Attn','Inactive'],datasets:[{data:[420,310,185,240,120],backgroundColor:[GRN,TEA,RED,AMB,GRY],borderRadius:4}]},options:opts()});
+    mk('c-churn-seg',{type:'bar',data:{labels:['Champions','Loyal','At-Risk','Need Attn','Inactive'],datasets:[{data:[420,310,185,240,120],backgroundColor:[GRN+'cc',TEA+'cc',RED+'cc',AMB+'cc',GRY+'cc'],borderRadius:6,borderSkipped:false}]},options:baseOpts()});
   }
   if(page==='fraud'){
     const fd=[3,5,4,8,6,11,9,14,12,18,22,17,20,24,19];
     mk('c-fraud',{type:'line',data:{labels:fd.map((_,i)=>'Day '+(i+1)),datasets:[
-      {label:'Fraud incidents',data:fd,borderColor:RED,backgroundColor:RED+'22',fill:true,tension:.3,pointRadius:3,pointBackgroundColor:RED},
-      {label:'Alert threshold',data:Array(15).fill(15),borderColor:AMB,borderDash:[4,3],fill:false,pointRadius:0}
-    ]},options:opts({plugins:{legend:{display:true,labels:{color:'#b8bfd4',font:{size:10},boxWidth:10}}}})});
+      {label:'Fraud incidents',data:fd,borderColor:RED,backgroundColor:RED+'18',fill:true,tension:.3,pointRadius:3,pointBackgroundColor:RED,pointBorderColor:'#fff',pointBorderWidth:2},
+      {label:'Alert threshold',data:Array(15).fill(15),borderColor:AMB,borderDash:[4,3],fill:false,pointRadius:0,borderWidth:1.5}
+    ]},options:baseOpts({plugins:{legend:{display:true,labels:{color:'#6b7280',font:{size:10},boxWidth:10,usePointStyle:true}}}})});
   }
   if(page==='marketing'){
-    mk('c-marketing',{type:'doughnut',data:{labels:['Email (34%)','Paid Search (28%)','Social (22%)','Display (16%)'],datasets:[{data:[34,28,22,16],backgroundColor:[GRN,BLU,PUR,GRY],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:'#b8bfd4',font:{size:10},boxWidth:10}}}}});
+    mk('c-marketing',{type:'doughnut',data:{labels:['Email 34%','Paid Search 28%','Social 22%','Display 16%'],datasets:[{data:[34,28,22,16],backgroundColor:[GRN,BLU,PUR,GRY],borderWidth:3,borderColor:'#fff',hoverOffset:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:'#6b7280',font:{size:11},boxWidth:12,usePointStyle:true,padding:14}}}}});
   }
   if(page==='supply'){
     const hist=Array.from({length:15},()=>Math.round(50+Math.random()*20-10));
@@ -819,34 +871,31 @@ function buildCharts(page){
     mk('c-supply',{type:'line',data:{
       labels:[...Array.from({length:15},(_,i)=>'D-'+(15-i)).reverse(),...Array.from({length:15},(_,i)=>'D+'+(i+1))],
       datasets:[
-        {label:'Historical demand',data:[...hist,...Array(15).fill(null)],borderColor:GRY,tension:.3,pointRadius:2,pointBackgroundColor:GRY},
-        {label:'Prophet forecast',data:[...Array(15).fill(null),...fore],borderColor:AMB,borderDash:[5,3],tension:.3,pointRadius:2,pointBackgroundColor:AMB},
-        {label:'Safety stock floor',data:Array(30).fill(26),borderColor:RED,borderDash:[2,4],pointRadius:0}
+        {label:'Historical',data:[...hist,...Array(15).fill(null)],borderColor:GRY,tension:.3,pointRadius:2,pointBackgroundColor:GRY,borderWidth:1.5},
+        {label:'Prophet forecast',data:[...Array(15).fill(null),...fore],borderColor:AMB,borderDash:[5,3],tension:.3,pointRadius:2,pointBackgroundColor:AMB,borderWidth:1.5},
+        {label:'Safety stock floor',data:Array(30).fill(26),borderColor:RED,borderDash:[2,4],pointRadius:0,borderWidth:1}
       ]
-    },options:opts({plugins:{legend:{display:true,labels:{color:'#b8bfd4',font:{size:10},boxWidth:10}}}})});
+    },options:baseOpts({plugins:{legend:{display:true,labels:{color:'#6b7280',font:{size:10},boxWidth:10,usePointStyle:true}}}})});
   }
   if(page==='credit'){
-    mk('c-credit',{type:'bar',data:{labels:['Low Risk','Moderate','High Risk','Very High'],datasets:[{data:[312,245,189,87],backgroundColor:[GRN,AMB,RED,RED+'99'],borderRadius:4}]},options:opts()});
+    mk('c-credit',{type:'bar',data:{labels:['Low Risk','Moderate','High Risk','Very High'],datasets:[{data:[312,245,189,87],backgroundColor:[GRN+'cc',AMB+'cc',RED+'cc',RED+'88'],borderRadius:6,borderSkipped:false}]},options:baseOpts()});
   }
   if(page==='logistics'){
-    mk('c-logistics',{type:'bar',data:{labels:['0–1h','1–2h','2–3h','3–4h','4–5h','5–6h','>6h'],datasets:[{data:[180,142,98,67,43,28,19],backgroundColor:[GRN,GRN+'aa',AMB+'cc',AMB,RED+'88',RED,RED+'cc'],borderRadius:3}]},options:opts()});
+    mk('c-logistics',{type:'bar',data:{labels:['0–1h','1–2h','2–3h','3–4h','4–5h','5–6h','>6h'],datasets:[{data:[180,142,98,67,43,28,19],backgroundColor:[GRN+'cc',GRN+'88',AMB+'88',AMB+'cc',RED+'88',RED+'cc',RED+'99'],borderRadius:5,borderSkipped:false}]},options:baseOpts()});
   }
 }
 
-// ─── PREDICTIONS ───
+// ── PREDICTIONS ──
 function sleep(ms){return new Promise(r=>setTimeout(r,ms))}
-
 async function runPred(mod){
   const btn=document.getElementById('btn-'+mod);
-  const orig=btn.textContent;
-  btn.textContent='Running model…';btn.disabled=true;btn.classList.add('running');
-  await sleep(800+Math.random()*500);
-  btn.textContent=orig;btn.disabled=false;btn.classList.remove('running');
-  const fns={sales:predSales,churn:predChurn,fraud:predFraud,marketing:predMarketing,supply:predSupply,credit:predCredit,logistics:predLogistics};
-  fns[mod]&&fns[mod]();
+  const orig=btn.innerHTML;
+  btn.innerHTML='⟳ Running model...';btn.disabled=true;btn.classList.add('loading');
+  await sleep(700+Math.random()*400);
+  btn.innerHTML=orig;btn.disabled=false;btn.classList.remove('loading');
+  ({sales:predSales,churn:predChurn,fraud:predFraud,marketing:predMarketing,supply:predSupply,credit:predCredit,logistics:predLogistics})[mod]?.();
 }
-
-function showResult(id){document.getElementById(id).classList.add('show')}
+function show(id){document.getElementById(id).classList.add('show')}
 
 function predSales(){
   const rm={West:1.15,East:1.0,Central:0.9,South:0.85};
@@ -854,19 +903,14 @@ function predSales(){
   const r=document.getElementById('s-region').value;
   const c=document.getElementById('s-cat').value;
   const rev=Math.round((cb[c]||380)*(rm[r]||1)*1000);
-  document.getElementById('sales-rev').textContent='$'+rev.toLocaleString();
-  document.getElementById('sales-rev').style.color=rev>400000?'var(--green)':'var(--blue)';
+  const el=document.getElementById('sales-rev');
+  el.textContent='$'+rev.toLocaleString();
+  el.style.color=rev>400000?'var(--green)':'var(--blue)';
   const pp=document.getElementById('sales-profit-pill');
-  pp.textContent=rev>420000?'Profitable':'Marginal profit';
+  pp.textContent=rev>420000?'Strong margin':'Marginal profit';
   pp.className='pill '+(rev>420000?'pill-green':'pill-amber');
-  document.getElementById('sales-insight').innerHTML=`<strong>Prediction driven by:</strong> Regional sales index (${r}, ${Math.round(rm[r]*100)}% multiplier) and category base rate (${c}). Seasonal uplift factored into Q4 window.`;
-  const ex=document.getElementById('sales-explain');
-  ex.innerHTML=`
-    <div class="feature-row"><div class="feature-label"><span>Regional index</span><span>42%</span></div><div class="feature-bar"><div class="feature-fill f-blue" style="width:42%"></div></div></div>
-    <div class="feature-row"><div class="feature-label"><span>Category base revenue</span><span>33%</span></div><div class="feature-bar"><div class="feature-fill f-amber" style="width:33%"></div></div></div>
-    <div class="feature-row"><div class="feature-label"><span>Seasonality (ARIMA)</span><span>25%</span></div><div class="feature-bar"><div class="feature-fill f-green" style="width:25%"></div></div></div>
-    <div class="insight" style="margin-top:10px"><strong>Plain English:</strong> This forecast is primarily driven by the regional sales index. ${r} region shows ${r==='West'?'strong above-average':'below-average'} historical performance for ${c}.</div>`;
-  showResult('sales-result');
+  document.getElementById('sales-insight').innerHTML=`<strong>How it was calculated:</strong> Regional sales index for ${r} (${Math.round((rm[r]||1)*100)}% multiplier) × ${c} base rate. ${r==='West'?'West region has the strongest historical performance across all categories.':'Seasonal uplift factored into Q4 projections.'}`;
+  show('sales-result');
 }
 
 function predChurn(){
@@ -878,14 +922,14 @@ function predChurn(){
   const el=document.getElementById('ch-prob');
   el.textContent=p+'%';
   el.style.color=p>60?'var(--red)':p>35?'var(--amber)':'var(--green)';
-  const seg=p>60?'At-Risk':p>35?'Potential Loyal':'Champion';
+  const seg=p>60?'At-Risk':p>35?'Passive':'Champion';
   const sp=document.getElementById('ch-seg-pill');
-  sp.textContent=seg;sp.className='pill '+(p>60?'pill-red':p>35?'pill-amber':'pill-green');
+  sp.textContent='Segment: '+seg;sp.className='pill '+(p>60?'pill-red':p>35?'pill-amber':'pill-green');
   const ap=document.getElementById('ch-action-pill');
-  ap.textContent=p>60?'Win-back campaign':p>35?'Upsell + NPS survey':'Loyalty reward';
+  ap.textContent=p>60?'Win-back campaign needed':p>35?'Send retention offer':'Loyalty reward';
   ap.className='pill '+(p>60?'pill-red':p>35?'pill-amber':'pill-green');
-  document.getElementById('ch-insight').innerHTML=`<strong>Primary driver:</strong> ${days} days inactive (${Math.round((days/365)*50)}% churn weight) + ${ref}% refund rate (${Math.round((ref/100)*30)}% weight). Logistic regression confidence: ${Math.min(94,70+p/5)}%.`;
-  showResult('churn-result');
+  document.getElementById('ch-insight').innerHTML=`<strong>Primary drivers:</strong> ${days} days since last purchase contributes ${Math.round((days/365)*50)}% to churn score. Refund rate of ${ref}% adds ${Math.round((ref/100)*30)}% weight. Logistic regression confidence: ${Math.min(94,70+Math.round(p/5))}%.`;
+  show('churn-result');
 }
 
 function predFraud(){
@@ -898,13 +942,13 @@ function predFraud(){
   el.textContent=p+'%';
   el.style.color=p>60?'var(--red)':p>35?'var(--amber)':'var(--green)';
   const lp=document.getElementById('fr-level-pill');
-  lp.textContent=p>70?'HIGH RISK':p>40?'MODERATE RISK':'LOW RISK';
+  lp.textContent=p>70?'High Fraud Risk':p>40?'Moderate Risk':'Low Risk';
   lp.className='pill '+(p>70?'pill-red':p>40?'pill-amber':'pill-green');
   const dp=document.getElementById('fr-driver-pill');
-  dp.textContent=vel>10?'Primary: velocity burst':dev>3?'Primary: multi-device':'Primary: amount anomaly';
+  dp.textContent=vel>10?'Primary: velocity burst':dev>3?'Primary: multi-device':ip>5?'Primary: IP repetition':'Primary: amount';
   dp.className='pill pill-amber';
-  document.getElementById('fr-insight').innerHTML=`<strong>Random Forest decision:</strong> ${vel} tx/hr velocity (weight 41%) is the primary signal. ${dev} device(s) used (weight 26%). Recommend ${p>70?'immediate block':'flag for manual review'}.`;
-  showResult('fraud-result');
+  document.getElementById('fr-insight').innerHTML=`<strong>Random Forest decision:</strong> ${vel} transactions/hr velocity is the leading signal (41% weight). ${dev} device(s) used (26% weight). Recommended action: ${p>70?'block transaction and flag for review':p>40?'trigger additional authentication':'approve and continue monitoring'}.`;
+  show('fraud-result');
 }
 
 function predMarketing(){
@@ -917,11 +961,11 @@ function predMarketing(){
   const roi=((rev-spend)/spend*100).toFixed(1);
   document.getElementById('mk-rev').textContent='$'+rev.toLocaleString();
   const rp=document.getElementById('mk-roi-pill');
-  rp.textContent='ROI '+roi+'%';
+  rp.textContent='ROI: '+roi+'%';
   rp.className='pill '+(parseFloat(roi)>200?'pill-green':parseFloat(roi)>100?'pill-amber':'pill-red');
-  document.getElementById('mk-ch-pill').textContent='Best channel: Email (CPA $12)';
-  document.getElementById('mk-insight').innerHTML=`<strong>Markov attribution:</strong> CPA of $${cpa} is the dominant revenue driver (38% feature importance). At ${conv}% conversion with ${touch} touchpoints, predicted ${convs} conversions × $85 AOV = $${rev.toLocaleString()} revenue.`;
-  showResult('marketing-result');
+  document.getElementById('mk-ch-pill').textContent='Best channel: Email ($12 CPA)';
+  document.getElementById('mk-insight').innerHTML=`<strong>Markov attribution:</strong> CPA of $${cpa} drives 38% of feature importance. At ${conv}% conversion with ${touch} touchpoints, predicted ${convs.toLocaleString()} conversions × $85 average order = $${rev.toLocaleString()}.`;
+  show('marketing-result');
 }
 
 function predSupply(){
@@ -941,8 +985,8 @@ function predSupply(){
   document.getElementById('sc-rop-v').textContent=rop;
   document.getElementById('sc-eoq-v').textContent=eoq;
   document.getElementById('sc-fore-v').textContent=fore;
-  document.getElementById('sc-insight').innerHTML=`<strong>EOQ formula:</strong> √(2×${d}×365×$${ord}/$${h}) = ${eoq} units/order. Safety stock z=${z} × σ${sig} × √${lt} = ${ss} units buffer for ${svc}% service level.`;
-  showResult('supply-result');
+  document.getElementById('sc-insight').innerHTML=`<strong>How these are calculated:</strong> Safety stock = z(${z}) × σ(${sig}) × √(lead time ${lt}) = ${ss} units. Reorder when stock hits ${rop} units. Order ${eoq} units per order (EOQ formula) to minimise total holding and ordering cost.`;
+  show('supply-result');
 }
 
 function predCredit(){
@@ -961,8 +1005,8 @@ function predCredit(){
   else if(p>40){tp.textContent='High Risk';tp.className='pill pill-red';rp.textContent='Review + Conditions';rp.className='pill pill-amber';}
   else if(p>20){tp.textContent='Moderate Risk';tp.className='pill pill-amber';rp.textContent='Approve with monitoring';rp.className='pill pill-amber';}
   else{tp.textContent='Low Risk';tp.className='pill pill-green';rp.textContent='Approve';rp.className='pill pill-green';}
-  document.getElementById('cr-insight').innerHTML=`<strong>XGBoost drivers:</strong> DTI ${dti}% (weight 31%), credit score ${score} (weight 28%), LTI ratio ${lti.toFixed(2)} (weight 22%). ${dti>43?'DTI exceeds 43% — strong default predictor.':'DTI within acceptable range.'}`;
-  showResult('credit-result');
+  document.getElementById('cr-insight').innerHTML=`<strong>XGBoost drivers:</strong> DTI ${dti}% (31% weight), credit score ${score} (28% weight), loan-to-income ratio ${lti.toFixed(2)} (22% weight). ${dti>43?'DTI exceeds 43% — this is a strong default predictor in the model.':'DTI is within an acceptable range.'}`;
+  show('credit-result');
 }
 
 function predLogistics(){
@@ -974,22 +1018,12 @@ function predLogistics(){
   const el=document.getElementById('lg-prob');
   el.textContent=p+'%';
   el.style.color=p>50?'var(--red)':p>30?'var(--amber)':'var(--green)';
-  const delay=p>50?'3–5 hours':p>30?'1–2 hours':'< 1 hour';
+  const delay=p>50?'3–5 hours':p>30?'1–2 hours':'under 1 hour';
   const wp=document.getElementById('lg-window-pill');
-  wp.textContent='Est. delay: '+delay;wp.className='pill '+(p>50?'pill-red':p>30?'pill-amber':'pill-green');
+  wp.textContent='Estimated delay: '+delay;wp.className='pill '+(p>50?'pill-red':p>30?'pill-amber':'pill-green');
   const rp=document.getElementById('lg-route-pill');
-  rp.textContent=traf>3?'Alt route recommended':'Primary route OK';rp.className='pill '+(traf>3?'pill-amber':'pill-green');
-  document.getElementById('lg-insight').innerHTML=`<strong>RF Regressor:</strong> Historical delay rate ${hdr}% (weight 33%) + ${dist}km distance (weight 27%) + weather score ${wx}/10 (weight 22%). ${wx>7?'Severe weather detected — significant delay risk.':'Weather conditions acceptable.'}`;
-  showResult('logistics-result');
-}
-
-
-// ─── WHAT-IF LOGIC ───
-function updateSalesWhatif() {
-  const disc = document.querySelector('#s-disc-v').textContent;
-  const mkt = document.querySelector('#s-mkt-v').textContent;
-  const res = document.getElementById('s-whatif-result');
-  res.textContent = `⟳ Simulation updated with ${disc} discount and ${mkt} marketing.`;
+  rp.textContent=traf>3?'Alternate route recommended':'Primary route clear';rp.className='pill '+(traf>3?'pill-amber':'pill-green');
+  document.getElementById('lg-insight').innerHTML=`<strong>Random Forest:</strong> Carrier historical delay rate ${hdr}% (33% weight) + route distance ${dist}km (27% weight) + weather score ${wx}/10 (22% weight). ${wx>7?'Severe weather detected — significant delay risk.':traf>3?'High traffic congestion detected.':'Conditions are acceptable for this route.'}`;
+  show('logistics-result');
 }
 </script>
-</body>
