@@ -3,7 +3,8 @@ layout: bare
 title: Intelligence Platform
 ---
 <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 
 <!--NAVBAR -->
 <nav class="navbar">
@@ -17,440 +18,353 @@ title: Intelligence Platform
   </div>
 </nav>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
-
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#0a0c10;
   --surface:#111318;
-  --surface2:#1e2330;
-  --border:#2a3040;
-  --border2:#cbd0da;
+  --surface2:#181c23;
+  --surface3:#1e2330;
+  --border:rgba(255,255,255,0.065);
+  --border2:rgba(255,255,255,0.10);
   --text0:#f0f2f7;
   --text1:#b8bfd4;
   --text2:#7a849c;
-  --text3:#4a5568;
-  --blue:#2563eb;
-  --blue-lt:#181c23;
-  --blue-mid:#dbeafe;
-  --green:#16a34a;
-  --green-lt:#f0fdf4;
-  --green-mid:#dcfce7;
-  --red:#dc2626;
-  --red-lt:#fff1f2;
-  --red-mid:#fee2e2;
-  --amber:#d97706;
-  --amber-lt:#181c23;
-  --amber-mid:#fef3c7;
-  --purple:#7c3aed;
-  --purple-lt:#f5f3ff;
-  --teal:#0d9488;
-  --teal-lt:#f0fdfa;
-  --font:'IBM Plex Sans',sans-serif;
+  --text3:#3d4558;
+  --blue:#3b82f6;
+  --blue-d:#1e3a5f;
+  --blue-bg:rgba(59,130,246,0.08);
+  --green:#22c55e;
+  --green-bg:rgba(34,197,94,0.08);
+  --red:#f87171;
+  --red-bg:rgba(248,113,113,0.08);
+  --amber:#fbbf24;
+  --amber-bg:rgba(251,191,36,0.08);
+  --purple:#a78bfa;
+  --teal:#2dd4bf;
+  --font:'IBM Plex Sans',system-ui,sans-serif;
   --mono:'IBM Plex Mono',monospace;
-  --serif:'IBM Plex Serif',serif;
-  --sidebar:230px;
-  --radius:8px;
-  --radius-lg:12px;
-  --shadow:0 1px 4px rgba(0,0,0,.08),0 0 0 1px rgba(0,0,0,.04);
-  --shadow-md:0 4px 16px rgba(0,0,0,.1),0 0 0 1px rgba(0,0,0,.05);
+  --sidebar:224px;
+  --radius:7px;
+  --radius-lg:11px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.3),0 0 0 1px rgba(255,255,255,0.04);
+  --shadow:0 4px 16px rgba(0,0,0,0.4),0 0 0 1px rgba(255,255,255,0.04);
 }
 
-html,body{height:100%;font-family:var(--font);background:var(--bg);color:var(--text0);font-size:14px;line-height:1.6;scroll-behavior:smooth}
-@keyframes fadeInUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@keyframes slideInLeft{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
+html,body{height:100%;font-family:var(--font);background:var(--bg);color:var(--text0);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
 
-/* ── LAYOUT ── */
+/* ── SHELL ── */
 .shell{display:flex;height:100vh;overflow:hidden}
 
 /* ── SIDEBAR ── */
 .sidebar{
-  width:var(--sidebar);
+  width:var(--sidebar);flex-shrink:0;
   background:var(--surface);
   border-right:1px solid var(--border);
   display:flex;flex-direction:column;
-  flex-shrink:0;overflow-y:auto;
-  padding:0 0 20px
+  overflow-y:auto;padding-bottom:20px
 }
 .sidebar::-webkit-scrollbar{width:3px}
 .sidebar::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
 
-.sb-brand{
-  padding:18px 16px 14px;
-  border-bottom:1px solid var(--border);
-  margin-bottom:8px
-}
-.sb-brand-title{
-  font-size:13px;font-weight:600;color:var(--text0);
-  display:flex;align-items:center;gap:8px;line-height:1.3
-}
+.sb-brand{padding:16px 14px 14px;border-bottom:1px solid var(--border);margin-bottom:6px}
+.sb-brand-title{font-size:12.5px;font-weight:600;color:var(--text0);display:flex;align-items:center;gap:9px;line-height:1.3}
 .sb-brand-icon{
-  width:28px;height:28px;border-radius:6px;
-  background:var(--blue);
-  display:flex;align-items:center;justify-content:center;
-  font-size:14px;flex-shrink:0
+  width:26px;height:26px;border-radius:6px;
+  background:linear-gradient(135deg,var(--blue),#6366f1);
+  display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0
 }
-.sb-brand-sub{font-size:11px;color:var(--text3);margin-top:3px}
+.sb-brand-sub{font-size:10.5px;color:var(--text3);margin-top:2px}
 
 .sb-section{
-  font-size:10px;font-weight:700;letter-spacing:.1em;
+  font-size:9.5px;font-weight:700;letter-spacing:.12em;
   text-transform:uppercase;color:var(--text3);
-  padding:12px 16px 4px
+  padding:11px 14px 3px
 }
 
 .nav-item{
-  display:flex;align-items:center;gap:10px;
-  padding:8px 12px;margin:1px 8px;
-  font-size:12.5px;font-weight:400;color:var(--text1);
+  display:flex;align-items:center;gap:9px;
+  padding:7px 11px;margin:1px 7px;
+  font-size:12px;font-weight:400;color:var(--text2);
   border-radius:var(--radius);cursor:pointer;
-  text-decoration:none;transition:all .15s;
+  text-decoration:none;
+  transition:background .12s,color .12s;
   border:1px solid transparent
 }
-.nav-item:hover{background:var(--bg);color:var(--text0)}
+.nav-item:hover{background:var(--surface2);color:var(--text1)}
 .nav-item.active{
-  background:var(--blue-lt);color:var(--blue);
-  border-color:var(--blue-mid);font-weight:500
+  background:var(--blue-bg);color:var(--blue);
+  border-color:rgba(59,130,246,0.18);font-weight:500
 }
-.nav-icon{font-size:15px;width:20px;text-align:center;flex-shrink:0}
+.nav-icon{font-size:14px;width:18px;text-align:center;flex-shrink:0}
 .nav-badge{
-  margin-left:auto;font-size:10px;font-family:var(--mono);
-  background:var(--surface2);border:1px solid var(--border);
+  margin-left:auto;font-size:9.5px;font-family:var(--mono);
+  background:var(--surface3);border:1px solid var(--border);
   border-radius:3px;padding:1px 5px;color:var(--text3)
 }
-.nav-item.active .nav-badge{background:var(--blue-mid);border-color:#bfdbfe;color:var(--blue)}
-
-/* ── Active nav ──────────────────────────────────────── */
-.nav-active {
-  color: #3b82f6 !important;
-  font-weight: 600;
-}
+.nav-item.active .nav-badge{background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.3);color:var(--blue)}
 
 .sb-footer{
-  margin-top:auto;padding:14px 16px 0;
-  font-size:11px;color:var(--text3);line-height:1.7;
+  margin-top:auto;padding:12px 14px 0;
+  font-size:10.5px;color:var(--text3);line-height:1.7;
   border-top:1px solid var(--border)
 }
 .sb-footer a{color:var(--blue);text-decoration:none}
 .sb-footer a:hover{text-decoration:underline}
 
 /* ── MAIN ── */
-.main{
-  flex:1;overflow-y:auto;
-  background:var(--bg);padding:24px 28px
-}
+.main{flex:1;overflow-y:auto;background:var(--bg);padding:20px 24px}
 .main::-webkit-scrollbar{width:4px}
 .main::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
 
 /* ── PAGE HEADER ── */
-.page-hdr{margin-bottom:28px;animation:fadeInUp .5s ease-out}
+.page-hdr{margin-bottom:20px}
 .page-hdr-eyebrow{
   font-size:10px;font-weight:700;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--blue);margin-bottom:8px;opacity:.85
+  text-transform:uppercase;color:var(--blue);margin-bottom:4px;
+  display:flex;align-items:center;gap:6px
 }
-.page-hdr h2{
-  font-size:28px;font-weight:700;color:var(--text0);
-  margin-bottom:10px;line-height:1.2;letter-spacing:-.3px
-}
-.page-hdr-sub{font-size:14px;color:var(--text1);line-height:1.65;max-width:680px;font-weight:400}
-.page-hdr-pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.page-hdr-eyebrow::before{content:'';width:16px;height:1px;background:var(--blue);opacity:.5}
+.page-hdr h2{font-size:20px;font-weight:600;color:var(--text0);margin-bottom:4px;line-height:1.3}
+.page-hdr-sub{font-size:12.5px;color:var(--text2);line-height:1.65;max-width:600px}
+.page-hdr-pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
 
-/* ── PILL / TAG ── */
+/* ── PILLS ── */
 .pill{
-  display:inline-flex;align-items:center;gap:4px;
-  font-size:11px;font-weight:500;padding:4px 12px;
-  border-radius:999px;font-family:var(--mono);transition:all .2s ease
+  display:inline-flex;align-items:center;
+  font-size:10.5px;font-weight:500;padding:2px 9px;
+  border-radius:999px;font-family:var(--mono);
+  letter-spacing:.01em
 }
-.pill:hover{
-  transform:translateY(-1px);box-shadow:0 2px 6px rgba(0,0,0,.1)
-}
-.pill-blue{background:var(--blue-lt);color:var(--blue);border:1px solid var(--blue-mid)}
-.pill-green{background:var(--green-lt);color:var(--green);border:1px solid var(--green-mid)}
-.pill-red{background:var(--red-lt);color:var(--red);border:1px solid var(--red-mid)}
-.pill-amber{background:var(--amber-lt);color:var(--amber);border:1px solid var(--amber-mid)}
-.pill-purple{background:var(--purple-lt);color:var(--purple);border:1px solid #ddd6fe}
-.pill-teal{background:var(--teal-lt);color:var(--teal);border:1px solid #99f6e4}
+.pill-blue{background:var(--blue-bg);color:var(--blue);border:1px solid rgba(59,130,246,0.2)}
+.pill-green{background:var(--green-bg);color:var(--green);border:1px solid rgba(34,197,94,0.2)}
+.pill-red{background:var(--red-bg);color:var(--red);border:1px solid rgba(248,113,113,0.2)}
+.pill-amber{background:var(--amber-bg);color:var(--amber);border:1px solid rgba(251,191,36,0.2)}
+.pill-purple{background:rgba(167,139,250,0.08);color:var(--purple);border:1px solid rgba(167,139,250,0.2)}
 .pill-gray{background:var(--surface2);color:var(--text2);border:1px solid var(--border)}
 
 /* ── KPI ROW ── */
-.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-bottom:24px;animation:fadeIn .6s ease-out .1s backwards}
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:16px}
 .kpi-card{
-  background:var(--surface);border:1px solid transparent;
-  border-radius:var(--radius-lg);padding:18px;
-  box-shadow:0 1px 3px rgba(0,0,0,.06),0 0 0 1px rgba(255,255,255,.01);position:relative;overflow:hidden;
-  transition:all .25s ease;cursor:default
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:14px 16px;
+  box-shadow:var(--shadow-sm);position:relative;overflow:hidden;
+  transition:border-color .2s,transform .2s
 }
-.kpi-card:hover{
-  box-shadow:0 4px 12px rgba(0,0,0,.12),0 0 0 1px rgba(255,255,255,.02);
-  transform:translateY(-2px)
-}
-.kpi-card::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:2.5px;transition:height .25s ease
-}
-.kpi-card:hover::after{height:3px}
-.kpi-card.kc-blue::after{background:linear-gradient(90deg,var(--blue),var(--blue) 80%,transparent)}
-.kpi-card.kc-green::after{background:linear-gradient(90deg,var(--green),var(--green) 80%,transparent)}
-.kpi-card.kc-red::after{background:linear-gradient(90deg,var(--red),var(--red) 80%,transparent)}
-.kpi-card.kc-amber::after{background:linear-gradient(90deg,var(--amber),var(--amber) 80%,transparent)}
-.kpi-card.kc-purple::after{background:linear-gradient(90deg,var(--purple),var(--purple) 80%,transparent)}
-.kpi-card.kc-teal::after{background:linear-gradient(90deg,var(--teal),var(--teal) 80%,transparent)}
-.kpi-label{font-size:10px;color:var(--text3);font-weight:600;margin-bottom:7px;text-transform:uppercase;letter-spacing:.08em}
-.kpi-val{font-size:26px;font-weight:700;font-family:var(--mono);color:var(--text0);line-height:1.1;margin:6px 0}
-.kpi-delta{font-size:11px;margin-top:6px;color:var(--text2);font-weight:400}
-.kpi-delta.up{color:var(--green);font-weight:500}.kpi-delta.dn{color:var(--red);font-weight:500}.kpi-delta.warn{color:var(--amber);font-weight:500}
+.kpi-card:hover{border-color:var(--border2);transform:translateY(-1px)}
+.kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:.8}
+.kpi-card.kc-blue::before{background:linear-gradient(90deg,var(--blue),#6366f1)}
+.kpi-card.kc-green::before{background:var(--green)}
+.kpi-card.kc-red::before{background:var(--red)}
+.kpi-card.kc-amber::before{background:var(--amber)}
+.kpi-card.kc-purple::before{background:var(--purple)}
+.kpi-card.kc-teal::before{background:var(--teal)}
+.kpi-label{font-size:10px;color:var(--text2);font-weight:500;margin-bottom:7px;text-transform:uppercase;letter-spacing:.07em}
+.kpi-val{font-size:22px;font-weight:700;font-family:var(--mono);color:var(--text0);line-height:1}
+.kpi-delta{font-size:10.5px;margin-top:5px;color:var(--text2)}
+.kpi-delta.up{color:var(--green)}.kpi-delta.dn{color:var(--red)}.kpi-delta.warn{color:var(--amber)}
 
-/* ── GRID ── */
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px}
-.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-bottom:20px}
+/* ── PLATFORM OVERVIEW STRIP (exec only) ── */
+.platform-strip{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:14px 18px;
+  margin-bottom:16px;display:flex;align-items:center;gap:0;
+  overflow:hidden
+}
+.ps-step{
+  display:flex;align-items:center;gap:10px;flex:1;
+  padding:8px 14px;border-radius:var(--radius);
+  transition:background .15s
+}
+.ps-step:hover{background:var(--surface2)}
+.ps-icon{
+  width:30px;height:30px;border-radius:7px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;flex-shrink:0
+}
+.ps-icon.ic-blue{background:rgba(59,130,246,0.12)}
+.ps-icon.ic-purple{background:rgba(167,139,250,0.12)}
+.ps-icon.ic-teal{background:rgba(45,212,191,0.12)}
+.ps-icon.ic-amber{background:rgba(251,191,36,0.12)}
+.ps-icon.ic-green{background:rgba(34,197,94,0.12)}
+.ps-body{min-width:0}
+.ps-label{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:1px}
+.ps-name{font-size:11.5px;font-weight:500;color:var(--text1);white-space:nowrap}
+.ps-arrow{color:var(--text3);font-size:18px;flex-shrink:0;padding:0 2px}
 
-/* ── CARD ── */
+/* ── GRIDS ── */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px}
+
+/* ── CARDS ── */
 .card{
-  background:var(--surface);border:1px solid transparent;
-  border-radius:var(--radius-lg);padding:20px;
-  box-shadow:0 1px 3px rgba(0,0,0,.06),0 0 0 1px rgba(255,255,255,.01);
-  transition:all .25s ease;animation:fadeInUp .5s ease-out
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:16px 18px;
+  box-shadow:var(--shadow-sm);
+  transition:border-color .2s,box-shadow .2s
 }
-.card:hover{
-  box-shadow:0 4px 12px rgba(0,0,0,.12),0 0 0 1px rgba(255,255,255,.02);
-  transform:translateY(-2px)
-}
+.card:hover{border-color:var(--border2);box-shadow:var(--shadow)}
 .card-title{
-  font-size:11px;font-weight:700;color:var(--text2);
+  font-size:10.5px;font-weight:700;color:var(--text2);
   text-transform:uppercase;letter-spacing:.09em;
-  margin-bottom:16px;display:flex;align-items:center;gap:8px;opacity:.9
+  margin-bottom:12px;display:flex;align-items:center;gap:6px
 }
-.card-title .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;box-shadow:0 0 8px currentColor;opacity:.8}
+.card-title .dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
 
 /* ── FORM ── */
-.form-group{margin-bottom:14px}
+.form-group{margin-bottom:12px}
 .form-group label{
   display:flex;justify-content:space-between;align-items:center;
-  font-size:12px;font-weight:500;color:var(--text1);margin-bottom:5px
+  font-size:11.5px;font-weight:500;color:var(--text1);margin-bottom:5px
 }
 .form-group label .val{
-  font-size:12px;font-weight:600;font-family:var(--mono);
-  color:var(--blue);background:var(--blue-lt);
-  padding:1px 7px;border-radius:4px
+  font-size:11px;font-weight:600;font-family:var(--mono);
+  color:var(--blue);background:var(--blue-bg);
+  padding:1px 7px;border-radius:4px;border:1px solid rgba(59,130,246,0.15)
 }
 input[type=range]{
-  width:100%;accent-color:var(--blue);cursor:pointer;
-  height:6px;outline:none;appearance:none;-webkit-appearance:none;background:linear-gradient(to right,var(--blue) 0%,var(--blue) var(--value,50%),var(--surface2) var(--value,50%),var(--surface2) 100%);border-radius:3px;
-  transition:background .1s ease
+  width:100%;accent-color:var(--blue);cursor:pointer;height:4px;outline:none
 }
-input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--blue);cursor:pointer;box-shadow:0 2px 6px rgba(37,99,235,.4);border:2px solid var(--surface);transition:all .2s ease}
-input[type=range]::-webkit-slider-thumb:hover{box-shadow:0 4px 10px rgba(37,99,235,.5);transform:scale(1.15)}
-input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--blue);cursor:pointer;box-shadow:0 2px 6px rgba(37,99,235,.4);border:2px solid var(--surface);transition:all .2s ease}
-input[type=range]::-moz-range-thumb:hover{box-shadow:0 4px 10px rgba(37,99,235,.5);transform:scale(1.15)}
 select{
   width:100%;padding:7px 10px;
   border:1px solid var(--border2);border-radius:var(--radius);
-  background:var(--surface);color:var(--text0);
+  background:var(--surface2);color:var(--text0);
   font-size:12px;font-family:var(--font);outline:none;cursor:pointer;
-  transition:border-color .15s
+  transition:border-color .15s,box-shadow .15s
 }
-select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
+select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
 
 /* ── RUN BUTTON ── */
 .run-btn{
-  width:100%;padding:11px 16px;
-  background:linear-gradient(135deg,var(--blue),#1e40af);
+  width:100%;padding:9px 14px;
+  background:linear-gradient(135deg,var(--blue),#4f46e5);
   color:#fff;border:none;border-radius:var(--radius);
-  font-size:13px;font-weight:600;font-family:var(--font);
-  cursor:pointer;transition:all .25s ease;
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  margin-top:6px;box-shadow:0 2px 8px rgba(37,99,235,.2)
+  font-size:12.5px;font-weight:600;font-family:var(--font);
+  cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;justify-content:center;gap:7px;
+  margin-top:6px;letter-spacing:.01em;
+  box-shadow:0 2px 8px rgba(59,130,246,0.25)
 }
-.run-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 6px 16px rgba(37,99,235,.4)}
-.run-btn:active:not(:disabled){transform:translateY(0);box-shadow:0 2px 8px rgba(37,99,235,.2)}
-.run-btn:disabled{opacity:.6;cursor:not-allowed}
-.run-btn.loading{animation:pulse-btn 1s infinite}
-@keyframes pulse-btn{0%,100%{opacity:.7}50%{opacity:1}}
+.run-btn:hover:not(:disabled){
+  background:linear-gradient(135deg,#2563eb,#4338ca);
+  transform:translateY(-1px);box-shadow:0 6px 18px rgba(59,130,246,0.35)
+}
+.run-btn:active{transform:translateY(0)}
+.run-btn:disabled{opacity:.5;cursor:not-allowed}
+.run-btn.loading{animation:pulse-btn .9s infinite}
+@keyframes pulse-btn{0%,100%{opacity:.55}50%{opacity:1}}
 
 /* ── RESULT BOX ── */
 .result-box{
-  background:var(--bg);border:1px solid transparent;
-  border-radius:var(--radius-lg);padding:16px;
-  margin-top:14px;display:none;box-shadow:0 1px 3px rgba(0,0,0,.06),inset 0 1px 2px rgba(255,255,255,.01);
-  animation:fadeInUp .35s ease-out
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:14px;
+  margin-top:12px;display:none;
+  animation:fadeSlide .25s ease
 }
+@keyframes fadeSlide{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .result-box.show{display:block}
-.result-num{
-  font-size:36px;font-weight:700;font-family:var(--mono);
-  line-height:1;margin-bottom:5px
-}
-.result-lbl{font-size:11px;color:var(--text2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px}
-.result-pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.result-num{font-size:34px;font-weight:700;font-family:var(--mono);line-height:1;margin-bottom:5px}
+.result-lbl{font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:.09em;margin-bottom:7px}
+.result-pills{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:9px}
 .result-note{
-  font-size:12px;color:var(--text2);line-height:1.7;
-  background:var(--blue-lt);border:1px solid var(--blue-mid);
-  border-radius:var(--radius);padding:10px 12px
+  font-size:11.5px;color:var(--text2);line-height:1.7;
+  background:var(--blue-bg);border:1px solid rgba(59,130,246,0.15);
+  border-radius:var(--radius);padding:9px 11px
 }
 .result-note strong{color:var(--blue)}
-.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .result-mini{
   background:var(--surface2);border:1px solid var(--border);
-  border-radius:var(--radius);padding:12px
+  border-radius:var(--radius);padding:11px
 }
-.result-mini .mn{font-size:20px;font-weight:700;font-family:var(--mono)}
-.result-mini .ml{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
+.result-mini .mn{font-size:19px;font-weight:700;font-family:var(--mono)}
+.result-mini .ml{font-size:9.5px;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-top:3px}
 
 /* ── FEATURE BARS ── */
-.feat-row{margin-bottom:12px;animation:slideInLeft .4s ease-out}
-.feat-label{display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px;color:var(--text1)}
-.feat-label strong{font-family:var(--mono);font-weight:700;color:var(--text0);letter-spacing:.5px}
-.feat-track{height:7px;background:rgba(255,255,255,.02);border-radius:4px;overflow:hidden;border:none;box-shadow:inset 0 1px 2px rgba(0,0,0,.2)}
-.feat-fill{height:100%;border-radius:4px;transition:width .7s cubic-bezier(.25,.46,.45,.94);position:relative}
-.feat-fill::after{content:'';position:absolute;top:0;right:0;bottom:0;width:2px;background:rgba(255,255,255,.3)}
-.fb-blue{background:linear-gradient(90deg,var(--blue),#3b82f6)}.fb-green{background:linear-gradient(90deg,var(--green),#22c55e)}.fb-red{background:linear-gradient(90deg,var(--red),#ef4444)}.fb-amber{background:linear-gradient(90deg,var(--amber),#f59e0b)}.fb-purple{background:linear-gradient(90deg,var(--purple),#a855f7)}
+.feat-row{margin-bottom:9px}
+.feat-label{display:flex;justify-content:space-between;font-size:11.5px;margin-bottom:4px;color:var(--text1)}
+.feat-label strong{font-family:var(--mono);font-weight:600;color:var(--text0);font-size:11px}
+.feat-track{height:6px;background:var(--surface3);border-radius:3px;overflow:hidden}
+.feat-fill{height:100%;border-radius:3px;transition:width .7s cubic-bezier(.4,0,.2,1)}
+.fb-blue{background:linear-gradient(90deg,var(--blue),#6366f1)}
+.fb-green{background:var(--green)}
+.fb-red{background:var(--red)}
+.fb-amber{background:var(--amber)}
+.fb-purple{background:var(--purple)}
 
 /* ── TABLE ── */
-.tbl{width:100%;border-collapse:collapse;font-size:12px}
+.tbl{width:100%;border-collapse:collapse;font-size:11.5px}
 .tbl th{
-  text-align:left;padding:8px 10px;
-  font-size:10px;font-weight:700;color:var(--text3);
-  border-bottom:2px solid var(--border);
-  text-transform:uppercase;letter-spacing:.07em
+  text-align:left;padding:7px 9px;
+  font-size:9.5px;font-weight:700;color:var(--text3);
+  border-bottom:1px solid var(--border2);
+  text-transform:uppercase;letter-spacing:.09em
 }
-.tbl td{padding:9px 10px;border-bottom:1px solid var(--border);color:var(--text1);vertical-align:middle}
+.tbl td{padding:8px 9px;border-bottom:1px solid var(--border);color:var(--text1);vertical-align:middle}
 .tbl tr:last-child td{border-bottom:none}
-.tbl tr:hover td{background:var(--bg)}
+.tbl tr:hover td{background:var(--surface2)}
 
-/* ── ALERT ── */
+/* ── ALERTS ── */
 .alert-row{
-  display:flex;align-items:flex-start;gap:10px;
-  padding:10px 0;border-bottom:1px solid var(--border);
-  font-size:12.5px;color:var(--text1);line-height:1.5
+  display:flex;align-items:flex-start;gap:9px;
+  padding:9px 0;border-bottom:1px solid var(--border);
+  font-size:12px;color:var(--text1);line-height:1.5;
+  transition:background .15s
 }
 .alert-row:last-child{border-bottom:none;padding-bottom:0}
 .alert-row:first-child{padding-top:0}
-.alert-time{margin-left:auto;font-size:11px;color:var(--text3);white-space:nowrap;flex-shrink:0;font-family:var(--mono)}
-.status-dot{width:7px;height:7px;border-radius:50%;margin-top:4px;flex-shrink:0}
-.dot-red{background:var(--red)}.dot-amber{background:var(--amber)}.dot-green{background:var(--green)}
+.alert-time{margin-left:auto;font-size:10.5px;color:var(--text3);white-space:nowrap;flex-shrink:0;font-family:var(--mono)}
+.status-dot{width:6px;height:6px;border-radius:50%;margin-top:5px;flex-shrink:0}
+.dot-red{background:var(--red);box-shadow:0 0 5px rgba(248,113,113,0.5)}
+.dot-amber{background:var(--amber);box-shadow:0 0 5px rgba(251,191,36,0.4)}
+.dot-green{background:var(--green)}
 
 /* ── MINI BARS ── */
-.mini-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:12px}
-.mini-lbl{width:100px;flex-shrink:0;color:var(--text2)}
-.mini-track{flex:1;height:8px;background:var(--surface2);border-radius:4px;overflow:hidden;border:1px solid var(--border)}
-.mini-fill{height:100%;border-radius:4px}
-.mini-val{width:34px;text-align:right;font-weight:600;font-family:var(--mono);color:var(--text1);font-size:11px}
+.mini-row{display:flex;align-items:center;gap:9px;margin-bottom:7px;font-size:11.5px}
+.mini-lbl{width:95px;flex-shrink:0;color:var(--text2)}
+.mini-track{flex:1;height:6px;background:var(--surface3);border-radius:3px;overflow:hidden}
+.mini-fill{height:100%;border-radius:3px;transition:width .6s}
+.mini-val{width:30px;text-align:right;font-weight:600;font-family:var(--mono);color:var(--text1);font-size:10.5px}
 
 /* ── INFO BOX ── */
 .info-box{
-  background:linear-gradient(135deg,var(--blue-lt),rgba(30,99,235,.04));
-  border:1px solid rgba(37,99,235,.2);
-  border-radius:var(--radius);padding:12px 14px;
-  font-size:12px;color:var(--text1);line-height:1.7;margin-top:12px;backdrop-filter:blur(.5px);
-  transition:all .25s ease
+  background:var(--blue-bg);border:1px solid rgba(59,130,246,0.15);
+  border-radius:var(--radius);padding:10px 12px;
+  font-size:11.5px;color:var(--text2);line-height:1.7;margin-top:10px
 }
-.info-box:hover{border-color:rgba(37,99,235,.3);background:linear-gradient(135deg,var(--blue-lt),rgba(30,99,235,.08))}
-.info-box strong{color:var(--blue);font-weight:700}
-.info-box.warn{background:linear-gradient(135deg,var(--amber-lt),rgba(217,119,6,.04));border-color:rgba(217,119,6,.2)}
-.info-box.warn:hover{border-color:rgba(217,119,6,.3);background:linear-gradient(135deg,var(--amber-lt),rgba(217,119,6,.08))}
+.info-box strong{color:var(--blue);font-weight:600}
+.info-box.warn{background:var(--amber-bg);border-color:rgba(251,191,36,0.2)}
 .info-box.warn strong{color:var(--amber)}
-.info-box.good{background:linear-gradient(135deg,var(--green-lt),rgba(22,163,74,.04));border-color:rgba(22,163,74,.2)}
-.info-box.good:hover{border-color:rgba(22,163,74,.3);background:linear-gradient(135deg,var(--green-lt),rgba(22,163,74,.08))}
+.info-box.good{background:var(--green-bg);border-color:rgba(34,197,94,0.2)}
 .info-box.good strong{color:var(--green)}
 
 /* ── CHART ── */
 .chart-wrap{position:relative;width:100%}
 
 /* ── DIVIDER ── */
-.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.05),transparent);margin:18px 0}
+.divider{height:1px;background:var(--border);margin:14px 0}
 
-/* ── ARCHITECTURE SECTION ── */
-.arch-section{
-  background:var(--surface);border:1px solid transparent;
-  border-radius:var(--radius-lg);padding:24px;margin-bottom:24px;
-  box-shadow:0 1px 3px rgba(0,0,0,.06),0 0 0 1px rgba(255,255,255,.01);
-  animation:fadeInUp .5s ease-out .2s backwards
-}
-.arch-title{
-  font-size:12px;font-weight:700;color:var(--text2);
-  text-transform:uppercase;letter-spacing:.09em;
-  margin-bottom:16px;opacity:.9
-}
-.arch-flow{
-  display:flex;align-items:center;gap:14px;justify-content:space-between;flex-wrap:wrap;line-height:1
-}
-.arch-step{
-  display:flex;align-items:center;gap:10px;flex:0 1 auto;animation:fadeInUp .5s ease-out backwards
-}
-.arch-step:nth-child(1){animation-delay:.22s}
-.arch-step:nth-child(2){animation-delay:.26s}
-.arch-step:nth-child(3){animation-delay:.30s}
-.arch-step:nth-child(4){animation-delay:.34s}
-.arch-step:nth-child(5){animation-delay:.38s}
-.arch-step-box{
-  background:var(--bg);border:1px solid rgba(255,255,255,.08);
-  border-radius:var(--radius);padding:8px 12px;font-size:12px;font-weight:600;
-  color:var(--text1);white-space:nowrap;transition:all .25s ease;position:relative
-}
-.arch-step-box::before{
-  content:'';position:absolute;inset:0;border-radius:var(--radius);
-  background:linear-gradient(135deg,rgba(255,255,255,.05),transparent);opacity:0;transition:opacity .25s
-}
-.arch-step-box:hover{
-  border-color:rgba(255,255,255,.15);color:var(--text0);
-  transform:translateY(-1px);box-shadow:0 2px 6px rgba(0,0,0,.1)
-}
-.arch-step-box:hover::before{opacity:1}
-.arch-arrow{
-  font-size:16px;color:var(--text3);flex-shrink:0;animation:fadeIn .6s ease-out .3s backwards
-}
-.arch-note{
-  font-size:11px;color:var(--text2);margin-top:12px;line-height:1.6;
-  padding-top:12px;border-top:1px solid rgba(255,255,255,.04)
-}
-
-/* ── STATUS CHIP ── */
-.status-chip{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600}
-.sc-dot{width:7px;height:7px;border-radius:50%}
-
-/* ── MINI RESULT ── */
-.result-mini{
-  background:var(--bg);border:1px solid transparent;
-  border-radius:var(--radius);padding:12px;
-  box-shadow:0 1px 2px rgba(0,0,0,.04),inset 0 1px 1px rgba(255,255,255,.01);
-  transition:all .2s ease
-}
-.result-mini:hover{
-  box-shadow:0 2px 6px rgba(0,0,0,.08),inset 0 1px 1px rgba(255,255,255,.02);
-  transform:translateY(-1px)
-}
-.result-mini .mn{font-size:22px;font-weight:700;font-family:var(--mono);line-height:1.2}
-.result-mini .ml{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-top:4px;font-weight:500}
-
-/* ── MINI BARS ── */
-.mini-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:12px;animation:slideInLeft .4s ease-out}
-.mini-lbl{width:110px;flex-shrink:0;color:var(--text2);font-weight:500}
-.mini-track{flex:1;height:6px;background:rgba(255,255,255,.02);border-radius:4px;overflow:hidden;box-shadow:inset 0 1px 2px rgba(0,0,0,.2)}
-.mini-fill{height:100%;border-radius:4px;transition:width .7s cubic-bezier(.25,.46,.45,.94);position:relative}
-.mini-fill::after{content:'';position:absolute;top:0;right:0;bottom:0;width:1px;background:rgba(255,255,255,.2)}
-.mini-val{width:40px;text-align:right;font-weight:700;font-family:var(--mono);color:var(--text0);font-size:11px}
+/* ── SCROLL FADE-IN ── */
+.fade-in{opacity:0;transform:translateY(10px);transition:opacity .4s ease,transform .4s ease}
+.fade-in.visible{opacity:1;transform:none}
 
 /* ── HIDDEN ── */
 .hidden{display:none!important}
 
 /* ── RESPONSIVE ── */
-@media(max-width:900px){
-  :root{--sidebar:52px}
-  .nav-item span:not(.nav-icon):not(.nav-badge){display:none}
+@media(max-width:960px){
+  :root{--sidebar:50px}
+  .nav-item span:not(.nav-icon){display:none}
   .sb-brand-title span,.sb-brand-sub,.sb-section,.sb-footer p{display:none}
-  .main{padding:16px}
+  .main{padding:14px}
   .grid-2,.grid-3{grid-template-columns:1fr}
   .kpi-row{grid-template-columns:1fr 1fr}
-  .arch-flow{gap:10px;flex-wrap:wrap}
-  .arch-step-box{font-size:10px;padding:7px 11px}
-  .arch-arrow{font-size:14px}
+  .platform-strip{flex-direction:column;gap:6px}
+  .ps-arrow{transform:rotate(90deg)}
 }
 @media(max-width:600px){
   .kpi-row{grid-template-columns:1fr}
   .result-grid{grid-template-columns:1fr}
-  .arch-flow{flex-direction:column;gap:8px;align-items:flex-start}
-  .arch-step{width:100%}
-  .arch-arrow{transform:rotate(90deg);margin:2px 0}
-  .arch-step-box{width:100%}
 }
 </style>
 
@@ -460,15 +374,15 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
   <div class="sidebar">
     <div class="sb-brand">
       <div class="sb-brand-title">
-        <div class="sb-brand-icon">🔬</div>
+        <div class="sb-brand-icon">⬡</div>
         <span>ML Intelligence</span>
       </div>
-      <div class="sb-brand-sub">Timothy Maina · Data Portfolio</div>
+      <div class="sb-brand-sub">Timothy Maina · Portfolio</div>
     </div>
 
     <div class="sb-section">Overview</div>
     <a href="#exec" class="nav-item" id="nav-exec">
-      <span class="nav-icon">🏠</span> Executive Overview
+      <span class="nav-icon">◈</span> Executive Overview
     </a>
 
     <div class="sb-section">Models</div>
@@ -495,89 +409,94 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
     </a>
 
     <div class="sb-footer">
-      <p>Models trained on real data.<br>Predictions are simulations.<br>
-      <a href="/projects">Full case studies →</a></p>
+      <p>Trained on real data.<br>Predictions are simulations.<br>
+      <a href="/projects">Case studies →</a></p>
     </div>
   </div>
 
   <!-- ── MAIN ── -->
-  <div class="main">
+  <div class="main" id="main-scroll">
 
     <!-- ████ EXECUTIVE OVERVIEW ████ -->
     <div id="page-exec" class="hidden">
-      <div class="page-hdr">
+
+      <div class="page-hdr fade-in">
         <div class="page-hdr-eyebrow">Overview</div>
-        <h2>Executive Overview</h2>
-        <p class="page-hdr-sub">Seven ML models across fraud, churn, credit risk, logistics, supply chain, marketing, and sales — all trained on real datasets. Use the sidebar to explore each model interactively.</p>
+        <h2>Decision Intelligence Platform</h2>
+        <p class="page-hdr-sub">Seven production-aligned ML models built on real datasets — from feature engineering through evaluation and interactive dashboards. Select a module in the sidebar to run a live simulation.</p>
         <div class="page-hdr-pills">
-          <span class="pill pill-blue">7 Models</span>
+          <span class="pill pill-blue">7 Active Models</span>
           <span class="pill pill-green">4 Completed</span>
           <span class="pill pill-amber">3 In Progress</span>
+          <span class="pill pill-gray">Simulations · Not Live APIs</span>
         </div>
       </div>
 
-      <div class="kpi-row">
+      <!-- Platform architecture strip -->
+      <div class="platform-strip fade-in">
+        <div class="ps-step">
+          <div class="ps-icon ic-blue">🗄</div>
+          <div class="ps-body"><div class="ps-label">Ingest</div><div class="ps-name">Raw Datasets</div></div>
+        </div>
+        <div class="ps-arrow">›</div>
+        <div class="ps-step">
+          <div class="ps-icon ic-purple">⚙</div>
+          <div class="ps-body"><div class="ps-label">Transform</div><div class="ps-name">Feature Engineering</div></div>
+        </div>
+        <div class="ps-arrow">›</div>
+        <div class="ps-step">
+          <div class="ps-icon ic-teal">🧠</div>
+          <div class="ps-body"><div class="ps-label">Train</div><div class="ps-name">ML / Forecasting</div></div>
+        </div>
+        <div class="ps-arrow">›</div>
+        <div class="ps-step">
+          <div class="ps-icon ic-amber">📊</div>
+          <div class="ps-body"><div class="ps-label">Evaluate</div><div class="ps-name">Metrics &amp; Validation</div></div>
+        </div>
+        <div class="ps-arrow">›</div>
+        <div class="ps-step">
+          <div class="ps-icon ic-green">📋</div>
+          <div class="ps-body"><div class="ps-label">Present</div><div class="ps-name">Executive Dashboards</div></div>
+        </div>
+      </div>
+
+      <!-- KPIs -->
+      <div class="kpi-row fade-in">
         <div class="kpi-card kc-blue"><div class="kpi-label">Sales Revenue</div><div class="kpi-val">$4.2M</div><div class="kpi-delta up">↑ 8.3% vs prior period</div></div>
         <div class="kpi-card kc-amber"><div class="kpi-label">Churn Rate</div><div class="kpi-val">14.2%</div><div class="kpi-delta warn">⚠ +1.8% month-on-month</div></div>
         <div class="kpi-card kc-red"><div class="kpi-label">Fraud Loss</div><div class="kpi-val">2.1%</div><div class="kpi-delta dn">↑ spike detected</div></div>
-        <div class="kpi-card kc-green"><div class="kpi-label">Marketing ROI</div><div class="kpi-val">3.4×</div><div class="kpi-delta up">Email channel leading</div></div>
-        <div class="kpi-card kc-amber"><div class="kpi-label">Stockout Rate</div><div class="kpi-val">12.3%</div><div class="kpi-delta warn">1,900+ events flagged</div></div>
+        <div class="kpi-card kc-green"><div class="kpi-label">Marketing ROI</div><div class="kpi-val">3.4×</div><div class="kpi-delta up">Email leading</div></div>
+        <div class="kpi-card kc-amber"><div class="kpi-label">Stockout Rate</div><div class="kpi-val">12.3%</div><div class="kpi-delta warn">1,900+ events</div></div>
         <div class="kpi-card kc-red"><div class="kpi-label">Default Rate</div><div class="kpi-val">18.3%</div><div class="kpi-delta dn">vs 9.5% benchmark</div></div>
         <div class="kpi-card kc-amber"><div class="kpi-label">Delivery Delays</div><div class="kpi-val">15.0%</div><div class="kpi-delta warn">30% weather-driven</div></div>
       </div>
 
-      <div class="arch-section">
-        <div class="arch-title">Platform Architecture</div>
-        <div class="arch-flow">
-          <div class="arch-step">
-            <div class="arch-step-box">Data Sources</div>
-          </div>
-          <div class="arch-arrow">→</div>
-          <div class="arch-step">
-            <div class="arch-step-box">ETL Pipeline</div>
-          </div>
-          <div class="arch-arrow">→</div>
-          <div class="arch-step">
-            <div class="arch-step-box">Analytics Engine</div>
-          </div>
-          <div class="arch-arrow">→</div>
-          <div class="arch-step">
-            <div class="arch-step-box">ML Models</div>
-          </div>
-          <div class="arch-arrow">→</div>
-          <div class="arch-step">
-            <div class="arch-step-box">Executive Dashboards</div>
-          </div>
-        </div>
-        <div class="arch-note">Real-time intelligence platform ingesting multi-source data, processing through feature engineering pipelines, training and deploying ML models, and delivering insights through interactive executive dashboards.</div>
-      </div>
-
-      <div class="grid-2">
+      <div class="grid-2 fade-in">
         <div class="card">
-          <div class="card-title"><div class="dot" style="background:var(--red)"></div>Live Alerts</div>
-          <div class="alert-row"><div class="status-dot dot-red"></div><span><span class="pill pill-red" style="margin-right:6px">HIGH</span>Fraud spike — Card_7821 velocity +340% in 15 min</span><span class="alert-time">2 min ago</span></div>
-          <div class="alert-row"><div class="status-dot dot-amber"></div><span><span class="pill pill-amber" style="margin-right:6px">WARN</span>Stockout risk — SKU-4421 hits reorder point in 3 days</span><span class="alert-time">14 min ago</span></div>
-          <div class="alert-row"><div class="status-dot dot-amber"></div><span><span class="pill pill-amber" style="margin-right:6px">WARN</span>High-risk loan applications up 23% this week</span><span class="alert-time">1 hr ago</span></div>
-          <div class="alert-row"><div class="status-dot dot-green"></div><span><span class="pill pill-green" style="margin-right:6px">OK</span>Churn model retrained — recall improved 0.82 → 0.88</span><span class="alert-time">3 hr ago</span></div>
+          <div class="card-title"><div class="dot" style="background:var(--red)"></div>System Alerts</div>
+          <div class="alert-row"><div class="status-dot dot-red"></div><span><span class="pill pill-red" style="margin-right:5px">HIGH</span>Fraud spike — Card_7821 velocity +340% in 15 min</span><span class="alert-time">2m ago</span></div>
+          <div class="alert-row"><div class="status-dot dot-amber"></div><span><span class="pill pill-amber" style="margin-right:5px">WARN</span>Stockout risk — SKU-4421 hits reorder point in 3 days</span><span class="alert-time">14m ago</span></div>
+          <div class="alert-row"><div class="status-dot dot-amber"></div><span><span class="pill pill-amber" style="margin-right:5px">WARN</span>High-risk loan applications up 23% this week</span><span class="alert-time">1h ago</span></div>
+          <div class="alert-row"><div class="status-dot dot-green"></div><span><span class="pill pill-green" style="margin-right:5px">OK</span>Churn model retrained — recall 0.82 → 0.88</span><span class="alert-time">3h ago</span></div>
         </div>
         <div class="card">
-          <div class="card-title"><div class="dot" style="background:var(--blue)"></div>Revenue Trend + Forecast</div>
-          <div class="chart-wrap"><canvas id="c-exec-rev" height="180"></canvas></div>
+          <div class="card-title"><div class="dot" style="background:var(--blue)"></div>Revenue Trend + 12-Month Forecast</div>
+          <div class="chart-wrap"><canvas id="c-exec-rev" height="190"></canvas></div>
         </div>
       </div>
 
-      <div class="card">
+      <div class="card fade-in">
         <div class="card-title"><div class="dot" style="background:var(--purple)"></div>Model Registry</div>
         <table class="tbl">
-          <thead><tr><th>#</th><th>Model</th><th>Algorithm</th><th>Key Metric</th><th>GitHub</th><th>Status</th></tr></thead>
+          <thead><tr><th>#</th><th>Module</th><th>Algorithm</th><th>Key Metric</th><th>GitHub</th><th>Status</th></tr></thead>
           <tbody>
-            <tr><td style="font-family:var(--mono);color:var(--text3)">01</td><td>Sales Forecast</td><td>ARIMA / Prophet</td><td style="font-family:var(--mono)">R² 0.84</td><td><a href="https://github.com/timmaina-devhub/superstore-executive-dashboard" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:11px">→ repo</a></td><td><span class="pill pill-green">Live</span></td></tr>
-            <tr><td style="font-family:var(--mono);color:var(--text3)">02</td><td>Churn Predictor</td><td>Logistic Reg + K-Means</td><td style="font-family:var(--mono)">Recall 0.88</td><td><a href="https://github.com/timmaina-devhub/Customer-Churn-Analysis-and-Segmentation" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:11px">→ repo</a></td><td><span class="pill pill-green">Live</span></td></tr>
-            <tr><td style="font-family:var(--mono);color:var(--text3)">03</td><td>Fraud Detector</td><td>Random Forest + SMOTE</td><td style="font-family:var(--mono)">F1 0.91</td><td><a href="https://github.com/timmaina-devhub/Fraud-Detection-System" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:11px">→ repo</a></td><td><span class="pill pill-red">Alert</span></td></tr>
-            <tr><td style="font-family:var(--mono);color:var(--text3)">04</td><td>Marketing ROI</td><td>Markov Chain + RF</td><td style="font-family:var(--mono)">R² 0.79</td><td><a href="https://github.com/timmaina-devhub/Multi-Channel-Marketing-Attribution-ROI-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:11px">→ repo</a></td><td><span class="pill pill-green">Live</span></td></tr>
-            <tr><td style="font-family:var(--mono);color:var(--text3)">05</td><td>Inventory Sim</td><td>Prophet + EOQ/SS/ROP</td><td style="font-family:var(--mono)">MAPE 8.2%</td><td><a href="https://github.com/timmaina-devhub/Supply-Chain-Analytics-Inventory-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:11px">→ repo</a></td><td><span class="pill pill-amber">In progress</span></td></tr>
-            <tr><td style="font-family:var(--mono);color:var(--text3)">06</td><td>Credit Risk</td><td>XGBoost + SMOTE</td><td style="font-family:var(--mono)">F1 0.76</td><td><a href="https://github.com/timmaina-devhub/Customer-Credit-Risk-Assessment-Model" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:11px">→ repo</a></td><td><span class="pill pill-amber">In progress</span></td></tr>
-            <tr><td style="font-family:var(--mono);color:var(--text3)">07</td><td>Delay Predictor</td><td>Random Forest Regressor</td><td style="font-family:var(--mono)">R² 0.70</td><td><a href="https://github.com/timmaina-devhub/Delivery-Downtime-Prediction-Route-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:11px">→ repo</a></td><td><span class="pill pill-amber">In progress</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">01</td><td>Sales Forecast</td><td>ARIMA / Prophet</td><td style="font-family:var(--mono)">R² 0.84</td><td><a href="https://github.com/timmaina-devhub/superstore-executive-dashboard" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">02</td><td>Churn Predictor</td><td>Logistic Reg + K-Means</td><td style="font-family:var(--mono)">Recall 0.88</td><td><a href="https://github.com/timmaina-devhub/Customer-Churn-Analysis-and-Segmentation" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">03</td><td>Fraud Detector</td><td>Random Forest + SMOTE</td><td style="font-family:var(--mono)">F1 0.91</td><td><a href="https://github.com/timmaina-devhub/Fraud-Detection-System" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-red">Alert</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">04</td><td>Marketing ROI</td><td>Markov Chain + RF</td><td style="font-family:var(--mono)">R² 0.79</td><td><a href="https://github.com/timmaina-devhub/Multi-Channel-Marketing-Attribution-ROI-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">05</td><td>Inventory Sim</td><td>Prophet + EOQ/SS/ROP</td><td style="font-family:var(--mono)">MAPE 8.2%</td><td><a href="https://github.com/timmaina-devhub/Supply-Chain-Analytics-Inventory-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-amber">In Progress</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">06</td><td>Credit Risk</td><td>XGBoost + SMOTE</td><td style="font-family:var(--mono)">F1 0.76</td><td><a href="https://github.com/timmaina-devhub/Customer-Credit-Risk-Assessment-Model" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-amber">In Progress</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">07</td><td>Delay Predictor</td><td>Random Forest Regressor</td><td style="font-family:var(--mono)">R² 0.70</td><td><a href="https://github.com/timmaina-devhub/Delivery-Downtime-Prediction-Route-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-amber">In Progress</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -585,7 +504,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
 
     <!-- ████ SALES ████ -->
     <div id="page-sales" class="hidden">
-      <div class="page-hdr">
+      <div class="page-hdr fade-in">
         <div class="page-hdr-eyebrow">Module 01</div>
         <h2>Superstore Sales Forecast</h2>
         <p class="page-hdr-sub">4-year Superstore dataset. ARIMA and Prophet time-series models forecast 12 months of revenue by region and category. Several sub-categories were running at negative profit margin, which wasn't visible in the original reports.</p>
@@ -594,8 +513,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
           <span class="pill pill-blue">Excel · Tableau</span><span class="pill pill-green">Completed</span>
         </div>
       </div>
-
-      <div class="grid-2">
+      <div class="grid-2 fade-in">
         <div class="card">
           <div class="card-title"><div class="dot" style="background:var(--blue)"></div>Forecast Inputs</div>
           <div class="form-group"><label>Region <span class="val" id="s-reg-v">West</span></label><select id="s-region" onchange="document.getElementById('s-reg-v').textContent=this.value"><option>West</option><option>East</option><option>Central</option><option>South</option></select></div>
@@ -605,20 +523,16 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
           <div id="sales-result" class="result-box">
             <div class="result-lbl">Predicted 12-Month Revenue</div>
             <div class="result-num" id="sales-rev" style="color:var(--blue)">—</div>
-            <div class="result-pills">
-              <span class="pill" id="sales-profit-pill"></span>
-              <span class="pill pill-gray">ARIMA v1.0</span>
-            </div>
+            <div class="result-pills"><span class="pill" id="sales-profit-pill"></span><span class="pill pill-gray">ARIMA v1.0</span></div>
             <div class="result-note" id="sales-insight"></div>
           </div>
         </div>
         <div class="card">
           <div class="card-title"><div class="dot" style="background:var(--blue)"></div>Revenue Trend + 12-Month Forecast</div>
-          <div class="chart-wrap"><canvas id="c-sales" height="220"></canvas></div>
+          <div class="chart-wrap"><canvas id="c-sales" height="230"></canvas></div>
         </div>
       </div>
-
-      <div class="grid-2">
+      <div class="grid-2 fade-in">
         <div class="card">
           <div class="card-title"><div class="dot" style="background:var(--red)"></div>Loss-Making Sub-Categories</div>
           <table class="tbl">
@@ -630,21 +544,21 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
               <tr><td>Machines</td><td>South</td><td style="color:var(--amber);font-family:var(--mono)">+1.2%</td><td><span class="pill pill-amber">Watch</span></td></tr>
             </tbody>
           </table>
-          <div class="info-box warn" style="margin-top:12px"><strong>Finding:</strong> Tables sub-category is consistently unprofitable in the East region. Revenue is positive but discounting erases the margin.</div>
+          <div class="info-box warn"><strong>Finding:</strong> Tables sub-category is consistently unprofitable in the East region. Revenue is positive but discounting erases the margin entirely.</div>
         </div>
         <div class="card">
           <div class="card-title"><div class="dot" style="background:var(--amber)"></div>What drives the forecast?</div>
           <div class="feat-row"><div class="feat-label"><span>Regional sales index</span><strong>42%</strong></div><div class="feat-track"><div class="feat-fill fb-blue" style="width:42%"></div></div></div>
           <div class="feat-row"><div class="feat-label"><span>Category base revenue</span><strong>33%</strong></div><div class="feat-track"><div class="feat-fill fb-amber" style="width:33%"></div></div></div>
           <div class="feat-row"><div class="feat-label"><span>Seasonality (ARIMA)</span><strong>25%</strong></div><div class="feat-track"><div class="feat-fill fb-green" style="width:25%"></div></div></div>
-          <div class="info-box"><strong>Note:</strong> The 12-month forecast includes uncertainty bands — visible in the Tableau dashboard download on the projects page.</div>
+          <div class="info-box"><strong>Note:</strong> The 12-month forecast includes uncertainty bands visible in the Tableau dashboard download on the projects page.</div>
         </div>
       </div>
     </div><!-- /sales -->
 
     <!-- ████ CHURN ████ -->
     <div id="page-churn" class="hidden">
-      <div class="page-hdr">
+      <div class="page-hdr fade-in">
         <div class="page-hdr-eyebrow">Module 02</div>
         <h2>Customer Churn Predictor</h2>
         <p class="page-hdr-sub">RFM features (recency, frequency, monetary + refund rate) fed into a logistic regression model tuned for recall. K-Means then groups customers into behaviorally distinct segments. Days since last purchase and refund rate came out as the two strongest churn signals.</p>
@@ -653,8 +567,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
           <span class="pill pill-blue">RFM</span><span class="pill pill-green">Completed · Recall 0.88</span>
         </div>
       </div>
-
-      <div class="grid-2">
+      <div class="grid-2 fade-in">
         <div class="card">
           <div class="card-title"><div class="dot" style="background:var(--blue)"></div>Customer Profile — Adjust &amp; Predict</div>
           <div class="form-group"><label>Days since last purchase <span class="val" id="ch-days-v">45</span></label><input type="range" min="1" max="365" value="45" id="ch-days" oninput="document.getElementById('ch-days-v').textContent=this.value"></div>
@@ -665,10 +578,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
           <div id="churn-result" class="result-box">
             <div class="result-lbl">Churn Probability</div>
             <div class="result-num" id="ch-prob">—</div>
-            <div class="result-pills">
-              <span class="pill" id="ch-seg-pill"></span>
-              <span class="pill" id="ch-action-pill"></span>
-            </div>
+            <div class="result-pills"><span class="pill" id="ch-seg-pill"></span><span class="pill" id="ch-action-pill"></span></div>
             <div class="result-note" id="ch-insight"></div>
           </div>
         </div>
@@ -677,10 +587,9 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
           <div class="chart-wrap"><canvas id="c-churn-seg" height="200"></canvas></div>
         </div>
       </div>
-
-      <div class="grid-2">
+      <div class="grid-2 fade-in">
         <div class="card">
-          <div class="card-title"><div class="dot" style="background:var(--amber)"></div>What drives churn? (Feature importance)</div>
+          <div class="card-title"><div class="dot" style="background:var(--amber)"></div>What drives churn?</div>
           <div class="feat-row"><div class="feat-label"><span>Days inactive (recency)</span><strong>38%</strong></div><div class="feat-track"><div class="feat-fill fb-red" style="width:38%"></div></div></div>
           <div class="feat-row"><div class="feat-label"><span>Refund behaviour</span><strong>27%</strong></div><div class="feat-track"><div class="feat-fill fb-amber" style="width:27%"></div></div></div>
           <div class="feat-row"><div class="feat-label"><span>Order frequency</span><strong>19%</strong></div><div class="feat-track"><div class="feat-fill fb-blue" style="width:19%"></div></div></div>
@@ -705,7 +614,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
 
     <!-- ████ FRAUD ████ -->
     <div id="page-fraud" class="hidden">
-      <div class="page-hdr">
+      <div class="page-hdr fade-in">
         <div class="page-hdr-eyebrow">Module 03</div>
         <h2>Fraud Detection</h2>
         <p class="page-hdr-sub">Behavioural features — transaction velocity, device count, IP repetition, and time-window patterns — fed into a Random Forest. SMOTE handled class imbalance. Transaction velocity in the past hour was the single strongest predictor, well ahead of transaction amount.</p>
@@ -715,8 +624,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
           <span class="pill pill-red">Alert Active</span>
         </div>
       </div>
-
-      <div class="grid-2">
+      <div class="grid-2 fade-in">
         <div class="card">
           <div class="card-title"><div class="dot" style="background:var(--red)"></div>Transaction — Adjust &amp; Analyse</div>
           <div class="form-group"><label>Transaction amount ($) <span class="val" id="fr-amt-v">250</span></label><input type="range" min="1" max="10000" value="250" id="fr-amt" oninput="document.getElementById('fr-amt-v').textContent=parseInt(this.value).toLocaleString()"></div>
@@ -727,10 +635,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
           <div id="fraud-result" class="result-box">
             <div class="result-lbl">Fraud Probability</div>
             <div class="result-num" id="fr-prob">—</div>
-            <div class="result-pills">
-              <span class="pill" id="fr-level-pill"></span>
-              <span class="pill" id="fr-driver-pill"></span>
-            </div>
+            <div class="result-pills"><span class="pill" id="fr-level-pill"></span><span class="pill" id="fr-driver-pill"></span></div>
             <div class="result-note" id="fr-insight"></div>
           </div>
         </div>
@@ -739,8 +644,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
           <div class="chart-wrap"><canvas id="c-fraud" height="200"></canvas></div>
         </div>
       </div>
-
-      <div class="grid-2">
+      <div class="grid-2 fade-in">
         <div class="card">
           <div class="card-title"><div class="dot" style="background:var(--amber)"></div>What drives fraud detection?</div>
           <div class="feat-row"><div class="feat-label"><span>Transaction velocity (burst pattern)</span><strong>41%</strong></div><div class="feat-track"><div class="feat-fill fb-red" style="width:41%"></div></div></div>
@@ -767,7 +671,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
 
     <!-- ████ MARKETING ████ -->
     <div id="page-marketing" class="hidden">
-      <div class="page-hdr">
+      <div class="page-hdr fade-in">
         <div class="page-hdr-eyebrow">Module 04</div>
         <h2>Marketing ROI &amp; Attribution</h2>
         <p class="page-hdr-sub">Markov Chain attribution distributes conversion credit across all channel touchpoints, not just the last click. A Random Forest then predicts campaign revenue. CPA was the dominant revenue predictor — more so than total spend or impressions.</p>
@@ -776,8 +680,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
           <span class="pill pill-green">Completed · R² 0.79</span>
         </div>
       </div>
-
-      <div class="grid-2">
+      <div class="grid-2 fade-in">
         <div class="card">
           <div class="card-title"><div class="dot" style="background:var(--blue)"></div>Campaign Inputs</div>
           <div class="form-group"><label>Total campaign spend ($) <span class="val" id="mk-spend-v">5,000</span></label><input type="range" min="500" max="100000" value="5000" id="mk-spend" oninput="document.getElementById('mk-spend-v').textContent=parseInt(this.value).toLocaleString()"></div>
@@ -788,10 +691,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
           <div id="marketing-result" class="result-box">
             <div class="result-lbl">Predicted Revenue</div>
             <div class="result-num" id="mk-rev" style="color:var(--green)">—</div>
-            <div class="result-pills">
-              <span class="pill" id="mk-roi-pill"></span>
-              <span class="pill pill-gray" id="mk-ch-pill"></span>
-            </div>
+            <div class="result-pills"><span class="pill" id="mk-roi-pill"></span><span class="pill pill-gray" id="mk-ch-pill"></span></div>
             <div class="result-note" id="mk-insight"></div>
           </div>
         </div>
@@ -800,14 +700,13 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
           <div class="chart-wrap"><canvas id="c-marketing" height="200"></canvas></div>
         </div>
       </div>
-
-      <div class="card">
+      <div class="card fade-in">
         <div class="card-title"><div class="dot" style="background:var(--amber)"></div>Budget Reallocation — Markov Attribution Output</div>
-        <div class="info-box" style="margin-bottom:14px"><strong>Finding:</strong> CPA is the dominant revenue driver (38% feature importance). Channels with lower CPA yield disproportionately higher returns once Markov attribution redistributes credit away from the last click.</div>
+        <div class="info-box" style="margin-bottom:12px"><strong>Finding:</strong> CPA is the dominant revenue driver (38% feature importance). Channels with lower CPA yield disproportionately higher returns once Markov attribution redistributes credit away from the last click.</div>
         <table class="tbl">
           <thead><tr><th>Channel</th><th>Current Spend</th><th>Attribution %</th><th>CPA</th><th>Predicted ROI</th><th>Recommendation</th></tr></thead>
           <tbody>
-            <tr><td>Email</td><td style="font-family:var(--mono)">$1,200</td><td style="font-family:var(--mono)">34%</td><td style="color:var(--green);font-family:var(--mono)">$12</td><td style="font-family:var(--mono)">8.4×</td><td><span class="pill pill-green">↑ Increase budget</span></td></tr>
+            <tr><td>Email</td><td style="font-family:var(--mono)">$1,200</td><td style="font-family:var(--mono)">34%</td><td style="color:var(--green);font-family:var(--mono)">$12</td><td style="font-family:var(--mono)">8.4×</td><td><span class="pill pill-green">↑ Increase</span></td></tr>
             <tr><td>Paid Search</td><td style="font-family:var(--mono)">$2,100</td><td style="font-family:var(--mono)">28%</td><td style="color:var(--amber);font-family:var(--mono)">$38</td><td style="font-family:var(--mono)">3.1×</td><td><span class="pill pill-amber">→ Maintain</span></td></tr>
             <tr><td>Social</td><td style="font-family:var(--mono)">$900</td><td style="font-family:var(--mono)">22%</td><td style="color:var(--amber);font-family:var(--mono)">$55</td><td style="font-family:var(--mono)">2.4×</td><td><span class="pill pill-amber">→ Maintain</span></td></tr>
             <tr><td>Display</td><td style="font-family:var(--mono)">$800</td><td style="font-family:var(--mono)">16%</td><td style="color:var(--red);font-family:var(--mono)">$89</td><td style="font-family:var(--mono)">1.2×</td><td><span class="pill pill-red">↓ Reduce</span></td></tr>
@@ -818,17 +717,16 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
 
     <!-- ████ SUPPLY ████ -->
     <div id="page-supply" class="hidden">
-      <div class="page-hdr">
+      <div class="page-hdr fade-in">
         <div class="page-hdr-eyebrow">Module 05</div>
         <h2>Inventory Optimisation</h2>
-        <p class="page-hdr-sub">Demand forecasting using Prophet and ARIMA on multi-SKU data. Prophet handled seasonality better on most products; ARIMA held up on flat demand profiles. On top of forecasts, Safety Stock, Reorder Point, and EOQ are calculated per SKU. Over 1,900 stockout events were identified in the dataset.</p>
+        <p class="page-hdr-sub">Demand forecasting using Prophet and ARIMA on multi-SKU data. Prophet handled seasonality better on most products; ARIMA held up on flat demand profiles. Safety Stock, Reorder Point, and EOQ are calculated per SKU. Over 1,900 stockout events were identified in the dataset.</p>
         <div class="page-hdr-pills">
           <span class="pill pill-blue">Prophet</span><span class="pill pill-blue">ARIMA</span>
           <span class="pill pill-blue">Safety Stock · ROP · EOQ</span><span class="pill pill-amber">In Progress</span>
         </div>
       </div>
-
-      <div class="grid-2">
+      <div class="grid-2 fade-in">
         <div class="card">
           <div class="card-title"><div class="dot" style="background:var(--teal)"></div>SKU Parameters — Adjust &amp; Calculate</div>
           <div class="form-group"><label>Avg daily demand (units) <span class="val" id="sc-demand-v">50</span></label><input type="range" min="1" max="500" value="50" id="sc-demand" oninput="document.getElementById('sc-demand-v').textContent=this.value"></div>
@@ -845,12 +743,12 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
               <div class="result-mini"><div class="mn" id="sc-eoq-v" style="color:var(--green)">—</div><div class="ml">EOQ (units/order)</div></div>
               <div class="result-mini"><div class="mn" id="sc-fore-v" style="color:var(--purple)">—</div><div class="ml">30-Day Forecast</div></div>
             </div>
-            <div class="result-note" id="sc-insight" style="margin-top:12px"></div>
+            <div class="result-note" id="sc-insight" style="margin-top:10px"></div>
           </div>
         </div>
         <div class="card">
           <div class="card-title"><div class="dot" style="background:var(--teal)"></div>Demand Forecast — Prophet + Historical</div>
-          <div class="chart-wrap"><canvas id="c-supply" height="280"></canvas></div>
+          <div class="chart-wrap"><canvas id="c-supply" height="240"></canvas></div>
           <div class="divider"></div>
           <div class="card-title" style="margin-bottom:8px"><div class="dot" style="background:var(--red)"></div>Stockout Risk by Warehouse</div>
           <div class="mini-row"><span class="mini-lbl">Warehouse A</span><div class="mini-track"><div class="mini-fill" style="width:82%;background:var(--red)"></div></div><span class="mini-val">82%</span></div>
@@ -864,17 +762,16 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
 
     <!-- ████ CREDIT ████ -->
     <div id="page-credit" class="hidden">
-      <div class="page-hdr">
+      <div class="page-hdr fade-in">
         <div class="page-hdr-eyebrow">Module 06</div>
         <h2>Credit Risk Assessment</h2>
-        <p class="page-hdr-sub">The target variable was reconstructed from a composite risk score — the original default label had weak predictive signal. Debt-to-income and loan-to-income ratios were more informative than raw credit score in most configurations. XGBoost reached F1 0.76 with ~77% recall and ~75% precision.</p>
+        <p class="page-hdr-sub">The target variable was reconstructed from a composite risk score — the original default label had weak predictive signal. Debt-to-income and loan-to-income ratios were more informative than raw credit score. XGBoost reached F1 0.76 with ~77% recall and ~75% precision.</p>
         <div class="page-hdr-pills">
           <span class="pill pill-blue">XGBoost</span><span class="pill pill-blue">SMOTE</span>
           <span class="pill pill-blue">Feature Engineering</span><span class="pill pill-amber">In Progress · F1 0.76</span>
         </div>
       </div>
-
-      <div class="grid-2">
+      <div class="grid-2 fade-in">
         <div class="card">
           <div class="card-title"><div class="dot" style="background:var(--amber)"></div>Borrower Profile — Adjust &amp; Assess</div>
           <div class="form-group"><label>Annual income ($) <span class="val" id="cr-inc-v">45,000</span></label><input type="range" min="10000" max="300000" value="45000" id="cr-inc" oninput="document.getElementById('cr-inc-v').textContent=parseInt(this.value).toLocaleString()"></div>
@@ -885,30 +782,27 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
           <div id="credit-result" class="result-box">
             <div class="result-lbl">Default Probability</div>
             <div class="result-num" id="cr-prob">—</div>
-            <div class="result-pills">
-              <span class="pill" id="cr-tier-pill"></span>
-              <span class="pill" id="cr-rec-pill"></span>
-            </div>
+            <div class="result-pills"><span class="pill" id="cr-tier-pill"></span><span class="pill" id="cr-rec-pill"></span></div>
             <div class="result-note" id="cr-insight"></div>
           </div>
         </div>
         <div class="card">
           <div class="card-title"><div class="dot" style="background:var(--amber)"></div>Risk Tier Distribution</div>
-          <div class="chart-wrap"><canvas id="c-credit" height="170"></canvas></div>
+          <div class="chart-wrap"><canvas id="c-credit" height="160"></canvas></div>
           <div class="divider"></div>
           <div class="card-title" style="margin-bottom:8px"><div class="dot" style="background:var(--amber)"></div>Feature Importance — XGBoost</div>
           <div class="feat-row"><div class="feat-label"><span>Debt-to-income ratio</span><strong>31%</strong></div><div class="feat-track"><div class="feat-fill fb-red" style="width:31%"></div></div></div>
           <div class="feat-row"><div class="feat-label"><span>Credit score band</span><strong>28%</strong></div><div class="feat-track"><div class="feat-fill fb-blue" style="width:28%"></div></div></div>
           <div class="feat-row"><div class="feat-label"><span>Loan-to-income ratio</span><strong>22%</strong></div><div class="feat-track"><div class="feat-fill fb-amber" style="width:22%"></div></div></div>
           <div class="feat-row"><div class="feat-label"><span>Income level</span><strong>19%</strong></div><div class="feat-track"><div class="feat-fill fb-green" style="width:19%"></div></div></div>
-          <div class="info-box warn"><strong>Note:</strong> DTI above 43% is a strong default signal in this model. The default rate in the training data was 18.3% vs 9.5% industry benchmark.</div>
+          <div class="info-box warn"><strong>Note:</strong> DTI above 43% is a strong default signal in this model. Default rate in training data was 18.3% vs 9.5% industry benchmark.</div>
         </div>
       </div>
     </div><!-- /credit -->
 
     <!-- ████ LOGISTICS ████ -->
     <div id="page-logistics" class="hidden">
-      <div class="page-hdr">
+      <div class="page-hdr fade-in">
         <div class="page-hdr-eyebrow">Module 07</div>
         <h2>Delivery Delay Predictor</h2>
         <p class="page-hdr-sub">Traffic congestion and weather risk were proxied from GPS speed patterns and historical delay data — no external APIs needed. Several early feature candidates had to be removed because they were effectively restatements of the target variable. Final R² of 0.70 after removing leaky features that had inflated it to ~0.99.</p>
@@ -917,8 +811,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
           <span class="pill pill-amber">In Progress · R² 0.70</span>
         </div>
       </div>
-
-      <div class="grid-2">
+      <div class="grid-2 fade-in">
         <div class="card">
           <div class="card-title"><div class="dot" style="background:var(--green)"></div>Shipment Parameters — Adjust &amp; Predict</div>
           <div class="form-group"><label>Route distance (km) <span class="val" id="lg-dist-v">250</span></label><input type="range" min="10" max="2000" value="250" id="lg-dist" oninput="document.getElementById('lg-dist-v').textContent=this.value"></div>
@@ -930,10 +823,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
           <div id="logistics-result" class="result-box">
             <div class="result-lbl">Delay Probability</div>
             <div class="result-num" id="lg-prob">—</div>
-            <div class="result-pills">
-              <span class="pill" id="lg-window-pill"></span>
-              <span class="pill" id="lg-route-pill"></span>
-            </div>
+            <div class="result-pills"><span class="pill" id="lg-window-pill"></span><span class="pill" id="lg-route-pill"></span></div>
             <div class="result-note" id="lg-insight"></div>
           </div>
         </div>
@@ -946,7 +836,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
           <div class="feat-row"><div class="feat-label"><span>Route conditions (historical)</span><strong>27%</strong></div><div class="feat-track"><div class="feat-fill fb-amber" style="width:27%"></div></div></div>
           <div class="feat-row"><div class="feat-label"><span>Weather risk proxy</span><strong>22%</strong></div><div class="feat-track"><div class="feat-fill fb-amber" style="width:22%"></div></div></div>
           <div class="feat-row"><div class="feat-label"><span>Traffic congestion proxy</span><strong>18%</strong></div><div class="feat-track"><div class="feat-fill fb-blue" style="width:18%"></div></div></div>
-          <div class="info-box"><strong>Key finding:</strong> Feature engineering took longer than the modelling itself. Leakage features (R² ~0.99) were identified and removed. Final baseline of R² 0.70 is realistic for this problem type.</div>
+          <div class="info-box"><strong>Key finding:</strong> Feature engineering took longer than the modelling. Leakage features (R² ~0.99) were identified and removed. Final baseline of R² 0.70 is realistic for this problem type.</div>
         </div>
       </div>
     </div><!-- /logistics -->
@@ -955,14 +845,24 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
 </div><!-- /shell -->
 
 <script>
-// ── CHART DEFAULTS ──
-const BLU='#2563eb',GRN='#16a34a',RED='#dc2626',AMB='#d97706',PUR='#7c3aed',TEA='#0d9488',GRY='#9ca3af';
-const GRID='rgba(0,0,0,0.05)';
-const TICK={color:'#9ca3af',font:{size:10,family:'IBM Plex Mono'}};
+// ── CHART CONFIG ──
+const BLU='#3b82f6',GRN='#22c55e',RED='#f87171',AMB='#fbbf24',PUR='#a78bfa',TEA='#2dd4bf',GRY='#4b5563';
+const GRID='rgba(255,255,255,0.04)';
+const TICK={color:'#4b5563',font:{size:10,family:'IBM Plex Mono'}};
 const charts={};
 function mk(id,cfg){if(charts[id])charts[id].destroy();const c=document.getElementById(id);if(!c)return;charts[id]=new Chart(c,cfg)}
 const baseOpts=(ex={})=>({responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},...(ex.plugins||{})},scales:{y:{ticks:TICK,grid:{color:GRID},border:{color:'transparent'}},...(ex.scales||{x:{ticks:TICK,grid:{color:'transparent'},border:{color:'transparent'}}})},...ex});
 const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+// ── FADE-IN ON SCROLL ──
+function initFadeIns(){
+  const els=document.querySelectorAll('.fade-in');
+  if(!window.IntersectionObserver){els.forEach(e=>e.classList.add('visible'));return;}
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+  },{threshold:.06,rootMargin:'0px 0px -20px 0px'});
+  els.forEach(e=>obs.observe(e));
+}
 
 // ── ROUTING ──
 function handleRoute(){
@@ -979,7 +879,11 @@ function handleRoute(){
   if(active){
     active.classList.remove('hidden');
     if(activeNav)activeNav.classList.add('active');
-    buildCharts(hash);
+    // Scroll main to top on page change
+    const ms=document.getElementById('main-scroll');
+    if(ms)ms.scrollTop=0;
+    // Re-init fade-ins and charts
+    setTimeout(()=>{initFadeIns();buildCharts(hash);},30);
   } else {window.location.hash='#exec';}
 }
 window.addEventListener('hashchange',handleRoute);
@@ -990,29 +894,29 @@ function buildCharts(page){
   if(page==='exec'){
     const act=[320,295,410,380,445,390,420,480,370,510,490,530];
     mk('c-exec-rev',{type:'line',data:{labels:[...MONTHS,'Jan\'26','Feb\'26','Mar\'26','Apr\'26'],datasets:[
-      {label:'Actual ($K)',data:[...act,null,null,null,null],borderColor:BLU,backgroundColor:BLU+'22',fill:true,tension:.4,pointRadius:3,pointBackgroundColor:BLU,pointBorderColor:'#fff',pointBorderWidth:2},
-      {label:'Forecast ($K)',data:[...Array(10).fill(null),490,550,610,670,720,790],borderColor:AMB,borderDash:[5,3],fill:false,tension:.4,pointRadius:3,pointBackgroundColor:AMB,pointBorderColor:'#fff',pointBorderWidth:2}
-    ]},options:baseOpts({plugins:{legend:{display:true,labels:{color:'#6b7280',font:{size:10},boxWidth:10,usePointStyle:true}}}})});
+      {label:'Actual ($K)',data:[...act,null,null,null,null],borderColor:BLU,backgroundColor:BLU+'18',fill:true,tension:.4,pointRadius:3,pointBackgroundColor:BLU,pointBorderColor:'#0a0c10',pointBorderWidth:2},
+      {label:'Forecast ($K)',data:[...Array(10).fill(null),490,550,610,670,720,790],borderColor:AMB,borderDash:[5,3],fill:false,tension:.4,pointRadius:3,pointBackgroundColor:AMB,pointBorderColor:'#0a0c10',pointBorderWidth:2}
+    ]},options:baseOpts({plugins:{legend:{display:true,labels:{color:'#7a849c',font:{size:10},boxWidth:10,usePointStyle:true}}}})});
   }
   if(page==='sales'){
     const rev=[280,310,295,340,320,380,360,410,390,450,420,490];
     mk('c-sales',{type:'line',data:{labels:[...MONTHS,'Jan\'26','Feb\'26','Mar\'26','Apr\'26'],datasets:[
-      {label:'Revenue ($K)',data:[...rev,null,null,null,null],borderColor:BLU,backgroundColor:BLU+'18',fill:true,tension:.4,pointRadius:3,pointBackgroundColor:BLU,pointBorderColor:'#fff',pointBorderWidth:2},
+      {label:'Revenue ($K)',data:[...rev,null,null,null,null],borderColor:BLU,backgroundColor:BLU+'15',fill:true,tension:.4,pointRadius:3,pointBackgroundColor:BLU,pointBorderColor:'#0a0c10',pointBorderWidth:2},
       {label:'Forecast ($K)',data:[...Array(10).fill(null),430,465,510,540],borderColor:AMB,borderDash:[5,3],fill:false,tension:.4,pointRadius:3,pointBackgroundColor:AMB}
-    ]},options:baseOpts({plugins:{legend:{display:true,labels:{color:'#6b7280',font:{size:10},boxWidth:10,usePointStyle:true}}},scales:{y:{ticks:{...TICK,callback:v=>'$'+v+'K'},grid:{color:GRID},border:{color:'transparent'}},x:{ticks:TICK,grid:{color:'transparent'},border:{color:'transparent'}}}})});
+    ]},options:baseOpts({plugins:{legend:{display:true,labels:{color:'#7a849c',font:{size:10},boxWidth:10,usePointStyle:true}}},scales:{y:{ticks:{...TICK,callback:v=>'$'+v+'K'},grid:{color:GRID},border:{color:'transparent'}},x:{ticks:TICK,grid:{color:'transparent'},border:{color:'transparent'}}}})});
   }
   if(page==='churn'){
-    mk('c-churn-seg',{type:'bar',data:{labels:['Champions','Loyal','At-Risk','Need Attn','Inactive'],datasets:[{data:[420,310,185,240,120],backgroundColor:[GRN+'cc',TEA+'cc',RED+'cc',AMB+'cc',GRY+'cc'],borderRadius:6,borderSkipped:false}]},options:baseOpts()});
+    mk('c-churn-seg',{type:'bar',data:{labels:['Champions','Loyal','At-Risk','Need Attn','Inactive'],datasets:[{data:[420,310,185,240,120],backgroundColor:[GRN+'bb',TEA+'bb',RED+'bb',AMB+'bb',GRY+'bb'],borderRadius:5,borderSkipped:false}]},options:baseOpts()});
   }
   if(page==='fraud'){
     const fd=[3,5,4,8,6,11,9,14,12,18,22,17,20,24,19];
     mk('c-fraud',{type:'line',data:{labels:fd.map((_,i)=>'Day '+(i+1)),datasets:[
-      {label:'Fraud incidents',data:fd,borderColor:RED,backgroundColor:RED+'18',fill:true,tension:.3,pointRadius:3,pointBackgroundColor:RED,pointBorderColor:'#fff',pointBorderWidth:2},
+      {label:'Fraud incidents',data:fd,borderColor:RED,backgroundColor:RED+'15',fill:true,tension:.3,pointRadius:3,pointBackgroundColor:RED,pointBorderColor:'#0a0c10',pointBorderWidth:2},
       {label:'Alert threshold',data:Array(15).fill(15),borderColor:AMB,borderDash:[4,3],fill:false,pointRadius:0,borderWidth:1.5}
-    ]},options:baseOpts({plugins:{legend:{display:true,labels:{color:'#6b7280',font:{size:10},boxWidth:10,usePointStyle:true}}}})});
+    ]},options:baseOpts({plugins:{legend:{display:true,labels:{color:'#7a849c',font:{size:10},boxWidth:10,usePointStyle:true}}}})});
   }
   if(page==='marketing'){
-    mk('c-marketing',{type:'doughnut',data:{labels:['Email 34%','Paid Search 28%','Social 22%','Display 16%'],datasets:[{data:[34,28,22,16],backgroundColor:[GRN,BLU,PUR,GRY],borderWidth:3,borderColor:'#fff',hoverOffset:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:'#6b7280',font:{size:11},boxWidth:12,usePointStyle:true,padding:14}}}}});
+    mk('c-marketing',{type:'doughnut',data:{labels:['Email 34%','Paid Search 28%','Social 22%','Display 16%'],datasets:[{data:[34,28,22,16],backgroundColor:[GRN,BLU,PUR,GRY],borderWidth:3,borderColor:'#111318',hoverOffset:5}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:'#7a849c',font:{size:11},boxWidth:11,usePointStyle:true,padding:12}}}}});
   }
   if(page==='supply'){
     const hist=Array.from({length:15},()=>Math.round(50+Math.random()*20-10));
@@ -1024,13 +928,13 @@ function buildCharts(page){
         {label:'Prophet forecast',data:[...Array(15).fill(null),...fore],borderColor:AMB,borderDash:[5,3],tension:.3,pointRadius:2,pointBackgroundColor:AMB,borderWidth:1.5},
         {label:'Safety stock floor',data:Array(30).fill(26),borderColor:RED,borderDash:[2,4],pointRadius:0,borderWidth:1}
       ]
-    },options:baseOpts({plugins:{legend:{display:true,labels:{color:'#6b7280',font:{size:10},boxWidth:10,usePointStyle:true}}}})});
+    },options:baseOpts({plugins:{legend:{display:true,labels:{color:'#7a849c',font:{size:10},boxWidth:10,usePointStyle:true}}}})});
   }
   if(page==='credit'){
-    mk('c-credit',{type:'bar',data:{labels:['Low Risk','Moderate','High Risk','Very High'],datasets:[{data:[312,245,189,87],backgroundColor:[GRN+'cc',AMB+'cc',RED+'cc',RED+'88'],borderRadius:6,borderSkipped:false}]},options:baseOpts()});
+    mk('c-credit',{type:'bar',data:{labels:['Low Risk','Moderate','High Risk','Very High'],datasets:[{data:[312,245,189,87],backgroundColor:[GRN+'bb',AMB+'bb',RED+'bb',RED+'77'],borderRadius:5,borderSkipped:false}]},options:baseOpts()});
   }
   if(page==='logistics'){
-    mk('c-logistics',{type:'bar',data:{labels:['0–1h','1–2h','2–3h','3–4h','4–5h','5–6h','>6h'],datasets:[{data:[180,142,98,67,43,28,19],backgroundColor:[GRN+'cc',GRN+'88',AMB+'88',AMB+'cc',RED+'88',RED+'cc',RED+'99'],borderRadius:5,borderSkipped:false}]},options:baseOpts()});
+    mk('c-logistics',{type:'bar',data:{labels:['0–1h','1–2h','2–3h','3–4h','4–5h','5–6h','>6h'],datasets:[{data:[180,142,98,67,43,28,19],backgroundColor:[GRN+'bb',GRN+'77',AMB+'77',AMB+'bb',RED+'77',RED+'bb',RED+'88'],borderRadius:4,borderSkipped:false}]},options:baseOpts()});
   }
 }
 
