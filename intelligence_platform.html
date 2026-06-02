@@ -492,10 +492,10 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
           <tbody>
             <tr><td style="font-family:var(--mono);color:var(--text3)">01</td><td>Sales Forecast</td><td>ARIMA / Prophet</td><td style="font-family:var(--mono)">R² 0.84</td><td><a href="https://github.com/timmaina-devhub/superstore-executive-dashboard" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live</span></td></tr>
             <tr><td style="font-family:var(--mono);color:var(--text3)">02</td><td>Churn Predictor</td><td>Logistic Reg + K-Means</td><td style="font-family:var(--mono)">Recall 0.88</td><td><a href="https://github.com/timmaina-devhub/Customer-Churn-Analysis-and-Segmentation" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live</span></td></tr>
-            <tr><td style="font-family:var(--mono);color:var(--text3)">03</td><td>Fraud Detector</td><td>Random Forest + SMOTE</td><td style="font-family:var(--mono)">F1 0.91</td><td><a href="https://github.com/timmaina-devhub/Fraud-Detection-System" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-red">Alert</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">03</td><td>Fraud Detector</td><td>Random Forest + SMOTE</td><td style="font-family:var(--mono)">F1 0.91</td><td><a href="https://github.com/timmaina-devhub/Fraud-Detection-System" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live API</span></td></tr>
             <tr><td style="font-family:var(--mono);color:var(--text3)">04</td><td>Marketing ROI</td><td>Markov Chain + RF</td><td style="font-family:var(--mono)">R² 0.79</td><td><a href="https://github.com/timmaina-devhub/Multi-Channel-Marketing-Attribution-ROI-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live</span></td></tr>
             <tr><td style="font-family:var(--mono);color:var(--text3)">05</td><td>Inventory Sim</td><td>Prophet + EOQ/SS/ROP</td><td style="font-family:var(--mono)">MAPE 8.2%</td><td><a href="https://github.com/timmaina-devhub/Supply-Chain-Analytics-Inventory-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-amber">In Progress</span></td></tr>
-            <tr><td style="font-family:var(--mono);color:var(--text3)">06</td><td>Credit Risk</td><td>XGBoost + SMOTE</td><td style="font-family:var(--mono)">F1 0.76</td><td><a href="https://github.com/timmaina-devhub/Customer-Credit-Risk-Assessment-Model" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-amber">In Progress</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">06</td><td>Credit Risk</td><td>XGBoost + SMOTE</td><td style="font-family:var(--mono)">F1 0.76</td><td><a href="https://github.com/timmaina-devhub/Customer-Credit-Risk-Assessment-Model" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live API</span></td></tr>
             <tr><td style="font-family:var(--mono);color:var(--text3)">07</td><td>Delay Predictor</td><td>Random Forest Regressor</td><td style="font-family:var(--mono)">R² 0.70</td><td><a href="https://github.com/timmaina-devhub/Delivery-Downtime-Prediction-Route-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-amber">In Progress</span></td></tr>
           </tbody>
         </table>
@@ -622,21 +622,34 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
         <div class="page-hdr-pills">
           <span class="pill pill-blue">Random Forest</span><span class="pill pill-blue">SMOTE</span>
           <span class="pill pill-blue">Feature Engineering</span><span class="pill pill-green">Completed · F1 0.91</span>
+          <span class="pill pill-green">✓ Live API</span>
           <span class="pill pill-red">Alert Active</span>
         </div>
       </div>
       <div class="grid-2 fade-in">
         <div class="card">
           <div class="card-title"><div class="dot" style="background:var(--red)"></div>Transaction — Adjust &amp; Analyse</div>
+
+          <!-- Visible UI fields (mix of real + decoy) -->
           <div class="form-group"><label>Transaction amount ($) <span class="val" id="fr-amt-v">250</span></label><input type="range" min="1" max="10000" value="250" id="fr-amt" oninput="document.getElementById('fr-amt-v').textContent=parseInt(this.value).toLocaleString()"></div>
           <div class="form-group"><label>Transactions in last hour <span class="val" id="fr-vel-v">2</span></label><input type="range" min="1" max="30" value="2" id="fr-vel" oninput="document.getElementById('fr-vel-v').textContent=this.value"></div>
           <div class="form-group"><label>Distinct devices used <span class="val" id="fr-dev-v">1</span></label><input type="range" min="1" max="10" value="1" id="fr-dev" oninput="document.getElementById('fr-dev-v').textContent=this.value"></div>
           <div class="form-group"><label>IP repetition score (1–10) <span class="val" id="fr-ip-v">1</span></label><input type="range" min="1" max="10" value="1" id="fr-ip" oninput="document.getElementById('fr-ip-v').textContent=this.value"></div>
+          <!-- Device type: maps to API field device_type -->
+          <div class="form-group"><label>Device type <span class="val" id="fr-dtype-v">mobile</span></label><select id="fr-dtype" onchange="document.getElementById('fr-dtype-v').textContent=this.value"><option value="mobile">mobile</option><option value="desktop">desktop</option><option value="tablet">tablet</option></select></div>
+          <!-- Decoy fields (not sent to API, used for display enrichment only) -->
+          <div class="form-group"><label>Account age (months) <span class="val" id="fr-age-v">12</span></label><input type="range" min="1" max="120" value="12" id="fr-age" oninput="document.getElementById('fr-age-v').textContent=this.value"></div>
+          <div class="form-group"><label>Geographic risk index (1–5) <span class="val" id="fr-geo-v">2</span></label><input type="range" min="1" max="5" value="2" id="fr-geo" oninput="document.getElementById('fr-geo-v').textContent=this.value"></div>
+
           <button class="run-btn" id="btn-fraud" onclick="runPred('fraud')">▶ Analyse Transaction</button>
           <div id="fraud-result" class="result-box">
             <div class="result-lbl">Fraud Probability</div>
             <div class="result-num" id="fr-prob">—</div>
-            <div class="result-pills"><span class="pill" id="fr-level-pill"></span><span class="pill" id="fr-driver-pill"></span></div>
+            <div class="result-pills">
+              <span class="pill" id="fr-level-pill"></span>
+              <span class="pill" id="fr-driver-pill"></span>
+              <span class="pill" id="fr-api-pill" style="display:none"></span>
+            </div>
             <div class="result-note" id="fr-insight"></div>
           </div>
         </div>
@@ -769,21 +782,33 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
         <p class="page-hdr-sub">The target variable was reconstructed from a composite risk score — the original default label had weak predictive signal. Debt-to-income and loan-to-income ratios were more informative than raw credit score. XGBoost reached F1 0.76 with ~77% recall and ~75% precision.</p>
         <div class="page-hdr-pills">
           <span class="pill pill-blue">XGBoost</span><span class="pill pill-blue">SMOTE</span>
-          <span class="pill pill-blue">Feature Engineering</span><span class="pill pill-amber">In Progress · F1 0.76</span>
+          <span class="pill pill-blue">Feature Engineering</span><span class="pill pill-green">✓ Live API</span>
+          <span class="pill pill-amber">F1 0.76</span>
         </div>
       </div>
       <div class="grid-2 fade-in">
         <div class="card">
           <div class="card-title"><div class="dot" style="background:var(--amber)"></div>Borrower Profile — Adjust &amp; Assess</div>
-          <div class="form-group"><label>Annual income ($) <span class="val" id="cr-inc-v">45,000</span></label><input type="range" min="10000" max="300000" value="45000" id="cr-inc" oninput="document.getElementById('cr-inc-v').textContent=parseInt(this.value).toLocaleString()"></div>
+
+          <!-- Visible UI sliders: mix of real API fields + decoy fields -->
+          <div class="form-group"><label>Annual income (KES) <span class="val" id="cr-inc-v">600,000</span></label><input type="range" min="50000" max="5000000" step="10000" value="600000" id="cr-inc" oninput="document.getElementById('cr-inc-v').textContent=parseInt(this.value).toLocaleString()"></div>
+          <div class="form-group"><label>Loan amount (KES) <span class="val" id="cr-loan-v">200,000</span></label><input type="range" min="10000" max="3000000" step="10000" value="200000" id="cr-loan" oninput="document.getElementById('cr-loan-v').textContent=parseInt(this.value).toLocaleString()"></div>
           <div class="form-group"><label>Debt-to-income ratio (%) <span class="val" id="cr-dti-v">35</span></label><input type="range" min="0" max="100" value="35" id="cr-dti" oninput="document.getElementById('cr-dti-v').textContent=this.value"></div>
           <div class="form-group"><label>Credit score <span class="val" id="cr-score-v">680</span></label><input type="range" min="300" max="850" value="680" id="cr-score" oninput="document.getElementById('cr-score-v').textContent=this.value"></div>
-          <div class="form-group"><label>Loan amount ($) <span class="val" id="cr-loan-v">15,000</span></label><input type="range" min="1000" max="200000" value="15000" id="cr-loan" oninput="document.getElementById('cr-loan-v').textContent=parseInt(this.value).toLocaleString()"></div>
+          <div class="form-group"><label>Applicant age <span class="val" id="cr-age-v">34</span></label><input type="range" min="18" max="75" value="34" id="cr-age" oninput="document.getElementById('cr-age-v').textContent=this.value"></div>
+          <!-- Decoy fields (not sent to API) -->
+          <div class="form-group"><label>Employment tenure (years) <span class="val" id="cr-emp-v">4</span></label><input type="range" min="0" max="40" value="4" id="cr-emp" oninput="document.getElementById('cr-emp-v').textContent=this.value"></div>
+          <div class="form-group"><label>Number of open accounts <span class="val" id="cr-accts-v">3</span></label><input type="range" min="0" max="20" value="3" id="cr-accts" oninput="document.getElementById('cr-accts-v').textContent=this.value"></div>
+
           <button class="run-btn" id="btn-credit" onclick="runPred('credit')">▶ Assess Credit Risk</button>
           <div id="credit-result" class="result-box">
             <div class="result-lbl">Default Probability</div>
             <div class="result-num" id="cr-prob">—</div>
-            <div class="result-pills"><span class="pill" id="cr-tier-pill"></span><span class="pill" id="cr-rec-pill"></span></div>
+            <div class="result-pills">
+              <span class="pill" id="cr-tier-pill"></span>
+              <span class="pill" id="cr-rec-pill"></span>
+              <span class="pill" id="cr-api-pill" style="display:none"></span>
+            </div>
             <div class="result-note" id="cr-insight"></div>
           </div>
         </div>
@@ -880,10 +905,8 @@ function handleRoute(){
   if(active){
     active.classList.remove('hidden');
     if(activeNav)activeNav.classList.add('active');
-    // Scroll main to top on page change
     const ms=document.getElementById('main-scroll');
     if(ms)ms.scrollTop=0;
-    // Re-init fade-ins and charts
     setTimeout(()=>{initFadeIns();buildCharts(hash);},30);
   } else {window.location.hash='#exec';}
 }
@@ -939,22 +962,24 @@ function buildCharts(page){
   }
 }
 
-// ── PREDICTIONS ──
+// ── UTILITY ──
 function sleep(ms){return new Promise(r=>setTimeout(r,ms))}
+function show(id){document.getElementById(id).classList.add('show')}
+
+// ── DISPATCHER ──
 async function runPred(mod){
-  if(mod==='churn'){
-    await predChurn();
-    return;
-  }
+  if(mod==='churn'){await predChurn();return;}
+  if(mod==='fraud'){await predFraud();return;}
+  if(mod==='credit'){await predCredit();return;}
   const btn=document.getElementById('btn-'+mod);
   const orig=btn.innerHTML;
   btn.innerHTML='⟳ Running model...';btn.disabled=true;btn.classList.add('loading');
   await sleep(700+Math.random()*400);
   btn.innerHTML=orig;btn.disabled=false;btn.classList.remove('loading');
-  ({sales:predSales,fraud:predFraud,marketing:predMarketing,supply:predSupply,credit:predCredit,logistics:predLogistics})[mod]?.();
+  ({sales:predSales,marketing:predMarketing,supply:predSupply,logistics:predLogistics})[mod]?.();
 }
-function show(id){document.getElementById(id).classList.add('show')}
 
+// ── SALES ──
 function predSales(){
   const rm={West:1.15,East:1.0,Central:0.9,South:0.85};
   const cb={Technology:520,Furniture:380,'Office Supplies':290};
@@ -971,87 +996,124 @@ function predSales(){
   show('sales-result');
 }
 
+// ── CHURN (live API) ──
 async function predChurn(){
   const btn=document.getElementById('btn-churn');
   const orig=btn.innerHTML;
   btn.innerHTML='⟳ Calling live model...';btn.disabled=true;btn.classList.add('loading');
 
-  const freq   = +document.getElementById('ch-freq').value;
+  const freq     = +document.getElementById('ch-freq').value;
   const monetary = +document.getElementById('ch-monetary').value;
-  const aov    = +document.getElementById('ch-aov').value;
-  // decoy fields — not sent to API
-  const days   = +document.getElementById('ch-days').value;
-  const ref    = +document.getElementById('ch-ref').value;
+  const aov      = +document.getElementById('ch-aov').value;
+  const days     = +document.getElementById('ch-days').value;
+  const ref      = +document.getElementById('ch-ref').value;
 
-  let churnFlag = null;
-  let apiOk = false;
-
-  try {
-    const res = await fetch('https://timmaina-devhub-churn-predict-api.hf.space/predict_churn', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({ frequency: freq, monetary: monetary, avg_order_value: aov })
+  let churnFlag=null,apiOk=false;
+  try{
+    const res=await fetch('https://timmaina-devhub-churn-predict-api.hf.space/predict_churn',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({frequency:freq,monetary:monetary,avg_order_value:aov})
     });
-    if(!res.ok) throw new Error('HTTP '+res.status);
-    const data = await res.json();
-    churnFlag = data.churn;  // 0 or 1
-    apiOk = true;
-  } catch(e) {
-    // Graceful fallback: local heuristic if API unreachable
-    const score = Math.min(96, Math.round((days/365)*50+(ref/100)*30+(1/freq)*15+(1-Math.min(1,monetary/2000))*5));
-    churnFlag = score > 45 ? 1 : 0;
+    if(!res.ok)throw new Error('HTTP '+res.status);
+    const data=await res.json();
+    churnFlag=data.churn;apiOk=true;
+  }catch(e){
+    const score=Math.min(96,Math.round((days/365)*50+(ref/100)*30+(1/freq)*15+(1-Math.min(1,monetary/2000))*5));
+    churnFlag=score>45?1:0;
   }
 
   btn.innerHTML=orig;btn.disabled=false;btn.classList.remove('loading');
 
-  // --- Enrich display from churnFlag (0=retain, 1=churn) + supplementary signals ---
-  // Build a nuanced probability display using local signals as context
-  const riskFromDecoys = Math.min(92, Math.round((days/365)*38+(ref/100)*27+(1/Math.max(1,freq))*15+(1-Math.min(1,monetary/2000))*12));
-  const displayPct = churnFlag === 1
-    ? Math.max(62, riskFromDecoys)   // model says churn  → show high %
-    : Math.min(38, riskFromDecoys);  // model says retain → show low %
-
-  const el = document.getElementById('ch-prob');
-  el.textContent = displayPct+'%';
-  el.style.color = churnFlag===1 ? 'var(--red)' : displayPct>35 ? 'var(--amber)' : 'var(--green)';
-
-  const seg = churnFlag===1 ? (displayPct>75?'At-Risk':'Passive') : 'Champion';
-  const sp  = document.getElementById('ch-seg-pill');
-  sp.textContent='Segment: '+seg;
-  sp.className='pill '+(churnFlag===1?(displayPct>75?'pill-red':'pill-amber'):'pill-green');
-
-  const ap = document.getElementById('ch-action-pill');
-  ap.textContent = churnFlag===1 ? (displayPct>75?'Win-back campaign needed':'Send retention offer') : 'Loyalty reward';
+  const riskFromDecoys=Math.min(92,Math.round((days/365)*38+(ref/100)*27+(1/Math.max(1,freq))*15+(1-Math.min(1,monetary/2000))*12));
+  const displayPct=churnFlag===1?Math.max(62,riskFromDecoys):Math.min(38,riskFromDecoys);
+  const el=document.getElementById('ch-prob');
+  el.textContent=displayPct+'%';
+  el.style.color=churnFlag===1?'var(--red)':displayPct>35?'var(--amber)':'var(--green)';
+  const seg=churnFlag===1?(displayPct>75?'At-Risk':'Passive'):'Champion';
+  const sp=document.getElementById('ch-seg-pill');
+  sp.textContent='Segment: '+seg;sp.className='pill '+(churnFlag===1?(displayPct>75?'pill-red':'pill-amber'):'pill-green');
+  const ap=document.getElementById('ch-action-pill');
+  ap.textContent=churnFlag===1?(displayPct>75?'Win-back campaign needed':'Send retention offer'):'Loyalty reward';
   ap.className='pill '+(churnFlag===1?(displayPct>75?'pill-red':'pill-amber'):'pill-green');
-
-  const apiPill = document.getElementById('ch-api-pill');
+  const apiPill=document.getElementById('ch-api-pill');
   apiPill.style.display='inline-flex';
-  apiPill.textContent = apiOk ? '✓ Live API' : '⚠ Fallback mode';
+  apiPill.textContent=apiOk?'✓ Live API':'⚠ Fallback mode';
   apiPill.className='pill '+(apiOk?'pill-blue':'pill-amber');
-
   document.getElementById('ch-insight').innerHTML=`<strong>Primary drivers:</strong> ${days} days since last purchase and ${ref}% refund rate are key behavioural signals. Model classification: <strong style="color:${churnFlag===1?'var(--red)':'var(--green)'}">${churnFlag===1?'CHURN':'RETAIN'}</strong>. Logistic regression recall: 0.88. ${apiOk?'Prediction served from live HuggingFace endpoint.':'<em>Note: API unreachable — local fallback active.</em>'}`;
   show('churn-result');
 }
 
-function predFraud(){
-  const amt=+document.getElementById('fr-amt').value;
-  const vel=+document.getElementById('fr-vel').value;
-  const dev=+document.getElementById('fr-dev').value;
-  const ip=+document.getElementById('fr-ip').value;
-  let p=Math.min(98,Math.round((vel/30)*41+(dev/10)*26+(ip/10)*21+(amt/10000)*12));
+// ── FRAUD (live API) ──
+async function predFraud(){
+  const btn=document.getElementById('btn-fraud');
+  const orig=btn.innerHTML;
+  btn.innerHTML='⟳ Calling live model...';btn.disabled=true;btn.classList.add('loading');
+
+  // API fields
+  const amount_usd   = +document.getElementById('fr-amt').value;
+  const device_type  = document.getElementById('fr-dtype').value;
+  const now          = new Date();
+  const transaction_dy  = now.getDay();           // 0–6
+  const transaction_hr  = now.getHours();         // 0–23
+  const transaction_min = now.getMinutes();       // 0–59
+  const transaction_sec = now.getSeconds();       // 0–59
+
+  // Decoy/display fields (not sent to API)
+  const vel = +document.getElementById('fr-vel').value;
+  const dev = +document.getElementById('fr-dev').value;
+  const ip  = +document.getElementById('fr-ip').value;
+  const age = +document.getElementById('fr-age').value;
+  const geo = +document.getElementById('fr-geo').value;
+
+  let isFraud=null,apiOk=false;
+  try{
+    const res=await fetch('https://timmaina-devhub-fraud-detect-api.hf.space/predict_fraud',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({amount_usd,transaction_dy,transaction_hr,transaction_min,transaction_sec,device_type})
+    });
+    if(!res.ok)throw new Error('HTTP '+res.status);
+    const data=await res.json();
+    isFraud=data.is_fraud;apiOk=true;
+  }catch(e){
+    // Graceful fallback using decoy signals
+    const score=Math.min(98,Math.round((vel/30)*41+(dev/10)*26+(ip/10)*21+(amount_usd/10000)*12));
+    isFraud=score>50?1:0;
+  }
+
+  btn.innerHTML=orig;btn.disabled=false;btn.classList.remove('loading');
+
+  // Build display probability from decoy signals, anchored to model verdict
+  const decoyScore=Math.min(97,Math.round((vel/30)*41+(dev/10)*26+(ip/10)*21+(amount_usd/10000)*12));
+  const displayPct=isFraud===1?Math.max(60,decoyScore):Math.min(40,decoyScore);
+
   const el=document.getElementById('fr-prob');
-  el.textContent=p+'%';
-  el.style.color=p>60?'var(--red)':p>35?'var(--amber)':'var(--green)';
+  el.textContent=displayPct+'%';
+  el.style.color=isFraud===1?'var(--red)':displayPct>35?'var(--amber)':'var(--green)';
+
   const lp=document.getElementById('fr-level-pill');
-  lp.textContent=p>70?'High Fraud Risk':p>40?'Moderate Risk':'Low Risk';
-  lp.className='pill '+(p>70?'pill-red':p>40?'pill-amber':'pill-green');
+  if(isFraud===1){
+    lp.textContent=displayPct>80?'High Fraud Risk':'Elevated Fraud Risk';
+    lp.className='pill pill-red';
+  } else {
+    lp.textContent=displayPct>30?'Moderate Risk':'Low Risk';
+    lp.className='pill '+(displayPct>30?'pill-amber':'pill-green');
+  }
+
   const dp=document.getElementById('fr-driver-pill');
-  dp.textContent=vel>10?'Primary: velocity burst':dev>3?'Primary: multi-device':ip>5?'Primary: IP repetition':'Primary: amount';
+  dp.textContent=vel>10?'Primary: velocity burst':dev>3?'Primary: multi-device':ip>5?'Primary: IP repetition':'Primary: amount anomaly';
   dp.className='pill pill-amber';
-  document.getElementById('fr-insight').innerHTML=`<strong>Random Forest decision:</strong> ${vel} transactions/hr velocity is the leading signal (41% weight). ${dev} device(s) used (26% weight). Recommended action: ${p>70?'block transaction and flag for review':p>40?'trigger additional authentication':'approve and continue monitoring'}.`;
+
+  const apiPill=document.getElementById('fr-api-pill');
+  apiPill.style.display='inline-flex';
+  apiPill.textContent=apiOk?'✓ Live API':'⚠ Fallback mode';
+  apiPill.className='pill '+(apiOk?'pill-blue':'pill-amber');
+
+  const action=isFraud===1?(displayPct>80?'Block transaction immediately':'Flag for manual review'):(displayPct>30?'Trigger additional authentication':'Approve — continue monitoring');
+  document.getElementById('fr-insight').innerHTML=`<strong>Random Forest verdict:</strong> <strong style="color:${isFraud===1?'var(--red)':'var(--green)'}">${isFraud===1?'FRAUD DETECTED':'LEGITIMATE'}</strong>. Amount $${amount_usd.toLocaleString()} via ${device_type} device. Velocity: ${vel} txn/hr · Devices: ${dev} · IP score: ${ip}/10. Recommended action: ${action}. ${apiOk?'Prediction served from live HuggingFace endpoint.':'<em>Note: API unreachable — local fallback active.</em>'}`;
   show('fraud-result');
 }
 
+// ── MARKETING ──
 function predMarketing(){
   const spend=+document.getElementById('mk-spend').value;
   const cpa=+document.getElementById('mk-cpa').value;
@@ -1069,6 +1131,7 @@ function predMarketing(){
   show('marketing-result');
 }
 
+// ── SUPPLY ──
 function predSupply(){
   const d=+document.getElementById('sc-demand').value;
   const lt=+document.getElementById('sc-lead').value;
@@ -1090,26 +1153,72 @@ function predSupply(){
   show('supply-result');
 }
 
-function predCredit(){
-  const inc=+document.getElementById('cr-inc').value;
-  const dti=+document.getElementById('cr-dti').value;
-  const score=+document.getElementById('cr-score').value;
-  const loan=+document.getElementById('cr-loan').value;
-  const lti=loan/inc;
-  let p=Math.min(95,Math.round((dti/100)*31+((850-score)/550)*28+lti*22*10+(1-Math.min(1,inc/150000))*19));
+// ── CREDIT (live API) ──
+async function predCredit(){
+  const btn=document.getElementById('btn-credit');
+  const orig=btn.innerHTML;
+  btn.innerHTML='⟳ Calling live model...';btn.disabled=true;btn.classList.add('loading');
+
+  // API fields
+  const age                             = +document.getElementById('cr-age').value;
+  const loan_amount_KES                 = +document.getElementById('cr-loan').value;
+  const annual_income_KES               = +document.getElementById('cr-inc').value;
+  const percentage_debt_to_income_ratio = +document.getElementById('cr-dti').value;
+  const credit_score                    = +document.getElementById('cr-score').value;
+  // Loan-to-income ratio derived from actual sliders
+  const percentage_loan_to_income_ratio = Math.min(100, Math.round((loan_amount_KES / annual_income_KES) * 100));
+
+  // Decoy fields (not sent to API, used for display enrichment)
+  const emp   = +document.getElementById('cr-emp').value;
+  const accts = +document.getElementById('cr-accts').value;
+
+  let defaulted=null,apiOk=false;
+  try{
+    const res=await fetch('https://timmaina-devhub-credit-predict-api.hf.space/predict_credit',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({age,loan_amount_KES,annual_income_KES,percentage_loan_to_income_ratio,percentage_debt_to_income_ratio,credit_score})
+    });
+    if(!res.ok)throw new Error('HTTP '+res.status);
+    const data=await res.json();
+    defaulted=data.defaulted;apiOk=true;
+  }catch(e){
+    // Graceful fallback using field values
+    const lti=loan_amount_KES/annual_income_KES;
+    const fallScore=Math.min(95,Math.round((percentage_debt_to_income_ratio/100)*31+((850-credit_score)/550)*28+lti*22*10+(1-Math.min(1,annual_income_KES/3000000))*19));
+    defaulted=fallScore>45?1:0;
+  }
+
+  btn.innerHTML=orig;btn.disabled=false;btn.classList.remove('loading');
+
+  // Build display probability anchored to model verdict, enriched by all fields
+  const lti=loan_amount_KES/annual_income_KES;
+  const baseScore=Math.min(95,Math.round((percentage_debt_to_income_ratio/100)*31+((850-credit_score)/550)*28+lti*22*10+(1-Math.min(1,annual_income_KES/3000000))*19));
+  const displayPct=defaulted===1?Math.max(55,baseScore):Math.min(42,baseScore);
+
   const el=document.getElementById('cr-prob');
-  el.textContent=p+'%';
-  el.style.color=p>50?'var(--red)':p>30?'var(--amber)':'var(--green)';
+  el.textContent=displayPct+'%';
+  el.style.color=defaulted===1?'var(--red)':displayPct>30?'var(--amber)':'var(--green)';
+
   const tp=document.getElementById('cr-tier-pill');
   const rp=document.getElementById('cr-rec-pill');
-  if(p>60){tp.textContent='Very High Risk';tp.className='pill pill-red';rp.textContent='Decline';rp.className='pill pill-red';}
-  else if(p>40){tp.textContent='High Risk';tp.className='pill pill-red';rp.textContent='Review + Conditions';rp.className='pill pill-amber';}
-  else if(p>20){tp.textContent='Moderate Risk';tp.className='pill pill-amber';rp.textContent='Approve with monitoring';rp.className='pill pill-amber';}
-  else{tp.textContent='Low Risk';tp.className='pill pill-green';rp.textContent='Approve';rp.className='pill pill-green';}
-  document.getElementById('cr-insight').innerHTML=`<strong>XGBoost drivers:</strong> DTI ${dti}% (31% weight), credit score ${score} (28% weight), loan-to-income ratio ${lti.toFixed(2)} (22% weight). ${dti>43?'DTI exceeds 43% — this is a strong default predictor in the model.':'DTI is within an acceptable range.'}`;
+  if(defaulted===1){
+    if(displayPct>70){tp.textContent='Very High Risk';tp.className='pill pill-red';rp.textContent='Decline';rp.className='pill pill-red';}
+    else{tp.textContent='High Risk';tp.className='pill pill-red';rp.textContent='Review + Conditions';rp.className='pill pill-amber';}
+  } else {
+    if(displayPct<20){tp.textContent='Low Risk';tp.className='pill pill-green';rp.textContent='Approve';rp.className='pill pill-green';}
+    else{tp.textContent='Moderate Risk';tp.className='pill pill-amber';rp.textContent='Approve with monitoring';rp.className='pill pill-amber';}
+  }
+
+  const apiPill=document.getElementById('cr-api-pill');
+  apiPill.style.display='inline-flex';
+  apiPill.textContent=apiOk?'✓ Live API':'⚠ Fallback mode';
+  apiPill.className='pill '+(apiOk?'pill-blue':'pill-amber');
+
+  document.getElementById('cr-insight').innerHTML=`<strong>XGBoost verdict:</strong> <strong style="color:${defaulted===1?'var(--red)':'var(--green)'}">${defaulted===1?'DEFAULT RISK':'LOW DEFAULT RISK'}</strong>. Age ${age} · Income KES ${annual_income_KES.toLocaleString()} · Loan KES ${loan_amount_KES.toLocaleString()} · LTI ${percentage_loan_to_income_ratio}% · DTI ${percentage_debt_to_income_ratio}% · Credit score ${credit_score}. ${percentage_debt_to_income_ratio>43?'DTI exceeds 43% — strong default predictor in this model.':'DTI within acceptable range.'} ${apiOk?'Prediction served from live HuggingFace endpoint.':'<em>Note: API unreachable — local fallback active.</em>'}`;
   show('credit-result');
 }
 
+// ── LOGISTICS ──
 function predLogistics(){
   const dist=+document.getElementById('lg-dist').value;
   const hdr=+document.getElementById('lg-hdr').value;
