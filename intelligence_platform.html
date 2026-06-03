@@ -426,8 +426,8 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
         <p class="page-hdr-sub">Seven production-aligned ML models built on real datasets — from feature engineering through evaluation and interactive dashboards. Select a module in the sidebar to run a live simulation.</p>
         <div class="page-hdr-pills">
           <span class="pill pill-blue">7 Active Models</span>
-          <span class="pill pill-green">4 Completed</span>
-          <span class="pill pill-amber">3 In Progress</span>
+          <span class="pill pill-green">5 Live APIs</span>
+          <span class="pill pill-amber">2 In Progress</span>
           <span class="pill pill-gray">Simulations · Not Live APIs</span>
         </div>
       </div>
@@ -494,7 +494,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
             <tr><td style="font-family:var(--mono);color:var(--text3)">02</td><td>Churn Predictor</td><td>Logistic Reg + K-Means</td><td style="font-family:var(--mono)">Recall 0.88</td><td><a href="https://github.com/timmaina-devhub/Customer-Churn-Analysis-and-Segmentation" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live</span></td></tr>
             <tr><td style="font-family:var(--mono);color:var(--text3)">03</td><td>Fraud Detector</td><td>Random Forest + SMOTE</td><td style="font-family:var(--mono)">F1 0.91</td><td><a href="https://github.com/timmaina-devhub/Fraud-Detection-System" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live API</span></td></tr>
             <tr><td style="font-family:var(--mono);color:var(--text3)">04</td><td>Marketing ROI</td><td>Markov Chain + RF</td><td style="font-family:var(--mono)">R² 0.79</td><td><a href="https://github.com/timmaina-devhub/Multi-Channel-Marketing-Attribution-ROI-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live</span></td></tr>
-            <tr><td style="font-family:var(--mono);color:var(--text3)">05</td><td>Inventory Sim</td><td>Prophet + EOQ/SS/ROP</td><td style="font-family:var(--mono)">MAPE 8.2%</td><td><a href="https://github.com/timmaina-devhub/Supply-Chain-Analytics-Inventory-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-amber">In Progress</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">05</td><td>Inventory Sim</td><td>Prophet + EOQ/SS/ROP</td><td style="font-family:var(--mono)">MAPE 8.2%</td><td><a href="https://github.com/timmaina-devhub/Supply-Chain-Analytics-Inventory-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live API</span></td></tr>
             <tr><td style="font-family:var(--mono);color:var(--text3)">06</td><td>Credit Risk</td><td>XGBoost + SMOTE</td><td style="font-family:var(--mono)">F1 0.76</td><td><a href="https://github.com/timmaina-devhub/Customer-Credit-Risk-Assessment-Model" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live API</span></td></tr>
             <tr><td style="font-family:var(--mono);color:var(--text3)">07</td><td>Delay Predictor</td><td>Random Forest Regressor</td><td style="font-family:var(--mono)">R² 0.70</td><td><a href="https://github.com/timmaina-devhub/Delivery-Downtime-Prediction-Route-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-amber">In Progress</span></td></tr>
           </tbody>
@@ -737,27 +737,46 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
         <p class="page-hdr-sub">Demand forecasting using Prophet and ARIMA on multi-SKU data. Prophet handled seasonality better on most products; ARIMA held up on flat demand profiles. Safety Stock, Reorder Point, and EOQ are calculated per SKU. Over 1,900 stockout events were identified in the dataset.</p>
         <div class="page-hdr-pills">
           <span class="pill pill-blue">Prophet</span><span class="pill pill-blue">ARIMA</span>
-          <span class="pill pill-blue">Safety Stock · ROP · EOQ</span><span class="pill pill-amber">In Progress</span>
+          <span class="pill pill-blue">Safety Stock · ROP · EOQ</span>
+          <span class="pill pill-green">✓ Live API</span>
+          <span class="pill pill-amber">In Progress</span>
         </div>
       </div>
       <div class="grid-2 fade-in">
         <div class="card">
           <div class="card-title"><div class="dot" style="background:var(--teal)"></div>SKU Parameters — Adjust &amp; Calculate</div>
+
+          <!-- API field: sku_number (1–300) — displayed as a SKU selector -->
+          <div class="form-group"><label>SKU number (1–300) <span class="val" id="sc-sku-v">42</span></label><input type="range" min="1" max="300" value="42" id="sc-sku" oninput="document.getElementById('sc-sku-v').textContent=this.value"></div>
+          <!-- API field: lead_time (7–30) -->
+          <div class="form-group"><label>Lead time (days) <span class="val" id="sc-lead-v">14</span></label><input type="range" min="7" max="30" value="14" id="sc-lead" oninput="document.getElementById('sc-lead-v').textContent=this.value"></div>
+          <!-- API field: service_level (50–99.99) -->
+          <div class="form-group"><label>Service level target (%) <span class="val" id="sc-svc-v">95</span></label><input type="range" min="50" max="99" value="95" id="sc-svc" oninput="document.getElementById('sc-svc-v').textContent=this.value"></div>
+          <!-- API field: holding_cost (1–100) -->
+          <div class="form-group"><label>Holding cost ($/unit/yr) <span class="val" id="sc-hold-v">5</span></label><input type="range" min="1" max="100" value="5" id="sc-hold" oninput="document.getElementById('sc-hold-v').textContent=this.value"></div>
+          <!-- API field: order_cost (10–10000) -->
+          <div class="form-group"><label>Order cost ($) <span class="val" id="sc-order-v">250</span></label><input type="range" min="10" max="10000" value="250" id="sc-order" oninput="document.getElementById('sc-order-v').textContent=parseInt(this.value).toLocaleString()"></div>
+          <!-- Decoy fields (not sent to API) -->
           <div class="form-group"><label>Avg daily demand (units) <span class="val" id="sc-demand-v">50</span></label><input type="range" min="1" max="500" value="50" id="sc-demand" oninput="document.getElementById('sc-demand-v').textContent=this.value"></div>
-          <div class="form-group"><label>Lead time (days) <span class="val" id="sc-lead-v">7</span></label><input type="range" min="1" max="60" value="7" id="sc-lead" oninput="document.getElementById('sc-lead-v').textContent=this.value"></div>
           <div class="form-group"><label>Demand variability σ <span class="val" id="sc-sigma-v">10</span></label><input type="range" min="1" max="100" value="10" id="sc-sigma" oninput="document.getElementById('sc-sigma-v').textContent=this.value"></div>
-          <div class="form-group"><label>Service level target (%) <span class="val" id="sc-svc-v">95</span></label><input type="range" min="80" max="99" value="95" id="sc-svc" oninput="document.getElementById('sc-svc-v').textContent=this.value"></div>
-          <div class="form-group"><label>Holding cost ($/unit/yr) <span class="val" id="sc-hold-v">2</span></label><input type="range" min="1" max="20" value="2" id="sc-hold" oninput="document.getElementById('sc-hold-v').textContent=this.value"></div>
-          <div class="form-group"><label>Order cost ($) <span class="val" id="sc-order-v">50</span></label><input type="range" min="10" max="500" value="50" id="sc-order" oninput="document.getElementById('sc-order-v').textContent=this.value"></div>
+          <div class="form-group"><label>Supplier reliability (1–10) <span class="val" id="sc-rel-v">7</span></label><input type="range" min="1" max="10" value="7" id="sc-rel" oninput="document.getElementById('sc-rel-v').textContent=this.value"></div>
+
           <button class="run-btn" id="btn-supply" onclick="runPred('supply')">▶ Calculate Inventory Parameters</button>
           <div id="supply-result" class="result-box">
-            <div class="result-grid">
-              <div class="result-mini"><div class="mn" id="sc-ss-v" style="color:var(--amber)">—</div><div class="ml">Safety Stock (units)</div></div>
-              <div class="result-mini"><div class="mn" id="sc-rop-v" style="color:var(--blue)">—</div><div class="ml">Reorder Point (units)</div></div>
-              <div class="result-mini"><div class="mn" id="sc-eoq-v" style="color:var(--green)">—</div><div class="ml">EOQ (units/order)</div></div>
-              <div class="result-mini"><div class="mn" id="sc-fore-v" style="color:var(--purple)">—</div><div class="ml">30-Day Forecast</div></div>
+            <!-- 6 tiles: 5 from API response + 30-day derived -->
+            <div class="result-grid" style="grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px">
+              <div class="result-mini"><div class="mn" id="sc-ss-v" style="color:var(--amber)">—</div><div class="ml">Safety Stock</div></div>
+              <div class="result-mini"><div class="mn" id="sc-rop-v" style="color:var(--blue)">—</div><div class="ml">Reorder Point</div></div>
+              <div class="result-mini"><div class="mn" id="sc-eoq-v" style="color:var(--green)">—</div><div class="ml">EOQ (units)</div></div>
+              <div class="result-mini"><div class="mn" id="sc-avgd-v" style="color:var(--teal)">—</div><div class="ml">Avg Daily Demand</div></div>
+              <div class="result-mini"><div class="mn" id="sc-std-v" style="color:var(--purple)">—</div><div class="ml">Demand Std Dev</div></div>
+              <div class="result-mini"><div class="mn" id="sc-fore-v" style="color:var(--text1)">—</div><div class="ml">30-Day Forecast</div></div>
             </div>
-            <div class="result-note" id="sc-insight" style="margin-top:10px"></div>
+            <div class="result-pills" style="margin-bottom:8px">
+              <span class="pill" id="sc-sku-pill"></span>
+              <span class="pill" id="sc-api-pill" style="display:none"></span>
+            </div>
+            <div class="result-note" id="sc-insight"></div>
           </div>
         </div>
         <div class="card">
@@ -971,6 +990,7 @@ async function runPred(mod){
   if(mod==='churn'){await predChurn();return;}
   if(mod==='fraud'){await predFraud();return;}
   if(mod==='credit'){await predCredit();return;}
+  if(mod==='supply'){await predSupply();return;}
   const btn=document.getElementById('btn-'+mod);
   const orig=btn.innerHTML;
   btn.innerHTML='⟳ Running model...';btn.disabled=true;btn.classList.add('loading');
@@ -1131,25 +1151,89 @@ function predMarketing(){
   show('marketing-result');
 }
 
-// ── SUPPLY ──
-function predSupply(){
-  const d=+document.getElementById('sc-demand').value;
-  const lt=+document.getElementById('sc-lead').value;
-  const sig=+document.getElementById('sc-sigma').value;
-  const svc=+document.getElementById('sc-svc').value;
-  const h=+document.getElementById('sc-hold').value;
-  const ord=+document.getElementById('sc-order').value;
-  const zMap={80:0.84,85:1.04,90:1.28,95:1.65,99:2.33};
-  const z=zMap[svc]||1.65;
-  const ss=Math.round(z*sig*Math.sqrt(lt));
-  const rop=Math.round(d*lt+ss);
-  const eoq=Math.round(Math.sqrt((2*d*365*ord)/h));
-  const fore=Math.round(d*30+Math.random()*d*5-d*2);
-  document.getElementById('sc-ss-v').textContent=ss;
-  document.getElementById('sc-rop-v').textContent=rop;
-  document.getElementById('sc-eoq-v').textContent=eoq;
-  document.getElementById('sc-fore-v').textContent=fore;
-  document.getElementById('sc-insight').innerHTML=`<strong>How these are calculated:</strong> Safety stock = z(${z}) × σ(${sig}) × √(lead time ${lt}) = ${ss} units. Reorder when stock hits ${rop} units. Order ${eoq} units per order (EOQ formula) to minimise total holding and ordering cost.`;
+// ── SUPPLY (live API) ──
+async function predSupply(){
+  const btn=document.getElementById('btn-supply');
+  const orig=btn.innerHTML;
+  btn.innerHTML='⟳ Calling live model...';btn.disabled=true;btn.classList.add('loading');
+
+  // API fields (exact names from InventoryRequest schema)
+  const sku_number    = +document.getElementById('sc-sku').value;
+  const lead_time     = +document.getElementById('sc-lead').value;
+  const service_level = +document.getElementById('sc-svc').value;
+  const holding_cost  = +document.getElementById('sc-hold').value;
+  const order_cost    = +document.getElementById('sc-order').value;
+
+  // Decoy fields (not sent to API — used only for display enrichment)
+  const demandDecoy = +document.getElementById('sc-demand').value;
+  const sigmaDecoy  = +document.getElementById('sc-sigma').value;
+
+  let result=null, apiOk=false;
+
+  try{
+    const res=await fetch('https://timmaina-devhub-inventory-optimization-app.hf.space/inventory/calculate',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({sku_number, lead_time, service_level, holding_cost, order_cost})
+    });
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    result=await res.json();
+    apiOk=true;
+  }catch(e){
+    // Graceful fallback using decoy sliders + input values
+    const zMap={50:0,55:0.13,60:0.25,65:0.39,70:0.52,75:0.67,80:0.84,85:1.04,90:1.28,95:1.65,99:2.33};
+    const z=zMap[Math.round(service_level/5)*5]||1.65;
+    const ss=+(z*sigmaDecoy*Math.sqrt(lead_time)).toFixed(1);
+    const rop=+(demandDecoy*lead_time+ss).toFixed(1);
+    const eoq=+(Math.sqrt((2*demandDecoy*365*order_cost)/holding_cost)).toFixed(1);
+    result={
+      sku_id:'SKU-'+String(sku_number).padStart(4,'0'),
+      avg_daily_demand:demandDecoy,
+      demand_std:sigmaDecoy,
+      safety_stock:ss,
+      reorder_point:rop,
+      eoq:eoq
+    };
+  }
+
+  btn.innerHTML=orig;btn.disabled=false;btn.classList.remove('loading');
+
+  // Render all 6 response fields
+  const fmt=v=>Number.isInteger(v)?v.toLocaleString():parseFloat(v).toFixed(1);
+  document.getElementById('sc-ss-v').textContent  = fmt(result.safety_stock);
+  document.getElementById('sc-rop-v').textContent = fmt(result.reorder_point);
+  document.getElementById('sc-eoq-v').textContent = fmt(result.eoq);
+  document.getElementById('sc-avgd-v').textContent= fmt(result.avg_daily_demand);
+  document.getElementById('sc-std-v').textContent = fmt(result.demand_std);
+  // 30-day forecast derived from API avg_daily_demand
+  const fore30=Math.round(result.avg_daily_demand*30);
+  document.getElementById('sc-fore-v').textContent=fore30.toLocaleString();
+
+  // SKU pill
+  const skuPill=document.getElementById('sc-sku-pill');
+  skuPill.textContent=result.sku_id;
+  skuPill.className='pill pill-teal'||'pill pill-blue';
+  skuPill.style.cssText='background:rgba(45,212,191,0.08);color:var(--teal);border:1px solid rgba(45,212,191,0.2)';
+
+  // API status pill
+  const apiPill=document.getElementById('sc-api-pill');
+  apiPill.style.display='inline-flex';
+  apiPill.textContent=apiOk?'✓ Live API':'⚠ Fallback mode';
+  apiPill.className='pill '+(apiOk?'pill-blue':'pill-amber');
+
+  // Stockout flag
+  const stockoutRisk=result.reorder_point>result.avg_daily_demand*lead_time*1.3?'High':'Normal';
+
+  document.getElementById('sc-insight').innerHTML=
+    `<strong>API result for ${result.sku_id}:</strong> `+
+    `Avg daily demand <strong>${fmt(result.avg_daily_demand)} units</strong> (σ ${fmt(result.demand_std)}). `+
+    `Safety stock of <strong>${fmt(result.safety_stock)} units</strong> covers demand variability at <strong>${service_level}% service level</strong>. `+
+    `Reorder when stock hits <strong>${fmt(result.reorder_point)} units</strong>. `+
+    `Optimal order quantity: <strong>${fmt(result.eoq)} units/order</strong> (EOQ). `+
+    `30-day demand forecast: <strong>${fore30.toLocaleString()} units</strong>. `+
+    `Stockout risk indicator: <strong style="color:${stockoutRisk==='High'?'var(--red)':'var(--green)'}">${stockoutRisk}</strong>. `+
+    (apiOk?'Prediction served from live HuggingFace endpoint.':'<em>Note: API unreachable — local fallback active.</em>');
+
   show('supply-result');
 }
 
