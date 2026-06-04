@@ -492,7 +492,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
             <tr><td style="font-family:var(--mono);color:var(--text3)">01</td><td>Sales Forecast</td><td>ARIMA / Prophet</td><td style="font-family:var(--mono)">R² 0.84</td><td><a href="https://github.com/timmaina-devhub/superstore-executive-dashboard" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live</span></td></tr>
             <tr><td style="font-family:var(--mono);color:var(--text3)">02</td><td>Churn Predictor</td><td>Logistic Reg + K-Means</td><td style="font-family:var(--mono)">Recall 0.88</td><td><a href="https://github.com/timmaina-devhub/Customer-Churn-Analysis-and-Segmentation" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live</span></td></tr>
             <tr><td style="font-family:var(--mono);color:var(--text3)">03</td><td>Fraud Detector</td><td>Random Forest + SMOTE</td><td style="font-family:var(--mono)">F1 0.91</td><td><a href="https://github.com/timmaina-devhub/Fraud-Detection-System" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live API</span></td></tr>
-            <tr><td style="font-family:var(--mono);color:var(--text3)">04</td><td>Marketing ROI</td><td>Markov Chain + RF</td><td style="font-family:var(--mono)">R² 0.79</td><td><a href="https://github.com/timmaina-devhub/Multi-Channel-Marketing-Attribution-ROI-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">04</td><td>Marketing ROI</td><td>Markov Chain + RF</td><td style="font-family:var(--mono)">R² 0.79</td><td><a href="https://github.com/timmaina-devhub/Multi-Channel-Marketing-Attribution-ROI-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live API</span></td></tr>
             <tr><td style="font-family:var(--mono);color:var(--text3)">05</td><td>Inventory Sim</td><td>Prophet + EOQ/SS/ROP</td><td style="font-family:var(--mono)">MAPE 8.2%</td><td><a href="https://github.com/timmaina-devhub/Supply-Chain-Analytics-Inventory-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live API</span></td></tr>
             <tr><td style="font-family:var(--mono);color:var(--text3)">06</td><td>Credit Risk</td><td>XGBoost + SMOTE</td><td style="font-family:var(--mono)">F1 0.76</td><td><a href="https://github.com/timmaina-devhub/Customer-Credit-Risk-Assessment-Model" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live API</span></td></tr>
             <tr><td style="font-family:var(--mono);color:var(--text3)">07</td><td>Delay Predictor</td><td>Random Forest Regressor</td><td style="font-family:var(--mono)">R² 0.70</td><td><a href="https://github.com/timmaina-devhub/Delivery-Downtime-Prediction-Route-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live API</span></td></tr>
@@ -690,21 +690,33 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
         <p class="page-hdr-sub">Markov Chain attribution distributes conversion credit across all channel touchpoints, not just the last click. A Random Forest then predicts campaign revenue. CPA was the dominant revenue predictor — more so than total spend or impressions.</p>
         <div class="page-hdr-pills">
           <span class="pill pill-blue">Markov Chain Attribution</span><span class="pill pill-blue">Random Forest</span>
-          <span class="pill pill-green">Completed · R² 0.79</span>
+          <span class="pill pill-green">Completed · R² 0.79</span><span class="pill pill-green">✓ Live API</span>
         </div>
       </div>
       <div class="grid-2 fade-in">
         <div class="card">
           <div class="card-title"><div class="dot" style="background:var(--blue)"></div>Campaign Inputs</div>
+          <!-- API field: campaign_spend -->
           <div class="form-group"><label>Total campaign spend ($) <span class="val" id="mk-spend-v">5,000</span></label><input type="range" min="500" max="100000" value="5000" id="mk-spend" oninput="document.getElementById('mk-spend-v').textContent=parseInt(this.value).toLocaleString()"></div>
+          <!-- API field: cpa -->
           <div class="form-group"><label>Cost per acquisition ($) <span class="val" id="mk-cpa-v">45</span></label><input type="range" min="1" max="500" value="45" id="mk-cpa" oninput="document.getElementById('mk-cpa-v').textContent=this.value"></div>
+          <!-- API field: average_order_value — displayed as "Avg basket value" -->
+          <div class="form-group"><label>Avg basket value ($) <span class="val" id="mk-aov-v">85</span></label><input type="range" min="5" max="2000" value="85" id="mk-aov" oninput="document.getElementById('mk-aov-v').textContent=parseInt(this.value).toLocaleString()"></div>
+          <!-- Decoy fields (not sent to API) -->
           <div class="form-group"><label>Conversion rate (%) <span class="val" id="mk-conv-v">4</span></label><input type="range" min="1" max="30" value="4" id="mk-conv" oninput="document.getElementById('mk-conv-v').textContent=this.value"></div>
           <div class="form-group"><label>Channel touchpoints <span class="val" id="mk-touch-v">3</span></label><input type="range" min="1" max="8" value="3" id="mk-touch" oninput="document.getElementById('mk-touch-v').textContent=this.value"></div>
-          <button class="run-btn" id="btn-marketing" onclick="runPred('marketing')">▶ Predict Revenue</button>
+          <div class="form-group"><label>Impression share (%) <span class="val" id="mk-imp-v">62</span></label><input type="range" min="5" max="100" value="62" id="mk-imp" oninput="document.getElementById('mk-imp-v').textContent=this.value"></div>
+          <div class="form-group"><label>Audience reach score (1–10) <span class="val" id="mk-reach-v">6</span></label><input type="range" min="1" max="10" value="6" id="mk-reach" oninput="document.getElementById('mk-reach-v').textContent=this.value"></div>
+          <button class="run-btn" id="btn-marketing" onclick="runPred('marketing')">▶ Predict Revenue &amp; ROI</button>
           <div id="marketing-result" class="result-box">
             <div class="result-lbl">Predicted Revenue</div>
             <div class="result-num" id="mk-rev" style="color:var(--green)">—</div>
-            <div class="result-pills"><span class="pill" id="mk-roi-pill"></span><span class="pill pill-gray" id="mk-ch-pill"></span></div>
+            <div class="result-pills">
+              <span class="pill" id="mk-roi-pill"></span>
+              <span class="pill" id="mk-conv-pill"></span>
+              <span class="pill pill-gray" id="mk-ch-pill"></span>
+              <span class="pill" id="mk-api-pill" style="display:none"></span>
+            </div>
             <div class="result-note" id="mk-insight"></div>
           </div>
         </div>
@@ -1008,12 +1020,13 @@ async function runPred(mod){
   if(mod==='credit'){await predCredit();return;}
   if(mod==='supply'){await predSupply();return;}
   if(mod==='logistics'){await predLogistics();return;}
+  if(mod==='marketing'){await predMarketing();return;}
   const btn=document.getElementById('btn-'+mod);
   const orig=btn.innerHTML;
   btn.innerHTML='⟳ Running model...';btn.disabled=true;btn.classList.add('loading');
   await sleep(700+Math.random()*400);
   btn.innerHTML=orig;btn.disabled=false;btn.classList.remove('loading');
-  ({sales:predSales,marketing:predMarketing,supply:predSupply,logistics:predLogistics})[mod]?.();
+  ({sales:predSales})[mod]?.();
 }
 
 // ── SALES ──
@@ -1150,21 +1163,96 @@ async function predFraud(){
   show('fraud-result');
 }
 
-// ── MARKETING ──
-function predMarketing(){
-  const spend=+document.getElementById('mk-spend').value;
-  const cpa=+document.getElementById('mk-cpa').value;
-  const conv=+document.getElementById('mk-conv').value;
-  const touch=+document.getElementById('mk-touch').value;
-  const convs=Math.round((spend/cpa)*(conv/100)*touch*4);
-  const rev=Math.round(convs*85);
-  const roi=((rev-spend)/spend*100).toFixed(1);
-  document.getElementById('mk-rev').textContent='$'+rev.toLocaleString();
+// ── MARKETING (live API) ──
+async function predMarketing(){
+  const btn=document.getElementById('btn-marketing');
+  const orig=btn.innerHTML;
+  btn.innerHTML='⟳ Calling live model...';btn.disabled=true;btn.classList.add('loading');
+
+  // API fields (exact names from CampaignInput schema)
+  const campaign_spend      = +document.getElementById('mk-spend').value;
+  const cpa                 = +document.getElementById('mk-cpa').value;
+  const average_order_value = +document.getElementById('mk-aov').value;
+
+  // Decoy fields (not sent to API — display enrichment only)
+  const conv  = +document.getElementById('mk-conv').value;
+  const touch = +document.getElementById('mk-touch').value;
+  const imp   = +document.getElementById('mk-imp').value;
+  const reach = +document.getElementById('mk-reach').value;
+
+  let result=null, apiOk=false;
+
+  try{
+    const res=await fetch('https://timmaina-devhub-marketingattributionapi.hf.space/predict',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({campaign_spend, cpa, average_order_value})
+    });
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    result=await res.json();
+    apiOk=true;
+  }catch(e){
+    // Graceful fallback using all visible inputs
+    const convs=Math.round((campaign_spend/cpa)*(conv/100)*touch*3.8*(imp/100)*(reach/10));
+    const rev=Math.round(convs*average_order_value);
+    const roi_percent=parseFloat(((rev-campaign_spend)/campaign_spend*100).toFixed(1));
+    result={
+      predicted_conversions: convs,
+      predicted_revenue: rev,
+      roi_percent: roi_percent,
+      top_channels:[
+        {channel:'Email',attribution_percentage:34},
+        {channel:'Paid Search',attribution_percentage:28},
+        {channel:'Social',attribution_percentage:22},
+        {channel:'Display',attribution_percentage:16}
+      ],
+      recommendation: roi_percent>200
+        ?'Strong ROI — scale Email and Paid Search spend.'
+        :roi_percent>100
+        ?'Healthy returns — maintain current channel mix and test incrementally.'
+        :'ROI below 100% — reduce Display CPA or reallocate budget to Email.'
+    };
+  }
+
+  btn.innerHTML=orig;btn.disabled=false;btn.classList.remove('loading');
+
+  // Render results
+  const rev   = result.predicted_revenue;
+  const roi   = result.roi_percent;
+  const convs = result.predicted_conversions;
+
+  document.getElementById('mk-rev').textContent='$'+Math.round(rev).toLocaleString();
+  document.getElementById('mk-rev').style.color=roi>200?'var(--green)':roi>100?'var(--blue)':'var(--red)';
+
   const rp=document.getElementById('mk-roi-pill');
-  rp.textContent='ROI: '+roi+'%';
-  rp.className='pill '+(parseFloat(roi)>200?'pill-green':parseFloat(roi)>100?'pill-amber':'pill-red');
-  document.getElementById('mk-ch-pill').textContent='Best channel: Email ($12 CPA)';
-  document.getElementById('mk-insight').innerHTML=`<strong>Markov attribution:</strong> CPA of $${cpa} drives 38% of feature importance. At ${conv}% conversion with ${touch} touchpoints, predicted ${convs.toLocaleString()} conversions × $85 average order = $${rev.toLocaleString()}.`;
+  rp.textContent='ROI: '+roi.toFixed(1)+'%';
+  rp.className='pill '+(roi>200?'pill-green':roi>100?'pill-amber':'pill-red');
+
+  const cp=document.getElementById('mk-conv-pill');
+  cp.textContent=convs.toLocaleString()+' conversions';
+  cp.className='pill pill-blue';
+
+  // Top channel from API
+  const topCh=result.top_channels?.sort((a,b)=>b.attribution_percentage-a.attribution_percentage)[0];
+  document.getElementById('mk-ch-pill').textContent=topCh?`Top: ${topCh.channel} (${topCh.attribution_percentage}%)`:'Markov · RF v1.0';
+
+  // API status pill
+  const apiPill=document.getElementById('mk-api-pill');
+  apiPill.style.display='inline-flex';
+  apiPill.textContent=apiOk?'✓ Live API':'⚠ Fallback mode';
+  apiPill.className='pill '+(apiOk?'pill-blue':'pill-amber');
+
+  // Build channel attribution list for insight
+  const chList=result.top_channels?.map(c=>`${c.channel} ${c.attribution_percentage}%`).join(' · ')||'Email 34% · Search 28% · Social 22% · Display 16%';
+
+  document.getElementById('mk-insight').innerHTML=
+    `<strong>Markov Chain + RF verdict:</strong> `+
+    `Campaign spend <strong>$${campaign_spend.toLocaleString()}</strong> · Basket value <strong>$${average_order_value}</strong> · CPA <strong>$${cpa}</strong>. `+
+    `Predicted <strong>${convs.toLocaleString()} conversions</strong> → revenue <strong>$${Math.round(rev).toLocaleString()}</strong> (ROI <strong>${roi.toFixed(1)}%</strong>). `+
+    `Channel attribution: ${chList}. `+
+    `<strong>Recommendation:</strong> ${result.recommendation} `+
+    (apiOk?'Prediction served from live HuggingFace endpoint.':'<em>Note: API unreachable — local fallback active.</em>');
+
   show('marketing-result');
 }
 
