@@ -461,7 +461,6 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
 
       <!-- KPIs -->
       <div class="kpi-row fade-in">
-        <div class="kpi-card kc-blue"><div class="kpi-label">Sales Revenue</div><div class="kpi-val">$4.2M</div><div class="kpi-delta up">↑ 8.3% vs prior period</div></div>
         <div class="kpi-card kc-amber"><div class="kpi-label">Churn Rate</div><div class="kpi-val">14.2%</div><div class="kpi-delta warn">⚠ +1.8% month-on-month</div></div>
         <div class="kpi-card kc-red"><div class="kpi-label">Fraud Loss</div><div class="kpi-val">2.1%</div><div class="kpi-delta dn">↑ spike detected</div></div>
         <div class="kpi-card kc-green"><div class="kpi-label">Marketing ROI</div><div class="kpi-val">3.4×</div><div class="kpi-delta up">Email leading</div></div>
@@ -489,7 +488,6 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
         <table class="tbl">
           <thead><tr><th>#</th><th>Module</th><th>Algorithm</th><th>Key Metric</th><th>GitHub</th><th>Status</th></tr></thead>
           <tbody>
-            <tr><td style="font-family:var(--mono);color:var(--text3)">01</td><td>Sales Forecast</td><td>ARIMA / Prophet</td><td style="font-family:var(--mono)">R² 0.84</td><td><a href="https://github.com/timmaina-devhub/superstore-executive-dashboard" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live</span></td></tr>
             <tr><td style="font-family:var(--mono);color:var(--text3)">02</td><td>Churn Predictor</td><td>Logistic Reg + K-Means</td><td style="font-family:var(--mono)">Recall 0.88</td><td><a href="https://github.com/timmaina-devhub/Customer-Churn-Analysis-and-Segmentation" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live</span></td></tr>
             <tr><td style="font-family:var(--mono);color:var(--text3)">03</td><td>Fraud Detector</td><td>Random Forest + SMOTE</td><td style="font-family:var(--mono)">F1 0.91</td><td><a href="https://github.com/timmaina-devhub/Fraud-Detection-System" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live API</span></td></tr>
             <tr><td style="font-family:var(--mono);color:var(--text3)">04</td><td>Marketing ROI</td><td>Markov Chain + RF</td><td style="font-family:var(--mono)">R² 0.79</td><td><a href="https://github.com/timmaina-devhub/Multi-Channel-Marketing-Attribution-ROI-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live API</span></td></tr>
@@ -501,59 +499,6 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
       </div>
     </div><!-- /exec -->
 
-    <!-- ████ SALES ████ -->
-    <div id="page-sales" class="hidden">
-      <div class="page-hdr fade-in">
-        <div class="page-hdr-eyebrow">Module 01</div>
-        <h2>Superstore Sales Forecast</h2>
-        <p class="page-hdr-sub">4-year Superstore dataset. ARIMA and Prophet time-series models forecast 12 months of revenue by region and category. Several sub-categories were running at negative profit margin, which wasn't visible in the original reports.</p>
-        <div class="page-hdr-pills">
-          <span class="pill pill-blue">ARIMA</span><span class="pill pill-blue">Prophet</span>
-          <span class="pill pill-blue">Excel · Tableau</span><span class="pill pill-green">Completed</span>
-        </div>
-      </div>
-      <div class="grid-2 fade-in">
-        <div class="card">
-          <div class="card-title"><div class="dot" style="background:var(--blue)"></div>Forecast Inputs</div>
-          <div class="form-group"><label>Region <span class="val" id="s-reg-v">West</span></label><select id="s-region" onchange="document.getElementById('s-reg-v').textContent=this.value"><option>West</option><option>East</option><option>Central</option><option>South</option></select></div>
-          <div class="form-group"><label>Category <span class="val" id="s-cat-v">Technology</span></label><select id="s-cat" onchange="document.getElementById('s-cat-v').textContent=this.value"><option>Technology</option><option>Furniture</option><option>Office Supplies</option></select></div>
-          <div class="form-group"><label>Segment <span class="val" id="s-seg-v">Corporate</span></label><select id="s-seg" onchange="document.getElementById('s-seg-v').textContent=this.value"><option>Corporate</option><option>Consumer</option><option>Home Office</option></select></div>
-          <button class="run-btn" id="btn-sales" onclick="runPred('sales')">▶ Run 12-Month Forecast</button>
-          <div id="sales-result" class="result-box">
-            <div class="result-lbl">Predicted 12-Month Revenue</div>
-            <div class="result-num" id="sales-rev" style="color:var(--blue)">—</div>
-            <div class="result-pills"><span class="pill" id="sales-profit-pill"></span><span class="pill pill-gray">ARIMA v1.0</span></div>
-            <div class="result-note" id="sales-insight"></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-title"><div class="dot" style="background:var(--blue)"></div>Revenue Trend + 12-Month Forecast</div>
-          <div class="chart-wrap"><canvas id="c-sales" height="230"></canvas></div>
-        </div>
-      </div>
-      <div class="grid-2 fade-in">
-        <div class="card">
-          <div class="card-title"><div class="dot" style="background:var(--red)"></div>Loss-Making Sub-Categories</div>
-          <table class="tbl">
-            <thead><tr><th>Sub-Category</th><th>Region</th><th>Margin</th><th>Flag</th></tr></thead>
-            <tbody>
-              <tr><td>Tables</td><td>East</td><td style="color:var(--red);font-family:var(--mono)">-8.4%</td><td><span class="pill pill-red">Unprofitable</span></td></tr>
-              <tr><td>Bookcases</td><td>Central</td><td style="color:var(--red);font-family:var(--mono)">-2.1%</td><td><span class="pill pill-red">Unprofitable</span></td></tr>
-              <tr><td>Supplies</td><td>West</td><td style="color:var(--amber);font-family:var(--mono)">-0.9%</td><td><span class="pill pill-amber">Marginal</span></td></tr>
-              <tr><td>Machines</td><td>South</td><td style="color:var(--amber);font-family:var(--mono)">+1.2%</td><td><span class="pill pill-amber">Watch</span></td></tr>
-            </tbody>
-          </table>
-          <div class="info-box warn"><strong>Finding:</strong> Tables sub-category is consistently unprofitable in the East region. Revenue is positive but discounting erases the margin entirely.</div>
-        </div>
-        <div class="card">
-          <div class="card-title"><div class="dot" style="background:var(--amber)"></div>What drives the forecast?</div>
-          <div class="feat-row"><div class="feat-label"><span>Regional sales index</span><strong>42%</strong></div><div class="feat-track"><div class="feat-fill fb-blue" style="width:42%"></div></div></div>
-          <div class="feat-row"><div class="feat-label"><span>Category base revenue</span><strong>33%</strong></div><div class="feat-track"><div class="feat-fill fb-amber" style="width:33%"></div></div></div>
-          <div class="feat-row"><div class="feat-label"><span>Seasonality (ARIMA)</span><strong>25%</strong></div><div class="feat-track"><div class="feat-fill fb-green" style="width:25%"></div></div></div>
-          <div class="info-box"><strong>Note:</strong> The 12-month forecast includes uncertainty bands visible in the Tableau dashboard download on the projects page.</div>
-        </div>
-      </div>
-    </div><!-- /sales -->
 
     <!-- ████ CHURN ████ -->
     <div id="page-churn" class="hidden">
@@ -969,13 +914,7 @@ function buildCharts(page){
       {label:'Forecast ($K)',data:[...Array(10).fill(null),490,550,610,670,720,790],borderColor:AMB,borderDash:[5,3],fill:false,tension:.4,pointRadius:3,pointBackgroundColor:AMB,pointBorderColor:'#0a0c10',pointBorderWidth:2}
     ]},options:baseOpts({plugins:{legend:{display:true,labels:{color:'#7a849c',font:{size:10},boxWidth:10,usePointStyle:true}}}})});
   }
-  if(page==='sales'){
-    const rev=[280,310,295,340,320,380,360,410,390,450,420,490];
-    mk('c-sales',{type:'line',data:{labels:[...MONTHS,'Jan\'26','Feb\'26','Mar\'26','Apr\'26'],datasets:[
-      {label:'Revenue ($K)',data:[...rev,null,null,null,null],borderColor:BLU,backgroundColor:BLU+'15',fill:true,tension:.4,pointRadius:3,pointBackgroundColor:BLU,pointBorderColor:'#0a0c10',pointBorderWidth:2},
-      {label:'Forecast ($K)',data:[...Array(10).fill(null),430,465,510,540],borderColor:AMB,borderDash:[5,3],fill:false,tension:.4,pointRadius:3,pointBackgroundColor:AMB}
-    ]},options:baseOpts({plugins:{legend:{display:true,labels:{color:'#7a849c',font:{size:10},boxWidth:10,usePointStyle:true}}},scales:{y:{ticks:{...TICK,callback:v=>'$'+v+'K'},grid:{color:GRID},border:{color:'transparent'}},x:{ticks:TICK,grid:{color:'transparent'},border:{color:'transparent'}}}})});
-  }
+  
   if(page==='churn'){
     mk('c-churn-seg',{type:'bar',data:{labels:['Champions','Loyal','At-Risk','Need Attn','Inactive'],datasets:[{data:[420,310,185,240,120],backgroundColor:[GRN+'bb',TEA+'bb',RED+'bb',AMB+'bb',GRY+'bb'],borderRadius:5,borderSkipped:false}]},options:baseOpts()});
   }
@@ -1027,23 +966,6 @@ async function runPred(mod){
   await sleep(700+Math.random()*400);
   btn.innerHTML=orig;btn.disabled=false;btn.classList.remove('loading');
   ({sales:predSales})[mod]?.();
-}
-
-// ── SALES ──
-function predSales(){
-  const rm={West:1.15,East:1.0,Central:0.9,South:0.85};
-  const cb={Technology:520,Furniture:380,'Office Supplies':290};
-  const r=document.getElementById('s-region').value;
-  const c=document.getElementById('s-cat').value;
-  const rev=Math.round((cb[c]||380)*(rm[r]||1)*1000);
-  const el=document.getElementById('sales-rev');
-  el.textContent='$'+rev.toLocaleString();
-  el.style.color=rev>400000?'var(--green)':'var(--blue)';
-  const pp=document.getElementById('sales-profit-pill');
-  pp.textContent=rev>420000?'Strong margin':'Marginal profit';
-  pp.className='pill '+(rev>420000?'pill-green':'pill-amber');
-  document.getElementById('sales-insight').innerHTML=`<strong>How it was calculated:</strong> Regional sales index for ${r} (${Math.round((rm[r]||1)*100)}% multiplier) × ${c} base rate. ${r==='West'?'West region has the strongest historical performance across all categories.':'Seasonal uplift factored into Q4 projections.'}`;
-  show('sales-result');
 }
 
 // ── CHURN (live API) ──
