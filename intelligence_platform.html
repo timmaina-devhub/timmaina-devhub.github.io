@@ -386,26 +386,23 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
     </a>
 
     <div class="sb-section">Models</div>
-    <a href="#sales" class="nav-item" id="nav-sales">
-      <span class="nav-icon">📈</span> Sales Forecast <span class="nav-badge">01</span>
-    </a>
     <a href="#churn" class="nav-item" id="nav-churn">
-      <span class="nav-icon">👥</span> Churn Predictor <span class="nav-badge">02</span>
+      <span class="nav-icon">👥</span> Churn Predictor <span class="nav-badge">01</span>
     </a>
     <a href="#fraud" class="nav-item" id="nav-fraud">
-      <span class="nav-icon">🛡</span> Fraud Detector <span class="nav-badge">03</span>
+      <span class="nav-icon">🛡</span> Fraud Detector <span class="nav-badge">02</span>
     </a>
     <a href="#marketing" class="nav-item" id="nav-marketing">
-      <span class="nav-icon">📣</span> Marketing ROI <span class="nav-badge">04</span>
+      <span class="nav-icon">📣</span> Marketing ROI <span class="nav-badge">03</span>
     </a>
     <a href="#supply" class="nav-item" id="nav-supply">
-      <span class="nav-icon">📦</span> Inventory Sim <span class="nav-badge">05</span>
+      <span class="nav-icon">📦</span> Inventory Sim <span class="nav-badge">04</span>
     </a>
     <a href="#credit" class="nav-item" id="nav-credit">
-      <span class="nav-icon">💳</span> Credit Risk <span class="nav-badge">06</span>
+      <span class="nav-icon">💳</span> Credit Risk <span class="nav-badge">05</span>
     </a>
     <a href="#logistics" class="nav-item" id="nav-logistics">
-      <span class="nav-icon">🚚</span> Delay Predictor <span class="nav-badge">07</span>
+      <span class="nav-icon">🚚</span> Delay Predictor <span class="nav-badge">06</span>
     </a>
 
     <div class="sb-footer">
@@ -423,11 +420,10 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
       <div class="page-hdr fade-in">
         <div class="page-hdr-eyebrow">Overview</div>
         <h2>Decision Intelligence Platform</h2>
-        <p class="page-hdr-sub">Seven production-aligned ML models built on real datasets — from feature engineering through evaluation and interactive dashboards. Select a module in the sidebar to run a live simulation.</p>
+        <p class="page-hdr-sub">Six production-aligned ML models built on real datasets — from feature engineering through evaluation and interactive dashboards. Select a module in the sidebar to run a live simulation.</p>
         <div class="page-hdr-pills">
-          <span class="pill pill-blue">7 Active Models</span>
-          <span class="pill pill-green">7 Live APIs</span>
-          <span class="pill pill-gray">Simulations · Not Live APIs</span>
+          <span class="pill pill-blue">6 Active Models</span>
+          <span class="pill pill-green">6 Live APIs --HuggingFace</span>
         </div>
       </div>
 
@@ -488,12 +484,12 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
         <table class="tbl">
           <thead><tr><th>#</th><th>Module</th><th>Algorithm</th><th>Key Metric</th><th>GitHub</th><th>Status</th></tr></thead>
           <tbody>
-            <tr><td style="font-family:var(--mono);color:var(--text3)">02</td><td>Churn Predictor</td><td>Logistic Reg + K-Means</td><td style="font-family:var(--mono)">Recall 0.88</td><td><a href="https://github.com/timmaina-devhub/Customer-Churn-Analysis-and-Segmentation" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live</span></td></tr>
-            <tr><td style="font-family:var(--mono);color:var(--text3)">03</td><td>Fraud Detector</td><td>Random Forest + SMOTE</td><td style="font-family:var(--mono)">F1 0.91</td><td><a href="https://github.com/timmaina-devhub/Fraud-Detection-System" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live API</span></td></tr>
-            <tr><td style="font-family:var(--mono);color:var(--text3)">04</td><td>Marketing ROI</td><td>Markov Chain + RF</td><td style="font-family:var(--mono)">R² 0.79</td><td><a href="https://github.com/timmaina-devhub/Multi-Channel-Marketing-Attribution-ROI-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live API</span></td></tr>
-            <tr><td style="font-family:var(--mono);color:var(--text3)">05</td><td>Inventory Sim</td><td>Prophet + EOQ/SS/ROP</td><td style="font-family:var(--mono)">MAPE 8.2%</td><td><a href="https://github.com/timmaina-devhub/Supply-Chain-Analytics-Inventory-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live API</span></td></tr>
-            <tr><td style="font-family:var(--mono);color:var(--text3)">06</td><td>Credit Risk</td><td>XGBoost + SMOTE</td><td style="font-family:var(--mono)">F1 0.76</td><td><a href="https://github.com/timmaina-devhub/Customer-Credit-Risk-Assessment-Model" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live API</span></td></tr>
-            <tr><td style="font-family:var(--mono);color:var(--text3)">07</td><td>Delay Predictor</td><td>Random Forest Regressor</td><td style="font-family:var(--mono)">R² 0.70</td><td><a href="https://github.com/timmaina-devhub/Delivery-Downtime-Prediction-Route-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live API</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">01</td><td>Churn Predictor</td><td>Logistic Reg + K-Means</td><td style="font-family:var(--mono)">Recall 0.88</td><td><a href="https://github.com/timmaina-devhub/Customer-Churn-Analysis-and-Segmentation" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">02</td><td>Fraud Detector</td><td>Random Forest + SMOTE</td><td style="font-family:var(--mono)">F1 0.91</td><td><a href="https://github.com/timmaina-devhub/Fraud-Detection-System" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live API</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">03</td><td>Marketing ROI</td><td>Markov Chain + RF</td><td style="font-family:var(--mono)">R² 0.79</td><td><a href="https://github.com/timmaina-devhub/Multi-Channel-Marketing-Attribution-ROI-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live API</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">04</td><td>Inventory Sim</td><td>Prophet + EOQ/SS/ROP</td><td style="font-family:var(--mono)">MAPE 8.2%</td><td><a href="https://github.com/timmaina-devhub/Supply-Chain-Analytics-Inventory-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live API</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">05</td><td>Credit Risk</td><td>XGBoost + SMOTE</td><td style="font-family:var(--mono)">F1 0.76</td><td><a href="https://github.com/timmaina-devhub/Customer-Credit-Risk-Assessment-Model" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live API</span></td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--text3)">06</td><td>Delay Predictor</td><td>Random Forest Regressor</td><td style="font-family:var(--mono)">R² 0.70</td><td><a href="https://github.com/timmaina-devhub/Delivery-Downtime-Prediction-Route-Optimization" target="_blank" style="color:var(--blue);text-decoration:none;font-family:var(--mono);font-size:10.5px">→ repo</a></td><td><span class="pill pill-green">Live API</span></td></tr>
           </tbody>
         </table>
       </div>
