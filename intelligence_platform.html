@@ -499,7 +499,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
     <!-- ████ CHURN ████ -->
     <div id="page-churn" class="hidden">
       <div class="page-hdr fade-in">
-        <div class="page-hdr-eyebrow">Module 02</div>
+        <div class="page-hdr-eyebrow">Module 01</div>
         <h2>Customer Churn Predictor</h2>
         <p class="page-hdr-sub">RFM features (recency, frequency, monetary + refund rate) fed into a logistic regression model tuned for recall. K-Means then groups customers into behaviorally distinct segments. Days since last purchase and refund rate came out as the two strongest churn signals.</p>
         <div class="page-hdr-pills">
@@ -557,7 +557,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
     <!-- ████ FRAUD ████ -->
     <div id="page-fraud" class="hidden">
       <div class="page-hdr fade-in">
-        <div class="page-hdr-eyebrow">Module 03</div>
+        <div class="page-hdr-eyebrow">Module 02</div>
         <h2>Fraud Detection</h2>
         <p class="page-hdr-sub">Behavioural features — transaction velocity, device count, IP repetition, and time-window patterns — fed into a Random Forest. SMOTE handled class imbalance. Transaction velocity in the past hour was the single strongest predictor, well ahead of transaction amount.</p>
         <div class="page-hdr-pills">
@@ -627,7 +627,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
     <!-- ████ MARKETING ████ -->
     <div id="page-marketing" class="hidden">
       <div class="page-hdr fade-in">
-        <div class="page-hdr-eyebrow">Module 04</div>
+        <div class="page-hdr-eyebrow">Module 03</div>
         <h2>Marketing ROI &amp; Attribution</h2>
         <p class="page-hdr-sub">Markov Chain attribution distributes conversion credit across all channel touchpoints, not just the last click. A Random Forest then predicts campaign revenue. CPA was the dominant revenue predictor — more so than total spend or impressions.</p>
         <div class="page-hdr-pills">
@@ -685,7 +685,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
     <!-- ████ SUPPLY ████ -->
     <div id="page-supply" class="hidden">
       <div class="page-hdr fade-in">
-        <div class="page-hdr-eyebrow">Module 05</div>
+        <div class="page-hdr-eyebrow">Module 04</div>
         <h2>Inventory Optimisation</h2>
         <p class="page-hdr-sub">Demand forecasting using Prophet and ARIMA on multi-SKU data. Prophet handled seasonality better on most products; ARIMA held up on flat demand profiles. Safety Stock, Reorder Point, and EOQ are calculated per SKU. Over 1,900 stockout events were identified in the dataset.</p>
         <div class="page-hdr-pills">
@@ -749,7 +749,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
     <!-- ████ CREDIT ████ -->
     <div id="page-credit" class="hidden">
       <div class="page-hdr fade-in">
-        <div class="page-hdr-eyebrow">Module 06</div>
+        <div class="page-hdr-eyebrow">Module 05</div>
         <h2>Credit Risk Assessment</h2>
         <p class="page-hdr-sub">The target variable was reconstructed from a composite risk score — the original default label had weak predictive signal. Debt-to-income and loan-to-income ratios were more informative than raw credit score. XGBoost reached F1 0.76 with ~77% recall and ~75% precision.</p>
         <div class="page-hdr-pills">
@@ -801,7 +801,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
     <!-- ████ LOGISTICS ████ -->
     <div id="page-logistics" class="hidden">
       <div class="page-hdr fade-in">
-        <div class="page-hdr-eyebrow">Module 07</div>
+        <div class="page-hdr-eyebrow">Module 06</div>
         <h2>Delivery Delay Predictor</h2>
         <p class="page-hdr-sub">Traffic congestion and weather risk were proxied from GPS speed patterns and historical delay data — no external APIs needed. Several early feature candidates had to be removed because they were effectively restatements of the target variable. Final R² of 0.70 after removing leaky features that had inflated it to ~0.99.</p>
         <div class="page-hdr-pills">
