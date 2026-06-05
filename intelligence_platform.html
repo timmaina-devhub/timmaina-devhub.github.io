@@ -562,7 +562,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
         <p class="page-hdr-sub">Behavioural features — transaction velocity, device count, IP repetition, and time-window patterns — fed into a Random Forest. SMOTE handled class imbalance. Transaction velocity in the past hour was the single strongest predictor, well ahead of transaction amount.</p>
         <div class="page-hdr-pills">
           <span class="pill pill-blue">Random Forest</span><span class="pill pill-blue">SMOTE</span>
-          <span class="pill pill-blue">Feature Engineering</span><span class="pill pill-green">Completed · F1 0.91</span>
+          <span class="pill pill-blue">Feature Engineering</span><span class="pill pill-green">Completed · F1 0.93</span>
           <span class="pill pill-green">✓ Live API</span>
           <span class="pill pill-red">Alert Active</span>
         </div>
@@ -606,7 +606,7 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
           <div class="feat-row"><div class="feat-label"><span>Device count (account takeover signal)</span><strong>26%</strong></div><div class="feat-track"><div class="feat-fill fb-amber" style="width:26%"></div></div></div>
           <div class="feat-row"><div class="feat-label"><span>IP repetition (repeat offender)</span><strong>21%</strong></div><div class="feat-track"><div class="feat-fill fb-amber" style="width:21%"></div></div></div>
           <div class="feat-row"><div class="feat-label"><span>Transaction amount anomaly</span><strong>12%</strong></div><div class="feat-track"><div class="feat-fill fb-blue" style="width:12%"></div></div></div>
-          <div class="info-box"><strong>Key finding:</strong> Velocity spikes of 15+ transactions/hour flag with 94% precision. Amount alone is a weak signal — it's the behavioural pattern that matters.</div>
+          <div class="info-box"><strong>Key finding:</strong> Velocity spikes of 15+ transactions/hour flag with 98% precision. Amount alone is a weak signal — it's the behavioural pattern that matters.</div>
         </div>
         <div class="card">
           <div class="card-title"><div class="dot" style="background:var(--red)"></div>High-Risk Entities — Live Queue</div>
