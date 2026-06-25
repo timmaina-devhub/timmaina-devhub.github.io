@@ -29,7 +29,7 @@ title: Home
       <span class="typewriter-wrap"><em id="typewriter"></em><span class="tw-cursor">|</span></span>
     </h1>
     <p class="h-hero__sub">
-      I'm <strong>Timothy Maina</strong>, an Applied Data Scientist based in Nairobi. I clean messy datasets, build dashboards people actually use, and train ML models on real business problems. Most of my work lives somewhere between SQL queries and a stakeholder asking "so what does this mean?"
+      I'm <strong>Timothy Maina</strong>, an Applied Data Scientist based in Nairobi. I got comfortable with data through Excel back in high school, then gravitated toward the part I actually enjoy: training models and turning their outputs into decisions people can act on. Most of my work sits somewhere between a messy dataset and a stakeholder asking "so what does this mean?"
     </p>
     <div class="h-hero__actions">
       <a href="/projects" class="h-btn h-btn--primary">
@@ -60,24 +60,28 @@ title: Home
       <h2>Where data meets <em>purpose</em></h2>
     </div>
     <div class="h-pillars">
+
       <div class="h-pillar reveal-up" style="--d:.05s">
         <div class="h-pillar__icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
         <h3>Data Analytics</h3>
         <p>Profiling, cleaning, and exploring datasets to figure out what's actually going on. I write SQL and Python to answer specific questions, not just to produce outputs.</p>
         <div class="h-pillar__tools"><span>Python</span><span>SQL</span><span>Pandas</span><span>Excel</span></div>
       </div>
+
       <div class="h-pillar reveal-up" style="--d:.15s">
         <div class="h-pillar__icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg></div>
         <h3>Dashboards &amp; Visualisation</h3>
         <p>Building dashboards in Power BI and Tableau that are actually maintained after handoff. I focus on layout and filter logic so the thing stays useful beyond the first demo.</p>
         <div class="h-pillar__tools"><span>Power BI</span><span>Plotly</span><span>Seaborn</span><span>Tableau</span></div>
       </div>
+
       <div class="h-pillar reveal-up" style="--d:.25s">
-        <div class="h-pillar__icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
+        <div class="h-pillar__icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 002 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
         <h3>Machine Learning</h3>
         <p>Training classification and regression models on real, messy data. I care about precision-recall tradeoffs, feature leakage, and whether the output is something a non-technical person can actually use.</p>
         <div class="h-pillar__tools"><span>scikit-learn</span><span>XGBoost</span><span>K-Means</span></div>
       </div>
+
     </div>
   </div>
 </section>
@@ -98,7 +102,7 @@ title: Home
         <div class="fp-card__img">
           <div class="fp-card__chrome">
             <span class="fp-dot fp-dot--r"></span><span class="fp-dot fp-dot--y"></span><span class="fp-dot fp-dot--g"></span>
-            <span class="fp-card__url">Delivery Downtime Prediction & Route Optimization</span>
+            <span class="fp-card__url">Delivery Downtime Prediction &amp; Route Optimization</span>
           </div>
           <div class="fp-card__screen">
             <img src="{{ '/images/coming_soon_banner.png' | relative_url }}" alt="Logistics Dashboard" loading="lazy">
