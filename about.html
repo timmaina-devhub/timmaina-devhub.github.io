@@ -384,7 +384,7 @@ title: About
       <div style="display:flex;flex-direction:column;gap:24px;">
 
         <div style="display:flex;gap:20px;align-items:flex-start;">
-          <div style="width:36px;height:36px;background:var(--blue-d);border:1px solid rgba(59,130,246,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--blue-lt);flex-shrink:0;font-family:'DM Serif Display',serif;font-size:1rem;color:#93c5fd;">01</div>
+          <div style="width:36px;height:36px;background:var(--amber-d);border:1px solid rgba(245,158,11,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--amber-lt);flex-shrink:0;font-family:'DM Serif Display',serif;font-size:1rem;">01</div>
           <div>
             <h4 style="color:#fff;font-size:.95rem;margin-bottom:6px;font-family:'DM Sans',sans-serif;font-weight:600;">Understand the data before modelling anything</h4>
             <p style="color:var(--muted);font-size:.86rem;line-height:1.75;margin:0;">I profile the dataset first: distributions, missing values, duplicates, outliers, class balance. This usually surfaces problems that would cause the model to fail silently if ignored. It also tends to reveal which features are actually informative before any modelling happens, which saves time later. Skipping this step to get to the model faster tends to create more work, not less.</p>
@@ -392,7 +392,7 @@ title: About
         </div>
 
         <div style="display:flex;gap:20px;align-items:flex-start;">
-          <div style="width:36px;height:36px;background:var(--blue-d);border:1px solid rgba(59,130,246,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--blue-lt);flex-shrink:0;font-family:'DM Serif Display',serif;font-size:1rem;color:#93c5fd;">02</div>
+          <div style="width:36px;height:36px;background:var(--amber-d);border:1px solid rgba(245,158,11,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--amber-lt);flex-shrink:0;font-family:'DM Serif Display',serif;font-size:1rem;">02</div>
           <div>
             <h4 style="color:#fff;font-size:.95rem;margin-bottom:6px;font-family:'DM Sans',sans-serif;font-weight:600;">Check for leakage before tuning anything</h4>
             <p style="color:var(--muted);font-size:.86rem;line-height:1.75;margin:0;">A model with suspiciously high validation scores is usually a leakage problem, not a good model. I check this explicitly, especially when target construction involves derived variables. In my logistics project I had R² of 0.99 before finding and removing the leaky features that caused it.</p>
@@ -400,7 +400,7 @@ title: About
         </div>
 
         <div style="display:flex;gap:20px;align-items:flex-start;">
-          <div style="width:36px;height:36px;background:var(--blue-d);border:1px solid rgba(59,130,246,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--blue-lt);flex-shrink:0;font-family:'DM Serif Display',serif;font-size:1rem;color:#93c5fd;">03</div>
+          <div style="width:36px;height:36px;background:var(--amber-d);border:1px solid rgba(245,158,11,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--amber-lt);flex-shrink:0;font-family:'DM Serif Display',serif;font-size:1rem;">03</div>
           <div>
             <h4 style="color:#fff;font-size:.95rem;margin-bottom:6px;font-family:'DM Sans',sans-serif;font-weight:600;">Choose evaluation metrics based on what errors cost</h4>
             <p style="color:var(--muted);font-size:.86rem;line-height:1.75;margin:0;">Accuracy is often the wrong metric. For churn I optimise for recall because a missed at-risk customer is more costly than sending a retention offer to someone who wasn't going to churn anyway. For fraud the concern is different: too many false positives and analysts stop trusting the model entirely, which makes it useless regardless of its technical performance. The metric choice should come from the actual consequences of each error type, not from what's easiest to report.</p>
@@ -408,7 +408,7 @@ title: About
         </div>
 
         <div style="display:flex;gap:20px;align-items:flex-start;">
-          <div style="width:36px;height:36px;background:var(--blue-d);border:1px solid rgba(59,130,246,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--blue-lt);flex-shrink:0;font-family:'DM Serif Display',serif;font-size:1rem;color:#93c5fd;">04</div>
+          <div style="width:36px;height:36px;background:var(--amber-d);border:1px solid rgba(245,158,11,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--amber-lt);flex-shrink:0;font-family:'DM Serif Display',serif;font-size:1rem;">04</div>
           <div>
             <h4 style="color:#fff;font-size:.95rem;margin-bottom:6px;font-family:'DM Sans',sans-serif;font-weight:600;">Build outputs that stay useful after the project ends</h4>
             <p style="color:var(--muted);font-size:.86rem;line-height:1.75;margin:0;">A dashboard that requires the original analyst to explain it is only half-finished. I try to structure reports so that someone unfamiliar with the project can navigate them without a walkthrough. This usually means fewer views, clearer labels, and some annotation of what each number means in context. It also means being willing to simplify things that look impressive but don't actually help someone make a decision.</p>
@@ -466,7 +466,7 @@ title: About
 <section class="ab-cta-strip">
   <div class="ab-cta-strip__glow" aria-hidden="true"></div>
   <div class="ab-cta-strip__inner reveal">
-    <p class="ab-eyebrow" style="color:#93c5fd;">Open to data science, analytics, and BI opportunities</p>
+    <p class="ab-eyebrow" style="color:#fbbf24;">Open to data science, analytics, and BI opportunities</p>
     <h2>If you're working with a dataset, workflow, or reporting problem that needs careful analysis, I'm happy to discuss it.</h2>
     <p>Available for full-time roles, contract work, and analytical projects involving predictive modeling, reporting, or operational analytics.</p>
     <div class="ab-cta-strip__btns">
@@ -478,7 +478,7 @@ title: About
 
 <footer class="footer">
   © 2026 Timothy Maina &nbsp;·&nbsp;
-  <a href="mailto:timothymaina382@gmail.com" style="color:#3b82f6;text-decoration:none;">Email-me</a>
+  <a href="mailto:timothymaina382@gmail.com" style="color:#fbbf24;text-decoration:none;">Email-me</a>
 </footer>
 
 <!-- Scroll reveal -->
@@ -504,16 +504,16 @@ title: About
 <style>
 /* ── Tokens ──────────────────────────────────────────── */
 :root {
-  --bg:#020617; --sur:#0f172a; --sur2:#1e293b;
-  --bdr:rgba(255,255,255,0.07);
-  --blue:#1e40af; --blue-lt:#38bdf8; --blue-d:rgba(56,189,248,0.12);
+  --bg:#0c0c0c; --sur:#141414; --sur2:#1a1a1a;
+  --bdr:rgba(255,255,255,0.06);
+  --amber:#b45309; --amber-lt:#fbbf24; --amber-d:rgba(245,158,11,0.12);
   --txt:#e2e8f0; --muted:#94a3b8; --dim:#475569;
-  --green:#10b981; --amber:#f59e0b; --purple:#8b5cf6;
+  --green:#10b981; --purple:#8b5cf6;
 }
 *,*::before,*::after { box-sizing:border-box; }
 body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--txt); margin:0; overflow-x:hidden; }
 h1,h2,h3 { font-family:'DM Serif Display',serif; }
-.nav-active { color:var(--blue-lt)!important; font-weight:600; }
+.nav-active { color:var(--amber-lt)!important; font-weight:600; }
 
 /* ── Scroll reveal ───────────────────────────────────── */
 .reveal {
@@ -540,9 +540,9 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
 .ab-hero__bg {
   position:absolute; inset:0;
   background:
-    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(37,99,235,.13), transparent),
-    linear-gradient(rgba(59,130,246,.03) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(59,130,246,.03) 1px,transparent 1px);
+    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(180,83,9,.13), transparent),
+    linear-gradient(rgba(245,158,11,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(245,158,11,.03) 1px,transparent 1px);
   background-size:auto,60px 60px,60px 60px;
   mask-image:radial-gradient(ellipse 90% 100% at 50% 0%, black 40%,transparent 100%);
 }
@@ -550,8 +550,8 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
   position:absolute; border-radius:50%;
   filter:blur(80px); pointer-events:none;
 }
-.ab-hero__orb--1 { width:460px; height:460px; background:radial-gradient(circle,rgba(37,99,235,.16),transparent 70%); top:-80px; left:-80px; animation:orbDrift 9s ease-in-out infinite; }
-.ab-hero__orb--2 { width:360px; height:360px; background:radial-gradient(circle,rgba(14,165,233,.1),transparent 70%); bottom:-60px; right:-60px; animation:orbDrift 12s ease-in-out infinite reverse; }
+.ab-hero__orb--1 { width:460px; height:460px; background:radial-gradient(circle,rgba(180,83,9,.16),transparent 70%); top:-80px; left:-80px; animation:orbDrift 9s ease-in-out infinite; }
+.ab-hero__orb--2 { width:360px; height:360px; background:radial-gradient(circle,rgba(217,119,6,.1),transparent 70%); bottom:-60px; right:-60px; animation:orbDrift 12s ease-in-out infinite reverse; }
 @keyframes orbDrift { 0%,100%{transform:translate(0,0);} 50%{transform:translate(24px,-24px);} }
 
 .ab-hero__inner {
@@ -573,8 +573,8 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
   width:160px; height:160px;        /* square container */
   border-radius:50%;                /* circle */
   overflow:hidden;
-  border:3px solid rgba(59,130,246,.5);
-  box-shadow:0 0 0 6px rgba(37,99,235,.1), 0 16px 48px rgba(0,0,0,.5);
+  border:3px solid rgba(245,158,11,.5);
+  box-shadow:0 0 0 6px rgba(180,83,9,.1), 0 16px 48px rgba(0,0,0,.5);
   background:var(--sur);
   position:relative; z-index:1;
 }
@@ -589,7 +589,7 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
   position:absolute;
   inset:-8px;
   border-radius:50%;
-  border:2px solid rgba(59,130,246,.25);
+  border:2px solid rgba(245,158,11,.25);
   animation:ringPulse 3s ease-in-out infinite;
 }
 @keyframes ringPulse {
@@ -599,9 +599,9 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
 
 /* ── Hero text ───────────────────────────────────────── */
 .ab-hero__text { animation:fadeUp .9s .25s ease both; }
-.ab-eyebrow { font-size:.75rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase; color:var(--blue-lt); display:block; margin-bottom:10px; }
+.ab-eyebrow { font-size:.75rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase; color:var(--amber-lt); display:block; margin-bottom:10px; }
 .ab-hero__name { font-size:clamp(2.2rem,6vw,3.6rem); color:#fff; line-height:1.1; margin-bottom:10px; }
-.ab-hero__role { font-size:1rem; font-weight:500; color:var(--blue-lt); letter-spacing:.04em; margin-bottom:16px; }
+.ab-hero__role { font-size:1rem; font-weight:500; color:var(--amber-lt); letter-spacing:.04em; margin-bottom:16px; }
 .ab-hero__tagline { font-size:1rem; color:var(--muted); line-height:1.75; margin-bottom:24px; max-width:520px; }
 .ab-hero__chips {
   display:flex; flex-wrap:wrap; gap:8px;
@@ -624,8 +624,8 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
   text-decoration:none; transition:all .25s;
   font-family:'DM Sans',sans-serif;
 }
-.ab-btn--primary { background:var(--blue); color:#fff; border:1px solid var(--blue); box-shadow:0 4px 18px rgba(37,99,235,.3); }
-.ab-btn--primary:hover { background:#1d4ed8; transform:translateY(-2px); box-shadow:0 8px 24px rgba(37,99,235,.42); }
+.ab-btn--primary { background:var(--amber); color:#fff; border:1px solid var(--amber); box-shadow:0 4px 18px rgba(180,83,9,.3); }
+.ab-btn--primary:hover { background:#92400e; transform:translateY(-2px); box-shadow:0 8px 24px rgba(180,83,9,.42); }
 .ab-btn--ghost { background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,.12); }
 .ab-btn--ghost:hover { color:var(--txt); border-color:rgba(255,255,255,.3); transform:translateY(-2px); }
 
@@ -641,8 +641,8 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
   margin-bottom:14px;
   justify-content:center;
 }
-.ab-story__label span { font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.14em; color:var(--blue-lt); white-space:nowrap; }
-.ab-story__line { flex:1; max-width:80px; height:1px; background:rgba(59,130,246,.3); }
+.ab-story__label span { font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.14em; color:var(--amber-lt); white-space:nowrap; }
+.ab-story__line { flex:1; max-width:80px; height:1px; background:rgba(245,158,11,.3); }
 
 .ab-section-title { font-size:clamp(1.7rem,4vw,2.4rem); color:#fff; text-align:center; margin-bottom:14px; line-height:1.2; }
 .ab-section-sub { font-size:.9rem; color:var(--muted); text-align:center; max-width:520px; margin:0 auto 48px; line-height:1.7; }
@@ -664,16 +664,16 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
   transition:border-color .3s, transform .3s;
 }
 .ab-story__block:hover {
-  border-color:rgba(59,130,246,.25);
+  border-color:rgba(245,158,11,.25);
   transform:translateY(-4px);
 }
 .ab-story__icon {
   width:42px; height:42px;
-  background:var(--blue-d);
-  border:1px solid rgba(59,130,246,.2);
+  background:var(--amber-d);
+  border:1px solid rgba(245,158,11,.2);
   border-radius:10px;
   display:flex; align-items:center; justify-content:center;
-  color:var(--blue-lt);
+  color:var(--amber-lt);
   margin-bottom:16px;
 }
 .ab-story__block h3 { font-size:1rem; color:#fff; margin-bottom:10px; }
@@ -681,16 +681,16 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
 
 /* Quote */
 .ab-quote {
-  border-left:3px solid var(--blue-lt);
+  border-left:3px solid var(--amber-lt);
   padding:20px 28px;
   margin:0;
-  background:rgba(37,99,235,.05);
+  background:rgba(180,83,9,.05);
   border-radius:0 12px 12px 0;
   position:relative;
 }
-.ab-quote__mark { color:var(--blue-lt); opacity:.4; margin-bottom:10px; display:block; }
+.ab-quote__mark { color:var(--amber-lt); opacity:.4; margin-bottom:10px; display:block; }
 .ab-quote { font-size:1rem; color:var(--txt); line-height:1.8; font-style:italic; }
-.ab-quote cite { display:block; margin-top:12px; font-size:.8rem; font-style:normal; font-weight:600; color:var(--blue-lt); }
+.ab-quote cite { display:block; margin-top:12px; font-size:.8rem; font-style:normal; font-weight:600; color:var(--amber-lt); }
 
 /* ══════════════════════════════════════
    SKILLS
@@ -708,12 +708,12 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
   padding:22px 20px;
   transition:border-color .25s;
 }
-.ab-skill-group:hover { border-color:rgba(59,130,246,.2); }
+.ab-skill-group:hover { border-color:rgba(245,158,11,.2); }
 .ab-skill-title {
   display:flex; align-items:center; gap:7px;
   font-size:.72rem; font-weight:600;
   text-transform:uppercase; letter-spacing:.1em;
-  color:var(--blue-lt);
+  color:var(--amber-lt);
   margin-bottom:14px;
   font-family:'DM Sans',sans-serif;
 }
@@ -725,7 +725,7 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
   color:#cbd5e1; border-radius:999px;
   transition:all .2s; cursor:default;
 }
-.ab-pill:hover { border-color:var(--blue-lt); color:#93c5fd; background:rgba(37,99,235,.1); }
+.ab-pill:hover { border-color:var(--amber-lt); color:#fbbf24; background:rgba(180,83,9,.1); }
 
 /* ══════════════════════════════════════
    TIMELINE
@@ -749,25 +749,25 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
   width:14px; height:14px;
   border-radius:50%;
   background:var(--sur2);
-  border:2px solid rgba(59,130,246,.4);
+  border:2px solid rgba(245,158,11,.4);
   flex-shrink:0;
   margin-top:4px;
   transition:background .3s, border-color .3s, box-shadow .3s;
   position:relative; z-index:1;
 }
 .ab-tl-dot--active {
-  background:var(--blue);
-  border-color:var(--blue);
-  box-shadow:0 0 0 4px rgba(37,99,235,.2);
+  background:var(--amber);
+  border-color:var(--amber);
+  box-shadow:0 0 0 4px rgba(180,83,9,.2);
   animation:dotPulse 2.5s ease-in-out infinite;
 }
 @keyframes dotPulse {
-  0%,100%{box-shadow:0 0 0 4px rgba(37,99,235,.2);}
-  50%     {box-shadow:0 0 0 8px rgba(37,99,235,.05);}
+  0%,100%{box-shadow:0 0 0 4px rgba(180,83,9,.2);}
+  50%     {box-shadow:0 0 0 8px rgba(180,83,9,.05);}
 }
 .ab-tl-line {
   flex:1; width:2px;
-  background:linear-gradient(to bottom,rgba(59,130,246,.4),rgba(59,130,246,.1));
+  background:linear-gradient(to bottom,rgba(245,158,11,.4),rgba(245,158,11,.1));
   margin:4px 0;
   min-height:32px;
 }
@@ -780,12 +780,12 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
   margin-bottom:20px;
   transition:border-color .3s;
 }
-.ab-tl-card:hover { border-color:rgba(59,130,246,.22); }
+.ab-tl-card:hover { border-color:rgba(245,158,11,.22); }
 
 .ab-tl-date {
   font-size:.72rem; font-weight:600;
   text-transform:uppercase; letter-spacing:.08em;
-  color:var(--blue-lt); display:block; margin-bottom:8px;
+  color:var(--amber-lt); display:block; margin-bottom:8px;
 }
 .ab-tl-badge {
   display:inline-block; font-size:.68rem; font-weight:600;
@@ -793,14 +793,14 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
   margin-bottom:10px; letter-spacing:.04em;
 }
 .ab-tl-badge--green  { background:rgba(16,185,129,.12); color:#10b981; border:1px solid rgba(16,185,129,.25); }
-.ab-tl-badge--blue   { background:rgba(59,130,246,.12); color:var(--blue-lt); border:1px solid rgba(59,130,246,.25); }
+.ab-tl-badge--blue   { background:rgba(245,158,11,.12); color:var(--amber-lt); border:1px solid rgba(245,158,11,.25); }
 .ab-tl-badge--purple { background:rgba(139,92,246,.12); color:#a78bfa; border:1px solid rgba(139,92,246,.25); }
 
 .ab-tl-card h3 { font-size:1.05rem; color:#fff; margin-bottom:4px; line-height:1.3; }
 .ab-tl-org { font-size:.82rem; color:var(--dim); margin-bottom:10px; font-style:italic; }
 .ab-tl-card > p:last-of-type { font-size:.86rem; color:var(--muted); line-height:1.7; margin-bottom:14px; }
 .ab-tl-tags { display:flex; flex-wrap:wrap; gap:6px; }
-.ab-tl-tags span { font-size:.7rem; padding:3px 9px; background:var(--blue-d); border:1px solid rgba(59,130,246,.2); border-radius:999px; color:#93c5fd; }
+.ab-tl-tags span { font-size:.7rem; padding:3px 9px; background:var(--amber-d); border:1px solid rgba(245,158,11,.2); border-radius:999px; color:#fbbf24; }
 
 /* ══════════════════════════════════════
    CTA STRIP
@@ -814,7 +814,7 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
 }
 .ab-cta-strip__glow {
   position:absolute; inset:0;
-  background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(37,99,235,.1),transparent);
+  background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(180,83,9,.1),transparent);
   pointer-events:none;
 }
 .ab-cta-strip__inner { position:relative; z-index:1; max-width:580px; margin:0 auto; }
