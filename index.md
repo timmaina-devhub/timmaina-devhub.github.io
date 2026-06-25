@@ -105,10 +105,10 @@ title: Home
             <span class="fp-card__url">Delivery Downtime Prediction &amp; Route Optimization</span>
           </div>
           <div class="fp-card__screen">
-            <img src="{{ '/images/coming_soon_banner.png' | relative_url }}" alt="Logistics Dashboard" loading="lazy">
+            <img src="{{ '/images/logistics_dashboard.png' | relative_url }}" alt="Logistics Dashboard" loading="lazy">
             <div class="fp-card__img-overlay"></div>
           </div>
-          <span class="fp-card__badge fp-card__badge--wip">⚡ In Progress</span>
+          <span class="fp-card__badge fp-card__badge--done">✓ Completed</span>
         </div>
         <div class="fp-card__body">
           <div class="fp-card__meta">
@@ -188,7 +188,7 @@ title: Home
             <img src="{{ '/images/fraud-dashboard.png' | relative_url }}" alt="Fraud Detection System" loading="lazy">
             <div class="fp-card__img-overlay"></div>
           </div>
-          <span class="fp-card__badge fp-card__badge--wip">⚡ In Progress</span>
+          <span class="fp-card__badge fp-card__badge--done">✓ Completed</span>
         </div>
         <div class="fp-card__body">
           <div class="fp-card__meta">
