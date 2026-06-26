@@ -43,7 +43,7 @@ ORDER BY total_rev DESC</div>
     <span class="sr-sep">|</span>
     <span><span class="sr-key">response:</span> <span class="sr-val">~24h</span></span>
   </div>
-    <div class="annotation" style="right:8%;top:22%;" aria-hidden="true"></div>
+    <div class="annotation" style="right:10%;top:28%;" aria-hidden="true"></div>
     <h1 class="h-hero__title">
       Turning raw data into<br>
       <span class="typewriter-wrap"><em id="typewriter"></em><span class="tw-cursor">|</span></span>
