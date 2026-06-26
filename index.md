@@ -43,13 +43,13 @@ GROUP BY channel
 ORDER BY total_rev DESC</div>
   <div class="h-hero__inner">
     <div class="status-readout">
-    <span class="status-readout__dot"></span>
-    <span><span class="sr-key">status:</span> <span class="sr-val">open_to_roles</span></span>
-    <span class="sr-sep">|</span>
-    <span><span class="sr-key">location:</span> <span class="sr-val">Nairobi, KE</span></span>
-    <span class="sr-sep">|</span>
-    <span><span class="sr-key">response:</span> <span class="sr-val">~24h</span></span>
-  </div>
+      <span class="status-readout__dot"></span>
+      <span><span class="sr-key">status:</span> <span class="sr-val sr-val--green">open_to_roles</span></span>
+      <span class="sr-sep">|</span>
+      <span><span class="sr-key">location:</span> <span class="sr-val">Nairobi, KE</span></span>
+      <span class="sr-sep">|</span>
+      <span><span class="sr-key">response:</span> <span class="sr-val">~24h</span></span>
+    </div>
     <h1 class="h-hero__title">
       Turning raw data into<br>
       <span class="typewriter-wrap">
@@ -68,11 +68,18 @@ ORDER BY total_rev DESC</div>
       <a href="/contact" class="h-btn h-btn--ghost">Let's Talk</a>
     </div>
     <div class="h-trust">
-      <div class="h-trust__item"><span class="counter" data-target="5" data-suffix="+">0</span><span><span class="m-label">Projects</span> 7+</span></div>
-      
-      <div class="h-trust__item"><span class="counter" data-target="3" data-suffix="">0</span><span><span class="m-label">Focus</span> ML / BI / Analytics</span></div>
-      
-      <div class="h-trust__item"><span class="h-trust__num">24h</span><span><span class="m-label">Response</span> ~24h</span></div>
+      <div class="h-trust__item">
+        <span class="h-trust__num">7+</span>
+        <span class="m-label">Projects</span>
+      </div>
+      <div class="h-trust__item">
+        <span class="h-trust__num">3</span>
+        <span class="m-label">ML · BI · Analytics</span>
+      </div>
+      <div class="h-trust__item">
+        <span class="h-trust__num">~24h</span>
+        <span class="m-label">Response Time</span>
+      </div>
     </div>
   </div>
   <div class="h-scroll-cue" aria-hidden="true">
@@ -308,6 +315,58 @@ ORDER BY total_rev DESC</div>
   <a href="mailto:timothymaina382@gmail.com" style="color:#fbbf24;text-decoration:none;">Email-me</a>
 </footer>
 
+<!-- Page-specific styles -->
+<style>
+/* ── Status readout: open_to_roles value in green ─── */
+.sr-val--green {
+  color: #34d399;
+}
+.status-readout__dot {
+  background: #34d399;
+  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.2);
+  animation: dotPulseGreen 2.5s ease-in-out infinite;
+}
+@keyframes dotPulseGreen {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.2); }
+  50%       { box-shadow: 0 0 0 6px rgba(52, 211, 153, 0.05); }
+}
+
+/* ── h-trust stat block ─────────────────────────── */
+.h-trust__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.h-trust__num {
+  font-family: var(--mono);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.h-trust .m-label {
+  font-size: 0.68rem;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── Responsive: hide code-deco on small screens ─ */
+@media (max-width: 768px) {
+  .code-deco { display: none; }
+  .status-readout { flex-wrap: wrap; gap: 6px 10px; }
+  .sr-sep { display: none; }
+  .h-trust { gap: 20px; }
+}
+
+@media (max-width: 480px) {
+  .h-hero__title { font-size: clamp(1.6rem, 7vw, 2.4rem); }
+  .status-readout { font-size: 0.72rem; }
+}
+</style>
+
 <!-- JAVASCRIPT -->
 <script>
 /* ── Typewriter ─────────────── */
@@ -322,4 +381,3 @@ ORDER BY total_rev DESC</div>
 /* ── Scroll cue hide ───────── */
 (function(){const cue=document.querySelector('.h-scroll-cue');if(!cue)return;window.addEventListener('scroll',()=>{cue.style.opacity=window.scrollY>80?'0':'1';},{passive:true});})();
 </script>
-
