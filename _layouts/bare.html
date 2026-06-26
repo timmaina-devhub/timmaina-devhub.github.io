@@ -12,5 +12,17 @@
   </head>
   <body>
     {{ content }}
+    <script>
+      document.querySelectorAll('.nav-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const links = btn.closest('.navbar').querySelector('.nav-links');
+          if (links) {
+            links.classList.toggle('nav-open');
+            const open = links.classList.contains('nav-open');
+            btn.setAttribute('aria-expanded', open);
+          }
+        });
+      });
+    </script>
   </body>
 </html>

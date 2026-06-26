@@ -7,7 +7,14 @@ title: Home
 
 <nav class="navbar">
   <div class="logo"><strong>Timothy Maina</strong></div>
-  <div class="nav-links">
+  <button class="nav-toggle" aria-label="Menu" id="navToggle">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="4" y1="6" x2="20" y2="6"></line>
+      <line x1="4" y1="12" x2="20" y2="12"></line>
+      <line x1="4" y1="18" x2="20" y2="18"></line>
+    </svg>
+  </button>
+  <div class="nav-links" id="navLinks">
     <a href="/" class="nav-active">Home</a>
     <a href="/about">About</a>
     <a href="/projects">Projects</a>
@@ -43,10 +50,12 @@ ORDER BY total_rev DESC</div>
     <span class="sr-sep">|</span>
     <span><span class="sr-key">response:</span> <span class="sr-val">~24h</span></span>
   </div>
-    <div class="annotation" style="right:10%;top:28%;" aria-hidden="true"></div>
     <h1 class="h-hero__title">
       Turning raw data into<br>
-      <span class="typewriter-wrap"><em id="typewriter"></em><span class="tw-cursor">|</span></span>
+      <span class="typewriter-wrap">
+        <em id="typewriter"></em><span class="tw-cursor">|</span>
+        <div class="annotation" aria-hidden="true"></div>
+      </span>
     </h1>
     <p class="h-hero__sub">
       I'm <strong>Timothy Maina</strong>, an Applied Data Scientist based in Nairobi. I got comfortable with data through Excel back in high school, then gravitated toward the part I actually enjoy: training models and turning their outputs into decisions people can act on. Most of my work sits somewhere between a messy dataset and a stakeholder asking "so what does this mean?"
@@ -172,7 +181,7 @@ ORDER BY total_rev DESC</div>
           <div class="ops-tile__chrome">
             <span class="ops-tile__dot ops-tile__dot--r"></span><span class="ops-tile__dot ops-tile__dot--y"></span><span class="ops-tile__dot ops-tile__dot--g"></span>
             <span class="ops-tile__url">~/projects/churn</span>
-            <span class="ops-tile__ts" style="margin-left:auto;font-size:.62rem;color:var(--dim);font-family:'JetBrains Mono',monospace;">updated 2d ago</span>
+            <span class="ops-tile__ts" style="margin-left:auto;font-size:.62rem;color:var(--text-4);font-family:'JetBrains Mono',monospace;">updated 2d ago</span>
           </div>
           <div class="ops-tile__screen">
             <img src="{{ '/images/customer-analysis.png' | relative_url }}" alt="Customer Churn Analysis" loading="lazy">
@@ -213,7 +222,7 @@ ORDER BY total_rev DESC</div>
           <div class="ops-tile__chrome">
             <span class="ops-tile__dot ops-tile__dot--r"></span><span class="ops-tile__dot ops-tile__dot--y"></span><span class="ops-tile__dot ops-tile__dot--g"></span>
             <span class="ops-tile__url">~/projects/fraud</span>
-            <span class="ops-tile__ts" style="margin-left:auto;font-size:.62rem;color:var(--dim);font-family:'JetBrains Mono',monospace;">updated 1w ago</span>
+            <span class="ops-tile__ts" style="margin-left:auto;font-size:.62rem;color:var(--text-4);font-family:'JetBrains Mono',monospace;">updated 1w ago</span>
           </div>
           <div class="ops-tile__screen">
             <img src="{{ '/images/fraud-dashboard.png' | relative_url }}" alt="Fraud Detection System" loading="lazy">
