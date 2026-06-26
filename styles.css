@@ -399,9 +399,10 @@ img {
   align-items: center;
   gap: 6px;
   padding: 9px 12px;
+  padding-right: 80px;
   background: rgba(0, 0, 0, 0.35);
   border-bottom: 1px solid var(--border);
-  padding-right: 80px;
+  flex-wrap: wrap;
 }
 .ops-tile__dots { display: flex; gap: 5px; }
 .ops-tile__dot {
@@ -1382,20 +1383,33 @@ img {
   .ab-story__grid { grid-template-columns: 1fr; }
   .fp-grid { grid-template-columns: 1fr; }
   .ops-tile--wide { grid-column: span 1; }
+  .h-trust { flex-direction: column; align-items: center; gap: 16px; }
+  .status-readout { max-width: 90%; }
+  .ops-tile__chrome { padding-right: 12px; }
+  .h-orb--1 { width: 320px; height: 320px; top: -80px; left: -60px; }
+  .h-orb--2 { width: 240px; height: 240px; bottom: -60px; right: -40px; }
 }
 @media (max-width: 640px) {
   .navbar { padding: 14px 18px; }
   .nav-links { gap: 14px; }
   .nav-links a { font-size: 0.8rem; }
   .hero { padding: 100px 18px 70px; }
+  .h-hero { padding: 100px 18px 70px; }
   .section { padding: 60px 18px; }
   .h-section { padding: 60px 18px; }
   .grid-3 { grid-template-columns: 1fr; }
   .measure-ruler { max-width: 260px; }
+  .h-scroll-cue { bottom: 16px; }
 }
 @media (max-width: 420px) {
   .hero__actions, .cta-banner__actions { flex-direction: column; align-items: center; }
   .h-btn, .btn, .ab-btn { width: 100%; justify-content: center; }
+  .stack-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+  .annotation { display: none; }
+  .nav-links { flex-wrap: wrap; justify-content: center; }
+  .h-scroll-cue { display: none; }
+  .h-trust__item { font-size: 0.75rem; padding: 8px 12px; }
+  .status-readout { font-size: 0.72rem; padding: 8px 12px; }
 }
 
 /* ============================================
