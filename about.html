@@ -3,7 +3,7 @@ layout: bare
 title: About
 ---
 <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
 
 <!-- NAVBAR -->
 <nav class="navbar">
@@ -22,6 +22,15 @@ title: About
 ════════════════════════════════════ -->
 <section class="ab-hero">
   <div class="ab-hero__bg" aria-hidden="true"></div>
+  <div class="code-deco code-deco--tl" aria-hidden="true"># Customer churn model
+model = LogisticRegression(C=0.5, max_iter=300)
+model.fit(X_train_resampled, y_train_resampled)
+threshold = 0.35  # recall-optimised</div>
+  <div class="code-deco code-deco--tr" aria-hidden="true">CREATE TABLE flagged_transactions AS
+SELECT txn_id, customer_id, velocity_1h, amount
+FROM raw_transactions
+WHERE predicted_fraud = 1
+  AND rule_score > threshold</div>
   <div class="ab-hero__orb ab-hero__orb--1" aria-hidden="true"></div>
   <div class="ab-hero__orb ab-hero__orb--2" aria-hidden="true"></div>
 
@@ -138,7 +147,7 @@ title: About
 ════════════════════════════════════ -->
 <section class="ab-section ab-section--alt">
   <div class="ab-container">
-    <div class="reveal">
+    <div class="fade-up">
       <div class="ab-story__label">
         <div class="ab-story__line"></div>
         <span>What I Know</span>
@@ -166,7 +175,7 @@ title: About
       </div>
 
       <div class="ab-skill-group">
-        <h4 class="ab-skill-title">
+        <h4 class="ab-skill-title" style="font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:500;letter-spacing:-0.01em;">
           <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/></svg>
           Visualisation
         </h4>
@@ -240,7 +249,7 @@ title: About
 ════════════════════════════════════ -->
 <section class="ab-section">
   <div class="ab-container">
-    <div class="reveal">
+    <div class="fade-up">
       <div class="ab-story__label">
         <div class="ab-story__line"></div>
         <span>My Journey</span>
@@ -311,7 +320,7 @@ title: About
 ════════════════════════════════════ -->
 <section class="ab-section">
   <div class="ab-container">
-    <div class="reveal">
+    <div class="fade-up">
       <div class="ab-story__label">
         <div class="ab-story__line"></div>
         <span>Focus Areas</span>
@@ -372,7 +381,7 @@ title: About
 ════════════════════════════════════ -->
 <section class="ab-section ab-section--alt">
   <div class="ab-container">
-    <div class="reveal">
+    <div class="fade-up">
       <div class="ab-story__label">
         <div class="ab-story__line"></div>
         <span>Working Style</span>
@@ -380,37 +389,37 @@ title: About
       </div>
       <h2 class="ab-section-title">How I Approach Projects</h2>
     </div>
-    <div style="max-width:720px;margin:40px auto 0;" class="reveal">
+    <div style="max-width:720px;margin:40px auto 0;" class="fade-up">
       <div style="display:flex;flex-direction:column;gap:24px;">
 
         <div style="display:flex;gap:20px;align-items:flex-start;">
-          <div style="width:36px;height:36px;background:var(--amber-d);border:1px solid rgba(245,158,11,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--amber-lt);flex-shrink:0;font-family:'DM Serif Display',serif;font-size:1rem;">01</div>
+          <div style="width:36px;height:36px;background:var(--amber-d);border:1px solid rgba(245,158,11,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--amber-lt);flex-shrink:0;font-family:var(--sans);font-size:1rem;">01</div>
           <div>
-            <h4 style="color:#fff;font-size:.95rem;margin-bottom:6px;font-family:'DM Sans',sans-serif;font-weight:600;">Understand the data before modelling anything</h4>
+            <h4 style="color:#fff;font-size:.95rem;margin-bottom:6px;font-family:var(--sans);font-weight:600;">Understand the data before modelling anything</h4>
             <p style="color:var(--muted);font-size:.86rem;line-height:1.75;margin:0;">I profile the dataset first: distributions, missing values, duplicates, outliers, class balance. This usually surfaces problems that would cause the model to fail silently if ignored. It also tends to reveal which features are actually informative before any modelling happens, which saves time later. Skipping this step to get to the model faster tends to create more work, not less.</p>
           </div>
         </div>
 
         <div style="display:flex;gap:20px;align-items:flex-start;">
-          <div style="width:36px;height:36px;background:var(--amber-d);border:1px solid rgba(245,158,11,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--amber-lt);flex-shrink:0;font-family:'DM Serif Display',serif;font-size:1rem;">02</div>
+          <div style="width:36px;height:36px;background:var(--amber-d);border:1px solid rgba(245,158,11,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--amber-lt);flex-shrink:0;font-family:var(--sans);font-size:1rem;">02</div>
           <div>
-            <h4 style="color:#fff;font-size:.95rem;margin-bottom:6px;font-family:'DM Sans',sans-serif;font-weight:600;">Check for leakage before tuning anything</h4>
+            <h4 style="color:#fff;font-size:.95rem;margin-bottom:6px;font-family:var(--sans);font-weight:600;">Check for leakage before tuning anything</h4>
             <p style="color:var(--muted);font-size:.86rem;line-height:1.75;margin:0;">A model with suspiciously high validation scores is usually a leakage problem, not a good model. I check this explicitly, especially when target construction involves derived variables. In my logistics project I had R² of 0.99 before finding and removing the leaky features that caused it.</p>
           </div>
         </div>
 
         <div style="display:flex;gap:20px;align-items:flex-start;">
-          <div style="width:36px;height:36px;background:var(--amber-d);border:1px solid rgba(245,158,11,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--amber-lt);flex-shrink:0;font-family:'DM Serif Display',serif;font-size:1rem;">03</div>
+          <div style="width:36px;height:36px;background:var(--amber-d);border:1px solid rgba(245,158,11,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--amber-lt);flex-shrink:0;font-family:var(--sans);font-size:1rem;">03</div>
           <div>
-            <h4 style="color:#fff;font-size:.95rem;margin-bottom:6px;font-family:'DM Sans',sans-serif;font-weight:600;">Choose evaluation metrics based on what errors cost</h4>
+            <h4 style="color:#fff;font-size:.95rem;margin-bottom:6px;font-family:var(--sans);font-weight:600;">Choose evaluation metrics based on what errors cost</h4>
             <p style="color:var(--muted);font-size:.86rem;line-height:1.75;margin:0;">Accuracy is often the wrong metric. For churn I optimise for recall because a missed at-risk customer is more costly than sending a retention offer to someone who wasn't going to churn anyway. For fraud the concern is different: too many false positives and analysts stop trusting the model entirely, which makes it useless regardless of its technical performance. The metric choice should come from the actual consequences of each error type, not from what's easiest to report.</p>
           </div>
         </div>
 
         <div style="display:flex;gap:20px;align-items:flex-start;">
-          <div style="width:36px;height:36px;background:var(--amber-d);border:1px solid rgba(245,158,11,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--amber-lt);flex-shrink:0;font-family:'DM Serif Display',serif;font-size:1rem;">04</div>
+          <div style="width:36px;height:36px;background:var(--amber-d);border:1px solid rgba(245,158,11,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--amber-lt);flex-shrink:0;font-family:var(--sans);font-size:1rem;">04</div>
           <div>
-            <h4 style="color:#fff;font-size:.95rem;margin-bottom:6px;font-family:'DM Sans',sans-serif;font-weight:600;">Build outputs that stay useful after the project ends</h4>
+            <h4 style="color:#fff;font-size:.95rem;margin-bottom:6px;font-family:var(--sans);font-weight:600;">Build outputs that stay useful after the project ends</h4>
             <p style="color:var(--muted);font-size:.86rem;line-height:1.75;margin:0;">A dashboard that requires the original analyst to explain it is only half-finished. I try to structure reports so that someone unfamiliar with the project can navigate them without a walkthrough. This usually means fewer views, clearer labels, and some annotation of what each number means in context. It also means being willing to simplify things that look impressive but don't actually help someone make a decision.</p>
           </div>
         </div>
@@ -425,7 +434,7 @@ title: About
 ════════════════════════════════════ -->
 <section class="ab-section">
   <div class="ab-container">
-    <div class="reveal">
+    <div class="fade-up">
       <div class="ab-story__label">
         <div class="ab-story__line"></div>
         <span>Currently</span>
@@ -486,13 +495,13 @@ title: About
 (function() {
   const els = document.querySelectorAll('.reveal');
   if (!window.IntersectionObserver) {
-    els.forEach(el => el.classList.add('revealed'));
+    els.forEach(el => el.classList.add('visible'));
     return;
   }
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        e.target.classList.add('revealed');
+        e.target.classList.add('visible');
         obs.unobserve(e.target);
       }
     });
@@ -504,15 +513,15 @@ title: About
 <style>
 /* ── Tokens ──────────────────────────────────────────── */
 :root {
-  --bg:#0c0c0c; --sur:#141414; --sur2:#1a1a1a;
-  --bdr:rgba(255,255,255,0.06);
-  --amber:#b45309; --amber-lt:#fbbf24; --amber-d:rgba(245,158,11,0.12);
-  --txt:#e2e8f0; --muted:#94a3b8; --dim:#475569;
-  --green:#10b981; --purple:#8b5cf6;
+  --bg:#0f0f0f; --sur:#161616; --sur2:#1c1c1c; --sur3:#222222;
+  --bdr:rgba(255,255,255,0.07); --bdr2:rgba(255,255,255,0.12);
+  --amber:#f59e0b; --amber-lt:#fbbf24; --amber-d:rgba(245,158,11,0.12);
+  --txt:#e2e8f0; --muted:#94a3b8; --dim:#64748b; --dim2:#475569;
+  --green:#10b981; --purple:#8b5cf6; --blue:#3b82f6;
 }
 *,*::before,*::after { box-sizing:border-box; }
-body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--txt); margin:0; overflow-x:hidden; }
-h1,h2,h3 { font-family:'DM Serif Display',serif; }
+body { font-family:var(--sans); background:var(--bg); color:var(--txt); margin:0; overflow-x:hidden; }
+h1,h2,h3 { font-family:var(--sans); }
 .nav-active { color:var(--amber-lt)!important; font-weight:600; }
 
 /* ── Scroll reveal ───────────────────────────────────── */
@@ -521,7 +530,7 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
   transform:translateY(32px);
   transition:opacity .7s ease, transform .7s ease;
 }
-.reveal.revealed {
+.fade-up.visible {
   opacity:1;
   transform:translateY(0);
 }
@@ -602,7 +611,7 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
 .ab-eyebrow { font-size:.75rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase; color:var(--amber-lt); display:block; margin-bottom:10px; }
 .ab-hero__name { font-size:clamp(2.2rem,6vw,3.6rem); color:#fff; line-height:1.1; margin-bottom:10px; }
 .ab-hero__role { font-size:1rem; font-weight:500; color:var(--amber-lt); letter-spacing:.04em; margin-bottom:16px; }
-.ab-hero__tagline { font-size:1rem; color:var(--muted); line-height:1.75; margin-bottom:24px; max-width:520px; }
+.ab-hero__tagline { font-size:1rem; color:var(--text-2); line-height:1.75; margin-bottom:24px; max-width:520px; font-family:var(--sans); }
 .ab-hero__chips {
   display:flex; flex-wrap:wrap; gap:8px;
   justify-content:center; margin-bottom:28px;
@@ -610,10 +619,9 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
 .ab-hero__chips span {
   font-size:.78rem; font-weight:500;
   padding:6px 14px;
-  background:rgba(15,23,42,.8);
+  background:rgba(22,22,22,.9);
   border:1px solid var(--bdr);
   border-radius:999px; color:var(--muted);
-  backdrop-filter:blur(8px);
 }
 .ab-hero__actions { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
 
@@ -622,7 +630,7 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
   display:inline-block; padding:11px 24px;
   border-radius:10px; font-size:.9rem; font-weight:600;
   text-decoration:none; transition:all .25s;
-  font-family:'DM Sans',sans-serif;
+  font-family:var(--sans);
 }
 .ab-btn--primary { background:var(--amber); color:#fff; border:1px solid var(--amber); box-shadow:0 4px 18px rgba(180,83,9,.3); }
 .ab-btn--primary:hover { background:#92400e; transform:translateY(-2px); box-shadow:0 8px 24px rgba(180,83,9,.42); }
@@ -633,7 +641,7 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
    SHARED SECTION STYLES
 ══════════════════════════════════════ */
 .ab-section { padding:80px 24px; }
-.ab-section--alt { background:rgba(15,23,42,.5); border-top:1px solid var(--bdr); border-bottom:1px solid var(--bdr); }
+.ab-section--alt { background:rgba(22,22,22,.6); border-top:1px solid var(--bdr); border-bottom:1px solid var(--bdr); }
 .ab-container { max-width:960px; margin:0 auto; }
 
 .ab-story__label {
@@ -715,12 +723,12 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
   text-transform:uppercase; letter-spacing:.1em;
   color:var(--amber-lt);
   margin-bottom:14px;
-  font-family:'DM Sans',sans-serif;
+  font-family:var(--sans);
 }
 .ab-pill-row { display:flex; flex-wrap:wrap; gap:7px; }
 .ab-pill {
   font-size:.78rem; padding:4px 11px;
-  background:rgba(30,41,59,.8);
+  background:rgba(28,28,28,.9);
   border:1px solid rgba(255,255,255,.08);
   color:#cbd5e1; border-radius:999px;
   transition:all .2s; cursor:default;
@@ -792,9 +800,9 @@ h1,h2,h3 { font-family:'DM Serif Display',serif; }
   padding:3px 9px; border-radius:999px;
   margin-bottom:10px; letter-spacing:.04em;
 }
-.ab-tl-badge--green  { background:rgba(16,185,129,.12); color:#10b981; border:1px solid rgba(16,185,129,.25); }
-.ab-tl-badge--blue   { background:rgba(245,158,11,.12); color:var(--amber-lt); border:1px solid rgba(245,158,11,.25); }
-.ab-tl-badge--purple { background:rgba(139,92,246,.12); color:#a78bfa; border:1px solid rgba(139,92,246,.25); }
+.ab-tl-badge--green  { background:rgba(16,185,129,.10); color:#10b981; border:1px solid rgba(16,185,129,.25); }
+.ab-tl-badge--blue   { background:rgba(245,158,11,.10); color:var(--amber-lt); border:1px solid rgba(245,158,11,.25); }
+.ab-tl-badge--purple { background:rgba(139,92,246,.10); color:#a78bfa; border:1px solid rgba(139,92,246,.25); }
 
 .ab-tl-card h3 { font-size:1.05rem; color:#fff; margin-bottom:4px; line-height:1.3; }
 .ab-tl-org { font-size:.82rem; color:var(--dim); margin-bottom:10px; font-style:italic; }
