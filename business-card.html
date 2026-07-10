@@ -4,6 +4,7 @@ title: Business Card — Timothy Maina
 ---
 <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
 <a href="#main-content" class="skip-link">Skip to content</a>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
 <style>
 :root{--bg:#0b0b0c;--sur:#111113;--bdr:rgba(255,255,255,.08);--amber:#f59e0b;--amber-d:rgba(245,158,11,.12);--txt:#e2e8f0;--muted:#94a3b8;--dim:#64748b}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -28,7 +29,7 @@ body{background:#222429;color:var(--txt);font-family:'Inter',system-ui,sans-seri
 
 <main id="main-content">
 <div class="bc-page">
-  <div class="bc">
+  <div class="bc" id="businessCard">
     <div class="bc__body">
       <div class="bc__name">Timothy Maina</div>
       <div class="bc__role">Dependable problem solver</div>
@@ -56,6 +57,8 @@ body{background:#222429;color:var(--txt);font-family:'Inter',system-ui,sans-seri
       <div>
         <a class="bc__button" href="/contact">Contact me →</a>
         <a class="bc__button" href="/qr">QR page →</a>
+        <a class="bc__button" href="/">← Back to Home</a>
+        <button class="bc__button" id="downloadCard" style="background:#0f172a;color:#fbbf24;border-color:rgba(245,158,11,.3)">Download image</button>
       </div>
 
       <div class="bc__footer">Nairobi, Kenya · typically respond within 24 hours</div>
@@ -67,3 +70,32 @@ body{background:#222429;color:var(--txt);font-family:'Inter',system-ui,sans-seri
   </div>
 </div>
 </main>
+
+<script>
+(function(){
+  function safeFileName(name){
+    return (name || 'timothy-maina-business-card').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+  }
+  async function download(){
+    try{
+      const el=document.getElementById('businessCard');
+      if(!el||typeof html2canvas==='undefined'){
+        alert('Download is not ready yet. Please try again in a moment.');
+        return;
+      }
+      const canvas=await html2canvas(el,{backgroundColor:null,scale:2,useCORS:true,logging:false});
+      const url=canvas.toDataURL('image/png');
+      const a=document.createElement('a');
+      a.href=url;
+      a.download=safeFileName('Timothy Maina - Business Card')+'.png';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }catch(e){
+      alert('Could not generate image. Try again or use your device screenshot option.');
+    }
+  }
+  const btn=document.getElementById('downloadCard');
+  if(btn){ btn.addEventListener('click', download); }
+})();
+</script>

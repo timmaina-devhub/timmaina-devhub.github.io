@@ -21,6 +21,8 @@ title: Home
     <a href="/intelligence_platform">Intelligence Platform</a>
     <a href="/work-with-me">Work With Me</a>
     <a href="/contact">Contact</a>
+    <a href="/qr">QR</a>
+    <a href="/business-card">Business Card</a>
   </div>
 </nav>
 
