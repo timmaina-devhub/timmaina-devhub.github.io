@@ -1909,3 +1909,63 @@ img {
   text-align: center;
   margin-top: 8px;
 }
+
+/* ============================================
+   GLOBAL UTILITIES
+   ============================================ */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: fixed;
+  left: 16px;
+  top: 16px;
+  width: auto;
+  height: auto;
+  padding: 10px 16px;
+  background: var(--amber);
+  color: #000;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  z-index: 9999;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--amber-light);
+  outline-offset: 3px;
+}
+
+/* No background blur anywhere (constitution rule) */
+* {
+  backdrop-filter: none !important;
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+  nav, .navbar, .float-nav, .nav-toggle, .nav-links, .footer, .cta-banner, .h-scroll-cue, .code-deco, .annotation, .demo-section, .dash-panel, .btn-dl, .ops-tile__cta, .pj__cta, .nb-block, .demo-live-block {
+    display: none !important;
+  }
+  a { text-decoration: none; color: #000; }
+  .section, .h-section, .hero, .h-hero, .ab-hero, .ab-section, .contact-section {
+    padding: 24px 0 !important;
+  }
+  .ops-tile, .pillar, .ab-story__block, .pj__block, .form-card {
+    break-inside: avoid;
+    border: 1px solid #ccc !important;
+  }
+  .container, .feed, .ab-container, .contact-grid {
+    max-width: 100% !important;
+  }
+}

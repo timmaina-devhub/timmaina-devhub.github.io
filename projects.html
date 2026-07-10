@@ -4,10 +4,12 @@ title: Projects
 ---
 <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<a href="#main-content" class="skip-link">Skip to content</a>
 
+<!-- NAVBAR -->
 <nav class="navbar">
   <div class="logo"><strong>Timothy Maina</strong></div>
-  <button class="nav-toggle" aria-label="Menu" id="navToggle">
+  <button class="nav-toggle" aria-label="Menu" id="navToggle" aria-expanded="false">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
       <line x1="4" y1="6" x2="20" y2="6"></line>
       <line x1="4" y1="12" x2="20" y2="12"></line>
@@ -19,6 +21,7 @@ title: Projects
     <a href="/about">About</a>
     <a href="/projects" class="nav-active">Projects</a>
     <a href="/intelligence_platform">Intelligence Platform</a>
+    <a href="/work-with-me">Work With Me</a>
     <a href="/contact">Contact</a>
   </div>
 </nav>
@@ -846,4 +849,6 @@ h1,h2,h3,h4{font-family:var(--sans);}
 /* Responsive */
 @media(max-width:760px){.pj__content{grid-template-columns:1fr;}.pj__col--right{padding-left:0;border-left:none;border-top:1px solid rgba(255,255,255,.05);padding-top:18px;}.dash-panel{grid-template-columns:1fr;}.dash-panel__img-side{padding:14px;}.dash-panel__info-side{border-left:none;border-top:1px solid rgba(245,158,11,.12);padding:16px;}.float-nav__label{display:none;}.fnpill__name{display:none;}.fnpill{padding:5px 9px;}}
 @media(max-width:480px){.ph{padding:70px 16px 44px;}.ph__div{display:none;}.ph__stats{gap:16px;padding:10px 16px;}.feed{padding:0 12px 100px;}.pj__topbar{padding:14px 16px 0;}.pj__title{padding:14px 16px 6px;}.pj__hook{padding:0 16px;}.pj__content{padding:16px;}.demo-section{padding:14px 16px;}.pj__cta{padding:14px 16px;flex-direction:column;align-items:stretch;}.btn-next,.btn-top{margin-left:0;width:100%;justify-content:center;}.btn-gh{width:100%;justify-content:center;}.dash-panel__img-side{padding:10px;}.dash-panel__info-side{padding:14px 12px;}.feed-sep{margin:36px 0;}.demo-live-block__header{flex-direction:column;align-items:flex-start;}.demo-live-btn{width:100%;justify-content:center;}}
+
 </style>
+

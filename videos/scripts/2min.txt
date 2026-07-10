@@ -1,0 +1,17 @@
+Timothy Maina — 2-minute video script
+Tone: trustworthy, straightforward, calm, human.
+
+00:00 - 00:15 | Opening face to camera, warm, no rush
+"Hi, I'm Timothy Maina. I help organisations solve practical problems through technology, reliable operations, and honest communication."
+
+00:15 - 00:45 | Story + evidence
+"My background combines student leadership, family-business operations, and seven end-to-end analytics projects. I led an inactive student club for two years, grew it past 200 members, and ran events with budgets over KSh 30,000. In a family business, I handled customer support, inventory, procurement, and daily finances."
+
+00:45 - 01:05 | Technical credibility
+"I also specialise in fraud detection, churn, credit risk, and forecasting. I prefer Random Forest because it's more interpretable and easier to debug. Every project needs real evidence, not just polished claims."
+
+01:05 - 01:40 | Employer value
+"I'm calm under pressure, organised, and disciplined. I finish what I start. I like building systems that make work easier, documenting repetitive steps, and teaching people instead of confusing them."
+
+01:40 - 02:00 | Close + CTA
+"I'm looking for roles in operations, admin, data, ICT support, or graduate trainee programmes. Connect with me on LinkedIn, email me, or visit timmaina-devhub.github.io. I reply within 24 hours."

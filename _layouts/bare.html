@@ -19,7 +19,17 @@
           if (links) {
             links.classList.toggle('nav-open');
             const open = links.classList.contains('nav-open');
-            btn.setAttribute('aria-expanded', open);
+            btn.setAttribute('aria-expanded', String(open));
+          }
+        });
+      });
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        a.addEventListener('click', () => {
+          const btn = a.closest('.navbar')?.querySelector('.nav-toggle');
+          const links = a.closest('.navbar')?.querySelector('.nav-links');
+          if (links && btn) {
+            links.classList.remove('nav-open');
+            btn.setAttribute('aria-expanded', 'false');
           }
         });
       });

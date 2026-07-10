@@ -1,0 +1,103 @@
+---
+layout: bare
+title: Resume — Administration
+---
+<link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+<a href="#main-content" class="skip-link">Skip to content</a>
+<style>
+:root{--bg:#0b0b0c;--sur:#111113;--bdr:rgba(255,255,255,.08);--amber:#f59e0b;--amber-d:rgba(245,158,11,.12);--txt:#e2e8f0;--muted:#94a3b8;--dim:#64748b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font-family:'Inter',system-ui,sans-serif;line-height:1.55}
+.container{max-width:860px;margin:0 auto;padding:44px 22px}
+.topbar{display:flex;align-items:center;gap:18px;margin-bottom:14px}
+.avatar{width:64px;height:64px;border-radius:50%;background:var(--amber-d);border:1px solid rgba(245,158,11,.25);display:grid;place-items:center;color:#fbbf24;font-weight:700;font-size:1.1rem}
+.titleblock h1{font-size:1.55rem;color:#fff;line-height:1.2}
+.titleblock p{color:var(--muted);font-size:.92rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+.chip{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--amber-d);color:#fbbf24;border:1px solid rgba(245,158,11,.2);white-space:nowrap}
+h2{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fbbf24;margin:26px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--bdr)}
+.section{display:grid;grid-template-columns:220px 1fr;gap:18px;margin-bottom:18px}
+.section .label{color:var(--dim);font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.section .value{color:var(--txt)}
+ul{margin:0;padding-left:18px}
+ul li{margin-bottom:8px;color:var(--txt)}
+.role{font-weight:700;color:#fff}
+.meta{color:var(--dim);font-size:.85rem;margin-bottom:6px}
+.highlight{color:#fbbf24;font-weight:600}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.tag{font-size:.68rem;font-weight:600;color:#fbbf24;background:var(--amber-d);border:1px solid rgba(245,158,11,.2);padding:3px 9px;border-radius:999px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;background:var(--amber-d);color:#fbbf24;border:1px solid rgba(245,158,11,.3);border-radius:10px;text-decoration:none;font-size:.82rem;font-weight:700}
+.btn:hover{background:#b45309;color:#fff}
+@media(max-width:760px){.section{grid-template-columns:1fr}}
+</style>
+
+<div class="container">
+  <div class="topbar">
+    <div class="avatar">TM</div>
+    <div class="titleblock">
+      <h1>Timothy Maina</h1>
+      <p>Administration & operations support — organised, process-minded, reliable</p>
+    </div>
+  </div>
+  <div class="chips">
+    <span class="chip">Nairobi, Kenya</span>
+    <span class="chip">Administration</span>
+    <span class="chip">Operations</span>
+    <span class="chip">Office support</span>
+    <span class="chip">Inventory</span>
+    <span class="chip">Budget management</span>
+  </div>
+
+  <h2>Profile</h2>
+  <p class="value" style="margin-bottom:14px">
+    Organised administrator who turns unclear situations into repeatable processes. I combine family-business operations experience with structured planning, customer service, and documentation habits that keep teams and workflows running smoothly.
+  </p>
+
+  <h2>Experience</h2>
+  <div class="section">
+    <div class="label">Club leadership</div>
+    <div class="value">
+      <div class="role">President's Club — 2 years</div>
+      <div class="meta">Operations · event planning · budget · membership</div>
+      <ul>
+        <li>Led and revived an inactive student club, growing membership to <span class="highlight">200+</span>.</li>
+        <li>Planned and executed a school camping event with a budget over <span class="highlight">KSh 30,000</span>.</li>
+        <li>Maintained records, delegated tasks, and standardised event checklists.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="section">
+    <div class="label">Business operations</div>
+    <div class="value">
+      <div class="role">Family business — operations support</div>
+      <div class="meta">Customer service · procurement · inventory · finance tracking</div>
+      <ul>
+        <li>Managed supplier orders, stock levels, and daily cashflow records.</li>
+        <li>Supported customers directly; handled complaints and follow-up communications.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Administration strengths</h2>
+  <div class="tags">
+    <span class="tag">Office administration</span><span class="tag">Inventory control</span>
+    <span class="tag">Event coordination</span><span class="tag">Budget management</span>
+    <span class="tag">Customer service</span><span class="tag">Excel</span>
+    <span class="tag">Documentation</span><span class="tag">Planning</span>
+  </div>
+
+  <h2>Education</h2>
+  <div class="section">
+    <div class="label">Kenyatta University</div>
+    <div class="value">
+      <div class="role">BSc Statistics & Programming</div>
+      <div class="meta">2024</div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <a class="btn" href="/contact">Contact me →</a>
+    <a class="btn" href="/about">More about me →</a>
+  </div>
+</div>

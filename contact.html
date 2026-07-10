@@ -4,10 +4,12 @@ title: Contact
 ---
 <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
 
+<a href="#main-content" class="skip-link">Skip to content</a>
+
 <!-- NAVBAR -->
 <nav class="navbar">
   <div class="logo"><strong>Timothy Maina</strong></div>
-  <button class="nav-toggle" aria-label="Menu" id="navToggle">
+  <button class="nav-toggle" aria-label="Menu" id="navToggle" aria-expanded="false">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
       <line x1="4" y1="6" x2="20" y2="6"></line>
       <line x1="4" y1="12" x2="20" y2="12"></line>
@@ -19,9 +21,12 @@ title: Contact
     <a href="/about">About</a>
     <a href="/projects">Projects</a>
     <a href="/intelligence_platform">Intelligence Platform</a>
+    <a href="/work-with-me">Work With Me</a>
     <a href="/contact" class="nav-active">Contact</a>
   </div>
 </nav>
+
+<main id="main-content">
 
 <!-- PAGE HERO -->
 <section class="hero hero--sm">
@@ -133,7 +138,7 @@ title: Contact
       <div class="contact-right">
         <div class="form-card">
           <h3 class="form-title">Send a Message</h3>
-          <p class="form-subtitle">Fill in the form and I'll get back to you shortly.</p>
+          <p class="form-subtitle">Tell me what you need and I'll reply with next steps.</p>
 
           <!-- SUCCESS MESSAGE (hidden by default) -->
           <div class="form-success" id="form-success">
@@ -191,6 +196,8 @@ title: Contact
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer class="footer">

@@ -1,0 +1,26 @@
+Timothy Maina — 5-minute video script
+Tone: trustworthy, straightforward, calm, human.
+
+00:00 - 00:30 | Opening
+"Hi, I'm Timothy Maina. I'm a dependable problem solver based in Nairobi. Whether the issue is a broken system, a messy dataset, or unclear team process — I help fix it and leave something others can maintain."
+
+00:30 - 01:15 | Who I am
+"My career identity is not a single job title. It's someone who learns independently, finishes commitments, and shows up prepared. I'm a BSc Statistics & Programming graduate, Google Advanced Data Analytics certified, and I've built seven end-to-end projects in fraud detection, churn, credit risk, marketing, inventory, logistics, and forecasting."
+
+01:15 - 02:00 | Evidence 1: leadership
+"I've led for two years as president of a student club we revived from inactive status. We grew past 200 members, organised major events, managed budgets over KSh 30,000, and introduced branded club T-shirts to improve identity and continuity."
+
+02:00 - 02:45 | Evidence 2: business operations
+"In a family business, I managed operations and finances. That meant customer service, procurement, inventory, supplier orders, and cashflow tracking. Those habits turned into a mindset: if you own a process, you own the outcome."
+
+02:45 - 03:15 | Evidence 3: technical projects
+"My portfolio is not theoretical. Each project starts with a real problem, real constraints, and real data. I focus on fraud detection, churn, credit risk, and forecasting because those are problems companies actually face. I keep models interpretable, document my work, and deliver dashboards in Tableau or Power BI that non-technical stakeholders can use."
+
+03:15 - 04:00 | Values and work style
+"I value honesty over appearance. I prefer transparency to shortcuts. I finish what I start, and if I don't know something, I'll research it before I guess. I like helping people understand technology, fixing computers, and building repeatable workflows. Discipline and continuous improvement are non-negotiable for me."
+
+04:00 - 04:40 | What I am looking for
+"I'm open to administrative, operations, ICT support, customer service, data, graduate trainee, remote, contract, or freelance roles. I do not chase commission-only sales. I want roles where responsibility, learning, and real contribution are clear."
+
+04:40 - 05:00 | Close + CTA
+"If you want someone you can trust with customers, money, or responsibility — reach out. timothymaina382@gmail.com, LinkedIn at linkedin.com/in/timmaina-devhub, or timmaina-devhub.github.io. I typically respond within 24 hours."

@@ -3,11 +3,11 @@ layout: bare
 title: Home
 ---
 <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
-
+<a href="#main-content" class="skip-link">Skip to content</a>
 
 <nav class="navbar">
   <div class="logo"><strong>Timothy Maina</strong></div>
-  <button class="nav-toggle" aria-label="Menu" id="navToggle">
+  <button class="nav-toggle" aria-label="Menu" id="navToggle" aria-expanded="false">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
       <line x1="4" y1="6" x2="20" y2="6"></line>
       <line x1="4" y1="12" x2="20" y2="12"></line>
@@ -19,10 +19,12 @@ title: Home
     <a href="/about">About</a>
     <a href="/projects">Projects</a>
     <a href="/intelligence_platform">Intelligence Platform</a>
+    <a href="/work-with-me">Work With Me</a>
     <a href="/contact">Contact</a>
   </div>
 </nav>
 
+<main id="main-content">
 <!-- HERO -->
 <section class="h-hero">
   <div class="h-hero__grid" aria-hidden="true"></div>
@@ -51,30 +53,34 @@ ORDER BY total_rev DESC</div>
       <span><span class="sr-key">response:</span> <span class="sr-val">~24h</span></span>
     </div>
     <h1 class="h-hero__title">
-      Turning raw data into<br>
+      Dependable problem solver.<br>
       <span class="typewriter-wrap">
         <em id="typewriter"></em><span class="tw-cursor">|</span>
         <div class="annotation" aria-hidden="true"></div>
       </span>
     </h1>
     <p class="h-hero__sub">
-      I'm <strong>Timothy Maina</strong>, an Applied Data Scientist based in Nairobi. I got comfortable with data through Excel back in high school, then gravitated toward the part I actually enjoy: training models and turning their outputs into decisions people can act on. Most of my work sits somewhere between a messy dataset and a stakeholder asking "so what does this mean?"
+      I'm <strong>Timothy Maina</strong>, a self-taught technologist based in Nairobi. I lead teams, fix systems, and turn messy problems into something you can actually rely on. My work is grounded in real data, clear thinking, and a commitment to finishing what I start.
     </p>
     <div class="h-hero__actions">
-      <a href="/projects" class="h-btn h-btn--primary">
-        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0l-4-4m4 4l-4 4"/></svg>
-        View My Work
+      <a href="/work-with-me" class="h-btn h-btn--primary">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 21c-4.342 0-8.29-1.535-11.13-4.063M5 13.255A23.931 23.931 0 0112 5c4.342 0 8.29 1.535 11.13 4.063M15 13.255A6.999 6.999 0 0112 21a6.999 6.999 0 01-3-7.745M12 21a6.999 6.999 0 01-3-7.745M12 21V9.75"/></svg>
+        Work With Me
       </a>
-      <a href="/contact" class="h-btn h-btn--ghost">Let's Talk</a>
+      <a href="/projects" class="h-btn h-btn--ghost">View My Work</a>
     </div>
     <div class="h-trust">
       <div class="h-trust__item">
-        <span class="h-trust__num">7+</span>
-        <span class="m-label">Projects</span>
+        <span class="h-trust__num">200+</span>
+        <span class="m-label">Members Led</span>
       </div>
       <div class="h-trust__item">
-        <span class="h-trust__num">3</span>
-        <span class="m-label">ML · BI · Analytics</span>
+        <span class="h-trust__num">2yr</span>
+        <span class="m-label">President's Club</span>
+      </div>
+      <div class="h-trust__item">
+        <span class="h-trust__num">7+</span>
+        <span class="m-label">End-to-end Projects</span>
       </div>
       <div class="h-trust__item">
         <span class="h-trust__num">~24h</span>
@@ -85,6 +91,38 @@ ORDER BY total_rev DESC</div>
   <div class="h-scroll-cue" aria-hidden="true">
     <span>Scroll</span>
     <div class="h-scroll-cue__track"><div class="h-scroll-cue__dot"></div></div>
+  </div>
+</section>
+
+<!-- HOW I WORK -->
+<section class="h-section section--alt">
+  <div class="container">
+    <div class="section-header fade-up">
+      <p class="eyebrow">How I Work</p>
+      <h2>Reliability before <em>everything</em></h2>
+      <p>Every project follows the same commitments: clear communication, honest timelines, and follow-through.</p>
+    </div>
+    <div class="measure-ruler"><span>/process</span></div>
+    <div class="grid-3">
+      <div class="pillar fade-up" style="--d:.05s">
+        <div class="pillar__icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <h3>Clarity First</h3>
+        <p>I start by understanding the real problem, not just the first request. That means asking questions, confirming scope, and making sure what I deliver is actually what you need.</p>
+        <div class="pillar__tools"><span>Requirements</span><span>Communication</span><span>Planning</span></div>
+      </div>
+      <div class="pillar fade-up" style="--d:.15s">
+        <div class="pillar__icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <h3>Consistent Delivery</h3>
+        <p>I manage budgets, timelines, and expectations the same way I managed event operations with KSh 30,000+ budgets and 200+ members: with structure, transparency, and follow-through.</p>
+        <div class="pillar__tools"><span>Operations</span><span>Budgeting</span><span>Accountability</span></div>
+      </div>
+      <div class="pillar fade-up" style="--d:.25s">
+        <div class="pillar__icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg></div>
+        <h3>Continuous Improvement</h3>
+        <p>I taught myself Linux, imported hardware internationally through research, and continue to refine every model or workflow I touch. Skills decay; commitment to learning doesn't have to.</p>
+        <div class="pillar__tools"><span>Self-learning</span><span>Documentation</span><span>Optimization</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -176,7 +214,7 @@ ORDER BY total_rev DESC</div>
             Launch Delay Predictor
           </a>
           <a href="/projects#Delivery-Downtime-Route-Optimization" class="btn btn--ghost">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
             Case Study
           </a>
         </div>
@@ -217,7 +255,7 @@ ORDER BY total_rev DESC</div>
             Launch Churn Predictor
           </a>
           <a href="/projects#customer-analysis" class="btn btn--ghost">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
             Case Study
           </a>
         </div>
@@ -258,7 +296,7 @@ ORDER BY total_rev DESC</div>
             Launch Fraud Detector
           </a>
           <a href="/projects#fraud-detection" class="btn btn--ghost">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
             Case Study
           </a>
         </div>
@@ -305,10 +343,11 @@ ORDER BY total_rev DESC</div>
     <p>Most of my projects involve predictive analytics, operational reporting, and machine learning workflows tied to real business problems. I'm open to full-time roles, contract work, and analytical projects where the focus is understanding patterns, improving reporting, or building practical ML solutions. If you have a dataset, reporting challenge, or workflow that needs careful analysis, I'm happy to talk through it.</p>
     <div class="cta-banner__actions">
       <a href="/contact" class="h-btn h-btn--primary">Get In Touch →</a>
-      <a href="/about" class="h-btn h-btn--ghost">Learn More About Me</a>
+      <a href="/work-with-me" class="h-btn h-btn--ghost">How I Work</a>
     </div>
   </div>
 </section>
+</main>
 
 <footer class="footer">
   © 2026 Timothy Maina &nbsp;·&nbsp;
@@ -370,7 +409,7 @@ ORDER BY total_rev DESC</div>
 <!-- JAVASCRIPT -->
 <script>
 /* ── Typewriter ─────────────── */
-(function(){const phrases=['numbers that make sense.','models that hold up.','reports people read.','predictions worth acting on.'];const el=document.getElementById('typewriter');let pi=0,ci=0,del=false;function tick(){const ph=phrases[pi];if(!del){el.textContent=ph.slice(0,++ci);if(ci===ph.length){del=true;setTimeout(tick,2000);return;}}else{el.textContent=ph.slice(0,--ci);if(ci===0){del=false;pi=(pi+1)%phrases.length;}}setTimeout(tick,del?28:55);}setTimeout(tick,900);})();
+(function(){const phrases=['reliable under pressure.','organized by habit.','transparent by choice.','building systems that last.'];const el=document.getElementById('typewriter');let pi=0,ci=0,del=false;function tick(){const ph=phrases[pi];if(!del){el.textContent=ph.slice(0,++ci);if(ci===ph.length){del=true;setTimeout(tick,2000);return;}}else{el.textContent=ph.slice(0,--ci);if(ci===0){del=false;pi=(pi+1)%phrases.length;}}setTimeout(tick,del?28:55);}setTimeout(tick,900);})();
 
 /* ── Counters ──────────────── */
 (function(){const els=document.querySelectorAll('.counter');let done=false;function run(){els.forEach(el=>{const t=+el.dataset.target,s=el.dataset.suffix||'';let n=0,step=Math.ceil(t/40);const tm=setInterval(()=>{n=Math.min(n+step,t);el.textContent=n+s;if(n>=t)clearInterval(tm);},40);});}const obs=new IntersectionObserver(e=>{if(e[0].isIntersecting&&!done){done=true;setTimeout(run,600);}},{threshold:.4});const hero=document.querySelector('.h-hero');if(hero)obs.observe(hero);})();
@@ -380,4 +419,10 @@ ORDER BY total_rev DESC</div>
 
 /* ── Scroll cue hide ───────── */
 (function(){const cue=document.querySelector('.h-scroll-cue');if(!cue)return;window.addEventListener('scroll',()=>{cue.style.opacity=window.scrollY>80?'0':'1';},{passive:true});})();
+
+/* ── Mobile nav toggle ─────── */
+(function(){const btn=document.getElementById('navToggle');const links=document.getElementById('navLinks');if(!btn||!links)return;btn.addEventListener('click',()=>{const open=links.classList.toggle('nav-open');btn.setAttribute('aria-expanded',String(open));});})();
+
+/* ── Close mobile nav on link click ──── */
+(function(){const links=document.querySelectorAll('.nav-links a');const nav=document.getElementById('navLinks');const btn=document.getElementById('navToggle');if(!nav||!btn)return;links.forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('nav-open');btn.setAttribute('aria-expanded','false');}));})();
 </script>

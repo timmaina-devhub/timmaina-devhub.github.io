@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Disallow: /resumes/
 Sitemap: https://timmaina-devhub.github.io/sitemap.xml
