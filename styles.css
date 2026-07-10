@@ -1969,3 +1969,57 @@ img {
     max-width: 100% !important;
   }
 }
+
+/* ============================================
+   TESTIMONIALS
+   ============================================ */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.testimonial-card {
+  background: linear-gradient(180deg, #141416, #0d0d10);
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.testimonial-card--alt {
+  border-color: rgba(245, 158, 11, .25);
+}
+.testimonial-card__stars {
+  color: #fbbf24;
+  font-size: 1rem;
+  letter-spacing: .08em;
+}
+.testimonial-card__text {
+  color: var(--text-1);
+  font-size: .92rem;
+  line-height: 1.6;
+}
+.testimonial-card__author {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.testimonial-card__avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(245, 158, 11, .12);
+  border: 1px solid rgba(245, 158, 11, .25);
+  color: #fbbf24;
+  font-weight: 700;
+  font-size: .8rem;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.testimonial-card__meta {
+  color: var(--text-4);
+  font-size: .8rem;
+  margin-top: 2px;
+}

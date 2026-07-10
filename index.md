@@ -420,9 +420,4 @@ ORDER BY total_rev DESC</div>
 /* ── Scroll cue hide ───────── */
 (function(){const cue=document.querySelector('.h-scroll-cue');if(!cue)return;window.addEventListener('scroll',()=>{cue.style.opacity=window.scrollY>80?'0':'1';},{passive:true});})();
 
-/* ── Mobile nav toggle ─────── */
-(function(){const btn=document.getElementById('navToggle');const links=document.getElementById('navLinks');if(!btn||!links)return;btn.addEventListener('click',()=>{const open=links.classList.toggle('nav-open');btn.setAttribute('aria-expanded',String(open));});})();
-
-/* ── Close mobile nav on link click ──── */
-(function(){const links=document.querySelectorAll('.nav-links a');const nav=document.getElementById('navLinks');const btn=document.getElementById('navToggle');if(!nav||!btn)return;links.forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('nav-open');btn.setAttribute('aria-expanded','false');}));})();
 </script>
