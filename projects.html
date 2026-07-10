@@ -4,12 +4,10 @@ title: Projects
 ---
 <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<a href="#main-content" class="skip-link">Skip to content</a>
 
-<!-- NAVBAR -->
 <nav class="navbar">
   <div class="logo"><strong>Timothy Maina</strong></div>
-  <button class="nav-toggle" aria-label="Menu" id="navToggle" aria-expanded="false">
+  <button class="nav-toggle" aria-label="Menu" id="navToggle">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
       <line x1="4" y1="6" x2="20" y2="6"></line>
       <line x1="4" y1="12" x2="20" y2="12"></line>
@@ -28,6 +26,7 @@ title: Projects
   </div>
 </nav>
 
+<main id="main-content">
 <section class="ph">
   <div class="ph__bg" aria-hidden="true"></div>
   <div class="ph__inner">
@@ -115,7 +114,7 @@ title: Projects
         <div class="dash-panel__img-side">
           <div class="dash-panel__screen">
             <div class="dash-panel__chrome"><span class="dc-dot dc-dot--r"></span><span class="dc-dot dc-dot--y"></span><span class="dc-dot dc-dot--g"></span><div class="dash-panel__url">Ecommerce_project_portfolio.twb</div></div>
-            <div class="dash-panel__preview"><img src="{{ '/images/customer-analysis.png' | relative_url }}" alt="Customer Churn Dashboard"><div class="dash-panel__shine"></div></div>
+            <div class="dash-panel__preview"><img src="{{ '/images/customer-analysis.png' | relative_url }}" alt="Customer Churn Dashboard" loading="lazy"><div class="dash-panel__shine"></div></div>
           </div>
         </div>
         <div class="dash-panel__info-side">
@@ -135,7 +134,7 @@ title: Projects
             <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             ML Model — Live Demo
           </div>
-          <a href="/intelligence_platform#churn" target="_blank" rel="noopener noreferrer" class="demo-live-btn demo-live-btn--green">Launch Churn Predictor →</a>
+          <a href="/intelligence_platform#page-churn" target="_blank" rel="noopener noreferrer" class="demo-live-btn demo-live-btn--green">Launch Churn Predictor →</a>
         </div>
         <div class="demo-live-block__body">
           <div class="demo-live-block__chip"><span class="dlc-dot dlc-dot--blue"></span>Logistic Regression · K-Means Clustering</div>
@@ -202,7 +201,7 @@ title: Projects
         <div class="dash-panel__img-side">
           <div class="dash-panel__screen">
             <div class="dash-panel__chrome"><span class="dc-dot dc-dot--r"></span><span class="dc-dot dc-dot--y"></span><span class="dc-dot dc-dot--g"></span><div class="dash-panel__url">Fraud_project_portfolio.twb</div></div>
-            <div class="dash-panel__preview"><img src="{{ '/images/fraud-dashboard.png' | relative_url }}" alt="Fraud Detection Dashboard"><div class="dash-panel__shine"></div></div>
+            <div class="dash-panel__preview"><img src="{{ '/images/fraud-dashboard.png' | relative_url }}" alt="Fraud Detection Dashboard" loading="lazy"><div class="dash-panel__shine"></div></div>
           </div>
         </div>
         <div class="dash-panel__info-side">
@@ -222,7 +221,7 @@ title: Projects
             <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
             ML Model — Live Demo
           </div>
-          <a href="/intelligence_platform#fraud" target="_blank" rel="noopener noreferrer" class="demo-live-btn demo-live-btn--green">Launch Fraud Detector →</a>
+          <a href="/intelligence_platform#page-fraud" target="_blank" rel="noopener noreferrer" class="demo-live-btn demo-live-btn--green">Launch Fraud Detector →</a>
         </div>
         <div class="demo-live-block__body">
           <div class="demo-live-block__chip demo-live-block__chip--red"><span class="dlc-dot dlc-dot--red"></span>Random Forest · SMOTE · Feature Engineering</div>
@@ -289,7 +288,7 @@ title: Projects
         <div class="dash-panel__img-side">
           <div class="dash-panel__screen">
             <div class="dash-panel__chrome"><span class="dc-dot dc-dot--r"></span><span class="dc-dot dc-dot--y"></span><span class="dc-dot dc-dot--g"></span><div class="dash-panel__url">Multi-Channel Marketing Attribution</div></div>
-            <div class="dash-panel__preview"><img src="{{ '/images/marketing-project.png' | relative_url }}" alt="Marketing Attribution Dashboard"><div class="dash-panel__shine"></div></div>
+            <div class="dash-panel__preview"><img src="{{ '/images/marketing-project.png' | relative_url }}" alt="Marketing Attribution Dashboard" loading="lazy"><div class="dash-panel__shine"></div></div>
           </div>
         </div>
         <div class="dash-panel__info-side">
@@ -309,7 +308,7 @@ title: Projects
             <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
             ML Model — Live Demo
           </div>
-          <a href="/intelligence_platform#marketing" target="_blank" rel="noopener noreferrer" class="demo-live-btn demo-live-btn--green">Launch ROI Predictor →</a>
+          <a href="/intelligence_platform#page-marketing" target="_blank" rel="noopener noreferrer" class="demo-live-btn demo-live-btn--green">Launch ROI Predictor →</a>
         </div>
         <div class="demo-live-block__body">
           <div class="demo-live-block__chip demo-live-block__chip--purple"><span class="dlc-dot dlc-dot--purple"></span>Random Forest · Markov Chain Attribution</div>
@@ -377,7 +376,7 @@ title: Projects
         <div class="dash-panel__img-side">
           <div class="dash-panel__screen">
             <div class="dash-panel__chrome"><span class="dc-dot dc-dot--r"></span><span class="dc-dot dc-dot--y"></span><span class="dc-dot dc-dot--g"></span><div class="dash-panel__url">Demand Forecasting &amp; Inventory Optimization</div></div>
-            <div class="dash-panel__preview"><img src="{{ '/images/supply_chain_dashboard.png' | relative_url }}" alt="Inventory Optimization Dashboard"><div class="dash-panel__shine"></div></div>
+            <div class="dash-panel__preview"><img src="{{ '/images/supply_chain_dashboard.png' | relative_url }}" alt="Inventory Optimization Dashboard" loading="lazy"><div class="dash-panel__shine"></div></div>
           </div>
         </div>
         <div class="dash-panel__info-side">
@@ -397,7 +396,7 @@ title: Projects
             <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0l-4-4m4 4l-4 4"/></svg>
             ML Model — Live Demo
           </div>
-          <a href="/intelligence_platform#supply" target="_blank" rel="noopener noreferrer" class="demo-live-btn demo-live-btn--green">Launch Inventory Simulator →</a>
+          <a href="/intelligence_platform#page-supply" target="_blank" rel="noopener noreferrer" class="demo-live-btn demo-live-btn--green">Launch Inventory Simulator →</a>
         </div>
         <div class="demo-live-block__body">
           <div class="demo-live-block__chip demo-live-block__chip--teal"><span class="dlc-dot dlc-dot--teal"></span>Prophet · ARIMA · Safety Stock · EOQ · ROP</div>
@@ -466,7 +465,7 @@ title: Projects
         <div class="dash-panel__img-side">
           <div class="dash-panel__screen">
             <div class="dash-panel__chrome"><span class="dc-dot dc-dot--r"></span><span class="dc-dot dc-dot--y"></span><span class="dc-dot dc-dot--g"></span><div class="dash-panel__url">Customer Credit Risk</div></div>
-            <div class="dash-panel__preview"><img src="{{ '/images/credit_risk_dashboard.png' | relative_url }}" alt="Credit Risk Dashboard"><div class="dash-panel__shine"></div></div>
+            <div class="dash-panel__preview"><img src="{{ '/images/credit_risk_dashboard.png' | relative_url }}" alt="Credit Risk Dashboard" loading="lazy"><div class="dash-panel__shine"></div></div>
           </div>
         </div>
         <div class="dash-panel__info-side">
@@ -486,7 +485,7 @@ title: Projects
             <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
             ML Model — Live Demo
           </div>
-          <a href="/intelligence_platform#credit" target="_blank" rel="noopener noreferrer" class="demo-live-btn demo-live-btn--green">Launch Credit Risk Assessor →</a>
+          <a href="/intelligence_platform#page-credit" target="_blank" rel="noopener noreferrer" class="demo-live-btn demo-live-btn--green">Launch Credit Risk Assessor →</a>
         </div>
         <div class="demo-live-block__body">
           <div class="demo-live-block__chip demo-live-block__chip--amber"><span class="dlc-dot dlc-dot--amber"></span>Classification Model · Risk Scoring</div>
@@ -554,7 +553,7 @@ title: Projects
         <div class="dash-panel__img-side">
           <div class="dash-panel__screen">
             <div class="dash-panel__chrome"><span class="dc-dot dc-dot--r"></span><span class="dc-dot dc-dot--y"></span><span class="dc-dot dc-dot--g"></span><div class="dash-panel__url">Delivery Downtime Prediction &amp; Route Optimization</div></div>
-            <div class="dash-panel__preview"><img src="{{ '/images/logistics_dashboard.png' | relative_url }}" alt="Logistics Dashboard"><div class="dash-panel__shine"></div></div>
+            <div class="dash-panel__preview"><img src="{{ '/images/logistics_dashboard.png' | relative_url }}" alt="Logistics Dashboard" loading="lazy"><div class="dash-panel__shine"></div></div>
           </div>
         </div>
         <div class="dash-panel__info-side">
@@ -574,7 +573,7 @@ title: Projects
             <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
             ML Model — Live Demo
           </div>
-          <a href="/intelligence_platform#logistics" target="_blank" rel="noopener noreferrer" class="demo-live-btn demo-live-btn--green">Launch Delay Predictor →</a>
+          <a href="/intelligence_platform#page-logistics" target="_blank" rel="noopener noreferrer" class="demo-live-btn demo-live-btn--green">Launch Delay Predictor →</a>
         </div>
         <div class="demo-live-block__body">
           <div class="demo-live-block__chip demo-live-block__chip--green"><span class="dlc-dot dlc-dot--green"></span>Delay Prediction · Route Optimisation</div>
@@ -642,7 +641,7 @@ title: Projects
         <div class="dash-panel__img-side">
           <div class="dash-panel__screen">
             <div class="dash-panel__chrome"><span class="dc-dot dc-dot--r"></span><span class="dc-dot dc-dot--y"></span><span class="dc-dot dc-dot--g"></span><div class="dash-panel__url">SuperStoreSales_Project1.twb</div></div>
-            <div class="dash-panel__preview"><img src="{{ '/images/sales-dashboard.png' | relative_url }}" alt="Superstore Dashboard"><div class="dash-panel__shine"></div></div>
+            <div class="dash-panel__preview"><img src="{{ '/images/sales-dashboard.png' | relative_url }}" alt="Superstore Dashboard" loading="lazy"><div class="dash-panel__shine"></div></div>
           </div>
         </div>
         <div class="dash-panel__info-side">
@@ -657,7 +656,7 @@ title: Projects
         </div>
       </div>
       <div class="nb-block">
-        <div class="nb-block__header" onclick="toggleNb('nb-1')" role="button" tabindex="0">
+        <div class="nb-block__header" onclick="toggleNb('nb-1')" role="button" tabindex="0" onkeydown="if(event.key==='Enter' || event.key===' '){event.preventDefault(); toggleNb('nb-1');}">
           <div class="nb-block__title"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>Jupyter Notebook Preview</div>
           <button class="nb-toggle" id="toggle-nb-1"><span>Expand</span><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></button>
         </div>
@@ -711,6 +710,8 @@ document.querySelectorAll('.btn-dl').forEach(btn => {
   btn.addEventListener('click', function(e) { e.preventDefault(); const url = this.getAttribute('href'); if (!url || url === '#') return; const a = document.createElement('a'); a.href = url; a.download = url.split('/').pop(); a.rel = 'noopener'; document.body.appendChild(a); a.click(); document.body.removeChild(a); });
 });
 </script>
+
+</main>
 
 <style>
 :root{--bg:#0f0f0f;--sur:#161616;--sur2:#1c1c1c;--sur3:#222222;--bdr:rgba(255,255,255,0.07);--bdr2:rgba(255,255,255,0.12);--amber:#f59e0b;--amber-lt:#fbbf24;--amber-d:rgba(245,158,11,0.12);--txt:#e2e8f0;--muted:#94a3b8;--dim:#64748b;--dim2:#475569;--green:#10b981;--blue:#3b82f6;}
@@ -851,6 +852,4 @@ h1,h2,h3,h4{font-family:var(--sans);}
 /* Responsive */
 @media(max-width:760px){.pj__content{grid-template-columns:1fr;}.pj__col--right{padding-left:0;border-left:none;border-top:1px solid rgba(255,255,255,.05);padding-top:18px;}.dash-panel{grid-template-columns:1fr;}.dash-panel__img-side{padding:14px;}.dash-panel__info-side{border-left:none;border-top:1px solid rgba(245,158,11,.12);padding:16px;}.float-nav__label{display:none;}.fnpill__name{display:none;}.fnpill{padding:5px 9px;}}
 @media(max-width:480px){.ph{padding:70px 16px 44px;}.ph__div{display:none;}.ph__stats{gap:16px;padding:10px 16px;}.feed{padding:0 12px 100px;}.pj__topbar{padding:14px 16px 0;}.pj__title{padding:14px 16px 6px;}.pj__hook{padding:0 16px;}.pj__content{padding:16px;}.demo-section{padding:14px 16px;}.pj__cta{padding:14px 16px;flex-direction:column;align-items:stretch;}.btn-next,.btn-top{margin-left:0;width:100%;justify-content:center;}.btn-gh{width:100%;justify-content:center;}.dash-panel__img-side{padding:10px;}.dash-panel__info-side{padding:14px 12px;}.feed-sep{margin:36px 0;}.demo-live-block__header{flex-direction:column;align-items:flex-start;}.demo-live-btn{width:100%;justify-content:center;}}
-
 </style>
-

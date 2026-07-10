@@ -211,7 +211,7 @@ ORDER BY total_rev DESC</div>
           <div class="ops-tile__stack"><span>Regression</span><span>Feature Engineering</span><span>Python</span><span>Power BI</span></div>
         </div>
         <div class="ops-tile__cta">
-          <a href="/intelligence_platform#logistics" class="btn btn--primary">
+          <a href="/intelligence_platform#page-logistics" class="btn btn--primary">
             <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             Launch Delay Predictor
           </a>
@@ -252,7 +252,7 @@ ORDER BY total_rev DESC</div>
           <div class="ops-tile__stack"><span>Python</span><span>Pandas</span><span>scikit-learn</span><span>Seaborn</span></div>
         </div>
         <div class="ops-tile__cta">
-          <a href="/intelligence_platform#churn" class="btn btn--primary">
+          <a href="/intelligence_platform#page-churn" class="btn btn--primary">View ML Case Study →</a>
             <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             Launch Churn Predictor
           </a>
@@ -293,7 +293,7 @@ ORDER BY total_rev DESC</div>
           <div class="ops-tile__stack"><span>Python</span><span>Random Forest</span><span>SMOTE</span><span>Tableau</span></div>
         </div>
         <div class="ops-tile__cta">
-          <a href="/intelligence_platform#fraud" class="btn btn--primary">
+          <a href="/intelligence_platform#page-fraud" class="btn btn--primary">
             <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             Launch Fraud Detector
           </a>

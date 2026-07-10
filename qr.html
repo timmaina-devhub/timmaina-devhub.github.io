@@ -43,6 +43,8 @@ body{background:var(--bg);color:var(--txt);font-family:'Inter',system-ui,sans-se
     <a href="/intelligence_platform">Intelligence Platform</a>
     <a href="/work-with-me">Work With Me</a>
     <a href="/contact">Contact</a>
+    <a href="/qr" class="nav-active">QR</a>
+    <a href="/business-card">Business Card</a>
   </div>
 </nav>
 
@@ -71,9 +73,3 @@ body{background:var(--bg);color:var(--txt);font-family:'Inter',system-ui,sans-se
   © 2026 Timothy Maina &nbsp;·&nbsp;
   <a href="/contact" style="color:#fbbf24;text-decoration:none;">Contact</a>
 </footer>
-
-<!-- MOBILE NAV SCRIPT -->
-<script>
-(function(){const btn=document.getElementById('navToggle');const links=document.getElementById('navLinks');if(!btn||!links)return;btn.addEventListener('click',()=>{const open=links.classList.toggle('nav-open');btn.setAttribute('aria-expanded',String(open));});})();
-(function(){const items=document.querySelectorAll('.nav-links a');const nav=document.getElementById('navLinks');const btn=document.getElementById('navToggle');if(!nav||!btn)return;items.forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('nav-open');btn.setAttribute('aria-expanded','false');}));})();
-</script>

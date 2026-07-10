@@ -2,8 +2,32 @@
 layout: bare
 title: Cover Letter — Administration
 ---
-<link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+
 <a href="#main-content" class="skip-link">Skip to content</a>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo"><strong>Timothy Maina</strong></div>
+  <button class="nav-toggle" aria-label="Menu" id="navToggle" aria-expanded="false">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="4" y1="6" x2="20" y2="6"></line>
+      <line x1="4" y1="12" x2="20" y2="12"></line>
+      <line x1="4" y1="18" x2="20" y2="18"></line>
+    </svg>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/projects">Projects</a>
+    <a href="/intelligence_platform">Intelligence Platform</a>
+    <a href="/work-with-me">Work With Me</a>
+    <a href="/contact">Contact</a>
+    <a href="/qr">QR</a>
+    <a href="/business-card">Business Card</a>
+  </div>
+</nav>
+
+<link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+
 <style>
 :root{--bg:#0b0b0c;--sur:#111113;--bdr:rgba(255,255,255,.08);--amber:#f59e0b;--amber-d:rgba(245,158,11,.12);--txt:#e2e8f0;--muted:#94a3b8}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -49,6 +73,7 @@ ul li{margin-bottom:8px;color:var(--txt)}
   </p>
 
   <div class="actions">
+    <a class="btn" href="/">← Back to Home</a>
     <a class="btn" href="/resumes/administration.html">Resume →</a>
     <a class="btn" href="/contact">Contact me →</a>
   </div>
