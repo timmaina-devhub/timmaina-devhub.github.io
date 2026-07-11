@@ -1158,7 +1158,7 @@ img {
 }
 .ab-section {
   width: 100%;
-  padding: 56px 32px;
+  padding: 48px 32px;
   border-top: 1px solid var(--border);
 }
 .ab-container {
@@ -1400,7 +1400,7 @@ img {
 }
 @media (max-width: 768px) {
   .ab-section {
-    padding: 2.5rem 18px !important;
+    padding: 2rem 18px !important;
   }
   .ab-hero {
     padding: 3.5rem 18px 2.5rem !important;
