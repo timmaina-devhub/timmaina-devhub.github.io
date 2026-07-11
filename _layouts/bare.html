@@ -34,6 +34,27 @@
           }
         });
       });
+
+      // Reveal-on-scroll: elements with .reveal or .fade-up start hidden
+      // (opacity: 0) via CSS and rely on this script to add .visible once
+      // they enter the viewport. Without it they stay invisible forever.
+      const revealTargets = document.querySelectorAll('.reveal, .fade-up');
+      if (revealTargets.length) {
+        if ('IntersectionObserver' in window) {
+          const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+          revealTargets.forEach(el => revealObserver.observe(el));
+        } else {
+          // Fallback for browsers without IntersectionObserver support
+          revealTargets.forEach(el => el.classList.add('visible'));
+        }
+      }
     </script>
   </body>
 </html>
