@@ -1142,7 +1142,7 @@ async function predChurnBatch(){
   try{
     const res=await fetch('https://timmaina-devhub-churn-predict-api.hf.space/predict_churn_batch',{
       method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify(chBatchData.map(r=>({frequency:r.frequency,monetary:r.monetary,avg_order_value:r.avg_order_value})))
+      body:JSON.stringify({customers:chBatchData.map(r=>({frequency:r.frequency,monetary:r.monetary,avg_order_value:r.avg_order_value}))})
     });
     if(!res.ok)throw new Error('HTTP '+res.status);
     const data=await res.json();
