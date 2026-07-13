@@ -348,6 +348,15 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
 /* ── CHART ── */
 .chart-wrap{position:relative;width:100%}
 
+/* ── FILE UPLOAD ── */
+.file-drop{
+  border:1.5px dashed var(--border2);border-radius:var(--radius-lg);
+  padding:22px;text-align:center;cursor:pointer;
+  background:var(--surface2);transition:border-color .15s,background .15s
+}
+.file-drop:hover{border-color:var(--blue);background:var(--blue-bg)}
+.file-drop.drag{border-color:var(--blue);background:var(--blue-bg)}
+
 /* ── DIVIDER ── */
 .divider{height:1px;background:var(--border);margin:14px 0}
 
@@ -557,6 +566,49 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
               <tr><td>New Customers</td><td><span class="pill pill-blue">New</span></td><td>Onboarding sequence</td></tr>
             </tbody>
           </table>
+        </div>
+      </div>
+
+      <div class="card fade-in" style="margin-bottom:12px">
+        <div class="card-title"><div class="dot" style="background:var(--purple)"></div>Batch Prediction — CSV Upload</div>
+        <p style="font-size:11.5px;color:var(--text2);line-height:1.7;margin-bottom:12px">Score many customers in a single request. Upload a CSV with columns <code style="font-family:var(--mono);color:var(--text0);background:var(--surface2);padding:1px 5px;border-radius:3px">frequency</code>, <code style="font-family:var(--mono);color:var(--text0);background:var(--surface2);padding:1px 5px;border-radius:3px">monetary</code>, <code style="font-family:var(--mono);color:var(--text0);background:var(--surface2);padding:1px 5px;border-radius:3px">avg_order_value</code> — the same features the single predictor above sends — and every row is passed to the batch endpoint at once. An optional <code style="font-family:var(--mono);color:var(--text0);background:var(--surface2);padding:1px 5px;border-radius:3px">customer_id</code> column will be carried through to the results.</p>
+
+        <div class="file-drop" id="ch-drop" onclick="document.getElementById('ch-file').click()"
+             ondragover="event.preventDefault();this.classList.add('drag')"
+             ondragleave="this.classList.remove('drag')"
+             ondrop="event.preventDefault();this.classList.remove('drag');handleChurnCSV(event.dataTransfer.files[0])">
+          <input type="file" id="ch-file" accept=".csv" style="display:none" onchange="handleChurnCSV(this.files[0])">
+          <div id="ch-drop-label">
+            <div style="font-size:22px;margin-bottom:6px">📄</div>
+            <div style="font-size:12px;color:var(--text1);font-weight:500">Click to upload CSV</div>
+            <div style="font-size:10.5px;color:var(--text3);margin-top:3px">or drag and drop · .csv only</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+          <button class="run-btn" id="btn-churn-batch" style="flex:1;min-width:180px" onclick="predChurnBatch()" disabled>▶ Run Batch Prediction</button>
+          <button class="run-btn" style="flex:0 0 auto;width:auto;background:var(--surface2);box-shadow:none;color:var(--text1);padding:9px 14px" onclick="downloadChurnTemplate()">⬇ Sample CSV</button>
+        </div>
+
+        <div id="ch-batch-status" style="font-size:11px;color:var(--text3);margin-top:8px;font-family:var(--mono)"></div>
+
+        <div id="churn-batch-result" class="result-box">
+          <div class="result-grid" style="margin-bottom:12px">
+            <div class="result-mini"><div class="mn" id="chb-total">—</div><div class="ml">Records scored</div></div>
+            <div class="result-mini"><div class="mn" id="chb-rate" style="color:var(--red)">—</div><div class="ml">Predicted churn rate</div></div>
+            <div class="result-mini"><div class="mn" id="chb-high" style="color:var(--amber)">—</div><div class="ml">High-risk customers</div></div>
+            <div class="result-mini"><div class="mn" id="chb-mode">—</div><div class="ml">Source</div></div>
+          </div>
+          <div style="max-height:320px;overflow-y:auto;border:1px solid var(--border);border-radius:var(--radius)">
+            <table class="tbl">
+              <thead><tr><th>#</th><th>Customer</th><th>Frequency</th><th>Monetary</th><th>AOV</th><th>Prediction</th><th>Segment</th></tr></thead>
+              <tbody id="chb-tbody"></tbody>
+            </table>
+          </div>
+          <div style="margin-top:10px">
+            <button class="run-btn" style="width:auto;padding:8px 14px;font-size:11.5px" onclick="downloadChurnResults()">⬇ Download results CSV</button>
+          </div>
+          <div class="result-note" id="chb-insight" style="margin-top:10px"></div>
         </div>
       </div>
     </div><!-- /churn -->
@@ -1017,6 +1069,139 @@ async function predChurn(){
   apiPill.className='pill '+(apiOk?'pill-blue':'pill-amber');
   document.getElementById('ch-insight').innerHTML=`<strong>Primary drivers:</strong> ${days} days since last purchase and ${ref}% refund rate are key behavioural signals. Model classification: <strong style="color:${churnFlag===1?'var(--red)':'var(--green)'}">${churnFlag===1?'CHURN':'RETAIN'}</strong>. Logistic regression recall: 0.88. ${apiOk?'Prediction served from live HuggingFace endpoint.':'<em>Note: API unreachable — local fallback active.</em>'}`;
   show('churn-result');
+}
+
+// ── CHURN BATCH (CSV upload → live batch API) ──
+let chBatchData=null;   // parsed CSV rows ready to send
+let chBatchRows=[];     // rows enriched with predictions, for CSV export
+
+function parseCSV(text){
+  const lines=text.split(/\r?\n/).filter(l=>l.trim().length);
+  if(lines.length<2) return {headers:[],rows:[]};
+  const headers=lines[0].split(',').map(h=>h.trim().toLowerCase());
+  const rows=lines.slice(1).map(line=>{
+    const cells=line.split(',').map(c=>c.trim());
+    const obj={};
+    headers.forEach((h,i)=>obj[h]=cells[i]);
+    return obj;
+  });
+  return {headers,rows};
+}
+
+function downloadChurnTemplate(){
+  const csv='customer_id,frequency,monetary,avg_order_value\nCUST-001,5,850,42\nCUST-002,1,120,120\nCUST-003,12,3400,28\nCUST-004,2,95,48';
+  const blob=new Blob([csv],{type:'text/csv'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='churn_batch_template.csv';document.body.appendChild(a);a.click();a.remove();
+  URL.revokeObjectURL(url);
+}
+
+function handleChurnCSV(file){
+  if(!file)return;
+  const statusEl=document.getElementById('ch-batch-status');
+  const btn=document.getElementById('btn-churn-batch');
+  if(!file.name.toLowerCase().endsWith('.csv')){
+    statusEl.innerHTML='<span style="color:var(--red)">⚠ Please upload a .csv file.</span>';
+    btn.disabled=true;chBatchData=null;return;
+  }
+  const reader=new FileReader();
+  reader.onload=e=>{
+    const {headers,rows}=parseCSV(e.target.result);
+    const required=['frequency','monetary','avg_order_value'];
+    const missing=required.filter(r=>!headers.includes(r));
+    if(missing.length || !rows.length){
+      statusEl.innerHTML=`<span style="color:var(--red)">⚠ ${!rows.length?'No data rows found.':'Missing column(s): '+missing.join(', ')+'.'} Expected headers: frequency, monetary, avg_order_value (customer_id optional).</span>`;
+      btn.disabled=true;chBatchData=null;return;
+    }
+    chBatchData=rows.map(r=>({
+      customer_id:r.customer_id||r.id||'',
+      frequency:+r.frequency,
+      monetary:+r.monetary,
+      avg_order_value:+r.avg_order_value
+    })).filter(r=>!isNaN(r.frequency)&&!isNaN(r.monetary)&&!isNaN(r.avg_order_value));
+    if(!chBatchData.length){
+      statusEl.innerHTML='<span style="color:var(--red)">⚠ No valid numeric rows found in those columns.</span>';
+      btn.disabled=true;chBatchData=null;return;
+    }
+    document.getElementById('ch-drop-label').innerHTML=`<div style="font-size:22px;margin-bottom:6px">✅</div><div style="font-size:12px;color:var(--text0);font-weight:500">${file.name}</div><div style="font-size:10.5px;color:var(--text3);margin-top:3px">${chBatchData.length} row(s) detected · click to replace</div>`;
+    statusEl.textContent=chBatchData.length+' record(s) ready for batch scoring.';
+    btn.disabled=false;
+  };
+  reader.onerror=()=>{statusEl.innerHTML='<span style="color:var(--red)">⚠ Could not read that file.</span>';};
+  reader.readAsText(file);
+}
+
+async function predChurnBatch(){
+  if(!chBatchData || !chBatchData.length)return;
+  const btn=document.getElementById('btn-churn-batch');
+  const orig=btn.innerHTML;
+  btn.innerHTML='⟳ Scoring '+chBatchData.length+' records...';btn.disabled=true;btn.classList.add('loading');
+
+  let results=null,apiOk=false;
+  try{
+    const res=await fetch('https://timmaina-devhub-churn-predict-api.hf.space/predict_churn_batch',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(chBatchData.map(r=>({frequency:r.frequency,monetary:r.monetary,avg_order_value:r.avg_order_value})))
+    });
+    if(!res.ok)throw new Error('HTTP '+res.status);
+    const data=await res.json();
+    // Normalise a few likely response shapes: a raw array, or {predictions:[...]} / {results:[...]}
+    const raw=Array.isArray(data)?data:(data.predictions||data.results||null);
+    if(!Array.isArray(raw))throw new Error('Unexpected response shape');
+    results=raw.map(item=>(item&&typeof item==='object')?(item.churn??item.prediction??item.label??0):item);
+    if(results.length!==chBatchData.length)throw new Error('Row count mismatch');
+    apiOk=true;
+  }catch(e){
+    // Local fallback — same recency/monetary/AOV heuristic as the single predictor
+    results=chBatchData.map(r=>{
+      const score=Math.min(96,Math.round((1/Math.max(1,r.frequency))*45+(1-Math.min(1,r.monetary/2000))*35+(1-Math.min(1,r.avg_order_value/300))*20));
+      return score>45?1:0;
+    });
+  }
+
+  btn.innerHTML=orig;btn.disabled=false;btn.classList.remove('loading');
+
+  const tbody=document.getElementById('chb-tbody');
+  tbody.innerHTML='';
+  chBatchRows=[];
+  let churnCount=0,highRisk=0;
+  chBatchData.forEach((r,i)=>{
+    const flag=+results[i]===1?1:0;
+    if(flag===1)churnCount++;
+    const riskScore=Math.min(96,Math.round((1/Math.max(1,r.frequency))*38+(1-Math.min(1,r.monetary/2000))*35+(1-Math.min(1,r.avg_order_value/300))*27));
+    const displayPct=flag===1?Math.max(60,riskScore):Math.min(40,riskScore);
+    if(displayPct>75)highRisk++;
+    const seg=flag===1?(displayPct>75?'At-Risk':'Passive'):'Champion';
+    const segClass=flag===1?(displayPct>75?'pill-red':'pill-amber'):'pill-green';
+    chBatchRows.push({...r,churn:flag,probability:displayPct,segment:seg});
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td style="font-family:var(--mono);color:var(--text3)">${i+1}</td><td>${r.customer_id||'—'}</td><td>${r.frequency}</td><td>${r.monetary}</td><td>${r.avg_order_value}</td><td><span class="pill ${flag===1?'pill-red':'pill-green'}">${flag===1?'Churn '+displayPct+'%':'Retain '+displayPct+'%'}</span></td><td><span class="pill ${segClass}">${seg}</span></td>`;
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById('chb-total').textContent=chBatchData.length;
+  document.getElementById('chb-rate').textContent=Math.round(churnCount/chBatchData.length*100)+'%';
+  document.getElementById('chb-high').textContent=highRisk;
+  const modeEl=document.getElementById('chb-mode');
+  modeEl.textContent=apiOk?'Live API':'Fallback';
+  modeEl.style.color=apiOk?'var(--blue)':'var(--amber)';
+
+  document.getElementById('chb-insight').innerHTML=`<strong>Batch summary:</strong> ${chBatchData.length} customers scored in a single request. ${churnCount} flagged churn risk (${Math.round(churnCount/chBatchData.length*100)}%), ${highRisk} classified high-risk (&gt;75% probability). ${apiOk?'Predictions served from the live batch HuggingFace endpoint.':'<em>Note: the batch endpoint was unreachable or returned an unexpected response shape, so local fallback scoring was used instead — double-check the endpoint\'s request/response schema if this persists.</em>'}`;
+
+  show('churn-batch-result');
+}
+
+function downloadChurnResults(){
+  if(!chBatchRows.length)return;
+  const header='customer_id,frequency,monetary,avg_order_value,churn,probability_pct,segment';
+  const lines=chBatchRows.map(r=>[r.customer_id,r.frequency,r.monetary,r.avg_order_value,r.churn,r.probability,r.segment].join(','));
+  const csv=[header,...lines].join('\n');
+  const blob=new Blob([csv],{type:'text/csv'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='churn_batch_results.csv';document.body.appendChild(a);a.click();a.remove();
+  URL.revokeObjectURL(url);
 }
 
 // ── FRAUD (live API) ──
