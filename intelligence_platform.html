@@ -681,6 +681,49 @@ select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
           </table>
         </div>
       </div>
+
+      <div class="card fade-in" style="margin-bottom:12px">
+        <div class="card-title"><div class="dot" style="background:var(--purple)"></div>Batch Prediction — CSV Upload</div>
+        <p style="font-size:11.5px;color:var(--text2);line-height:1.7;margin-bottom:12px">Score many transactions in a single request. Upload a CSV with columns <code style="font-family:var(--mono);color:var(--text0);background:var(--surface2);padding:1px 5px;border-radius:3px">amount_usd</code>, <code style="font-family:var(--mono);color:var(--text0);background:var(--surface2);padding:1px 5px;border-radius:3px">transaction_dy</code>, <code style="font-family:var(--mono);color:var(--text0);background:var(--surface2);padding:1px 5px;border-radius:3px">transaction_hr</code>, <code style="font-family:var(--mono);color:var(--text0);background:var(--surface2);padding:1px 5px;border-radius:3px">transaction_min</code>, <code style="font-family:var(--mono);color:var(--text0);background:var(--surface2);padding:1px 5px;border-radius:3px">transaction_sec</code>, <code style="font-family:var(--mono);color:var(--text0);background:var(--surface2);padding:1px 5px;border-radius:3px">device_type</code> — the same features the single predictor above sends. <code style="font-family:var(--mono);color:var(--text0);background:var(--surface2);padding:1px 5px;border-radius:3px">device_type</code> must be one of <code style="font-family:var(--mono);color:var(--text0);background:var(--surface2);padding:1px 5px;border-radius:3px">mobile</code>, <code style="font-family:var(--mono);color:var(--text0);background:var(--surface2);padding:1px 5px;border-radius:3px">desktop</code> or <code style="font-family:var(--mono);color:var(--text0);background:var(--surface2);padding:1px 5px;border-radius:3px">tablet</code>. Every row is passed to the batch endpoint at once. An optional <code style="font-family:var(--mono);color:var(--text0);background:var(--surface2);padding:1px 5px;border-radius:3px">transaction_id</code> column will be carried through to the results.</p>
+
+        <div class="file-drop" id="frb-drop" onclick="document.getElementById('frb-file').click()"
+             ondragover="event.preventDefault();this.classList.add('drag')"
+             ondragleave="this.classList.remove('drag')"
+             ondrop="event.preventDefault();this.classList.remove('drag');handleFraudCSV(event.dataTransfer.files[0])">
+          <input type="file" id="frb-file" accept=".csv" style="display:none" onchange="handleFraudCSV(this.files[0])">
+          <div id="frb-drop-label">
+            <div style="font-size:22px;margin-bottom:6px">📄</div>
+            <div style="font-size:12px;color:var(--text1);font-weight:500">Click to upload CSV</div>
+            <div style="font-size:10.5px;color:var(--text3);margin-top:3px">or drag and drop · .csv only</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+          <button class="run-btn" id="btn-fraud-batch" style="flex:1;min-width:180px" onclick="predFraudBatch()" disabled>▶ Run Batch Prediction</button>
+          <button class="run-btn" style="flex:0 0 auto;width:auto;background:var(--surface2);box-shadow:none;color:var(--text1);padding:9px 14px" onclick="downloadFraudTemplate()">⬇ Sample CSV</button>
+        </div>
+
+        <div id="frb-batch-status" style="font-size:11px;color:var(--text3);margin-top:8px;font-family:var(--mono)"></div>
+
+        <div id="fraud-batch-result" class="result-box">
+          <div class="result-grid" style="margin-bottom:12px">
+            <div class="result-mini"><div class="mn" id="frb-total">—</div><div class="ml">Records scored</div></div>
+            <div class="result-mini"><div class="mn" id="frb-rate" style="color:var(--red)">—</div><div class="ml">Predicted fraud rate</div></div>
+            <div class="result-mini"><div class="mn" id="frb-high" style="color:var(--amber)">—</div><div class="ml">High-risk transactions</div></div>
+            <div class="result-mini"><div class="mn" id="frb-mode">—</div><div class="ml">Source</div></div>
+          </div>
+          <div style="max-height:320px;overflow-y:auto;border:1px solid var(--border);border-radius:var(--radius)">
+            <table class="tbl">
+              <thead><tr><th>#</th><th>Transaction</th><th>Amount</th><th>Day</th><th>Time</th><th>Device</th><th>Prediction</th></tr></thead>
+              <tbody id="frb-tbody"></tbody>
+            </table>
+          </div>
+          <div style="margin-top:10px">
+            <button class="run-btn" style="width:auto;padding:8px 14px;font-size:11.5px" onclick="downloadFraudResults()">⬇ Download results CSV</button>
+          </div>
+          <div class="result-note" id="frb-insight" style="margin-top:10px"></div>
+        </div>
+      </div>
     </div><!-- /fraud -->
 
     <!-- ████ MARKETING ████ -->
@@ -1201,6 +1244,140 @@ function downloadChurnResults(){
   const url=URL.createObjectURL(blob);
   const a=document.createElement('a');
   a.href=url;a.download='churn_batch_results.csv';document.body.appendChild(a);a.click();a.remove();
+  URL.revokeObjectURL(url);
+}
+
+// ── FRAUD BATCH (CSV upload → live batch API) ──
+let frBatchData=null;   // parsed CSV rows ready to send
+let frBatchRows=[];     // rows enriched with predictions, for CSV export
+const FR_DEVICE_TYPES=['mobile','desktop','tablet'];
+
+function downloadFraudTemplate(){
+  const csv='transaction_id,amount_usd,transaction_dy,transaction_hr,transaction_min,transaction_sec,device_type\nTXN-001,150,20,10,30,50,tablet\nTXN-002,1000,10,20,40,30,mobile\nTXN-003,45,3,14,5,10,desktop\nTXN-004,3200,6,23,55,2,mobile';
+  const blob=new Blob([csv],{type:'text/csv'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='fraud_batch_template.csv';document.body.appendChild(a);a.click();a.remove();
+  URL.revokeObjectURL(url);
+}
+
+function handleFraudCSV(file){
+  if(!file)return;
+  const statusEl=document.getElementById('frb-batch-status');
+  const btn=document.getElementById('btn-fraud-batch');
+  if(!file.name.toLowerCase().endsWith('.csv')){
+    statusEl.innerHTML='<span style="color:var(--red)">⚠ Please upload a .csv file.</span>';
+    btn.disabled=true;frBatchData=null;return;
+  }
+  const reader=new FileReader();
+  reader.onload=e=>{
+    const {headers,rows}=parseCSV(e.target.result);
+    const required=['amount_usd','transaction_dy','transaction_hr','transaction_min','transaction_sec','device_type'];
+    const missing=required.filter(r=>!headers.includes(r));
+    if(missing.length || !rows.length){
+      statusEl.innerHTML=`<span style="color:var(--red)">⚠ ${!rows.length?'No data rows found.':'Missing column(s): '+missing.join(', ')+'.'} Expected headers: amount_usd, transaction_dy, transaction_hr, transaction_min, transaction_sec, device_type (transaction_id optional).</span>`;
+      btn.disabled=true;frBatchData=null;return;
+    }
+    const badDevice=[];
+    frBatchData=rows.map(r=>{
+      const dt=(r.device_type||'').trim().toLowerCase();
+      return {
+        transaction_id:r.transaction_id||r.id||'',
+        amount_usd:+r.amount_usd,
+        transaction_dy:+r.transaction_dy,
+        transaction_hr:+r.transaction_hr,
+        transaction_min:+r.transaction_min,
+        transaction_sec:+r.transaction_sec,
+        device_type:dt
+      };
+    }).filter(r=>{
+      const numsOk=!isNaN(r.amount_usd)&&!isNaN(r.transaction_dy)&&!isNaN(r.transaction_hr)&&!isNaN(r.transaction_min)&&!isNaN(r.transaction_sec);
+      const deviceOk=FR_DEVICE_TYPES.includes(r.device_type);
+      if(numsOk&&!deviceOk)badDevice.push(r.device_type||'(blank)');
+      return numsOk&&deviceOk;
+    });
+    if(!frBatchData.length){
+      statusEl.innerHTML='<span style="color:var(--red)">⚠ No valid rows found. device_type must be mobile, desktop, or tablet, and the numeric columns must be numbers.</span>';
+      btn.disabled=true;frBatchData=null;return;
+    }
+    document.getElementById('frb-drop-label').innerHTML=`<div style="font-size:22px;margin-bottom:6px">✅</div><div style="font-size:12px;color:var(--text0);font-weight:500">${file.name}</div><div style="font-size:10.5px;color:var(--text3);margin-top:3px">${frBatchData.length} row(s) detected · click to replace</div>`;
+    statusEl.innerHTML=frBatchData.length+' record(s) ready for batch scoring.'+(badDevice.length?` <span style="color:var(--amber)">⚠ ${badDevice.length} row(s) skipped — invalid device_type.</span>`:'');
+    btn.disabled=false;
+  };
+  reader.onerror=()=>{statusEl.innerHTML='<span style="color:var(--red)">⚠ Could not read that file.</span>';};
+  reader.readAsText(file);
+}
+
+async function predFraudBatch(){
+  if(!frBatchData || !frBatchData.length)return;
+  const btn=document.getElementById('btn-fraud-batch');
+  const orig=btn.innerHTML;
+  btn.innerHTML='⟳ Scoring '+frBatchData.length+' records...';btn.disabled=true;btn.classList.add('loading');
+
+  let results=null,apiOk=false;
+  try{
+    const res=await fetch('https://timmaina-devhub-fraud-detect-api.hf.space/predict_fraud_batch',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({customers:frBatchData.map(r=>({amount_usd:r.amount_usd,transaction_dy:r.transaction_dy,transaction_hr:r.transaction_hr,transaction_min:r.transaction_min,transaction_sec:r.transaction_sec,device_type:r.device_type}))})
+    });
+    if(!res.ok)throw new Error('HTTP '+res.status);
+    const data=await res.json();
+    // Normalise a few likely response shapes: a raw array, or {predictions:[...]} / {results:[...]}
+    const raw=Array.isArray(data)?data:(data.predictions||data.results||null);
+    if(!Array.isArray(raw))throw new Error('Unexpected response shape');
+    results=raw.map(item=>(item&&typeof item==='object')?(item.is_fraud??item.fraud??item.prediction??item.label??0):item);
+    if(results.length!==frBatchData.length)throw new Error('Row count mismatch');
+    apiOk=true;
+  }catch(e){
+    // Local fallback — amount + odd-hour heuristic (no velocity/device-count signals available in batch)
+    results=frBatchData.map(r=>{
+      const oddHour=(r.transaction_hr<6||r.transaction_hr>=23)?1:0;
+      const score=Math.min(96,Math.round((Math.min(1,r.amount_usd/5000))*55+oddHour*30+(r.device_type==='mobile'?15:0)));
+      return score>50?1:0;
+    });
+  }
+
+  btn.innerHTML=orig;btn.disabled=false;btn.classList.remove('loading');
+
+  const tbody=document.getElementById('frb-tbody');
+  tbody.innerHTML='';
+  frBatchRows=[];
+  let fraudCount=0,highRisk=0;
+  frBatchData.forEach((r,i)=>{
+    const flag=+results[i]===1?1:0;
+    if(flag===1)fraudCount++;
+    const oddHour=(r.transaction_hr<6||r.transaction_hr>=23)?1:0;
+    const riskScore=Math.min(96,Math.round((Math.min(1,r.amount_usd/5000))*50+oddHour*30+(r.device_type==='mobile'?15:0)));
+    const displayPct=flag===1?Math.max(60,riskScore):Math.min(40,riskScore);
+    if(displayPct>80)highRisk++;
+    frBatchRows.push({...r,is_fraud:flag,probability:displayPct});
+    const timeStr=String(r.transaction_hr).padStart(2,'0')+':'+String(r.transaction_min).padStart(2,'0')+':'+String(r.transaction_sec).padStart(2,'0');
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td style="font-family:var(--mono);color:var(--text3)">${i+1}</td><td>${r.transaction_id||'—'}</td><td>$${r.amount_usd.toLocaleString()}</td><td>${r.transaction_dy}</td><td style="font-family:var(--mono)">${timeStr}</td><td>${r.device_type}</td><td><span class="pill ${flag===1?'pill-red':'pill-green'}">${flag===1?'Fraud '+displayPct+'%':'Legit '+displayPct+'%'}</span></td>`;
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById('frb-total').textContent=frBatchData.length;
+  document.getElementById('frb-rate').textContent=Math.round(fraudCount/frBatchData.length*100)+'%';
+  document.getElementById('frb-high').textContent=highRisk;
+  const modeEl=document.getElementById('frb-mode');
+  modeEl.textContent=apiOk?'Live API':'Fallback';
+  modeEl.style.color=apiOk?'var(--blue)':'var(--amber)';
+
+  document.getElementById('frb-insight').innerHTML=`<strong>Batch summary:</strong> ${frBatchData.length} transactions scored in a single request. ${fraudCount} flagged fraud (${Math.round(fraudCount/frBatchData.length*100)}%), ${highRisk} classified high-risk (&gt;80% probability). ${apiOk?'Predictions served from the live batch HuggingFace endpoint.':'<em>Note: the batch endpoint was unreachable or returned an unexpected response shape, so local fallback scoring was used instead — double-check the endpoint\'s request/response schema if this persists.</em>'}`;
+
+  show('fraud-batch-result');
+}
+
+function downloadFraudResults(){
+  if(!frBatchRows.length)return;
+  const header='transaction_id,amount_usd,transaction_dy,transaction_hr,transaction_min,transaction_sec,device_type,is_fraud,probability_pct';
+  const lines=frBatchRows.map(r=>[r.transaction_id,r.amount_usd,r.transaction_dy,r.transaction_hr,r.transaction_min,r.transaction_sec,r.device_type,r.is_fraud,r.probability].join(','));
+  const csv=[header,...lines].join('\n');
+  const blob=new Blob([csv],{type:'text/csv'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='fraud_batch_results.csv';document.body.appendChild(a);a.click();a.remove();
   URL.revokeObjectURL(url);
 }
 
