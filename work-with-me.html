@@ -133,7 +133,10 @@ title: Work With Me
 <!-- ==================================================
      PROOF OF WORK EXPERIENCE
      Replaces the former "Resume Variants" and "Cover
-     Letter Templates" document-repository sections.
+     Letter Templates" document-repository sections with
+     a Professional Gallery and Video Showcase, both built
+     to start with a single "Volunteering" category and
+     grow more categories over time.
      Scoped styles below use a "pow-" prefix so they sit
      alongside the site's existing ab-story__ / btn / card
      conventions without colliding with styles.css.
@@ -142,25 +145,6 @@ title: Work With Me
   .pow-grid { display:grid; gap:22px; margin-top:32px; }
   .pow-grid--3 { grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); }
   .pow-grid--2 { grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); }
-
-  .pow-card {
-    background:var(--card-bg,#fff);
-    border:1px solid var(--border-color,rgba(0,0,0,.08));
-    border-radius:14px;
-    padding:26px;
-    display:flex; flex-direction:column; gap:12px;
-    transition:transform .25s ease, box-shadow .25s ease;
-  }
-  .pow-card:hover { transform:translateY(-4px); box-shadow:0 14px 30px rgba(0,0,0,.08); }
-  .pow-card__icon {
-    width:44px; height:44px; border-radius:10px;
-    display:flex; align-items:center; justify-content:center;
-    background:rgba(251,191,36,.14); color:#b8860b; flex-shrink:0;
-  }
-  .pow-card__icon svg { width:22px; height:22px; }
-  .pow-card h3 { margin:0; font-size:1.05rem; }
-  .pow-card p { margin:0; color:var(--text-muted,#5b5b5b); font-size:.95rem; line-height:1.55; flex-grow:1; }
-  .pow-card .btn { align-self:flex-start; margin-top:4px; }
 
   /* Gallery */
   .pow-gallery {
@@ -238,60 +222,6 @@ title: Work With Me
   .pow-step h4 { margin:0 0 6px; font-size:.92rem; }
   .pow-step p { margin:0; font-size:.8rem; color:var(--text-muted,#5b5b5b); }
 
-  /* Credentials */
-  .pow-credential {
-    display:flex; gap:14px; align-items:flex-start; padding:20px;
-    border:1px solid var(--border-color,rgba(0,0,0,.08)); border-radius:12px; background:var(--card-bg,#fff);
-  }
-  .pow-credential__logo {
-    width:46px; height:46px; border-radius:8px; background:rgba(0,0,0,.05);
-    display:flex; align-items:center; justify-content:center; font-weight:700; flex-shrink:0; font-size:.8rem;
-  }
-  .pow-credential h3 { margin:0 0 4px; font-size:.95rem; }
-  .pow-credential p { margin:0; font-size:.82rem; color:var(--text-muted,#5b5b5b); }
-  .pow-credential__tag {
-    display:inline-block; margin-top:8px; font-size:.72rem; text-transform:uppercase;
-    letter-spacing:.05em; color:#b8860b;
-  }
-
-  /* Career journey vertical timeline */
-  .pow-timeline { position:relative; margin-top:40px; padding-left:28px; }
-  .pow-timeline::before {
-    content:""; position:absolute; left:6px; top:4px; bottom:4px; width:2px;
-    background:var(--border-color,rgba(0,0,0,.12));
-  }
-  .pow-timeline__item {
-    position:relative; padding-bottom:34px; opacity:0; transform:translateX(-10px);
-    transition:opacity .5s ease, transform .5s ease;
-  }
-  .pow-timeline__item.is-visible { opacity:1; transform:translateX(0); }
-  .pow-timeline__item::before {
-    content:""; position:absolute; left:-28px; top:4px; width:13px; height:13px;
-    border-radius:50%; background:#fbbf24; border:3px solid var(--card-bg,#fff);
-    box-shadow:0 0 0 2px rgba(251,191,36,.4);
-  }
-  .pow-timeline__year { font-size:.75rem; text-transform:uppercase; letter-spacing:.06em; color:#b8860b; font-weight:600; }
-  .pow-timeline__item h4 { margin:4px 0 6px; font-size:1rem; }
-  .pow-timeline__item p { margin:0; font-size:.9rem; color:var(--text-muted,#5b5b5b); max-width:560px; }
-
-  /* Success stories */
-  .pow-story {
-    border:1px solid var(--border-color,rgba(0,0,0,.08)); border-radius:14px; overflow:hidden;
-    background:var(--card-bg,#fff); display:flex; flex-direction:column;
-  }
-  .pow-story__img { aspect-ratio:16/10; overflow:hidden; background:#111; }
-  .pow-story__img img { width:100%; height:100%; object-fit:cover; display:block; }
-  .pow-story__body { padding:20px; display:flex; flex-direction:column; gap:8px; flex-grow:1; }
-  .pow-story__body h3 { margin:0; font-size:1.05rem; }
-  .pow-story__body dl { margin:6px 0 0; font-size:.85rem; }
-  .pow-story__body dt { font-weight:600; color:#b8860b; margin-top:8px; }
-  .pow-story__body dd { margin:2px 0 0; color:var(--text-muted,#5b5b5b); }
-  .pow-story__stack { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
-  .pow-story__stack span {
-    font-size:.72rem; padding:3px 9px; border-radius:999px; background:rgba(0,0,0,.05);
-  }
-  .pow-story__body .btn { margin-top:10px; align-self:flex-start; }
-
   /* CTA */
   .pow-cta {
     text-align:center; padding:64px 24px; border-radius:20px;
@@ -314,65 +244,6 @@ title: Work With Me
   }
 </style>
 
-<section class="section" id="proof-of-work">
-  <div class="container">
-    <div class="ab-story__label">
-      <div class="ab-story__line"></div>
-      <span>Proof of Work</span>
-      <div class="ab-story__line"></div>
-    </div>
-    <h2 class="ab-section-title">Proof of Work</h2>
-    <p class="ab-section-sub" style="max-width:680px;margin:10px auto 0;">Evidence speaks louder than claims. Explore examples of how I solve problems, collaborate with teams, and deliver results.</p>
-
-    <div class="pow-grid pow-grid--3">
-      <div class="pow-card">
-        <div class="pow-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h5"/></svg>
-        </div>
-        <h3>Project Case Studies</h3>
-        <p>Detailed business problems, my approach, the implementation, and the measurable outcomes for each engagement.</p>
-        <a href="/projects" class="btn btn--ghost">View Case Studies →</a>
-      </div>
-
-      <div class="pow-card">
-        <div class="pow-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>
-        </div>
-        <h3>Analytics Dashboards</h3>
-        <p>Interactive screenshots and live dashboard previews built in Tableau, Power BI, and custom web tools.</p>
-        <a href="/projects#dashboards" class="btn btn--ghost">Explore Dashboards →</a>
-      </div>
-
-      <div class="pow-card">
-        <div class="pow-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-        </div>
-        <h3>Machine Learning Projects</h3>
-        <p>Fraud detection, churn prediction, credit risk, marketing attribution, and forecasting, with working demos.</p>
-        <a href="/intelligence_platform" class="btn btn--ghost">Open Intelligence Platform →</a>
-      </div>
-
-      <div class="pow-card">
-        <div class="pow-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 0-3.16 19.5c.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03a9.4 9.4 0 0 1 5 0c1.9-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.69 0 3.85-2.35 4.7-4.58 4.94.36.32.68.94.68 1.9v2.82c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
-        </div>
-        <h3>GitHub Repositories</h3>
-        <p>Real, production-quality code with README documentation, tests, and clear commit history.</p>
-        <a href="https://github.com/" class="btn btn--ghost" target="_blank" rel="noopener">View GitHub →</a>
-      </div>
-
-      <div class="pow-card">
-        <div class="pow-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
-        </div>
-        <h3>Technical Documentation</h3>
-        <p>API docs, architecture diagrams, and implementation notes written for the next person to pick up the work.</p>
-        <a href="/projects#documentation" class="btn btn--ghost">Read Documentation →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="section section--alt" id="gallery">
   <div class="container">
     <div class="ab-story__label">
@@ -383,29 +254,19 @@ title: Work With Me
     <h2 class="ab-section-title">Professional Gallery</h2>
     <p class="ab-section-sub" style="max-width:680px;margin:10px auto 0;">A visual look at the work itself: building, presenting, teaching, and supporting teams.</p>
 
+    <!-- Only one category live for now (Volunteering). Add more tabs + figures
+         later, e.g. data-filter="office" / data-filter="tutoring" — the "All"
+         tab and filter script already support any number of categories. -->
     <div class="pow-gallery-tabs" id="powGalleryTabs">
       <button type="button" class="is-active" data-filter="all">All</button>
-      <button type="button" data-filter="projects">Working on Projects</button>
-      <button type="button" data-filter="presentations">Presentations</button>
-      <button type="button" data-filter="tutoring">Tutoring</button>
-      <button type="button" data-filter="ict">ICT Support</button>
-      <button type="button" data-filter="admin">Office Admin</button>
-      <button type="button" data-filter="leadership">Leadership</button>
-      <button type="button" data-filter="events">Events</button>
       <button type="button" data-filter="volunteering">Volunteering</button>
     </div>
 
     <!-- Replace src/caption values below with real photos, e.g. /assets/gallery/... -->
     <div class="pow-gallery" id="powGallery">
-      <figure data-cat="projects" tabindex="0"><img src="/assets/gallery/project-01.jpg" alt="Working at a laptop reviewing project code" loading="lazy"><figcaption>Deep-dive session on a client dashboard build</figcaption></figure>
-      <figure data-cat="presentations" tabindex="0"><img src="/assets/gallery/presentation-01.jpg" alt="Presenting findings to a small group" loading="lazy"><figcaption>Presenting quarterly analytics findings</figcaption></figure>
-      <figure data-cat="tutoring" tabindex="0"><img src="/assets/gallery/tutoring-01.jpg" alt="Tutoring a student in mathematics" loading="lazy"><figcaption>Mathematics tutoring session</figcaption></figure>
-      <figure data-cat="ict" tabindex="0"><img src="/assets/gallery/ict-01.jpg" alt="Troubleshooting a workstation setup" loading="lazy"><figcaption>ICT support and workstation troubleshooting</figcaption></figure>
-      <figure data-cat="admin" tabindex="0"><img src="/assets/gallery/admin-01.jpg" alt="Organising office records" loading="lazy"><figcaption>Office administration and records</figcaption></figure>
-      <figure data-cat="leadership" tabindex="0"><img src="/assets/gallery/leadership-01.jpg" alt="Leading a team meeting" loading="lazy"><figcaption>Leading a weekly team stand-up</figcaption></figure>
-      <figure data-cat="events" tabindex="0"><img src="/assets/gallery/events-01.jpg" alt="Coordinating an event" loading="lazy"><figcaption>Coordinating a community event</figcaption></figure>
       <figure data-cat="volunteering" tabindex="0"><img src="/assets/gallery/volunteering-01.jpg" alt="Volunteering at a community programme" loading="lazy"><figcaption>Volunteering with a local outreach programme</figcaption></figure>
-      <figure data-cat="projects" tabindex="0"><img src="/assets/gallery/project-02.jpg" alt="Reviewing a data pipeline diagram" loading="lazy"><figcaption>Mapping a fraud-detection data pipeline</figcaption></figure>
+      <figure data-cat="volunteering" tabindex="0"><img src="/assets/gallery/volunteering-02.jpg" alt="Distributing supplies at a community event" loading="lazy"><figcaption>Helping coordinate a community supplies drive</figcaption></figure>
+      <figure data-cat="volunteering" tabindex="0"><img src="/assets/gallery/volunteering-03.jpg" alt="Working alongside fellow volunteers" loading="lazy"><figcaption>Working alongside the volunteer team</figcaption></figure>
     </div>
   </div>
 </section>
@@ -426,79 +287,27 @@ title: Work With Me
       <div class="ab-story__line"></div>
     </div>
     <h2 class="ab-section-title">See Me In Action</h2>
-    <p class="ab-section-sub" style="max-width:680px;margin:10px auto 0;">Short recordings of how I introduce myself, walk through projects, and explain technical work out loud.</p>
+    <p class="ab-section-sub" style="max-width:680px;margin:10px auto 0;">Short recordings, starting with volunteering. More categories — project demos, dashboard walkthroughs, tutorials — will be added over time.</p>
+
+    <!-- Same tab + filter pattern as the Professional Gallery. Only one
+         category live for now (Volunteering). Add more tabs + video cards
+         later, e.g. data-filter="demos" / data-filter="tutorials". -->
+    <div class="pow-gallery-tabs" id="powVideoTabs">
+      <button type="button" class="is-active" data-filter="all">All</button>
+      <button type="button" data-filter="volunteering">Volunteering</button>
+    </div>
 
     <!-- Replace data-video-id with real YouTube/Vimeo IDs and thumbnail paths -->
-    <div class="pow-grid pow-grid--3">
-      <div class="pow-video">
-        <div class="pow-video__frame" data-video-id="VIDEO_ID_1" role="button" tabindex="0" aria-label="Play: Professional introduction">
-          <img src="/assets/video/thumb-intro.jpg" alt="" loading="lazy">
+    <div class="pow-grid pow-grid--3" id="powVideoGrid">
+      <div class="pow-video" data-cat="volunteering">
+        <div class="pow-video__frame" data-video-id="VIDEO_ID_1" role="button" tabindex="0" aria-label="Play: Volunteering highlight">
+          <img src="/assets/video/thumb-volunteering-01.jpg" alt="" loading="lazy">
           <div class="pow-video__play" aria-hidden="true"><span>▶</span></div>
-          <span class="pow-video__duration">1:30</span>
+          <span class="pow-video__duration">1:45</span>
         </div>
         <div class="pow-video__body">
-          <h3>Professional Introduction</h3>
-          <p>Who I am, what I work on, and the kind of problems I enjoy solving.</p>
-        </div>
-      </div>
-
-      <div class="pow-video">
-        <div class="pow-video__frame" data-video-id="VIDEO_ID_2" role="button" tabindex="0" aria-label="Play: Project demonstration">
-          <img src="/assets/video/thumb-demo.jpg" alt="" loading="lazy">
-          <div class="pow-video__play" aria-hidden="true"><span>▶</span></div>
-          <span class="pow-video__duration">4:12</span>
-        </div>
-        <div class="pow-video__body">
-          <h3>Project Demonstration</h3>
-          <p>A walkthrough of the fraud detection tool, from input to prediction.</p>
-        </div>
-      </div>
-
-      <div class="pow-video">
-        <div class="pow-video__frame" data-video-id="VIDEO_ID_3" role="button" tabindex="0" aria-label="Play: Dashboard walkthrough">
-          <img src="/assets/video/thumb-dashboard.jpg" alt="" loading="lazy">
-          <div class="pow-video__play" aria-hidden="true"><span>▶</span></div>
-          <span class="pow-video__duration">3:05</span>
-        </div>
-        <div class="pow-video__body">
-          <h3>Dashboard Walkthrough</h3>
-          <p>Reading a churn dashboard the way a stakeholder would in a real review.</p>
-        </div>
-      </div>
-
-      <div class="pow-video">
-        <div class="pow-video__frame" data-video-id="VIDEO_ID_4" role="button" tabindex="0" aria-label="Play: Technical tutorial">
-          <img src="/assets/video/thumb-tutorial.jpg" alt="" loading="lazy">
-          <div class="pow-video__play" aria-hidden="true"><span>▶</span></div>
-          <span class="pow-video__duration">6:40</span>
-        </div>
-        <div class="pow-video__body">
-          <h3>Technical Tutorial</h3>
-          <p>Explaining a modelling decision, in plain language, for a non-technical audience.</p>
-        </div>
-      </div>
-
-      <div class="pow-video">
-        <div class="pow-video__frame" data-video-id="VIDEO_ID_5" role="button" tabindex="0" aria-label="Play: Problem-solving session">
-          <img src="/assets/video/thumb-problem.jpg" alt="" loading="lazy">
-          <div class="pow-video__play" aria-hidden="true"><span>▶</span></div>
-          <span class="pow-video__duration">5:22</span>
-        </div>
-        <div class="pow-video__body">
-          <h3>Problem-Solving Session</h3>
-          <p>Debugging an issue live and explaining the reasoning at each step.</p>
-        </div>
-      </div>
-
-      <div class="pow-video">
-        <div class="pow-video__frame" data-video-id="VIDEO_ID_6" role="button" tabindex="0" aria-label="Play: Speaking engagement">
-          <img src="/assets/video/thumb-speaking.jpg" alt="" loading="lazy">
-          <div class="pow-video__play" aria-hidden="true"><span>▶</span></div>
-          <span class="pow-video__duration">8:15</span>
-        </div>
-        <div class="pow-video__body">
-          <h3>Speaking Engagement</h3>
-          <p>A recorded talk on using data to make operational decisions.</p>
+          <h3>Volunteering Highlight</h3>
+          <p>A short recap of a recent community outreach programme.</p>
         </div>
       </div>
     </div>
@@ -524,151 +333,6 @@ title: Work With Me
       <div class="pow-step"><div class="pow-step__icon">6</div><h4>Document</h4><p>Write down how it works and why, for the next person.</p></div>
       <div class="pow-step"><div class="pow-step__icon">7</div><h4>Deliver</h4><p>Hand over the finished, working outcome.</p></div>
       <div class="pow-step"><div class="pow-step__icon">8</div><h4>Support</h4><p>Stay reachable while the solution beds in.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="credentials">
-  <div class="container">
-    <div class="ab-story__label">
-      <div class="ab-story__line"></div>
-      <span>Credentials</span>
-      <div class="ab-story__line"></div>
-    </div>
-    <h2 class="ab-section-title">Credentials & Continuous Learning</h2>
-    <p class="ab-section-sub" style="max-width:680px;margin:10px auto 0;">Certificates, training, and memberships that back up the work above — replace with your real logos and links.</p>
-
-    <div class="pow-grid pow-grid--2" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
-      <div class="pow-credential">
-        <div class="pow-credential__logo" aria-hidden="true">ML</div>
-        <div>
-          <h3>Machine Learning Specialisation</h3>
-          <p>Applied ML training covering classification, model evaluation, and deployment.</p>
-          <span class="pow-credential__tag">Certificate</span>
-        </div>
-      </div>
-      <div class="pow-credential">
-        <div class="pow-credential__logo" aria-hidden="true">SQL</div>
-        <div>
-          <h3>Advanced SQL for Analytics</h3>
-          <p>Query optimisation, window functions, and reporting workflows.</p>
-          <span class="pow-credential__tag">Certificate</span>
-        </div>
-      </div>
-      <div class="pow-credential">
-        <div class="pow-credential__logo" aria-hidden="true">PM</div>
-        <div>
-          <h3>Project Coordination Workshop</h3>
-          <p>Scoping, milestone tracking, and stakeholder communication.</p>
-          <span class="pow-credential__tag">Workshop</span>
-        </div>
-      </div>
-      <div class="pow-credential">
-        <div class="pow-credential__logo" aria-hidden="true">IT</div>
-        <div>
-          <h3>ICT Support Association</h3>
-          <p>Ongoing professional membership and standards training.</p>
-          <span class="pow-credential__tag">Membership</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section--alt" id="career-journey">
-  <div class="container">
-    <div class="ab-story__label">
-      <div class="ab-story__line"></div>
-      <span>Career Journey</span>
-      <div class="ab-story__line"></div>
-    </div>
-    <h2 class="ab-section-title">Career Journey</h2>
-    <p class="ab-section-sub" style="max-width:680px;margin:10px auto 0;">Leadership, volunteering, projects, and learning milestones along the way — update the entries below with your real dates.</p>
-
-    <div class="pow-timeline" id="powTimeline">
-      <div class="pow-timeline__item">
-        <span class="pow-timeline__year">2021</span>
-        <h4>Started in office administration & ICT support</h4>
-        <p>Built the habit of documenting fixes so they could be repeated by anyone on the team.</p>
-      </div>
-      <div class="pow-timeline__item">
-        <span class="pow-timeline__year">2022</span>
-        <h4>Took on first leadership role</h4>
-        <p>Coordinated a small team through a process-improvement initiative.</p>
-      </div>
-      <div class="pow-timeline__item">
-        <span class="pow-timeline__year">2023</span>
-        <h4>Moved into data analysis</h4>
-        <p>Delivered first end-to-end reporting workflow in Python and SQL.</p>
-      </div>
-      <div class="pow-timeline__item">
-        <span class="pow-timeline__year">2024</span>
-        <h4>Volunteering & community teaching</h4>
-        <p>Began tutoring mathematics and supporting community events on weekends.</p>
-      </div>
-      <div class="pow-timeline__item">
-        <span class="pow-timeline__year">2025</span>
-        <h4>Shipped first machine learning projects</h4>
-        <p>Built churn and fraud detection tools with hosted, working demos.</p>
-      </div>
-      <div class="pow-timeline__item">
-        <span class="pow-timeline__year">2026</span>
-        <h4>Built the Intelligence Platform</h4>
-        <p>Combined multiple prediction tools into one integrated web application.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="success-stories">
-  <div class="container">
-    <div class="ab-story__label">
-      <div class="ab-story__line"></div>
-      <span>Featured Success Stories</span>
-      <div class="ab-story__line"></div>
-    </div>
-    <h2 class="ab-section-title">Featured Success Stories</h2>
-    <p class="ab-section-sub" style="max-width:680px;margin:10px auto 0;">A closer look at a few projects, from the challenge to the measurable business impact.</p>
-
-    <div class="pow-grid pow-grid--3">
-      <article class="pow-story">
-        <div class="pow-story__img"><img src="/assets/stories/fraud.jpg" alt="Fraud detection dashboard interface" loading="lazy"></div>
-        <div class="pow-story__body">
-          <h3>Fraud Detection Tool</h3>
-          <dl>
-            <dt>Challenge</dt><dd>High false-positive rate was slowing down manual review.</dd>
-            <dt>Solution</dt><dd>Built a scored model with a live API and offline fallback.</dd>
-          </dl>
-          <div class="pow-story__stack"><span>Python</span><span>scikit-learn</span><span>HuggingFace Spaces</span></div>
-          <a href="/intelligence_platform" class="btn btn--ghost">Read Case Study →</a>
-        </div>
-      </article>
-
-      <article class="pow-story">
-        <div class="pow-story__img"><img src="/assets/stories/churn.jpg" alt="Churn prediction batch results table" loading="lazy"></div>
-        <div class="pow-story__body">
-          <h3>Churn Prediction Tool</h3>
-          <dl>
-            <dt>Challenge</dt><dd>No way to score customers in bulk before renewal cycles.</dd>
-            <dt>Solution</dt><dd>Added CSV batch upload with per-row risk scoring.</dd>
-          </dl>
-          <div class="pow-story__stack"><span>Python</span><span>Pandas</span><span>REST API</span></div>
-          <a href="/intelligence_platform" class="btn btn--ghost">Read Case Study →</a>
-        </div>
-      </article>
-
-      <article class="pow-story">
-        <div class="pow-story__img"><img src="/assets/stories/operations.jpg" alt="Office process improvement documentation" loading="lazy"></div>
-        <div class="pow-story__body">
-          <h3>Operations Process Redesign</h3>
-          <dl>
-            <dt>Challenge</dt><dd>Manual record-keeping was creating inconsistent handovers.</dd>
-            <dt>Solution</dt><dd>Documented and standardised the workflow end to end.</dd>
-          </dl>
-          <div class="pow-story__stack"><span>Process Design</span><span>Documentation</span></div>
-          <a href="/projects" class="btn btn--ghost">Read Case Study →</a>
-        </div>
-      </article>
     </div>
   </div>
 </section>
