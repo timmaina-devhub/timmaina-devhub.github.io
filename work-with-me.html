@@ -16,13 +16,13 @@ title: Work With Me
     </svg>
   </button>
   <div class="nav-links" id="navLinks">
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/projects">Projects</a>
-    <a href="/intelligence_platform">Intelligence Platform</a>
-    <a href="/work-with-me" class="nav-active">Work With Me</a>
-    <a href="/contact">Contact</a>
-    <a href="/business-card">Business Card</a>
+    <a href="{{ '/' | relative_url }}">Home</a>
+    <a href="{{ '/about' | relative_url }}">About</a>
+    <a href="{{ '/projects' | relative_url }}">Projects</a>
+    <a href="{{ '/intelligence_platform' | relative_url }}">Intelligence Platform</a>
+    <a href="{{ '/work-with-me' | relative_url }}" class="nav-active">Work With Me</a>
+    <a href="{{ '/contact' | relative_url }}">Contact</a>
+    <a href="{{ '/business-card' | relative_url }}">Business Card</a>
   </div>
 </nav>
 
@@ -35,8 +35,8 @@ title: Work With Me
     <p class="hero__sub">I take on select projects, collaborations, and roles where accountability and clear communication matter most.</p>
     <div class="ruler"><span>/engagement</span></div>
     <div class="hero__actions">
-      <a href="/contact" class="btn btn--primary">Start a Conversation →</a>
-      <a href="/business-card" class="btn btn--ghost">Open business-card Page</a>
+      <a href="{{ '/contact' | relative_url }}" class="btn btn--primary">Start a Conversation →</a>
+      <a href="{{ '/business-card' | relative_url }}" class="btn btn--ghost">Open business-card Page</a>
     </div>
   </div>
 </section>
@@ -132,14 +132,8 @@ title: Work With Me
 
 <!-- ==================================================
      PROOF OF WORK EXPERIENCE
-     Replaces the former "Resume Variants" and "Cover
-     Letter Templates" document-repository sections with
-     a Professional Gallery and Video Showcase, both built
-     to start with a single "Volunteering" category and
-     grow more categories over time.
-     Scoped styles below use a "pow-" prefix so they sit
-     alongside the site's existing ab-story__ / btn / card
-     conventions without colliding with styles.css.
+     Professional Gallery and Video Showcase.
+     Scoped styles below use a "pow-" prefix.
      ================================================== -->
 <style>
   .pow-grid { display:grid; gap:22px; margin-top:32px; }
@@ -162,12 +156,28 @@ title: Work With Me
     color:#fff; font-size:.82rem; opacity:0; transition:opacity .25s ease;
   }
   .pow-gallery figure:hover figcaption, .pow-gallery figure:focus-within figcaption { opacity:1; }
+  
+  /* Gallery & Video Tabs */
   .pow-gallery-tabs { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:28px; }
   .pow-gallery-tabs button {
-    border:1px solid var(--border-color,rgba(0,0,0,.12)); background:transparent;
-    padding:7px 14px; border-radius:999px; font-size:.85rem; cursor:pointer;
+    border:1px solid var(--border-color, rgba(255, 255, 255, 0.2)); 
+    background: rgba(255, 255, 255, 0.05); 
+    color: var(--text-color, #e5e5e5);
+    padding: 7px 16px; 
+    border-radius: 999px; 
+    font-size: .85rem; 
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   }
-  .pow-gallery-tabs button.is-active { background:#fbbf24; border-color:#fbbf24; color:#1a1a1a; font-weight:600; }
+  .pow-gallery-tabs button:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+  .pow-gallery-tabs button.is-active { 
+    background:#fbbf24; 
+    border-color:#fbbf24; 
+    color:#1a1a1a; 
+    font-weight:600; 
+  }
 
   .pow-lightbox {
     position:fixed; inset:0; background:rgba(0,0,0,.9); display:none;
@@ -204,7 +214,7 @@ title: Work With Me
   .pow-video__body p { margin:0; font-size:.88rem; color:var(--text-muted,#5b5b5b); }
   .pow-video iframe { width:100%; height:100%; border:0; }
 
-  /* Delivery timeline (horizontal steps) */
+  /* Delivery timeline */
   .pow-steps {
     display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:0;
     margin-top:36px; position:relative;
@@ -254,19 +264,24 @@ title: Work With Me
     <h2 class="ab-section-title">Professional Gallery</h2>
     <p class="ab-section-sub" style="max-width:680px;margin:10px auto 0;">A visual look at the work itself: building, presenting, teaching, and supporting teams.</p>
 
-    <!-- Only one category live for now (Volunteering). Add more tabs + figures
-         later, e.g. data-filter="office" / data-filter="tutoring" — the "All"
-         tab and filter script already support any number of categories. -->
     <div class="pow-gallery-tabs" id="powGalleryTabs">
       <button type="button" class="is-active" data-filter="all">All</button>
       <button type="button" data-filter="volunteering">Volunteering</button>
     </div>
 
-    <!-- Replace src/caption values below with real photos, e.g. /assets/gallery/... -->
     <div class="pow-gallery" id="powGallery">
-      <figure data-cat="volunteering" tabindex="0"><img src="/assets/gallery/volunteering-01.jpg" alt="Volunteering at a community programme" loading="lazy"><figcaption>Volunteering with a local outreach programme</figcaption></figure>
-      <figure data-cat="volunteering" tabindex="0"><img src="/assets/gallery/volunteering-02.jpg" alt="Distributing supplies at a community event" loading="lazy"><figcaption>Helping coordinate a community supplies drive</figcaption></figure>
-      <figure data-cat="volunteering" tabindex="0"><img src="/assets/gallery/volunteering-03.jpg" alt="Working alongside fellow volunteers" loading="lazy"><figcaption>Working alongside the volunteer team</figcaption></figure>
+      <figure data-cat="volunteering" tabindex="0">
+        <img src="{{ '/assets/gallery/volunteering-01.jpg' | relative_url }}" alt="Volunteering at a community programme" loading="lazy">
+        <figcaption>Volunteering with a local outreach programme</figcaption>
+      </figure>
+      <figure data-cat="volunteering" tabindex="0">
+        <img src="{{ '/assets/gallery/volunteering-02.jpg' | relative_url }}" alt="Distributing supplies at a community event" loading="lazy">
+        <figcaption>Helping coordinate a community supplies drive</figcaption>
+      </figure>
+      <figure data-cat="volunteering" tabindex="0">
+        <img src="{{ '/assets/gallery/volunteering-03.jpg' | relative_url }}" alt="Working alongside fellow volunteers" loading="lazy">
+        <figcaption>Working alongside the volunteer team</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -289,19 +304,15 @@ title: Work With Me
     <h2 class="ab-section-title">See Me In Action</h2>
     <p class="ab-section-sub" style="max-width:680px;margin:10px auto 0;">Short recordings, starting with volunteering. More categories — project demos, dashboard walkthroughs, tutorials — will be added over time.</p>
 
-    <!-- Same tab + filter pattern as the Professional Gallery. Only one
-         category live for now (Volunteering). Add more tabs + video cards
-         later, e.g. data-filter="demos" / data-filter="tutorials". -->
     <div class="pow-gallery-tabs" id="powVideoTabs">
       <button type="button" class="is-active" data-filter="all">All</button>
       <button type="button" data-filter="volunteering">Volunteering</button>
     </div>
 
-    <!-- Replace data-video-id with real YouTube/Vimeo IDs and thumbnail paths -->
     <div class="pow-grid pow-grid--3" id="powVideoGrid">
       <div class="pow-video" data-cat="volunteering">
         <div class="pow-video__frame" data-video-id="VIDEO_ID_1" role="button" tabindex="0" aria-label="Play: Volunteering highlight">
-          <img src="/assets/video/thumb-volunteering-01.jpg" alt="" loading="lazy">
+          <img src="{{ '/assets/video/thumb-volunteering-01.jpg' | relative_url }}" alt="Volunteering highlight thumbnail" loading="lazy">
           <div class="pow-video__play" aria-hidden="true"><span>▶</span></div>
           <span class="pow-video__duration">1:45</span>
         </div>
@@ -388,7 +399,7 @@ title: Work With Me
     </div>
 
     <div style="margin-top:22px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
-      <a href="/testimonials" class="btn btn--primary">See all testimonials →</a>
+      <a href="{{ '/testimonials' | relative_url }}" class="btn btn--primary">See all testimonials →</a>
     </div>
   </div>
 </section>
@@ -399,10 +410,10 @@ title: Work With Me
       <h2 class="ab-section-title">Let's Build Something Valuable Together</h2>
       <p>If you've made it this far, you've already seen how I work. The next step is a short conversation about what you need.</p>
       <div class="pow-cta__actions">
-        <a href="/contact" class="btn btn--primary">Hire Me</a>
-        <a href="/contact" class="btn btn--ghost">Schedule a Conversation</a>
-        <a href="/business-card" class="btn btn--ghost">Download Business Card</a>
-        <a href="/contact" class="btn btn--ghost">Contact Me</a>
+        <a href="{{ '/contact' | relative_url }}" class="btn btn--primary">Hire Me</a>
+        <a href="{{ '/contact' | relative_url }}" class="btn btn--ghost">Schedule a Conversation</a>
+        <a href="{{ '/business-card' | relative_url }}" class="btn btn--ghost">Download Business Card</a>
+        <a href="{{ '/contact' | relative_url }}" class="btn btn--ghost">Contact Me</a>
       </div>
     </div>
   </div>
@@ -413,7 +424,7 @@ title: Work With Me
 <!-- FOOTER -->
 <footer class="footer">
   © 2026 Timothy Maina &nbsp;·&nbsp;
-  <a href="/contact" style="color:#fbbf24;text-decoration:none;">Contact</a>
+  <a href="{{ '/contact' | relative_url }}" style="color:#fbbf24;text-decoration:none;">Contact</a>
 </footer>
 
 <script>
@@ -431,6 +442,23 @@ title: Work With Me
       gallery.querySelectorAll('figure').forEach(function(fig){
         var show = filter === 'all' || fig.getAttribute('data-cat') === filter;
         fig.style.display = show ? '' : 'none';
+      });
+    });
+  }
+
+  // Video filter tabs
+  var videoTabs = document.getElementById('powVideoTabs');
+  var videoGrid = document.getElementById('powVideoGrid');
+  if (videoTabs && videoGrid) {
+    videoTabs.addEventListener('click', function(e){
+      var btn = e.target.closest('button[data-filter]');
+      if (!btn) return;
+      videoTabs.querySelectorAll('button').forEach(function(b){ b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      var filter = btn.getAttribute('data-filter');
+      videoGrid.querySelectorAll('.pow-video').forEach(function(card){
+        var show = filter === 'all' || card.getAttribute('data-cat') === filter;
+        card.style.display = show ? '' : 'none';
       });
     });
   }
