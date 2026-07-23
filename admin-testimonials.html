@@ -1,0 +1,187 @@
+---
+layout: bare
+title: Testimonial Admin
+---
+<link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+<script src="{{ '/assets/js/testimonial-config.js' | relative_url }}"></script>
+<meta name="robots" content="noindex, nofollow">
+
+<nav class="navbar">
+  <div class="logo"><strong>Timothy Maina</strong></div>
+  <div class="nav-links" id="navLinks">
+    <a href="/testimonials">Testimonials</a>
+  </div>
+</nav>
+
+<main id="main-content" style="min-height:70vh;">
+<section class="section">
+  <div class="container" style="max-width:760px;">
+
+    <!-- LOGIN -->
+    <div id="login-box" class="form-card" style="max-width:420px;margin:40px auto;">
+      <h3 class="form-title">Admin Login</h3>
+      <p class="form-subtitle">Sign in to review testimonials.</p>
+      <form id="login-form" class="contact-form">
+        <div class="form-group">
+          <label for="admin-email">Email</label>
+          <input type="email" id="admin-email" required>
+        </div>
+        <div class="form-group">
+          <label for="admin-pass">Password</label>
+          <input type="password" id="admin-pass" required>
+        </div>
+        <button type="submit" class="btn-submit">Sign In</button>
+        <p id="login-error" style="display:none;color:#f87171;font-size:0.85rem;text-align:center;"></p>
+      </form>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboard" style="display:none;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+        <h2 class="ab-section-title" style="margin:0;">Pending Testimonials</h2>
+        <button id="logout-btn" class="btn btn--ghost" style="cursor:pointer;">Log out</button>
+      </div>
+
+      <div id="pending-list"></div>
+      <p id="pending-empty" style="display:none;color:#64748b;">No pending testimonials right now.</p>
+
+      <h2 class="ab-section-title" style="margin-top:48px;">Approved &amp; Published</h2>
+      <div id="approved-list"></div>
+      <p id="approved-empty" style="display:none;color:#64748b;">Nothing approved yet.</p>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import {
+    getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged
+  } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import {
+    getFirestore, collection, query, where, orderBy, onSnapshot,
+    doc, updateDoc, deleteDoc, serverTimestamp
+  } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  const app = initializeApp(window.TESTIMONIAL_CONFIG.firebase);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  const loginBox = document.getElementById('login-box');
+  const dashboard = document.getElementById('dashboard');
+  const loginForm = document.getElementById('login-form');
+  const loginError = document.getElementById('login-error');
+
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    loginError.style.display = 'none';
+    try {
+      await signInWithEmailAndPassword(auth, document.getElementById('admin-email').value, document.getElementById('admin-pass').value);
+    } catch (err) {
+      loginError.textContent = 'Sign-in failed. Check your email and password.';
+      loginError.style.display = 'block';
+    }
+  });
+
+  document.getElementById('logout-btn').addEventListener('click', () => signOut(auth));
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      loginBox.style.display = 'none';
+      dashboard.style.display = 'block';
+      loadPending();
+      loadApproved();
+    } else {
+      loginBox.style.display = 'block';
+      dashboard.style.display = 'none';
+    }
+  });
+
+  function cardHTML(id, t, isApproved) {
+    const stars = '★'.repeat(t.rating) + '☆'.repeat(5 - t.rating);
+    const meta = [t.role, t.context].filter(Boolean).join(' · ');
+    return `
+      <div class="testimonial-card" style="margin-bottom:16px;">
+        <div class="testimonial-card__stars">${stars}</div>
+        <p class="testimonial-card__text">"${escapeHTML(t.text)}"</p>
+        <div class="testimonial-card__author">
+          <div>
+            <strong>${escapeHTML(t.name)}</strong>
+            <div class="testimonial-card__meta">${escapeHTML(meta)}${t.email ? ' · ' + escapeHTML(t.email) : ''}</div>
+          </div>
+        </div>
+        <div style="margin-top:14px;display:flex;gap:10px;">
+          ${isApproved
+            ? `<button data-id="${id}" class="btn btn--ghost remove-btn" style="cursor:pointer;">Remove</button>`
+            : `<button data-id="${id}" class="btn btn--primary approve-btn" style="cursor:pointer;">Approve</button>
+               <button data-id="${id}" class="btn btn--ghost reject-btn" style="cursor:pointer;">Reject</button>`
+          }
+        </div>
+      </div>`;
+  }
+
+  function escapeHTML(str) {
+    const d = document.createElement('div');
+    d.textContent = str || '';
+    return d.innerHTML;
+  }
+
+  function loadPending() {
+    const q = query(collection(db, 'testimonials'), where('status', '==', 'pending'), orderBy('createdAt', 'desc'));
+    onSnapshot(q, (snap) => {
+      const list = document.getElementById('pending-list');
+      const empty = document.getElementById('pending-empty');
+      list.innerHTML = '';
+      if (snap.empty) { empty.style.display = 'block'; return; }
+      empty.style.display = 'none';
+      snap.forEach(docSnap => { list.innerHTML += cardHTML(docSnap.id, docSnap.data(), false); });
+
+      list.querySelectorAll('.approve-btn').forEach(btn => btn.addEventListener('click', () =>
+        updateDoc(doc(db, 'testimonials', btn.dataset.id), { status: 'approved', approvedAt: serverTimestamp() })));
+      list.querySelectorAll('.reject-btn').forEach(btn => btn.addEventListener('click', () => {
+        if (confirm('Delete this submission?')) deleteDoc(doc(db, 'testimonials', btn.dataset.id));
+      }));
+    });
+  }
+
+  function loadApproved() {
+    const q = query(collection(db, 'testimonials'), where('status', '==', 'approved'), orderBy('createdAt', 'desc'));
+    onSnapshot(q, (snap) => {
+      const list = document.getElementById('approved-list');
+      const empty = document.getElementById('approved-empty');
+      list.innerHTML = '';
+      if (snap.empty) { empty.style.display = 'block'; return; }
+      empty.style.display = 'none';
+      snap.forEach(docSnap => { list.innerHTML += cardHTML(docSnap.id, docSnap.data(), true); });
+
+      list.querySelectorAll('.remove-btn').forEach(btn => btn.addEventListener('click', () => {
+        if (confirm('Remove this from the public testimonials page?')) deleteDoc(doc(db, 'testimonials', btn.dataset.id));
+      }));
+    });
+  }
+</script>
+
+<style>
+.form-card {
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 20px;
+  padding: 40px;
+}
+.form-title { font-size: 1.3rem; font-weight: 700; color: #ffffff; margin-bottom: 6px; }
+.form-subtitle { font-size: 0.88rem; color: #64748b; margin-bottom: 24px; }
+.contact-form { display: flex; flex-direction: column; gap: 18px; }
+.form-group { display: flex; flex-direction: column; gap: 7px; }
+.form-group label { font-size: 0.82rem; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.04em; }
+.form-group input {
+  background: rgba(2,6,23,0.6); border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 10px; padding: 12px 16px; color: #e2e8f0; font-size: 0.93rem; outline: none;
+}
+.form-group input:focus { border-color: #fbbf24; box-shadow: 0 0 0 3px rgba(245,158,11,0.12); }
+.btn-submit {
+  padding: 12px 24px; background: #b45309; color: #fff; border: none; border-radius: 10px;
+  font-weight: 600; cursor: pointer;
+}
+.btn-submit:hover { background: #92400e; }
+</style>

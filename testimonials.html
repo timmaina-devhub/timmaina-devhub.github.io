@@ -3,6 +3,7 @@ layout: bare
 title: Testimonials
 ---
 <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+<script src="{{ '/assets/js/testimonial-config.js' | relative_url }}"></script>
 <a href="#main-content" class="skip-link">Skip to content</a>
 
 <!-- NAVBAR -->
@@ -38,7 +39,7 @@ title: Testimonials
 <section class="section">
   <div class="container" style="max-width:980px;">
 
-    <div class="testimonials-grid">
+    <div class="testimonials-grid" id="testimonials-grid">
 
       <div class="testimonial-card">
         <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
@@ -88,10 +89,12 @@ title: Testimonials
         </div>
       </div>
 
+      <!-- Approved submissions from the testimonial form are injected here by JS -->
+
     </div>
 
     <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
-      <a class="btn btn--primary" href="/contact">Add your reference →</a>
+      <a class="btn btn--primary" href="/submit-testimonial">Add your reference →</a>
       <a class="btn btn--ghost" href="/work-with-me">Work With Me →</a>
     </div>
 
@@ -105,3 +108,50 @@ title: Testimonials
   <a href="/contact" style="color:#fbbf24;text-decoration:none;">Contact</a>
 </footer>
 
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getFirestore, collection, query, where, orderBy, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  const app = initializeApp(window.TESTIMONIAL_CONFIG.firebase);
+  const db = getFirestore(app);
+
+  function escapeHTML(str) {
+    const d = document.createElement('div');
+    d.textContent = str || '';
+    return d.innerHTML;
+  }
+
+  function initials(name) {
+    return (name || '').trim().split(/\s+/).map(p => p[0]).join('').slice(0, 2).toUpperCase() || '?';
+  }
+
+  async function loadApproved() {
+    try {
+      const q = query(collection(db, 'testimonials'), where('status', '==', 'approved'), orderBy('createdAt', 'desc'));
+      const snap = await getDocs(q);
+      const grid = document.getElementById('testimonials-grid');
+      snap.forEach(docSnap => {
+        const t = docSnap.data();
+        const stars = '★'.repeat(t.rating) + '☆'.repeat(5 - t.rating);
+        const meta = [t.role, t.context].filter(Boolean).join(' · ');
+        const card = document.createElement('div');
+        card.className = 'testimonial-card';
+        card.innerHTML = `
+          <div class="testimonial-card__stars" aria-label="${t.rating} out of 5 stars">${stars}</div>
+          <p class="testimonial-card__text">"${escapeHTML(t.text)}"</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" aria-hidden="true">${initials(t.name)}</div>
+            <div>
+              <strong>${escapeHTML(t.name)}</strong>
+              <div class="testimonial-card__meta">${escapeHTML(meta)}</div>
+            </div>
+          </div>`;
+        grid.appendChild(card);
+      });
+    } catch (err) {
+      console.error('Could not load testimonials:', err);
+    }
+  }
+
+  loadApproved();
+</script>
