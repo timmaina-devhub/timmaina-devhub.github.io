@@ -231,6 +231,47 @@ WHERE predicted_fraud = 1
 <!-- ═══════════════════════════════════
      SKILLS
 ═════════════════════════════════════ -->
+<style>
+  .ab-skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:28px 32px;
+    margin-top:32px;
+    text-align:left;
+  }
+  .ab-skill-group{ min-width:0; }
+  .ab-skill-title{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:0 0 14px;
+    font-size:0.8rem;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:#fff;
+  }
+  .ab-skill-title svg{
+    flex-shrink:0;
+    color:#fbbf24;
+  }
+  .ab-pill-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .ab-pill{
+    display:inline-block;
+    padding:6px 14px;
+    font-size:0.85rem;
+    line-height:1.2;
+    color:#e5e7eb;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.14);
+    border-radius:999px;
+    white-space:nowrap;
+  }
+</style>
 <section class="ab-section section--alt">
   <div class="ab-container">
     <div class="fade-up">
